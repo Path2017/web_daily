@@ -1,6 +1,8 @@
 # web_daily
 A knowledge point every day.
-***
+
+## HTML部分
+---
 1. 常用那几种浏览器测试？有哪些内核(Layout Engine)?
 ```ruby
 (Q1) 浏览器：IE，Chrome，FireFox，Safari，Opera。
@@ -117,30 +119,40 @@ sessionStorage和localStorage各自独立的存储空间；
 ```ruby
 HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。
 ```
-15. Doctype作用？标准模式与兼容模式各有什么区别?
-```ruby
-!DOCTYPE声明位于位于HTML文档中的第一行，处于html 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。
-标准模式的排版 和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。
-```
-16. Doctype? 严格模式与混杂模式-如何触发这两种模式，区分它们有何意义?
+15. Doctype? 严格模式与混杂模式-如何触发这两种模式，区分它们有何意义?
 ```ruby
 用于声明文档使用那种规范（html/Xhtml）一般为 严格 过度 基于框架的html文档。
 加入XMl声明可触发，解析方式更改为IE5.5 拥有IE5.5的Bug。
 ```
+## CSS部分
+---
+1. position的值， relative和absolute分别是相对于谁进行定位的？
+```ruby
+absolute :生成绝对定位的元素， 相对于最近一级的 定位不是 static 的父元素来进行定位。
+
+fixed （老IE不支持）生成绝对定位的元素，通常相对于浏览器窗口或 frame 进行定位。
+
+relative 生成相对定位的元素，相对于其在普通流中的位置进行定位。
+
+static 默认值。没有定位，元素出现在正常的流中
+
+sticky 生成粘性定位的元素，容器的位置根据正常文档流计算得出
+```
+2. 
 ## JavaScript部分
 ---
 1. 介绍js的基本数据类型
-```ruby
+```javascript
 Undefined、Null、Boolean、Number、String
 ```
 2. js有哪些内置对象？
-```ruby
+```javascript
 数据封装类对象：Object、Array、Boolean、Number 和 String
 
 其他对象：Function、Arguments、Math、Date、RegExp、Error
 ```
 3. this对象的理解
-```ruby
+```javascript
 this总是指向函数的直接调用者（而非间接调用者）；
 
 如果有new关键字，this指向new出来的那个对象；
@@ -148,7 +160,7 @@ this总是指向函数的直接调用者（而非间接调用者）；
 在事件中，this指向触发这个事件的对象，特殊的是，IE中的attachEvent中的this总是指向全局对象Window。
 ```
 4. eval是做什么的？
-```ruby
+```javascript
 它的功能是把对应的字符串解析成JS代码并运行；
 
 应该避免使用eval，不安全，非常耗性能（2次，一次解析成js语句，一次执行）。
@@ -156,7 +168,7 @@ this总是指向函数的直接调用者（而非间接调用者）；
 由JSON字符串转换为JSON对象的时候可以用eval，var obj =eval('('+ str +')')。
 ```
 5. DOM怎样添加、移除、移动、复制、创建和查找节点
-```ruby
+```javascript
 创建新节点
 
 createDocumentFragment()  创建一个DOM片段
@@ -184,7 +196,7 @@ createTextNode()  创建一个文本节点
 getElementById()  通过元素Id，唯一性
 ```
 6. null和undefined的区别？
-```ruby
+```javascript
 null是一个表示"无"的对象，转为数值时为0；undefined是一个表示"无"的原始值，转为数值时为NaN。
 
 undefined：
@@ -204,7 +216,7 @@ null：
 （2） 作为对象原型链的终点。
 ```
 7. new操作符具体干了什么呢?
-```ruby
+```javascript
 （1）创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型。
 
 （2）属性和方法被加入到 this 引用的对象中。
@@ -212,13 +224,13 @@ null：
 （3）新创建的对象由 this 所引用，并且最后隐式的返回 this 。
 ```
 8. JSON 的了解？
-```ruby
+```javascript
 JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。它是基于JavaScript的一个子集。数据格式简单, 易于读写, 占用带宽小。
 
 格式：采用键值对，例如：{'age':'12', 'name':'back'}
 ```
 9. call() 和 apply() 的区别和作用？
-```ruby
+```javascript
 apply()函数有两个参数：第一个参数是上下文，第二个参数是参数组成的数组。如果上下文是null，则使用全局对象代替。
 
 如：function.apply(this,[1,2,3]);
@@ -228,7 +240,7 @@ call()的第一个参数是上下文，后续是实例传入的参数序列。
 如：function.call(this,1,2,3);
 ```
 10. 如何获取UA？
-```ruby
+```javascript
 function whatBrowser() {
   document.Browser.Name.value=navigator.appName;
   document.Browser.Version.value=navigator.appVersion;
@@ -313,3 +325,57 @@ setTimeout 的第一个参数使用字符串而非函数的话，会引发内存
 ```
 
 
+### 如何解决跨域问题
+1. JSONP：
+```javascript
+原理是：动态插入script标签，通过script标签引入一个js文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入。
+
+由于同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，为了实现跨域请求，可以通过script标签实现跨域请求，然后在服务端输出JSON数据并执行回调函数，从而解决了跨域的数据请求。
+
+优点是兼容性好，简单易用，支持浏览器与服务器双向通信。缺点是只支持GET请求。
+
+JSONP：json+padding（内填充），顾名思义，就是把JSON填充到一个盒子里
+<script>
+    function createJs(sUrl){
+
+        var oScript = document.createElement('script');
+        oScript.type = 'text/javascript';
+        oScript.src = sUrl;
+        document.getElementsByTagName('head')[0].appendChild(oScript);
+    }
+
+    createJs('jsonp.js');
+
+    box({
+       'name': 'test'
+    });
+
+    function box(json){
+        alert(json.name);
+    }
+</script>
+```
+2. CORS
+```ruby
+服务器端对于CORS的支持，主要就是通过设置Access-Control-Allow-Origin来进行的。
+如果浏览器检测到相应的设置，就可以允许Ajax进行跨域的访问。
+```
+3. 通过修改document.domain来跨子域
+```ruby
+将子域和主域的document.domain设为同一个主域.
+前提条件：这两个域名必须属于同一个基础域名!
+而且所用的协议，端口都要一致，否则无法利用document.domain进行跨域
+
+主域相同的使用document.domain
+```
+4. 使用window.name来进行跨域
+```ruby
+window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,
+窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，
+window.name是持久存在一个窗口载入过的所有页面中的
+```
+5. 使用HTML5中新引进的window.postMessage方法来跨域传送数据
+```ruby
+还有flash、在服务器上设置代理页面等跨域方式。个人认为window.name的方法既不复杂，
+也能兼容到几乎所有浏览器，这真是极好的一种跨域方法。
+```
