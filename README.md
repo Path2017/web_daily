@@ -93,6 +93,40 @@ IE8/IE7/IE6支持通过document.createElement方法产生的标签，
 
 　　使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。
 ```
+11. XHTML和HTML有什么区别
+```ruby
+HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的置标语言
+最主要的不同：
+XHTML 元素必须被正确地嵌套。
+XHTML 元素必须被关闭。
+标签名必须用小写字母。
+XHTML 文档必须拥有根元素。
+```
+12. 请描述一下 cookies，sessionStorage 和 localStorage 的区别？
+```ruby
+cookie在浏览器和服务器间来回传递。 sessionStorage和localStorage不会
+sessionStorage和localStorage的存储空间更大；
+sessionStorage和localStorage有更多丰富易用的接口；
+sessionStorage和localStorage各自独立的存储空间；
+```
+13. 如何实现浏览器内多个标签页之间的通信?
+```ruby
+调用localstorge、cookies等本地存储方式
+```
+14. HTML5 为什么只需要写 !DOCTYPE HTML？
+```ruby
+HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。
+```
+15. Doctype作用？标准模式与兼容模式各有什么区别?
+```ruby
+!DOCTYPE声明位于位于HTML文档中的第一行，处于html 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。
+标准模式的排版 和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。
+```
+16. Doctype? 严格模式与混杂模式-如何触发这两种模式，区分它们有何意义?
+```ruby
+用于声明文档使用那种规范（html/Xhtml）一般为 严格 过度 基于框架的html文档。
+加入XMl声明可触发，解析方式更改为IE5.5 拥有IE5.5的Bug。
+```
 ## JavaScript部分
 ---
 1. 介绍js的基本数据类型
@@ -277,4 +311,5 @@ setTimeout 的第一个参数使用字符串而非函数的话，会引发内存
 
 从逻辑角度来看，多线程的意义在于一个应用程序中，有多个执行部分可以同时执行。但操作系统并没有将多个线程看做多个独立的应用，来实现进程的调度和管理以及资源分配。这就是进程和线程的重要区别。
 ```
+
 
