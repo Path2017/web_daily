@@ -12,7 +12,8 @@ A knowledge point every day.
 3. FireFox: Mozilla Firefox，中文俗称“火狐”（正式缩写为Fx或fx，非正式缩写为FF），是一个自由及开放源代码的网页浏览器，
 使用Gecko排版引擎，支持多种操作系统，如Windows、Mac OS X及GNU/Linux等。
 4. Safari: 是苹果计算机的操作系统Mac OS中的浏览器，使用了KDE的KHTML作为浏览器的运算核心。
-5. Opera浏览器，是一款挪威Opera Software ASA公司制作的支持多页面标签式浏览的网络浏览器，是跨平台浏览器可以在Windows、Mac和Linux三个操作系统平台上运行。
+5. Opera浏览器，是一款挪威Opera Software ASA公司制作的支持多页面标签式浏览的网络浏览器，
+是跨平台浏览器可以在Windows、Mac和Linux三个操作系统平台上运行。
 
 (Q2) 内核：Trident，Gecko，Presto，Webkit。
 1. Trident:Trident(IE内核)：该内核程序在1997年的IE4中首次被采用，是微软在Mosaic代码的基础之上修改而来的，
