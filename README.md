@@ -6,7 +6,25 @@ A knowledge point every day.
 1. 常用那几种浏览器测试？有哪些内核(Layout Engine)?
 ```ruby
 (Q1) 浏览器：IE，Chrome，FireFox，Safari，Opera。
+1. IE:Internet Explorer，是微软公司推出的一款网页浏览器。
+2. Chrome: Google Chrome是一款由Google公司开发的网页浏览器，该浏览器基于其他开源软件撰写，包括WebKit，
+目标是提升稳定性、速度和安全性，并创造出简单且有效率的使用者界面。
+3. FireFox: Mozilla Firefox，中文俗称“火狐”（正式缩写为Fx或fx，非正式缩写为FF），是一个自由及开放源代码的网页浏览器，
+使用Gecko排版引擎，支持多种操作系统，如Windows、Mac OS X及GNU/Linux等。
+4. Safari: 是苹果计算机的操作系统Mac OS中的浏览器，使用了KDE的KHTML作为浏览器的运算核心。
+5. Opera浏览器，是一款挪威Opera Software ASA公司制作的支持多页面标签式浏览的网络浏览器，是跨平台浏览器可以在Windows、Mac和Linux三个操作系统平台上运行。
+
 (Q2) 内核：Trident，Gecko，Presto，Webkit。
+1. Trident:Trident(IE内核)：该内核程序在1997年的IE4中首次被采用，是微软在Mosaic代码的基础之上修改而来的，
+并沿用到IE11，也被普遍称作”IE内核”。Trident实际上是一款开放的内核，其接口内核设计的相当成熟，因此才有许多采用IE内核而非IE的浏览器(壳浏览器)涌现。
+2. Gecko(Firefox内核)：Netscape6开始采用的内核，后来的Mozilla FireFox(火狐浏览器) 也采用了该内核，Gecko的特点是代码完全公开，
+因此，其可开发程度很高，全世界的程序员都可以为其编写代码，增加功能。
+因为这是个开源内核，因此受到许多人的青睐，Gecko内核的浏览器也很多，这也是Gecko内核虽然年轻但市场占有率能够迅速提高的重要原因。
+3. Presto: Presto(Opera前内核) (已废弃)： Opera12.17及更早版本曾经采用的内核，现已停止开发并废弃，该内核在2003年的Opera7中首次被使用，该款引擎的特点就是渲染速度的优化达到了极致，然而代价是牺牲了网页的兼容性。
+4. Webkit: Webkit(Safari内核,Chrome内核原型,开源):它是苹果公司自己的内核，也是苹果的Safari浏览器使用的内核。 
+Webkit引擎包含WebCore排版引擎及JavaScriptCore解析引擎，均是从KDE的KHTML及KJS引擎衍生而来，它们都是自由软件，在GPL条约下授权，
+同时支持BSD系统的开发。所以Webkit也是自由软件，同时开放源代码。在安全方面不受IE、Firefox的制约，所以Safari浏览器在国内还是很安全的。
+
 ```
 2. 说下行内元素和块级元素的区别？行内块元素的兼容性使用？（IE8 以下）
 ```ruby
