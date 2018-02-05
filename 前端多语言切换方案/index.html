@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>前端国际化方案</title>
+</head>
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script src="./js/i18n.js"></script>
+<script>
+  $(function () {
+    i18nSetValue();
+
+    $("#i18n_zh_cn").click(function () {
+      sessionStorage.setItem("Lang", "zh_CN");
+      location.reload();
+      return false;
+    })
+
+    $("#i18n_en").click(function () {
+      sessionStorage.setItem("Lang", "en_US");
+      location.reload();
+      return false;
+    })
+
+  })
+</script>
+
+<body>
+  <a id="i18n_zh_cn" href="#" class="control-label">简体中文</a>
+  <br/>
+  <a id="i18n_en" href="#" class="control-label">英文</a>
+  <br/>
+  <button type="button" class="btn btn-primary" i18nId="btn"></button>
+  <br/>
+  <br/>
+  <input type="text" class="form-control" placeholder="txt" i18nId="txt">
+  <br/>
+  <br/>
+</body>
+
+</html>
