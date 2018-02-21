@@ -40,6 +40,7 @@ npm install vue-i18n
 import VueI18n from 'vue-i18n'
 
 Vue.use(VueI18n)
+// main.js中全局配置
 [2] 语言资源
 
 const messages = {
@@ -59,7 +60,7 @@ const messages = {
       welcome: "欢迎"
     }
   },
-  //繁体中文
+  //繁体中文
   zhCHT: {
     message: {
       hello: '妳好',
