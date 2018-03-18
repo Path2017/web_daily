@@ -1,0 +1,262 @@
+@charset "utf-8";
+
+/*
+ * 基础样式
+ */
+
+.clearfix::after {
+  content: " ";
+  display: block;
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+input, button {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+/* 按钮正常 */
+
+.btn-normal {
+  display: inline-block;
+  text-align: center;
+  width: 270px;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 2px;
+  background-color: #f79831;
+  border: solid 1px #f79831;
+  font-size: 16px;
+  color: #fff;
+}
+
+/* 按钮按下及未开启 */
+
+.btn-down {
+  width: 270px;
+  height: 36px;
+  opacity: 0.5;
+  border-radius: 2px;
+  background-color: #f79831;
+  border: solid 1px #f79831;
+  font-size: 16px;
+  color: #fff;
+}
+
+/* 文字不能被选中 */
+
+.wordnone-select {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+/* header */
+
+.header-box {
+  width: 100%;
+  min-width: 1280px;
+  height: 102px;
+  background-color: #f79831;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+.header-wp {
+  height: 30px;
+}
+
+.menu-content {
+  width: 1280px;
+  height: 72px;
+  margin: 0 auto;
+}
+
+.link-pic {
+  line-height: 72px;
+  float: left;
+  cursor: pointer;
+}
+
+.link-pica {
+  display: inline-block;
+}
+
+.link-pic img {
+  height: 40px;
+  width: 53px;
+  vertical-align: middle;
+}
+
+.link-title {
+  width: 150px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: left;
+  color: #ffffff;
+  line-height: 72px;
+  text-indent: 15px;
+  float: left;
+}
+
+.link-menulist {
+  float: left;
+}
+
+.link-menulist ul {
+  letter-spacing: -0.5em;
+}
+
+.link-menulist li {
+  display: inline-block;
+  font-size: 16px;
+  color: #ffffff;
+  width: 110px;
+  line-height: 62px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.header-current {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fcc95f), to(#f79831));
+  background-image: -webkit-linear-gradient(top, #fcc95f, #f79831);
+  background-image: -o-linear-gradient(top, #fcc95f, #f79831);
+  background-image: linear-gradient(to bottom, #fcc95f, #f79831);
+}
+
+/* 弹框 */
+
+.bomb-wp {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, .8);
+  z-index: 1111;
+}
+
+.bomb-wp .bomb-ct {
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 2px;
+    background-color: #fff;
+    padding-top: 45px;
+    position: relative;
+    top: 40%;
+  }
+
+.bomb-wp .title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #434343;
+    margin-bottom: 40px;
+  }
+
+.bomb-wp .title i {
+      display: inline-block;
+      width: 18px;
+      height: 20px;
+      background: url('../../img/notice.png') no-repeat;
+      background-size: cover;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+
+.bomb-wp .cue {
+    width: 302px;
+    margin: 0 auto;
+    font-size: 14px;
+    text-align: center;
+    color: #434343;
+    margin-bottom: 39px;
+  }
+
+.bomb-wp .knowbtn {
+    cursor: pointer;
+    border-top: solid 1px #eaeaea;
+    height: 63px;
+    line-height: 63px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #434343;
+  }
+
+@charset 'utf-8';
+
+.header-wp {
+  width: 100%;
+  background-color: #fbfbfb;
+}
+
+.header {
+  width: 1280px;
+  margin: 0 auto;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  color: #9a9a9a;
+}
+
+.header a {
+    color: #9a9a9a;
+  }
+
+.header .register-btn {
+    margin-right: 57px;
+  }
+
+.header .line {
+    display: inline-block;
+    border-right: 1px solid #9a9a9a;
+    margin: 0 18px;
+    height: 9px;
+  }
+
+.header .line-icon {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+.success-icon, .success-icon2{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url('../img/success_icon.png') no-repeat;
+  background-size: cover;
+}
+
+.success-icon2{
+  position: relative;
+  top: 5px;
+  left: 20px;
+}

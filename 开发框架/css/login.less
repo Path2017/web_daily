@@ -1,0 +1,1136 @@
+@charset "utf-8";
+/* 按钮 */
+
+/* 获取验证码按钮未激活 */
+.getcode {
+  width: 120px;
+  height: 36px;
+  font-size: 14px;
+}
+
+.getcode-normal {
+  background-color: #d8d8d8;
+  color: #424242;
+}
+
+/* 获取验证码按钮激活 */
+.getcode-active {
+  background-color: #fff3e6 !important;
+  color: #f79831 !important;
+}
+
+/* 链接样式 */
+
+.a-link {
+  color: #f79831;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* 发布新需求按钮 */
+.newrequirement-btn {
+  display: inline-block;
+  width: 169px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 2px;
+  background: url(../img/normalbtn.png) no-repeat;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+
+  &:active {
+    background: url(../img/activebtn.png) no-repeat;
+  }
+
+  &:hover {
+    background: url(../img/hoverbtn.png) no-repeat;
+  }
+}
+
+/* 按钮--end */
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error{
+  background-color: #fff !important;
+  color: normal;
+}
+.ft-l {
+  float: left;
+}
+
+.ft-r {
+  float: right;
+}
+
+.header-wp {
+  width: 100%;
+  background-color: #fbfbfb;
+}
+
+label {
+  font-size: 12px;
+  cursor: pointer;
+}
+
+label i {
+  font-size: 12px;
+  font-style: normal;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  text-align: center;
+  line-height: 12px;
+  color: #fff;
+  vertical-align: middle;
+  margin: -2px 2px 1px 0;
+  border: #24b145 1px solid;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked + i,
+input[type="radio"]:checked + i {
+  background: #24b145;
+}
+
+.header {
+  width: 1280px;
+  margin: 0 auto;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  color: #9a9a9a;
+
+  a {
+    color: #9a9a9a;
+  }
+
+  .register-btn {
+    margin-right: 57px;
+  }
+
+  .line {
+    display: inline-block;
+    border-right: 1px solid #9a9a9a;
+    margin: 0 18px;
+    height: 9px;
+  }
+
+  .line-icon {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+}
+
+.content-wp {
+  width: 100%;
+
+  .content {
+    width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 150px;
+  }
+
+  .content-hd {
+    padding-top: 13px;
+    margin-bottom: 40px;
+
+    .mark {
+      display: inline-block;
+      width: 134px;
+      height: 60px;
+      background: url(../../img/mark.png) no-repeat;
+    }
+    .server-icon{
+      display: inline-block;
+      width: 40px;
+      height: 35px;
+      margin-right: 10px;
+      background: url('../img/server_icon.png') no-repeat;
+      background-size: cover;
+    }
+    .server-title{
+      font-size: 16px;
+      font-weight: normal;
+      color: #434343;
+    }
+    .server-tel{
+      font-size: 24px;
+      font-weight: bold;
+      color: #f79831;
+    }
+    .server-B{
+      margin-right: 76px;
+    }
+
+    .line {
+      display: inline-block;
+      height: 40px;
+      border-right: solid 1px #939498;
+      margin: 0 25px;
+      position: relative;
+      top: -10px;
+    }
+
+    .hd-title {
+      display: inline-block;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: left;
+      color: #424242;
+      height: 60px;
+      line-height: 60px;
+      vertical-align: top;
+    }
+  }
+
+  .user-registerwp {
+    .input-wp {
+      margin-bottom: 20px;
+    }
+
+    .user-register-form {
+      width: 650px;
+      margin-left: 100px;
+    }
+
+    .input-title {
+      display: inline-block;
+      width: 155px;
+      font-size: 14px;
+      text-align: right;
+      color: #424242;
+    }
+
+    .inputlabel {
+      width: 270px;
+      height: 36px;
+      /* background-color: #fbfbfb;
+      border: solid 1px #d1d1d1; */
+      text-indent: 12px;
+      font-size: 12px;
+      font-weight: 500;
+      text-align: left;
+      color: #424242;
+    }
+
+    .inputlabel-small {
+      width: 140px;
+      height: 36px;
+      /* background-color: #fbfbfb;
+      border: solid 1px #d1d1d1; */
+      text-indent: 12px;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    .pwd {
+      font-size: 14px;
+    }
+  }
+
+  .other-wp {
+    margin-left: 155px;
+
+    .agreement {
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
+
+    .register-btn-wp {
+      margin-bottom: 30px;
+    }
+
+    .link-wp {
+      width: 270px;
+      text-align: center;
+    }
+  }
+
+  .role {
+    li {
+      width: 170px;
+      height: 64px;
+      line-height: 64px;
+      margin-bottom: 20px;
+      text-align: center;
+
+      i {
+        display: inline-block;
+        margin-right: 10px;
+        width: 25px;
+        height: 25px;
+        vertical-align: middle;
+      }
+
+      a {
+        font-size: 14px;
+        color: #424242;
+      }
+    }
+
+    .applyadmission {
+      font-size: 18px;
+      font-weight: 600;
+      color: #424242;
+    }
+
+    .designerli {
+      background-color: #fff3e6;
+
+      i {
+        background: url(../../img/designer.png) no-repeat;
+      }
+    }
+
+    .exhibitionli {
+      background-color: #d3ffff;
+
+      i {
+        background: url(../../img/exhibition.png) no-repeat;
+      }
+    }
+  }
+}
+
+.footer-wp {
+  width: 100%;
+
+  .foot {
+    width: 1000px;
+    border-top: solid 3px #f79831;
+    margin: 20px auto 0;
+    text-align: center;
+    height: 82px;
+    line-height: 82px;
+    font-size: 14px;
+    color: #5a5c5f;
+  }
+}
+#city{
+  display: inline-block
+}
+
+.reg-content {
+  .worktime-st {
+    width: 250px;
+    height: 36px;
+    /* background-color: #fbfbfb;
+    border: solid 1px #d1d1d1; */
+  }
+
+  .normal-option {
+    font-size: 14px;
+    text-align: left;
+    color: #9a9a9a;
+    text-indent: 10px;
+  }
+}
+
+.code-wp {
+  display: inline-block;
+  vertical-align: middle;
+
+  .parsley-errors-list {
+    float: right;
+    position: relative;
+    top: 6px;
+  }
+}
+.choose-role{
+  width: 272px;
+  height: 36px;
+  background-color: #fafafa;
+  text-indent: 8px;
+  border: solid 0.5px #d1d1d1;
+  color: #9a9a9a;
+}
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error{
+  color: #9a9a9a;
+  background: #fff;
+}
+
+/* 个人中心空 */
+
+.ps-center-wp {
+  width: 100%;
+
+  .ps-center {
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 120px;
+  }
+
+  .ps-head {
+    height: 70px;
+    line-height: 70px;
+    background-color: #f2ffff;
+    border: solid 1px #eaeaea;
+
+    .hd-company {
+      font-size: 20px;
+      font-weight: 600;
+      text-align: left;
+      color: #434343;
+      margin-left: 28px;
+    }
+
+    .edit-data-a {
+      font-size: 14px;
+      color: #434343;
+      margin-right: 20px;
+    }
+  }
+
+  .orderstate-wp {
+    background-color: #fff;
+    border: solid 1px #eaeaea;
+    border-top: none;
+    .saveorder {
+      padding: 28px 50px;
+    }
+    .ordernum {
+      color: #f79831;
+      margin-left: 5px;
+    }
+  }
+
+  .state-ul {
+    padding: 28px 0;
+
+    li {
+      height: 25px;
+      line-height: 25px;
+      width: 170px;
+      text-align: center;
+      border-right: solid 1px #d1d1d1;
+
+      a {
+        font-size: 14px;
+        color: #434343;
+        padding: 0 15px;
+      }
+    }
+
+    .active {
+      a {
+        color: #f79831;
+        border-bottom: solid 2px #f79831;
+      }
+    }
+
+    li:last-child {
+      border-right: none;
+    }
+  }
+
+  .position-r {
+    position: relative;
+    top: 15px;
+    margin-right: 15px;
+  }
+
+  .empty-ct {
+    text-align: center;
+    padding: 62px 0 270px;
+  }
+
+  .empty-icon {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 43px;
+  }
+
+  .empty-say {
+    font-size: 14px;
+    text-align: center;
+    color: #9a9a9a;
+  }
+
+  .ordering {
+    background-color: #fff;
+  }
+
+  .orderinghd {
+    height: 40px;
+    line-height: 40px;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-bottom: none;
+    overflow: hidden;
+
+    .title {
+      font-weight: 600;
+      color: #434343;
+      margin-left: 20px;
+      font-size: 12px;
+    }
+
+    .orderingnum {
+      padding: 3px 8px;
+      border-radius: 2px;
+      background-color: #f79831;
+      font-size: 14px;
+      font-weight: bold;
+      color: #fff;
+      margin-left: 20px;
+    }
+
+    .seeall-btn {
+      font-size: 14px;
+      color: #9a9a9a;
+      margin-right: 28px;
+    }
+  }
+
+  .orderingli {
+    border: solid 1px #eaeaea;
+    margin-bottom: 10px;
+    // padding-bottom: 10px;
+
+    .orderingli-hd {
+      height: 40px;
+      line-height: 40px;
+      background-color: #fafafa;
+      border-bottom: solid 1px #eaeaea;
+    }
+    .orderingli-bto {
+      width: 998px;
+      height: 34px;
+      background-color: #ffffff;
+      border-top: solid 1px #eaeaea;
+      text-align: center;
+      .orderbto-left {
+        height: 34px;
+        width: 489px;
+        border-right: 1px solid #eaeaea;
+      }
+      .odmstate {
+        width: 140px;
+        line-height: 34px;
+        font-size: 12px;
+        height: 34px;
+      }
+      .odmprice {
+        width: 132px;
+        line-height: 34px;
+        font-size: 12px;
+        height: 34px;
+      }
+      .odmstatus {
+        width: 120px;
+        line-height: 34px;
+        font-size: 12px;
+        height: 34px;
+      }
+    }
+
+    .ordertime {
+      font-size: 12px;
+      font-weight: 600;
+      text-align: left;
+      color: #434343;
+      margin-right: 18px;
+      margin-left: 20px;
+    }
+
+    .imgfa {
+      width: 80px;
+      height: 80px;
+      background-color: #d1d1d1;
+      margin: 10px;
+    }
+
+    .order-num {
+      font-size: 12px;
+      font-weight: 600;
+      text-align: left;
+      color: #434343;
+      margin-bottom: 18px;
+    }
+
+    .exhibition-wp {
+      width: 250px;
+      margin-top: 10px;
+    }
+
+    .exhibition {
+      font-size: 12px;
+      font-weight: 600;
+      text-align: left;
+      color: #434343;
+      margin-bottom: 10px;
+    }
+
+    .exhibitor {
+      font-size: 12px;
+      text-align: left;
+      color: #9a9a9a;
+    }
+
+    .designer {
+      width: 119px;
+      font-size: 12px;
+      text-align: left;
+      color: #434343;
+      margin-left: 20px;
+      height: 80px;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      border-right: 1px solid #eaeaea;
+      padding: 10px 0;
+      justify-content: center;
+
+      p {
+        font-size: 12px;
+        .paynum {
+          color: #f79831;
+        }
+      }
+    }
+
+    .step {
+      width: 140px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .num,
+    .price {
+      width: 130px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .orderneed {
+      width: 118px;
+      font-size: 12px;
+      text-align: center;
+      padding-top: 15px;
+
+      li {
+        margin-bottom: 8px;
+        height: 17px;
+      }
+
+      a {
+        font-size: 12px;
+        color: #434343;
+      }
+    }
+  }
+  .orderingbtn-wp {
+    width: 120px;
+    text-align: center;
+
+    a {
+      display: inline-block;
+      color: #434343;
+      font-size: 12px;
+    }
+    .oderleftime {
+      height: 30px;
+      text-align: center;
+      font-size: 10px;
+      color: #ff6d7f;
+      line-height: 30px;
+    }
+    .forpay {
+      height: 30px;
+      line-height: 30px;
+      margin-top: 8px;
+    }
+
+    .paynow {
+      width: 74px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 2px;
+      background-color: #f79831;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.ordermangament {
+  margin-bottom: 10px;
+
+  .odm-hd {
+    background-color: #eaeaea;
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+
+    div {
+      text-align: center;
+    }
+  }
+
+  .odmorder {
+    width: 371px;
+  }
+
+  .odmdesigner {
+    width: 119px;
+  }
+
+  .odmstate {
+    width: 140px;
+  }
+
+  .odmchartnum {
+    width: 55px;
+  }
+
+  .odmprice {
+    width: 132px;
+  }
+
+  .odmstate {
+    width: 140px;
+  }
+  .odmstatus {
+    width: 120px;
+  }
+
+  .odmbtn-wp {
+    width: 118px;
+  }
+}
+
+/* 个人中心空 end*/
+
+.no-border {
+  border: none !important;
+}
+
+.parsley-errors-list {
+  display: inline-block;
+  font-size: 12px;
+  text-align: left;
+  color: #ff6d7f;
+
+  li {
+    margin-left: 20px;
+  }
+}
+
+.parsley-error {
+  border: 1px solid #ff6d7f !important;
+}
+
+.erricon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url(../img/erricon.png) no-repeat;
+  background-size: cover;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.errcue {
+  margin-left: 20px;
+  color: #ff6d7f;
+  font-size: 12px;
+  display: none;
+}
+
+.err-border {
+  border: 1px solid #ff6d7f !important;
+}
+
+/* 设计师注册第一步 */
+.firststep-wp {
+  width: 50%;
+
+  .first-input {
+    text-align: left;
+    padding-top: 10px;
+
+    li {
+      height: auto;
+      line-height: 1;
+      margin-bottom: 21px;
+    }
+  }
+
+  .parsley-errors-list {
+    li {
+      margin-bottom: 0;
+    }
+  }
+
+  #getMescode {
+    text-align: center;
+  }
+
+  .first-tab {
+    width: 54%;
+  }
+  .register-role{
+    width: 269px;
+    height: 36px;
+    /* background-color: #fafafa;
+    border: solid 0.5px #d1d1d1; */
+    font-size: 14px;
+    color: #434343;
+    text-indent: 7px;
+  }
+}
+.first-infobox{
+  min-height: 534px;
+}
+
+/* 设计师注册第二步 */
+
+.secondstep-wp,
+.secondstep2-wp{
+
+  .second-topinput {
+    text-align: left;
+  }
+
+  .no-errcue {
+    .parsley-errors-list {
+      display: none;
+    }
+
+    select {
+      margin-right: 8px !important;
+    }
+  }
+
+  .chose-city {
+    .city {
+      margin-right: 0;
+    }
+  }
+  .social-account{
+    width: 139px;
+    height: 36px;
+    background-color: #fafafa;
+    border: solid 0.5px #d1d1d1;
+    margin-right: 8px;
+    color: #9a9a9a;
+  }
+  select{
+    text-indent: 7px;
+    color: #9a9a9a;
+  }
+}
+.secondstep-wp{
+  width: 590px;
+}
+.secondstep2-wp{
+  width: 700px;
+}
+.bank-select {
+  width: 250px;
+  height: 34px;
+  background-color: #fbfbfb;
+  border: solid 1px #d1d1d1;
+  margin-left: 14px;
+  text-indent: 10px;
+  outline: none;
+}
+
+.upload-ul {
+  li {
+    position: relative;
+  }
+
+  .delete {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background-color: #424242;
+    right: 0;
+    color: #fff;
+    font-size: 24px;
+    z-index: 111;
+    display: none;
+  }
+}
+
+.switch-icon2 {
+  display: inline-block;
+  margin-left: 5px;
+  border-bottom: 10px solid #434343;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+}
+
+.switch-icon {
+  display: inline-block;
+  margin-left: 5px;
+  border-top: 10px solid #434343;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+}
+
+.switch-btn {
+  margin-left: 28px;
+  cursor: pointer;
+}
+
+.inputbox{
+  p{
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #9a9a9a;
+  }
+}
+.magintop-less{
+  margin-top: -7px !important;
+}
+.content{
+  .reg-menu-user{
+    margin-bottom: 30px;
+    text-align: left;
+  }
+  .regtopmenu{
+    li:nth-of-type(1){
+      margin-left: 260px;
+    }
+  }
+  .second-infobox{
+    display: none;
+  }
+}
+.inlineblock{
+  display: inline-block;
+}
+.user-choosecity{
+  select{
+    width: 130px;
+    height: 36px;
+  }
+}
+/*登录*/ 
+#login-form{
+  width: 363px;
+  background-color: #ffffff;
+  border: solid 1px #d1d1d1;
+  padding-top: 30px;
+  text-align: center;
+  .login-title{
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #434343;
+    margin-bottom: 25px;
+  }
+  input{
+    width: 250px;
+    height: 36px;
+    line-height: 36px;
+    text-indent: 12px;
+    background-color: #ffffff;
+    border: solid 1px #d1d1d1;
+  }
+  .login-name{
+    margin-bottom: 20px;
+  }
+  .login-pwd{
+    margin-bottom: 20px;
+  }
+  .autologin-B{
+    width: 250px;
+    margin: 0 auto 38px;
+    .agreement{
+      font-weight: 600;
+      text-align: left;
+      color: #434343;
+    }
+  }
+  .forgotpwd{
+    font-size: 14px;
+    color: #9a9a9a;
+  }
+  .parsley-errors-list{
+    display: block;
+    width: 250px;
+    margin: 0 auto 10px;
+    li{
+      margin-left: 0px;
+    }
+  }
+  .login-btn{
+    width: 250px;
+    margin-bottom: 29px;
+  }
+  .free-register{
+    width: 250px;
+    margin: 0 auto 32px;
+    text-align: right;
+    a{
+      font-size: 14px;
+      color: #9a9a9a;
+    }
+  }
+}
+.login-pic{
+  width: 516px;
+}
+/*找设计--start*/
+.search-design-wp{
+  width: 1440px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #fbfbfb;
+  margin: 0 auto;
+  border: 1px solid red;
+  .search-design-hd {
+    .return-old{
+      font-size: 14px;
+      font-weight: 600;
+      text-align: left;
+      color: #010101;
+      margin-left: 20px;
+    }
+    font-size: 14px;
+    color: #9a9a9a;
+  
+    a {
+      color: #9a9a9a;
+    }
+  
+    .register-btn {
+      margin-right: 57px;
+    }
+  
+    .line {
+      display: inline-block;
+      border-right: 1px solid #9a9a9a;
+      margin: 0 18px;
+      height: 9px;
+    }
+  
+    .line-icon {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+  }
+}
+.sh-ds-wp{
+  width: 100%;
+  .content-wp{
+    background-color: #fbfbfb;
+  }
+  .content-hd{
+    padding: 15px 0px;
+    margin-bottom: 0px;
+    width: 1440px;
+    margin: 0 auto;
+    .server-B{
+      margin-right: 160px;
+    }
+  }
+}
+.sh-ds-ct{
+  width: 1440px;
+  margin: 0 auto;
+  .switch-tab{
+    font-size: 18px;
+    font-weight: 600;
+    color: #5a5c5f;
+    height: 60px;
+    line-height: 60px;
+    span{
+      cursor: pointer;
+    }
+    span:first-child{
+      margin: 0px 70px 0px 60px;
+    }
+  }
+  .tab-active{
+    color: #f79831;
+    border-bottom: 2px solid #f79831;
+  }
+}
+/*找设计--end*/
+/*注册提交完成--start*/
+.submit-completion-wp{
+  text-align: center;
+  margin-bottom: 100px;
+  .completion-img{
+    display: inline-block;
+    width: 55px;
+    margin-right: 20px;
+  }
+  .completion-say{
+    display: inline-block;
+    vertical-align: middle;
+    .title{
+      font-size: 20px;
+      font-weight: 600;
+      text-align: left;
+      color: #434343;
+      margin-bottom: 15px;
+    }
+    .describe{
+      font-size: 16px;
+      font-weight: 500;
+      text-align: left;
+      color: #9a9a9a;
+    }
+  }
+}
+.return-index-btn{
+  display: block;
+  margin: 0 auto;
+  width: 174px;
+  height: 35px;
+  line-height: 35px;
+  border: solid 1px #f79831;
+  font-size: 14px;
+  text-align: center;
+  color: #f79831;
+  margin-bottom: 126px;
+}
+/*注册提交完成--end*/
+.login-ipt-fa{
+  position: relative;
+  .success-icon{
+    position: absolute;
+    right: 27px;
+    top: 10px;
+  }
+}
+.no-errcue{
+  .success-icon2{
+    display: none;
+  }
+}

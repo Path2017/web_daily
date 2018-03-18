@@ -1,0 +1,1635 @@
+@charset "utf-8";
+
+.parsley-errors-list {
+  display: inline-block;
+  font-size: 12px;
+  text-align: left;
+  color: #ff6d7f;
+
+  li {
+    margin-left: 20px;
+  }
+}
+.none{
+  display: none;
+}
+.parsley-error {
+  border: 1px solid #ff6d7f !important;
+}
+
+.erricon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url(../img/erricon.png) no-repeat;
+  background-size: cover;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.errcue {
+  margin-left: 20px;
+  color: #ff6d7f;
+  font-size: 12px;
+  display: none;
+}
+
+.err-border {
+  border: 1px solid #ff6d7f !important;
+}
+/*
+ * 设计师模块样式
+ */
+ body{
+  background-color: #fafafa;
+ }
+.inlineblock {
+  display: inline-block;
+}
+
+.content-wp {
+  width: 1000px;
+  margin: 0 auto;
+
+  .link-wp {
+    padding: 15px 0 30px;
+
+    .konwexplain {
+      font-size: 14px;
+      color: #f79831;
+    }
+  }
+
+  .table-title {
+    font-size: 0;
+    height: 40px;
+    line-height: 40px;
+    background-color: #ebebeb;
+    margin-bottom: 10px;
+
+    span {
+      display: inline-block;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #322f33;
+    }
+  }
+
+  .casenumber {
+    width: 176px;
+  }
+
+  .paydate {
+    width: 120px;
+  }
+
+  .designphase {
+    width: 130px;
+  }
+
+  .price {
+    width: 134px;
+  }
+  .bank {
+    width: 120px;
+  }
+  .account {
+    width: 200px;
+  }
+  .paystate {
+    width: 118px;
+  }
+
+  .serialnumber {
+    width: 275px;
+  }
+
+  .caselist-ul {
+    background-color: #fff;
+    border: solid 1px #ebebeb;
+    margin-bottom: 10px;
+
+    li {
+      height: 40px;
+      line-height: 40px;
+      font-size: 0;
+      color: #322f33;
+      // border-bottom: 1px solid #ebebeb;
+
+      span {
+        font-size: 12px;
+        display: inline-block;
+        text-align: center;
+      }
+    }
+
+    .firstli {
+      background-color: #fbfbfb;
+
+      span {
+        font-size: 14px;
+      }
+    }
+
+    .casemonth {
+      font-weight: 600;
+      margin-left: 37px;
+    }
+
+    .total-price {
+      margin-right: 32px;
+      font-size: 12px;
+      font-weight: normal;
+      color: #424242;
+
+      .totalprice {
+        font-size: 14px;
+        font-weight: 600;
+        color: #ff6d7f;
+      }
+    }
+  }
+}
+
+.remuneration-ul {
+  li {
+    padding: 20px 0;
+    width: 494px;
+    background-color: #fff;
+    border: solid 1px #ebebeb;
+  }
+
+  span {
+    display: inline-block;
+    font-size: 0;
+  }
+
+  .money {
+    width: 188px;
+    text-align: center;
+    border-right: 1px solid #ebebeb;
+    height: 48px;
+    line-height: 48px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #322f33;
+  }
+
+  .decimal {
+    font-size: 14px;
+  }
+
+  .unit {
+    font-size: 14px;
+    font-weight: 600;
+    color: #322f33;
+    margin-left: 7px;
+    margin-right: 19px;
+  }
+
+  .price {
+    width: 130px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: right;
+    color: #ff6d7f;
+  }
+
+  .casenum {
+    width: 60px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #322f33;
+  }
+
+  .caseunit {
+    font-size: 14px;
+    font-weight: 600;
+    color: #322f33;
+  }
+}
+
+.standard-wp {
+  padding-top: 22px;
+
+  .standard-title {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    color: #424242;
+    text-indent: 10px;
+    margin-bottom: 25px;
+  }
+
+  .symbol {
+    margin: 0 12px;
+  }
+
+  .settlement {
+    cursor: pointer;
+  }
+
+  .standardtitle {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #424242;
+    margin-bottom: 20px;
+  }
+
+  .standardtable {
+    border: solid 1px #ebebeb;
+    border-bottom: none;
+    margin-bottom: 20px;
+
+    li {
+      background-color: #fff;
+      height: 42px;
+      line-height: 42px;
+      font-size: 0;
+      border-bottom: 1px solid #ebebeb;
+
+      span {
+        display: inline-block;
+        font-size: 14px;
+        text-align: center;
+        color: #424242;
+      }
+    }
+
+    .tablehd {
+      background-color: #fff3e6;
+    }
+
+    .type {
+      width: 166px;
+      border-right: 1px solid #ebebeb;
+    }
+
+    .pricestandard {
+      width: 831px;
+    }
+
+    .area {
+      width: 166px;
+      border-right: 1px solid #ebebeb;
+    }
+
+    .remarks {
+      width: 324px;
+    }
+  }
+
+  .notice {
+    font-size: 14px;
+    text-align: left;
+    color: #ff6d7f;
+    height: 24px;
+    line-height: 24px;
+  }
+}
+/*设计师个人中心审核中*/
+.ps-center-wp{
+  width: 100%;
+  .ps-center {
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 120px;
+  }
+  .ps-head{
+    background: #f2ffff;
+    padding: 20px 0px;
+    border: solid 1px #eaeaea;
+    border-bottom: none;
+    .editinfo{
+      font-size: 14px;
+      text-align: right;
+      color: #68bbbc;
+      cursor: pointer;
+      line-height: 156px;
+      margin-right: 20px;
+    }
+  }
+  .design-photo{
+    width: 115px;
+    height: 115px;
+    margin: 0px 60px 0px 20px;
+  }
+  .designer-name{
+    font-size: 22px;
+    font-weight: 600;
+    text-align: left;
+    color: #322f33;
+    margin-bottom: 10px;
+    padding-top: 38px;
+  }
+  .designer-id{
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    color: #979797;
+  }
+  .orderstate-wp{
+    border: solid 1px #eaeaea;
+  }
+  .state-ul {
+    padding: 28px 0;
+
+    li {
+      height: 25px;
+      line-height: 25px;
+      width: 170px;
+      text-align: center;
+      border-right: solid 1px #d1d1d1;
+
+      a {
+        font-size: 14px;
+        color: #434343;
+        padding: 0 15px;
+        .ordernuming {
+          color: #ff6d7f;
+          margin-left: 5px;
+        }
+        .ordernum {
+          color: #f79831;
+          margin-left: 5px;
+        }
+        .ordernumed {
+          color: #f79831;
+          margin-left: 5px;
+        }
+      }
+    }
+
+    .active {
+      a {
+        color: #f79831;
+        border-bottom: solid 2px #f79831;
+      }
+    }
+
+    li:last-child {
+      border-right: none;
+    }
+  }
+  .empty-ct {
+    text-align: center;
+    padding: 62px 0 210px;
+  }
+
+  .empty-icon {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 43px;
+  }
+
+  .empty-say {
+    font-size: 14px;
+    text-align: center;
+    color: #9a9a9a;
+    margin-bottom: 60px;
+  }
+  .return-index{
+    display: block;
+    margin: 0 auto;
+    width: 174px;
+    height: 35px;
+    line-height: 35px;
+    border: solid 1px #f79831;
+    font-size: 14px;
+    text-align: center;
+    color: #f79831;
+  }
+}
+/* 订单报价 begin */
+.od-nav {
+  height: 60px;
+  line-height: 60px;
+  color: #434343;
+  font-size: 14px;
+  font-weight: 600;
+}
+.od-contentbox {
+  width: 1000px;
+  margin: 0 auto;
+  height: auto;
+  min-height: 200px;
+  font-size: 14px;
+  padding-top: 120px;
+}
+.od-mainbox {
+  width: 998px;
+  min-height: 200px;
+  height: auto;
+  background-color: #fff;
+  border: solid 1px #eaeaea;
+}
+.od-toptitle {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: solid 1px #eaeaea;
+  background-color: #fafafa;
+  text-indent: 30px;
+}
+.quo-form-wp{
+  padding-top: 40px;
+  .quo-title{
+    display: inline-block;
+    width: 440px;
+    text-align: right;
+    height: 36px;
+    line-height: 36px;
+  }
+  .quo-input{
+    width: 177px;
+    height: 36px;
+    background-color: #fafafa;
+    border: solid 0.5px #d1d1d1;
+    margin: 0px 10px 0px;
+    text-indent: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    color: #ff6d7f;
+  }
+  .quo-cue{
+    font-size: 12px;
+    text-align: left;
+    color: #ff6d7f;
+    margin-left: 450px;
+    margin-bottom: 38px;
+    padding-top: 10px;
+  }
+  .parsley-errors-list{
+    padding-top: 9px;
+  }
+  .unit{
+    font-size: 14px;
+    color: #434343;
+    height: 36px;
+    line-height: 36px;
+  }
+  .submit-fa{
+    padding-top: 43px;
+    .btn-remark {
+      text-align: center;
+      height: 36px;
+      line-height: 36px;
+      font-size: 12px;
+      color: #ff6d7f;
+      cursor: default;
+    }
+  }
+  .submit-now{
+    display: block;
+    margin: 0 auto 90px;
+    width: 260px;
+    height: 35px;
+    background-color: #ff6d7f;
+    border: solid 1px #ff6d7f;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+  }
+}
+.demands-design{
+  margin: 0 auto;
+  padding-top: 55px;  
+  .attention{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+    background: url('../img/attention.png') no-repeat;
+    background-size: cover;
+    position: relative;
+    top: 2px;
+    margin-left: 186px;
+  }
+  p{
+    font-size: 12px;
+    color: #434343;
+    margin-bottom: 15px;
+    text-align: left
+  }
+}
+/* 订单报价 end */
+/* 订单报价 end */
+/* 订单进度begin */
+.od-baseinfobox {
+  .od-title {
+    width: 960px;
+    height: 64px;
+    line-height: 64px;
+    background-color: #fff;
+    text-indent: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    color: #434343;
+  }
+  .remarks {
+    display: inline-block;
+  }
+  .infobox {
+    background-color: #fafafa;
+    margin-bottom: 20px;
+  }
+  .switch-icon {
+    display: inline-block;
+    margin-left: 5px;
+    border-top: 10px solid #434343;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+  }
+
+  .switch-icon2 {
+    display: inline-block;
+    margin-left: 5px;
+    border-bottom: 10px solid #434343;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+  }
+
+  .program-msg {
+    margin-bottom: 20px;
+  }
+
+  .message-wp {
+    padding-left: 49px;
+    font-size: 14px;
+    text-align: left;
+    color: #434343;
+  }
+
+  .message-li {
+    height: 30px;
+    line-height: 30px;
+    margin-right: 30px;
+  }
+  .personwidth {
+    width: 40%;
+  }
+
+  .seedemand {
+    font-size: 14px;
+    font-weight: 600;
+    color: #68bbbc;
+    margin-right: 20px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .program-ul {
+    border: solid 1px #d1d1d1;
+    display: inline-block;
+    font-size: 0;
+    color: #434343;
+    margin-left: 20px;
+
+    .li-head {
+      background-color: #d8d8d8;
+    }
+
+    span {
+      display: inline-block;
+      height: 30px;
+      line-height: 30px;
+      font-size: 14px;
+      width: 184px;
+      text-align: center;
+    }
+  }
+
+  .total-price {
+    width: 920px;
+    margin: 0 auto;
+    height: 54px;
+    line-height: 54px;
+    text-align: right;
+
+    span {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+
+  .ordertracking {
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .message-ul {
+    li {
+      height: 30px;
+      line-height: 30px;
+    }
+  }
+  /*  
+  .last-state {
+    color: #68bbbc;
+  }
+  */
+
+  .designer-img {
+    width: 142px;
+    height: 142px;
+    margin-right: 19px;
+    margin-left: 24px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .designermsg-ul {
+    width: 270px;
+    margin-right: 10px;
+
+    li {
+      height: 26px;
+      line-height: 26px;
+      font-size: 14px;
+      color: #434343;
+    }
+  }
+
+  .paytable {
+    font-size: 0;
+    margin-bottom: 14px;
+    border: solid 1px #d8d8d8;
+
+    span {
+      display: inline-block;
+      text-align: center;
+      height: 44px;
+      line-height: 44px;
+      font-size: 14px;
+      color: #434343;
+    }
+
+    .totalprice {
+      color: #ff6d7f;
+    }
+
+    li {
+      span:nth-of-type(1) {
+        width: 96px;
+      }
+
+      span:nth-of-type(2) {
+        width: 56px;
+      }
+
+      span:nth-of-type(3) {
+        width: 70px;
+      }
+
+      span:nth-of-type(4) {
+        width: 135px;
+      }
+
+      span:nth-of-type(5) {
+        width: 135px;
+      }
+    }
+
+    .payli-head {
+      background-color: #d8d8d8;
+    }
+  }
+
+  .pay-btn {
+    display: block;
+    margin: 0 auto;
+    width: 250px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 2px;
+    background-color: #f79831;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .designdraft {
+    width: 100%;
+    border: solid 1px #eaeaea;
+    padding-top: 5px;
+    overflow: hidden;
+  }
+
+  .designdraft-ct {
+    margin: 0 5px;
+  }
+
+  .case-btn {
+    cursor: pointer;
+    width: 96px;
+    height: 67px;
+    line-height: 67px;
+    text-align: center;
+    background-color: #d1d1d1;
+    border: solid 1px #eaeaea;
+    font-size: 14px;
+    color: #434343;
+    margin-bottom: 5px;
+  }
+
+  .casebtn-wp {
+    width: 96px;
+  }
+
+  .case-active {
+    width: 120px;
+    font-weight: 600;
+    background-color: #f6f6f6;
+    position: relative;
+    z-index: 22;
+
+    i {
+      display: inline-block;
+      width: 16px;
+      height: 17px;
+      border: 1px solid red;
+      vertical-align: middle;
+    }
+  }
+
+  .progressbtn-wp {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    .download-btn {
+      display: inline-block;
+      width: 181px;
+      height: 35px;
+      line-height: 35px;
+      border-radius: 2px;
+      border: 1px dotted #68bbbc;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      color: #68bbbc;
+      margin-right: 122px;
+    }
+
+    i {
+      display: inline-block;
+      width: 25px;
+      height: 21.7px;
+      border: 1px solid red;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+  }
+
+  .chartdescribe {
+    position: absolute;
+    width: 150px;
+    height: 35px;
+    line-height: 35px;
+    background-color: rgba(67, 67, 67, 0.9);
+    font-size: 14px;
+    text-align: center;
+    color: #fafafa;
+    left: 352px;
+  }
+
+  .designchart {
+    li {
+      position: relative;
+      width: 855px;
+      height: 534px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .chartexplain {
+      position: absolute;
+      width: 150px;
+      height: 35px;
+      line-height: 35px;
+      background-color: rgba(67, 67, 67, 0.9);
+      font-size: 14px;
+      text-indent: 20px;
+      color: #fafafa;
+    }
+  }
+
+  .designstep1-switch,
+  .designstep2-switch,
+  .designstep3-switch {
+    cursor: pointer;
+  }
+
+  .od-title-line {
+    border-bottom: solid 1px #d1d1d1;
+  }
+
+  .construction-wp {
+    padding: 20px 0;
+    border: solid 1px #eaeaea;
+    background-color: #fafafa;
+
+    .download-btn {
+      width: 196px;
+      height: 35px;
+      line-height: 35px;
+      border-radius: 2px;
+      background-color: #fff;
+      border: dotted 1px #68bbbc;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      color: #68bbbc;
+      margin-left: 24px;
+
+      i {
+        display: inline-block;
+        border: 1px solid red;
+        width: 25px;
+        height: 21.7px;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+    }
+
+    .btn-normal {
+      margin-right: 29px;
+    }
+  }
+}
+/* 订单进度 end */
+/* 上传设计图 end */
+.remarks{
+  font-size: 12px;
+  color: #ff6d7f;
+  font-weight: normal;
+}
+.mg-b20{
+  margin-bottom: 20px;
+}
+.designdraft-notend{
+  background-color: #fafafa;
+  border: solid 1px #eaeaea;
+  .od-title{
+    width: 100%;
+    background-color: #fafafa;
+  }
+}
+.dsdraft-change-ct{
+  width: 920px;
+  font-size: 14px;
+  text-align: left;
+  color: #434343;
+  margin: 0 auto;
+  .title-change{
+    height: 44px;
+    line-height: 44px;
+    font-weight: 600;
+  }
+}
+.ds-upload-ul{
+  li{
+    float: left;
+    position: relative;
+    width: 225px;
+    height: 139px;
+    margin: 0px 7px 60px;
+    &:nth-of-type(1){
+      background: url('../img/leftimg.png') no-repeat;
+      background-size: cover;
+    }
+    &:nth-of-type(2){
+      background: url('../img/rightimg.png') no-repeat;
+      background-size: cover;
+    }
+    &:nth-of-type(3){
+      background: url('../img/overlook.png') no-repeat;
+      background-size: cover;
+    }
+    &:nth-of-type(4){
+      background: url('../img/otherangle.png') no-repeat;
+      background-size: cover;
+    }
+    &:nth-of-type(5){
+      background: url('../img/facade.png') no-repeat;
+      background-size: cover;
+    }
+    &:nth-of-type(6){
+      background: url('../img/plane.png') no-repeat;
+      background-size: cover;
+    }
+    &:nth-of-type(7){
+      background: url('../img/3dmax.png') no-repeat;
+      background-size: cover;
+    }
+    &.construction-zip{
+      background: url('../img/3dmax.png') no-repeat;
+      background-size: cover;
+    }
+  }
+  
+  .delete,
+  .deletezip{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: url('../img/delete.png') no-repeat;
+    background-size: cover;
+    top: 0px;
+    right: 0px;
+    display: none;
+    z-index: 11;
+    cursor: pointer;
+  }
+  .input-add{
+    position: absolute;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    color: #9a9a9a;
+    width: 89px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    background: rgba(216, 216, 216, 0.35);
+    right: 0px;
+    bottom: 0px;
+  }
+  input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    cursor: pointer;
+    opacity: 0;
+  }
+  img{
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .img-desicribe{
+    position: absolute;
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
+    color: #434343;
+    top: 150px;
+    span{
+      color: #ff6d7f;
+    }
+  }
+}
+.ds-upload-now{
+  display: block;
+  margin: 0 auto;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+  width: 250px;
+  height: 35px;
+  opacity: 0.5;
+  border-radius: 2px;
+  background-color: #f79831;
+  border: solid 1px #f79831;
+  margin-bottom: 20px;
+}
+.history-title{
+  width: 960px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  position: relative;
+  .draftnum{
+    position: absolute;
+    height: 45px;
+    line-height: 45px;
+    left: 20px;
+  }
+}
+.history-draft-wp{
+  border: solid 1px #eaeaea;
+  background-color: #fafafa;
+  margin-top: 15px;
+  .pull-arrow{
+    cursor: pointer;
+    i{
+      display: inline-block;
+      width: 11px;
+      height: 10px;
+    }
+    span{
+      display: inline-block;
+      width: 52px;
+    }
+    .arrow{
+      background: url('../img/arrow_down.png') no-repeat;
+      background-size: cover;
+    }
+    .arrow-up{
+      background: url('../img/arrow_up.png') no-repeat;
+      background-size: cover;
+    }
+  }
+}
+.ds-upload-ul{
+  .construction-zip{
+    margin: 0 auto 60px;
+    float: none;
+  }
+}
+.ds-upload-again{
+  width: 174px;
+  height: 35px;
+  border: solid 1px #f79831;
+  font-size: 14px;
+  color: #f79831;
+  background: #fff;
+  position: absolute;
+  top: 150px;
+  left: 310px;
+}
+/* 上传进度 */
+.upload-progress{
+  display: block;
+  width: 65px;
+  height: 65px;
+  background: rebeccapurple;
+  margin: 0 auto;
+  border-radius: 50%;
+  position: absolute;
+  left: 80px;
+  top: 37px;
+  .mask{
+    width: 47px;
+    height: 47px;
+    line-height: 47px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    color: #ff6d7f;
+    position: absolute;
+    border-radius: 50%;
+    top: 9px;
+    left: 9px;
+    background: #9a9a9a;
+  }
+  .pie_lt,
+  .pie_rt{
+    width: 65px;
+    height: 65px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    .pielt_ct{
+      clip:rect(0,32.5px,auto,0);
+    }
+    .piert_ct{
+      clip:rect(0,auto,auto,32.5px);
+    }
+    .pielt_ct,
+    .piert_ct{
+      width: 65px;
+      height: 65px;
+			background:#ff6d7f;
+			border-radius: 50%;
+			position: absolute;
+			top: 0;
+			left: 0;
+    }
+  }
+}
+.constructin-completed{
+  width: 225px;
+  p{
+    padding-top: 15px;
+    font-size: 14px;
+    text-align: center;
+    color: #434343;
+    width: 198px;
+    margin: 0 auto;
+  }
+  span{
+    color: #ff6d7f;
+  }
+}
+.cons-od-baseinfobox{
+  .history-draft-wp:nth-of-type(1){
+    margin-top: 0px;
+  } 
+}
+/* 上传设计图 end */
+.quote-table{
+  width: 500px;
+  font-size: 0px;
+  border: solid 1px #d8d8d8;
+  border-bottom: none;
+  margin-left: 46px;
+  span{
+    font-size: 14px;
+    display: inline-block;
+  }
+  .li-head{
+    background-color: #d8d8d8;
+  }
+  li{
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    border-bottom: solid 1px #d8d8d8;
+  }
+  .state{
+    width: 124px;
+  }
+  .caseprice{
+    width: 115px;
+  }
+  .freenum{
+    width: 115px;
+  }
+  .changeprice{
+    width: 144px;
+  }
+  .price-color{
+    color: #ff6d7f;
+  }
+  .attention{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 10px;
+    background: url('../img/attention.png') no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    position: relative;
+    &:hover{
+      .hover-cue{
+        display: block
+      }
+    }
+  }
+  .hover-cue{
+    position: absolute;
+    top: 22px;
+    left: -25px;
+    width: 446px;
+    line-height: 20px;;
+    border-radius: 8px;
+    padding: 7px 12px;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    background-color: rgba(28, 28, 28, 0.72);
+    font-size: 12px;
+    text-align: left;
+    color: #fafafa;
+    display: none;
+  }
+  .hover-arrow{
+    position: absolute;
+    display: inline-block;
+    margin-left: 5px;
+    border-bottom: 8px solid rgba(28, 28, 28, 0.72);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    top: -8px;
+    left: 20px;
+  }
+}
+.end-span{
+  display: inline-block;
+  width: 74px;
+  height: 30px;
+  border-radius: 2px;
+  background-color: #f79831;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+}
+/* 上传设计图 end */
+/* 个人中心及订单管理 页面整合begin */
+.orderinghd {
+  height: 40px;
+  line-height: 40px;
+  background-color: #fff;
+  border-bottom: none;
+  overflow: hidden;
+
+  .title {
+    font-weight: 600;
+    color: #434343;
+    margin-left: 20px;
+    font-size: 12px;
+  }
+
+  .orderingnum {
+    padding: 3px 8px;
+    border-radius: 2px;
+    background-color: #f79831;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 20px;
+  }
+
+  .seeall-btn {
+    font-size: 14px;
+    color: #9a9a9a;
+    margin-right: 28px;
+  }
+}
+.bgcordering {
+  background-color: #ff6d7f;
+  .title,
+  .seeall-btn {
+    color: #fff;
+  }
+  .orderingnum {
+    background-color: #ffffff;
+    color: #ff6d7f;
+  }
+}
+.orderingli {
+  border: solid 1px #eaeaea;
+  // margin-bottom: 10px;
+  // padding-bottom: 10px;
+
+  .orderingli-hd {
+    height: 40px;
+    line-height: 40px;
+    background-color: #fafafa;
+    border-bottom: solid 1px #eaeaea;
+  }
+  .orderingli-bto {
+    width: 998px;
+    height: 34px;
+    // background-color: #ffffff;
+    // border-top: solid 1px #eaeaea;
+    text-align: center;
+    .orderbto-left {
+      height: 34px;
+      width: 20.5px;
+      border-right: 1px solid #eaeaea;
+    }
+    .odmstate {
+      width: 140px;
+      line-height: 34px;
+      font-size: 12px;
+      height: 34px;
+      border-top: solid 1px #eaeaea;
+    }
+    .odmprice {
+      width: 132px;
+      line-height: 34px;
+      font-size: 12px;
+      height: 34px;
+      border-top: solid 1px #eaeaea;
+    }
+    .odmstatus {
+      width: 120px;
+      line-height: 34px;
+      font-size: 12px;
+      height: 34px;
+      border-top: solid 1px #eaeaea;
+    }
+    .odmlast {
+      width: 114px;
+      line-height: 34px;
+      font-size: 12px;
+      height: 34px;
+      border-top: solid 1px #eaeaea;
+    }
+  }
+
+  .ordertime {
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    color: #434343;
+    margin-right: 18px;
+    margin-left: 20px;
+  }
+
+  .imgfa {
+    width: 80px;
+    height: 80px;
+    background-color: #d1d1d1;
+    margin: 25px 10px 0;
+  }
+
+  .order-num {
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    color: #434343;
+    margin-bottom: 18px;
+  }
+
+  .exhibition-wp {
+    width: 250px;
+    margin-top: 10px;
+  }
+
+  .exhibition {
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    color: #434343;
+    margin-bottom: 10px;
+  }
+
+  .exhibitor {
+    font-size: 12px;
+    text-align: left;
+    color: #9a9a9a;
+    height: 40px;
+  }
+  .dte {
+    font-size: 12px;
+    color: #434343;
+    height: 20px;
+    width: 250px;
+    span {
+      display: inline-block;
+    }
+    .mr-area {
+      margin-right: 20px;
+    }
+  }
+
+  .designer {
+    width: 119px;
+    font-size: 12px;
+    text-align: left;
+    color: #434343;
+    height: 80px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: 10px 0;
+    justify-content: center;
+
+    p {
+      font-size: 12px;
+      .paynum {
+        color: #f79831;
+      }
+    }
+  }
+
+  .step {
+    width: 140px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    border-left: 1px solid #eaeaea;
+    margin-left: 20px;
+  }
+
+  .num,
+  .price {
+    width: 130px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+
+  .orderneed {
+    width: 118px;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 15px;
+
+    li {
+      margin-bottom: 8px;
+      height: 17px;
+    }
+
+    a {
+      font-size: 12px;
+      color: #434343;
+    }
+  }
+}
+.orderingbtn-wp {
+    width: 120px;
+    text-align: center;
+    .mt-3 {
+      margin-top: 30px;
+    }
+    a {
+      display: inline-block;
+      color: #434343;
+      font-size: 12px;
+    }
+    .oderleftime {
+      height: 30px;
+      text-align: center;
+      font-size: 10px;
+      color: #ff6d7f;
+      line-height: 30px;
+    }
+    .forpay {
+      height: 30px;
+      line-height: 30px;
+      margin-top: 8px;
+    }
+
+    .paynow {
+      width: 74px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 2px;
+      background-color: #f79831;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+  }
+.orderingdetail {
+  height: 100px;
+}
+.orderlist {
+  margin-top: 10px;
+  background-color: #fff;
+}
+.ft-l {
+  float: left;
+}
+.pdt-12 {
+  padding-top: 120px;
+}
+.grab-menu {
+  height: 40px;
+  line-height: 40px;
+}
+.footer-wp {
+  width: 100%;
+
+  .foot {
+    width: 1000px;
+    border-top: solid 3px #f79831;
+    margin: 20px auto 0;
+    text-align: center;
+    height: 82px;
+    line-height: 82px;
+    font-size: 14px;
+    color: #5a5c5f;
+  }
+}
+.ordermangament {
+  margin-bottom: 10px;
+
+  .odm-hd {
+    background-color: #eaeaea;
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+
+    div {
+      text-align: center;
+    }
+  }
+
+  .odmorder {
+    width: 371px;
+  }
+
+  .odmdesigner {
+    width: 119px;
+  }
+
+  .odmstate {
+    width: 140px;
+  }
+
+  .odmchartnum {
+    width: 55px;
+  }
+
+  .odmprice {
+    width: 132px;
+  }
+
+  .odmstate {
+    width: 140px;
+  }
+  .odmstatus {
+    width: 120px;
+  }
+
+  .odmbtn-wp {
+    width: 118px;
+  }
+}
+.empty-ct {
+  text-align: center;
+  padding: 62px 0 210px;
+}
+.content-wp {
+  .empty-icon {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 43px;
+  }
+  .empty-say {
+    font-size: 14px;
+    text-align: center;
+    color: #9a9a9a;
+    margin-bottom: 60px;
+  }
+  .return-index{
+    display: block;
+    margin: 0 auto;
+    width: 174px;
+    height: 35px;
+    line-height: 35px;
+    border: solid 1px #f79831;
+    font-size: 14px;
+    text-align: center;
+    color: #f79831;
+  }
+}
+/* 个人中心及订单管理 页面整合end */
+/* 上传进度样式 start */
+ul.progress {
+  margin: 0px;
+  width: 70px;
+  height: 70px;
+  position: relative;
+  
+  li{
+    margin: 0px;
+    background: transparent !important;
+  }
+}
+li.progress-wrap {
+  display: block;
+  width: 35px;
+  height: 70px;
+  float: left;
+  position: relative;
+  overflow: hidden;
+
+}
+li.progress-wrap span {
+  content: ' ';
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: -35px;
+  border: 10px solid transparent;
+  border-top: 10px solid #ff6d7f;
+  border-right: 10px solid #ff6d7f;
+}
+li.progress-wrap.progress-left span {
+  left: auto;
+  right: -35px;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #ff6d7f;
+  border-left: 10px solid #ff6d7f;
+  transform: rotate(-225deg);
+}
+li.progress-wrap.progress-right span {
+  transform: rotate(-135deg);
+}
+li.progress-txt {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  top: 0;
+  left: 0;
+  line-height: 70px;
+  text-align: center;
+}
+.progress-fa{
+  position: absolute;
+  left: 77px;
+  top: 38px;
+}
+/* 上传进度样式 end */
