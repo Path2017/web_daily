@@ -1,0 +1,347 @@
+<!-- build:layout_head --><!-- endbuild -->
+  <link rel="stylesheet" href="css/login.min.css" th:href="@{/css/login.min.css}">
+  <link rel="stylesheet" href="css/timechoose.css" th:href="@{/css/timechoose.css}">
+  <link rel="stylesheet" href="css/parsley.min.css" th:href="@{/css/parsley.min.css}">
+</head>
+
+<body>
+  <div class="reg-content">
+    <div class="reg-midbox">
+      <div class="reg-title">
+        <span class="reg-logo">
+        <img src="img/e3logo.png" th:src="@{img/e3logo.png}" height="60" alt="">
+      </span>
+        <span class="reg-name">
+        用户注册 
+      </span>
+      </div>
+      <div class="reg-menu">
+        <ul class="regtopmenu">
+          <li class="menu-select">1.设置账号信息</li>
+          <li>2.填写完整信息</li>
+          <!-- <li>3.提交审核</li> -->
+        </ul>
+      </div>
+      <form id="registerform" action="" data-parsley-validate="" th:action="@{/register/designer}" method="post" enctype="multipart/form-data" data-parsley-trigger="focusout">
+        <!-- 第一步信息填写 begin -->
+        <div class="first-infobox">
+          <div class="first-left">
+            <ul class="first-name">
+              <li>手机号码：</li>
+              <li>验证码：</li>
+              <li>密码：</li>
+              <li>注册角色：</li>
+            </ul>
+          </div>
+          <div class="first-mid firststep-wp">
+            <ul class="first-input">
+              <li><input type="text" id="dataphone" data-parsley-group="step1" required pattern="/^1[34578]\d{9}$/" data-parsley-pattern-message="<i class='erricon'>\</i>请填写正确的手机号码"
+                  placeholder="此手机号将成为登录账号" name="mobile"></li>
+              <li class="vscode code-wp clearfix">
+                <input class="ft-l" id="datacode" data-parsley-group="step1" type="text" required placeholder="验证码" name="veriCode">
+                <span class="ft-l wordnone-select" id="getMescode">获取验证码</span>
+              </li>
+              <li><input type="password" data-parsley-group="step1" required placeholder="设置登录密码" name="password"></li>
+              <li>
+                <select class="register-role" name="" id="" data-parsley-group="step1" required>
+                  <option value="1">设计师</option>
+                </select>
+              </li>
+            </ul>
+            <div class="agreement">
+              <label><input class="ischeck" type="checkbox" checked><i>✓</i></label> 我已阅读并接受
+              <a class="a-link" href="javascript:;">《易宜益设计师服务协议》</a>
+            </div>
+            <!-- <div class="first-check">
+              <input type="radio" id="check">
+              <label for="check">我已阅读并接受<span class="first-protocol">《E3设计工作室入驻协议》</span></label>
+            </div> -->
+            <!-- 数据填写完整后 去掉类名 fill-none -->
+            <div class="first-submit fill-none" id="firstStep">下一步</div>
+            <!-- <div class="first-tab">切换成工作室入驻</div> -->
+          </div>
+        </div>
+        <!-- 第一步信息填写 end -->
+        <!-- 第二步信息填写 begin -->
+        <div class="second-infobox">
+          <div class="snd-top clearfix">
+            <div class="second-left">
+              <ul class="second-topname">
+                <li><span>*</span>姓名：</li>
+                <li><span>*</span>电子邮箱：</li>
+                <li><span>*</span>社交账号：</li>
+                <li><span>*</span>所在城市：</li>
+                <li><span>*</span>有效身份证：</li>
+              </ul>
+            </div>
+            <div class="second-mid secondstep-wp">
+              <ul class="second-topinput">
+                <li><input type="text" data-parsley-maxlength="40" data-parsley-group="step2" required placeholder="请输入真实姓名"
+                    name="name"></li>
+                <li><input type="email" data-parsley-group="step2" required placeholder="请输入邮箱" name="email"></li>
+                <li>
+                  <select class="social-account" name="" id="" data-parsley-trigger="null">
+                    <option value="">QQ</option>
+                  </select>
+                  <input type="number" data-parsley-maxlength="40" data-parsley-group="step2" required placeholder="请输入可联系QQ号码" name="qq">
+                </li>
+                <li class="chose-city">
+                  <!-- <div id="city">
+                    <span class="no-errcue">
+                        <select class="prov" data-parsley-group="step2" required name="provinceId"></select>
+                    </span>
+                    <select class="city" data-parsley-group="step2" required name="cityId"></select>
+                  </div> -->
+                  <span class="no-errcue">
+                    <select name="" id="" data-parsley-group="step2" required>
+                      <option value="1">中国</option>
+                    </select>
+                  </span>
+                  <div id="city">
+                    <span class="no-errcue">
+                      <!-- <select name="" id="" data-parsley-group="step2" required>
+                        <option value="">省份</option>
+                      </select> -->
+                      <select class="prov" data-parsley-group="step2" required name="provinceId">
+                        <option value="">请选择</option>
+                      </select>
+                    </span>
+                    <!-- <select name="" id="" data-parsley-group="step2" required>
+                      <option value="">城市/区</option>
+                    </select> -->
+                    <select class="city" data-parsley-group="step2" required name="cityId">
+                      <option value="">请选择</option>
+                    </select>
+                  </div>
+                </li>
+                <li class="mid-worn">格式限制：JPG/PNG/PDF/JPEG   单张大小限制：50M</li>
+              </ul>
+              <div class="upload-box">
+                <ul class="upload-ul">
+                  <li class="inputbox worksimg-li-must magintop-less">
+                    <span class="delete">×</span>
+                    <span class="input-add">+</span>
+                    <img src="" alt="">
+                    <input class="front-id" type="file" data-parsley-trigger="null">
+                    <p>身份证正面</p>
+                  </li>
+                  <li class="inputbox worksimg-li-must magintop-less">
+                    <span class="delete">×</span>
+                    <span class="input-add">+</span>
+                    <img src="" alt="">
+                    <input class="backend-id" type="file" data-parsley-trigger="null">
+                    <p>身份证反面</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="main-menutitle">
+              <div>基本信息</div>
+              <div>* 为必填项</div>
+            </div>
+          </div>
+          <div class="snd-mid">
+            <div class="mid-dte mid-rela">
+              <div class="midleft-name"><span>*</span>工作年限：</div>
+              <div class="midright-main">
+                <select class="worktime-st normal-option" name="workingYears" id="" data-parsley-group="step2" required>
+                      <option value="">请选择</option>
+                      <option th:each="workingYears : ${workingYearsList}"
+                              value="1" th:value="${workingYears}" th:text="${workingYears}">qq</option>
+                  </select>
+              </div>
+            </div>
+            <div class="mid-dte">
+              <div class="midleft-name vertical-top"><span>*</span>代表作品：</div>
+              <div class="mid-input">
+                <div class="mid-inputname">请上传2-10个精选作品图片案例</div>
+                <div class="mid-worn">格式限制：JPG/PNG/PDF/JPEG 单张大小限制：50M</div>
+                <div class="upload-box">
+                  <ul class="worksimg-ul upload-ul">
+                    <li class="inputbox worksimg-li-must">
+                      <span class="delete">×</span>
+                      <span class="input-add">+</span>
+                      <img src="" alt="">
+                      <input type="file" name="representativeWork" data-parsley-trigger="null">
+                    </li>
+                    <li class="inputbox worksimg-li-must">
+                      <span class="delete">×</span>
+                      <span class="input-add">+</span>
+                      <img src="" alt="">
+                      <input type="file" name="representativeWork" data-parsley-trigger="null">
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="mid-dte">
+              <div class="mid-choice">
+                <div class="choice-dte">
+                  <div class="dtename-dte inlinebox">选填资料：</div>
+                  <div class="dtename-dte inlinebox">资质证明、员工职称证明、获奖证书等文件，资料越完善越有利于平台审核。</div>
+                  <div class="dtename-dte inlinebox switch-btn"><span>收起</span><i class="switch-icon2"></i></div>
+                </div>
+                <div class="choice-mainbox">
+                  <div class="choice-dte">
+                    <div class="dte-title inlinebox">学历证明：</div>
+                    <div class="dte-list inlinebox">
+                      <div class="mid-inputname">请上传真实学历照片件，至多不超过三张</div>
+                      <div class="mid-worn">格式限制：JPG/PNG/PDF/JPEG 单张大小限制：50M</div>
+                      <div class="upload-box">
+                        <ul class="upload-ul educationimg">
+                          <li class="inputbox worksimg-li-must">
+                            <span class="delete">×</span>
+                            <span class="input-add">+</span>
+                            <img src="" alt="">
+                            <input type="file" name="education" data-parsley-trigger="null">
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="choice-dte">
+                    <div class="dte-title inlinebox">职称证明：</div>
+                    <div class="dte-list inlinebox">
+                      <div class="mid-inputname">请上传真实职称证明照片件，至多不超过五张</div>
+                      <div class="mid-worn">格式限制：JPG/PNG/PDF/JPEG 单张大小限制：50M</div>
+                      <div class="upload-box">
+                        <ul class="upload-ul jobnameimg">
+                          <li class="inputbox worksimg-li-must">
+                            <span class="delete">×</span>
+                            <span class="input-add">+</span>
+                            <img src="" alt="">
+                            <input type="file" name="title" data-parsley-trigger="null">
+                          </li>                         
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="choice-dte pad-bto-3">
+                    <div class="dte-title inlinebox">获奖证书：</div>
+                    <div class="dte-list inlinebox">
+                      <div class="mid-inputname">请上传真实获奖证书照片件，至多不超过五张</div>
+                      <div class="mid-worn">格式限制：JPG/PNG/PDF/JPEG 单张大小限制：50M</div>
+                      <div class="upload-box">
+                        <ul class="upload-ul awardimg">
+                          <li class="inputbox worksimg-li-must">
+                            <span class="delete">×</span>
+                            <span class="input-add">+</span>
+                            <img src="" alt="">
+                            <input type="file" name="award" data-parsley-trigger="null">
+                          </li>                          
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="main-menutitle">
+                <div>资质信息</div>
+                <div class="block">* 为必填项</div>
+              </div>
+            </div>
+          </div>
+          <div class="snd-bto clearfix">
+            <div class="bto-title">请填写准确的银行账户信息，订单完成后，款项将直接打入此账号。</div>
+            <div class="bto-infobox">
+              <div class="bto-infoleft">
+                <span>*</span>姓名：
+              </div>
+              <div class="bto-inforight">
+                <input type="text" data-parsley-maxlength="40" data-parsley-group="step2" required placeholder="收款人姓名" name="bankUserName">
+              </div>
+            </div>
+            <div class="bto-infobox">
+              <div class="bto-infoleft">
+                <span>*</span>卡号：
+              </div>
+              <div class="bto-inforight">
+                <input type="mumber" data-parsley-group="step2" required placeholder="收款人储蓄卡卡号" pattern="/^([1-9]{1})(\d{15}|\d{18})$/" data-parsley-pattern-message="<i class='erricon'>\</i>请填写准确的银行账户信息，以确保顺利收款"
+                  name="bankAccount">
+              </div>
+            </div>
+            <div class="bto-infobox">
+              <div class="bto-infoleft">
+                <span>*</span>银行：
+              </div>
+              <div class="bto-inforight">
+                <input type="text" data-parsley-group="step2" required placeholder="请选择银行" name="bankName">
+                <!--<select class="bank-select" name="" id="" data-parsley-group="step2" required>
+                  <option value="">请选择银行</option>
+                  <option value="1">aaaaa</option>
+                </select>-->
+              </div>
+            </div>
+            <div class="bto-infobox">
+              <div class="bto-infoleft">
+                <span>*</span>开户支行：
+              </div>
+              <div class="bto-inforight">
+                <input type="text" data-parsley-group="step2" required placeholder="请选择所在支行" name="bankBranchName">
+                <!--<select class="bank-select" name="" id="" data-parsley-group="step2" required>
+                  <option value="" checked>请选择所在支行</option>
+                  <option value="1">aaaaa</option>                  
+                </select>-->
+              </div>
+            </div>
+            <div class="bto-submit" id="secondStep">
+              提交审核
+            </div>
+            <div class="main-menutitle">
+              <div>收款账户</div>
+              <div>* 为必填项</div>
+            </div>
+          </div>
+        </div>
+        <!-- 第二步信息填写 end -->
+        <!-- 第三步信息填写 begin -->
+        <div class="third-infobox">
+          <div class="suc-img"><img width="30" src="/img/success.png" th:src="@{/img/success.png}" alt=""></div>
+          <div class="suc-mes">
+            <span class="mes-top">您的资料已上传成功！</span><br />
+            <span class="mes-bto">平台审核后将立即通知您。</span>
+          </div>
+        </div>
+        <!-- 第三步信息填写 end -->
+      </form>
+    </div>
+    <!-- build:footer -->
+    
+    <!-- endbuild -->
+
+
+
+
+
+
+    <!-- 弹框 begin -->
+    <!-- <div class="bomb-wp">
+      <div class="bomb-ct">
+        <p class="title"><i></i>提醒</p>
+        <p class="cue" data-title>请上传2-10个代表作品案例</p>
+        <div class="knowbtn" data-close>知道了</div>
+      </div>
+    </div> -->
+    <!-- 弹框 end -->
+
+    <!-- build:layout_js -->
+    
+    <!-- endbuild -->
+
+
+
+    <script src="/js/vendor/cityselect.js" th:src="@{/js/vendor/cityselect.js}"></script>
+    <script src="/js/vendor/jquery.date_input.pack.js" th:src="@{/js/vendor/jquery.date_input.pack.js}"></script>
+    <script src="/js/vendor/parsley/parsley.min.js" th:src="@{/js/vendor/parsley/parsley.min.js}"></script>
+    <script src="/js/vendor/parsley/i18n/zh_cn.js" th:src="@{/js/vendor/parsley/i18n/zh_cn.js}"></script>
+    <script src="/js/designer_register.min.js" th:src="@{/js/designer_register.min.js}"></script>
+</body>
+<script>
+  $(function () {
+    //日期选择
+    $('.date_picker').date_input()
+  })
+
+</script>
+
+</html>

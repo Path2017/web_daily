@@ -1,0 +1,148 @@
+<!-- build:layout_head --><!-- endbuild -->
+  <link rel="stylesheet" href="../../css/parsley.min.css" th:href="@{/css/parsley.min.css}">
+  <link rel="stylesheet" href="../../css/login.min.css" th:href="@{/css/login.min.css}">
+</head>
+<body>
+<!--[if lte IE 9]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+<!-- build:head -->
+
+<!-- endbuild -->
+
+<!-- 内容 -->
+<div class="content-wp">
+  <div class="content">
+    <div class="content-hd">
+      <i class="mark"></i>
+      <em class="line"></em>
+      <span class="hd-title">用户注册</span>
+    </div>
+    <div class="reg-menu reg-menu-user">
+      <ul class="regtopmenu">
+        <li class="menu-select">1.设置账号信息</li>
+        <li>2.填写完整信息</li>
+      </ul>
+    </div>
+    <div class="user-registerwp clearfix">
+      <div class="left">
+        <form id="form" class="user-register-form" action="" data-parsley-validate="" data-parsley-trigger="focusout">
+          <!-- 第一步 -->
+          <div class="first-infobox">
+            <div class="input-wp">
+              <span class="input-title">手机号码：</span>
+              <input id="phone" data-parsley-group="step1" class="inputlabel" required type="text" pattern="/^1[34578]\d{9}$/" data-parsley-pattern-message="<i class='erricon'>\</i>请填写正确的手机号码">
+            </div>
+            <div class="input-wp">
+              <div class="">
+                <span class="input-title">短信验证码：</span>
+                <div class="code-wp clearfix">
+                  <input data-parsley-group="step1" class="inputlabel-small code-input ft-l" required type="text" placeholder="验证码">
+                  <button class="getcode getcode-normal ft-l" type="button">获取验证码</button>
+                  <!-- <span class="errcue code-errcue"><i class="erricon"></i>内容不能为空</span> -->
+                </div>
+              </div>
+            </div>
+            <div class="input-wp">
+              <span class="input-title">密码：</span>
+              <input data-parsley-group="step1" class="inputlabel pwd" type="password" required placeholder="设置登录密码">
+            </div>
+            <div class="input-wp">
+              <span class="input-title">注册角色：</span>  
+              <select class="choose-role" name="" id="" required data-parsley-group="step1">
+                <option value="">请选择您的角色</option>
+                <option value="1">角色</option>
+              </select>
+            </div>
+            <div class="other-wp">
+              <div class="agreement">
+                  <label><input class="ischeck" type="checkbox" checked><i>✓</i></label>
+                  我已阅读并接受<a class="a-link" href="javascript:;">《易宜益用户服务协议》</a>
+              </div>
+              <div class="register-btn-wp">
+                  <button id="firstStep" class="btn-down" type="button">下一步</button>
+              </div>
+              <!-- <div class="link-wp">
+                  <a class="a-link" href="javascript:;">切换为旧版参展商注册</a>
+              </div> -->
+            </div>
+          </div>
+          <!-- 第二部 -->
+          <div class="second-infobox secondstep2-wp">
+            <div class="input-wp">
+              <span class="input-title">公司名称：</span>
+              <input class="inputlabel form-control" data-parsley-group="step2" required type="text">
+            </div>
+            <div class="input-wp">
+              <span class="input-title">所在城市：</span>
+              <!-- <div class="inlineblock user-choosecity" id="city">
+                <span class="no-errcue">
+                  <select class="prov" data-parsley-group="step2" required name="provinceId"></select>
+                </span>
+                <select class="city" data-parsley-group="step2" required name="cityId"></select>
+              </div> -->
+              <div class="inlineblock user-choosecity">
+                <span class="no-errcue">
+                  <select data-parsley-group="step2" required>
+                    <option value="1">中国</option>
+                  </select>
+                </span>
+                <div id="city">
+                  <span class="no-errcue">
+                    <!-- <select data-parsley-group="step2" required>
+                      <option value="">省份</option>
+                    </select> -->
+                    <select class="prov" data-parsley-group="step2" required name="provinceId">
+                      <option value="">请选择</option>
+                    </select>
+                  </span>
+                  <!-- <select data-parsley-group="step2" required>
+                    <option value="">城市/区</option>
+                  </select> -->
+                  <select class="city" data-parsley-group="step2" required name="cityId">
+                    <option value="">请选择</option>
+                  </select>
+                </div>
+                
+              </div>
+            </div>
+            <div class="input-wp">
+              <span class="input-title">工作邮箱：</span>
+              <input data-parsley-group="step2" class="inputlabel form-control" required type="email" placeholder="邮箱登陆">
+            </div>
+            <div class="other-wp">
+              <div class="register-btn-wp">
+                  <button id="secondStep" class="btn-down" type="button">注册</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="right">
+        <ul class="role">
+          <li class="applyadmission">申请入驻</li>
+          <!-- <li class="designerli"><a href="javascript:;"><i></i>我是设计师</a></li> -->
+          <li class="exhibitionli"><a href="javascript:;"><i></i>我是展装工场</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 内容end -->
+<!-- build:footer -->
+
+<!-- endbuild -->
+
+
+<!-- build:layout_js -->
+
+<!-- endbuild -->
+
+
+
+<script src="/js/vendor/cityselect.js" th:src="@{/js/vendor/cityselect.js}"></script>
+<script src="/js/vendor/parsley/parsley.min.js" th:src="@{/js/vendor/parsley/parsley.min.js}"></script>
+<script src="/js/vendor/parsley/i18n/zh_cn.js" th:src="@{/js/vendor/parsley/i18n/zh_cn.js}"></script>
+<script src="/js/user_register.min.js" th:src="@{/js/user_register.min.js}"></script>
+</body>
+</html>

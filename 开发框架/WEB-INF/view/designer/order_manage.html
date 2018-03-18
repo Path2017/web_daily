@@ -1,0 +1,172 @@
+<!-- build:layout_head --><!-- endbuild -->
+  <link rel="stylesheet" href="../../../css/designer.min.css" th:href="@{/css/designer.min.css}">
+</head>
+
+<body>
+  <!-- build:header -->
+  
+  <!-- endbuild -->
+
+
+  <div class="ps-center-wp">
+    <div class="ps-center">
+      <div class="clearfix no-border">
+        <ul class="ft-l clearfix state-ul">
+          <!-- 选中样式 添加 active-->
+          <li class="ft-l active">
+            <a href="javascript:;">所有订单
+              <span class="ordernum">8</span>
+            </a>
+          </li>
+          <li class="ft-l">
+            <a href="javascript:;">进行中的订单
+              <span class="ordernum">8</span>
+            </a>
+          </li>
+          <li class="ft-l">
+            <a href="javascript:;">订单完成
+              <span class="ordernum">8</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- 空订单 -->
+      <div class="empty-ct">
+        <img class="empty-icon" src="../../img/empty.png" @th:src="@{/img/empty.png}" alt="">
+        <p class="empty-say">没有找到符合条件的订单。</p>
+      </div>
+    </div>
+  </div>
+  <div class="content-wp mt-2">
+    <!-- 进行中订单 begin -->
+    <div>
+      <div class="ordermangament">
+        <div class="odm-hd clearfix">
+          <div class="left odmorder">订单</div>
+          <div class="odmdesigner left">设计师</div>
+          <div class="odmstate left">订单阶段</div>
+          <div class="odmprice left">实付款</div>
+          <div class="left odmstatus">操作状态</div>
+          <div class="odmbtn-wp left">操作</div>
+        </div>
+      </div>
+      <!-- 进行中的订单 立即上传 begin -->
+      <div class="orderingli orderlist">
+        <div class="orderingli-hd">
+          <span class="ordertime">2017.09.09</span>
+          <span class="order-num">订单号：
+            <span>2937649197374</span>
+          </span>
+        </div>
+        <div class="orderingdetail clearfix">
+          <div class="imgfa ft-l">
+            <img src="" alt="">
+          </div>
+          <div class="exhibition-wp left">
+            <p class="exhibition">第二十二届中国国际涂料展涂料展涂料展涂料展涂料展涂料展涂料展涂料展涂料展</p>
+            <p class="exhibitor">参展商：
+              <span>笔克展览展示有限公司</span>
+            </p>
+            <p class="dte">
+              <span class="mr-area">面积4m x 5m</span>
+              <span>预算：30,000</span>
+            </p>
+          </div>
+          <div class="step left">设计图阶段</div>
+          <div class="designer left">
+            <p>2017年10月28日</p>
+          </div>
+          <div class="price left">¥300</div>
+          <ul class="left orderneed">
+            <li>
+              <a href="javascript:;">等待设计图上传</a>
+            </li>
+            <li>
+              <a href="javascript:;">订单详情</a>
+            </li>
+            <li>
+              <a href="javascript:;">设计需求</a>
+            </li>
+          </ul>
+          <div class="orderingbtn-wp right">
+            <div class="mt-3">
+              <a href="javascript:;" class="paynow">立即上传</a>
+            </div>
+          </div>
+        </div>
+        <div class="orderingli-bto">
+          <div class="orderbto-left left"></div>
+          <div class="odmstate left">施工图阶段</div>
+          <div class="odmprice left">2017年12月28日</div>
+          <div class="odmstatus left"></div>
+          <div class="odmstatus left">未开启</div>
+          <div class="odmlast left"></div>
+        </div>
+      </div>
+      <!-- 进行中的订单end-->
+      <!-- 进行中的订单 等待对方收稿 begin -->
+      <div class="orderingli orderlist">
+        <div class="orderingli-hd">
+          <span class="ordertime">2017.09.09</span>
+          <span class="order-num">订单号：
+            <span>2937649197374</span>
+          </span>
+        </div>
+        <div class="orderingdetail clearfix">
+          <div class="imgfa ft-l">
+            <img src="" alt="">
+          </div>
+          <div class="exhibition-wp left">
+            <p class="exhibition">第二十二届中国国际涂料展涂料展涂料展涂料展涂料展涂料展涂料展涂料展涂料展</p>
+            <p class="exhibitor">参展商：
+              <span>笔克展览展示有限公司</span>
+            </p>
+            <p class="dte">
+              <span class="mr-area">面积4m x 5m</span>
+              <span>预算：30,000</span>
+            </p>
+          </div>
+          <div class="step left">设计图阶段</div>
+          <div class="designer left">
+            <p>2017年10月28日</p>
+          </div>
+          <div class="price left">¥300</div>
+          <ul class="left orderneed">
+            <li>
+              <a href="javascript:;">等待对方收稿</a>
+            </li>
+            <li>
+              <a href="javascript:;">订单详情</a>
+            </li>
+            <li>
+              <a href="javascript:;">设计需求</a>
+            </li>
+          </ul>
+          <div class="orderingbtn-wp right">
+          </div>
+        </div>
+        <div class="orderingli-bto">
+          <div class="orderbto-left left"></div>
+          <div class="odmstate left">施工图阶段</div>
+          <div class="odmprice left">2017年12月28日</div>
+          <div class="odmstatus left"></div>
+          <div class="odmstatus left">未开启</div>
+          <div class="odmlast left"></div>
+        </div>
+      </div>
+      <!-- 进行中的订单end-->
+    </div>
+  </div>
+  <!-- build:footer -->
+  
+  <!-- endbuild -->
+
+
+  <!-- build:layout_js -->
+  
+  <!-- endbuild -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!-- build:layout_head --><!-- endbuild -->
+  <link rel="stylesheet" href="../../css/parsley.min.css" th:href="@{/css/parsley.min.css}">
+  <link rel="stylesheet" href="../../../css/exhibitor.min.css" th:href="@{/css/exhibitor.min.css}">
+</head>
+
+<body>
+  <div class="e3-wrap">
+    <!-- build:header -->
+    
+    <!-- endbuild -->
+
+
+    <!-- 所有样式前缀加  od-  -->
+    <div class="od-contentbox clearfix">
+      <div class="od-nav">
+        <span class="nav-prve">订单管理</span>&gt;<span class="nav-next">订单详情</span>&gt;<span class="nav-next">开具发票</span>
+      </div>
+      <div class="od-mainbox">
+        <div class="od-toptitle inv-toptitle">开票信息</div>
+        <!-- 订单详情的内容区域 begin -->
+        <div class="od-detailbox">
+          <div class="od-baseinfobox clearfix">
+            <!-- 项目信息 -->
+            <div>
+              <ul class="program-ul">
+                <li class="li-head">
+                  <span>设计阶段</span>
+                  <span></span>
+                  <span>稿数</span>
+                  <span>单价</span>
+                  <span>总计</span>
+                </li>
+                <li>
+                  <span>概念设计</span>
+                  <span></span>
+                  <span>2</span>
+                  <span>300</span>
+                  <span>600</span>
+                </li>
+                <li>
+                  <span>深化设计</span>
+                  <span></span>
+                  <span>1</span>
+                  <span>300</span>
+                  <span>300</span>
+                </li>
+                <li>
+                  <span>施工图设计</span>
+                  <span></span>
+                  <span>1</span>
+                  <span>300</span>
+                  <span>300</span>
+                </li>
+              </ul>
+              <p class="total-price">总计：¥<span>1200</span></p>
+            </div>
+            <form action="" data-parsley-validate="">
+              <div class="inv-form-wp">
+                <div class="inv-ipt-wp">
+                  <span class="inv-title"><i>*</i>公司抬头：</span>
+                  <input class="inv-input form-control" required type="text">
+                </div>
+                <div class="inv-ipt-wp">
+                  <span class="inv-title"><i>*</i>纳税人识别号或同意社会信用代码：</span>
+                  <input class="inv-input form-control" required type="text">
+                </div>
+                <div class="inv-ipt-wp clearfix">
+                  <span class="inv-title left"><i>*</i>发票寄送地址：</span>
+                  <div class="city-wp left">
+                    <select name="" id="">
+                      <option value=""></option>
+                    </select>
+                    <select name="" id="">
+                      <option value=""></option>
+                    </select>
+                    <select name="" id="">
+                      <option value=""></option>
+                    </select>
+                  </div>
+                  <input class="inv-input form-control left detail-ads" required type="text" placeholder="详细地址">
+                </div>
+                <div class="inv-ipt-wp">
+                  <span class="inv-title"><i>*</i>收件人：</span>
+                  <input class="inv-input form-control" required type="text">
+                </div>
+                <div class="inv-ipt-wp">
+                  <span class="inv-title"><i>*</i>联系方式：</span>
+                  <input class="inv-input form-control" required type="text" pattern="/^1[34578]\d{9}$/" data-parsley-pattern-message="<i class='erricon'>\</i>请填写正确的手机号码">
+                </div>
+                <div class="submit-fa">
+                  <button class="submit-now" type="submit">立即提交</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- 订单基本信息区域 end -->
+        </div>
+        <!-- 订单详情内容区域 end -->
+      </div>
+    </div>
+    <!-- build:footer -->
+    
+    <!-- endbuild -->
+
+
+  </div>
+  <!-- build:layout_js -->
+  
+  <!-- endbuild -->
+
+
+</body>
+</html>

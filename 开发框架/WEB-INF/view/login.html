@@ -1,0 +1,85 @@
+<!-- build:layout_head --><!-- endbuild -->
+  <link rel="stylesheet" href="/css/parsley.min.css" th:href="@{/css/parsley.min.css}">
+  <link rel="stylesheet" href="/css/login.min.css" th:href="@{/css/login.min.css}">
+</head>
+<body>
+<!--[if lte IE 9]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+<!-- 头部 -->
+<div class="header-wp">
+  <div class="header clearfix">
+    <div class="right">
+      <a class="login-btn" href="javascript:;">登录</a>
+      <em class="line"></em>
+      <a class="register-btn" href="javascript:;">注册</a>
+      <span class="customer-hotline"><i class="line-icon"></i>咨询热线：4006-06-4006</span>
+    </div>
+  </div>
+</div>
+<!-- 头部end -->
+<!-- 内容 -->
+<div class="content-wp">
+  <div class="content">
+    <div class="content-hd clearfix">
+      <div class="left">
+        <i class="mark"></i>
+        <em class="line"></em>
+        <span class="hd-title">登录 </span>
+      </div>
+      <div class="right">
+        <i class="server-icon"></i>
+        <div class="inlineblock server-B">
+          <p class="server-title">服务热线：</p>
+          <p class="server-tel">4006-06-4006</p>
+        </div>
+      </div>
+    </div>
+    <div class="user-registerwp clearfix">
+      <div class="left">
+        <img class="login-pic" src="/img/loginpic.png" th:src="@{/img/loginpic.png}" alt="">
+      </div>
+      <div class="right">
+        <form id="login-form" action="" data-parsley="validate" data-parsley-trigger="focusout">
+          <p class="login-title">账号登录</p>
+          <div class="login-ipt-fa">
+            <input class="login-name" type="text" required placeholder="手机/邮箱">
+          </div>
+          <div class="login-ipt-fa">
+            <input class="login-pwd" type="password" required placeholder="密码">
+          </div>
+          <div class="clearfix autologin-B">
+            <div class="left agreement">
+              <label><input type="checkbox" checked><i>✓</i></label>下次自动登录
+            </div>
+            <a class="forgotpwd right" href="javascript:;">忘记密码</a>
+          </div>
+          <button class="btn-down login-btn" type="submit">注册</button>
+          <div class="free-register">
+            <a href="javascript:;">免费注册</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 内容end -->
+
+<!-- build:footer -->
+
+<!-- endbuild -->
+
+
+
+
+<!-- build:layout_js -->
+
+<!-- endbuild -->
+
+
+
+<script src="/js/vendor/parsley/parsley.min.js" th:src="@{/js/vendor/parsley.min.js}"></script>
+<script src="/js/vendor/parsley/i18n/zh_cn.js" th:src="@{/js/vendor/parsley/i18n/zh_cn.js}"></script>
+<script src="/js/login.min.js" th:src="@{/js/login.min.js}"></script>
+</body>
+</html>

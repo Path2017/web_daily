@@ -1,0 +1,196 @@
+<!-- build:layout_head --><!-- endbuild -->
+  <link rel="stylesheet" href="../../../css/exhibitor.min.css" th:href="@{/css/exhibitor.min.css}">
+  <link rel="stylesheet" href="../../../css/timechoose.css" th:href="@{/css/timechoose.css}">
+  <link rel="stylesheet" href="../../css/parsley.min.css" th:href="@{/css/parsley.min.css}">
+</head>
+
+<body>
+  <!-- build:header -->
+  
+  <!-- endbuild -->
+
+
+  <div class="boxwrap clearfix">
+    <div class="pr-nav">
+      <span class="nav-prve">个人中心</span>&gt;<span class="nav-next">发布需求</span>
+    </div>
+    <div class="pr-box">
+      <div class="pr-menu">
+        <div class="menu-first current-select">
+          <span class="menu-cicle">1</span><span class="menu-dte">项目详情</span>
+        </div>
+        <div class="menu-leftline"></div>
+        <div class="menu-second">
+          <span class="menu-cicle">2</span><span class="menu-dte">设计需求</span>
+        </div>
+        <!-- <div class="menu-leftline"></div>
+        <div class="menu-third">
+          <span class="menu-cicle">3</span><span class="menu-dte">设计师类型</span>
+        </div> -->
+      </div>
+      <!-- 第一步 项目详情 -->
+      <form id="step1form" action="#" th:action="@{/rfp/baseInfo}" method="post" enctype="multipart/form-data" data-parsley-validate="" data-parsley-trigger="focusout">
+        <div class="pr-content pqfirstep">
+          <div class="pr-mainbox">
+            <div class="pr-list">
+              <div class="pm-name">
+                <span>项目联系人</span>
+                <span class="pm-required">* 为必填项</span>
+              </div>
+              <div class="pr-tips">
+                <div class="tips-left"><span class="tips-required">*</span>公司名称：</div>
+                <div class="tips-right">
+                  <span class="tr-neme">某某某展览有限公司某某某展览有限公司某某某展览有限公司某某某展览有限公司某某某展览有限公司</span>
+                  <span class="tr-edit"><img src="../../../img/edit_name.png" alt="" th:src="@{/img/edit_name.png}"></span>
+                </div>
+              </div>
+              <div class="pr-tips">
+                <div class="tips-left"><span class="tips-required">*</span>联系人：</div>
+                <div class="tips-right">
+                  <input class="tips-input" required type="text" placeholder="项目联系人" name="linkmanName">
+                </div>
+              </div>
+              <div class="pr-tips">
+                <div class="tips-left"><span class="tips-required">*</span>联系电话：</div>
+                <div class="tips-right">
+                  <input class="tips-input" required type="text" placeholder="输入11位手机号码" name="linkmanPhone"pattern="/^1[34578]\d{9}$/" data-parsley-pattern-message="<i class='erricon'>\</i>输入11位手机号码">
+                </div>
+              </div>
+              <div class="pr-tips">
+                <div class="tips-left"><span class="tips-required">*</span>工作邮箱：</div>
+                <div class="tips-right">
+                  <input class="tips-input" required type="email" type="text" placeholder="稿件邮箱" name="linkmanEmail">
+                </div>
+              </div>
+              <div class="pr-tips">
+                <div class="tips-left"></div>
+                <div class="tips-right">
+                  <span class="tips-btn" style="display:none">保存联系人</span>
+                </div>
+              </div>
+              <div class="bto-boder"></div>
+            </div>
+            <div class="pr-list">
+              <div class="pm-name">
+                <span>展会详情</span>
+              </div>
+              <div class="pr-tips">
+                <div class="tips-left"><span class="tips-required">*</span>参展商名称：</div>
+                <div class="tips-right">
+                  <input class="tips-input" required type="text" placeholder="可填写参展公司名称" name="exhibitorName">
+                </div>
+              </div>
+              <div class="pr-tips">
+                <div class="tips-left"><span class="tips-required"></span>相关网站：</div>
+                <div class="tips-right">
+                  <input class="tips-input" data-parsley-type="url" type="text" placeholder="可选填参展公司官网" name="companyWebsite">
+                </div>
+              </div>
+              <div class="pr-tips">
+                <div class="tips-left"><span class="tips-required">*</span>展会名称：</div>
+                <div class="tips-right">
+                  <input class="tips-input" required type="text" placeholder="输入展会名称" name="exhibitionName">
+                </div>
+              </div>
+              <div class="pr-tips">
+                <div class="tips-left"><span class="tips-required">*</span>举办城市：</div>
+                <div class="tips-right">
+                  <input class="tips-input" required type="text" placeholder="" name="exhibitionCity">
+                </div>
+              </div>
+              <div class="pr-tips">
+                <div class="tips-left"><span class="tips-required">*</span>展馆名称：</div>
+                <div class="tips-right">
+                  <input class="tips-input" required type="text" placeholder="" name="exhibitionHall">
+                </div>
+              </div>
+              <div class="pr-tips">
+                <div class="tips-left"><span class="tips-required">*</span>展台号：</div>
+                <div class="tips-right">
+                  <input class="tips-input" required type="text" placeholder="" name="boothNo">
+                </div>
+              </div>
+              <div class="pr-tips tips-upload">
+                <div class="tips-left"><span class="tips-required"></span>展会平面图：</div>
+                <div class="tips-right">
+                  <div class="tips-imgbox">
+                    <span class="delete">×</span>
+                    <span class="input-add tips-add">+</span>
+                    <img src="" alt="">
+                    <input class="tips-img" type="file" name="representativeWork" data-parsley-trigger="null">
+                  </div>
+                </div>
+              </div>
+              <div class="pr-tips">
+                <div class="tips-left"><span class="tips-required">*</span>展台面积：</div>
+                <div class="tips-right">
+                  <span class="fa no-errcue">
+                    <input class="tips-area" required data-parsley-type="integer" placeholder="" name="boothWidth">
+                    <span class="unit">m</span>
+                  </span>
+                  <span class="tips-areadd">X</span>
+                  <span class="fa">
+                    <input class="tips-area" required data-parsley-type="integer" placeholder="" name="boothLength">
+                    <span class="unit">m</span>
+                  </span>
+                </div>
+              </div>
+              <div class="pr-tips">
+                <div class="tips-left"><span class="tips-required">*</span>展台限高：</div>
+                <div class="tips-right">
+                  <input class="tips-input" required type="number" placeholder="" name="boothLimitHeight">
+                </div>
+              </div>
+              <div class="pr-tips pr-money">
+                <div class="tips-left"><span class="tips-required">*</span>整体预算：</div>
+                <div class="tips-right">
+                  <input class="tips-moninput" required type="text" placeholder="" name="budget">
+                </div>
+              </div>
+              <div class="bto-boder"></div>
+            </div>
+            <div class="pr-list">
+              <div class="pm-name">
+                <span>期待交稿日期</span>
+              </div>
+              <div class="pr-tips">
+                <div class="tips-left"><span class="tips-required">*</span>概念设计交稿日期：</div>
+                <div class="tips-right">
+                  <input class="tips-input date_picker" required type="text" placeholder="" name="exhibitorName1">
+                </div>
+              </div>
+              <div class="pr-tips">
+                <div class="tips-left"><span class="tips-required">*</span>施工图设计交稿日期：</div>
+                <div class="tips-right">
+                  <input class="tips-input date_picker" required type="text" placeholder="" name="exhibitorName2">
+                </div>
+              </div>
+            </div>
+            <div class="pr-subtn-box">
+              <div class="pr-saveorder"><img src="../../../img/saveorder.png" th:src="@{/img/saveorder.png}" alt="">保存需求</div>
+              <!-- <div class="pr-submitBtn" id="pqfirstep">下一步</div> -->
+              <button type="submit" class="pr-submitBtn" id="pqfirstep">下一步</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- build:footer -->
+  
+  <!-- endbuild -->
+
+
+  <!-- build:layout_js -->
+  
+  <!-- endbuild -->
+
+
+  <script src="../../../js/vendor/jquery.date_input.pack.js" th:src="@{/js/vendor/jquery.date_input.pack.js}"></script>
+  <script src="../../../js/post_requirement.js" th:src="@{/js/post_requirement.js}"></script>
+  <script src="../../../js/vendor/jscolor.js" th:src="@{/js/vendor/jscolor.js}"></script>
+  <script src="../../js/vendor/parsley/parsley.min.js" th:src="@{/js/vendor/parsley/parsley.min.js}"></script>
+  <script src="../../js/vendor/parsley/i18n/zh_cn.js" th:src="@{/js/vendor/parsley/i18n/zh_cn.js}"></script>
+</body>
+
+</html>

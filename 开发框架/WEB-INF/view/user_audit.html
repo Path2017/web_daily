@@ -1,0 +1,63 @@
+<!-- build:layout_head --><!-- endbuild -->
+  <link rel="stylesheet" href="/css/login.min.css" th:href="@{/css/login.min.css}">
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+  <!-- build:header -->
+  
+  <!-- endbuild -->
+
+
+  <!-- 内容 -->
+  <div class="ps-center-wp">
+    <div class="ps-center">
+      <div class="ps-head clearfix">
+        <span class="ft-l hd-company">笔克展览展示有限公司</span>
+        <a class="ft-r edit-data-a" href="javascript:;">编辑资料 &gt;</a>
+      </div>
+      <div class="orderstate-wp clearfix">
+        <ul class="ft-l clearfix state-ul">
+          <li class="ft-l">
+            <a href="javascript:;">进行中的订单
+              <span class="ordernum"></span>
+            </a>
+          </li>
+          <li class="ft-l">
+            <a href="javascript:;">订单完成</a>
+          </li>
+        </ul>
+        <a class="newrequirement-btn ft-r position-r" href="javascript:;">发布新需求</a>
+        <div class="saveorder ft-r">
+          <a href="">已保存需求
+            <span class="ordernum"></span>
+          </a>
+        </div>
+      </div>
+      <!-- 个人中心 空 -->
+      <div class="empty-ct">
+        <img class="empty-icon" src="/img/empty.png" th:src="@{/img/empty.png}" alt="">
+        <p class="empty-say">目前您还没有通过平台认证审核，认证后您可以开始发布展装设计需求。</p>
+        <div class="backhome">返回平台首页</div>
+        <p class="empty-say">很抱歉，您的资料审核未通过。</p>
+        <div class="backhome">去修改并重新提交</div>
+      </div>
+      <!-- 个人中心 空 end -->
+    </div>
+  </div>
+  <!-- 内容end -->
+  <!-- build:footer -->
+  
+  <!-- endbuild -->
+
+
+  <!-- build:layout_js -->
+  
+  <!-- endbuild -->
+
+
+</body>
+
+</html>

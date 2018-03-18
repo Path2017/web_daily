@@ -1,0 +1,652 @@
+<!-- build:layout_head --><!-- endbuild -->
+  <link rel="stylesheet" href="../../../css/exhibitor.min.css" th:href="@{/css/exhibitor.min.css}">
+  <link rel="stylesheet" href="../../../css/timechoose.css" th:href="@{/css/timechoose.css}"> 
+</head>
+
+<body>
+  <!-- build:header -->
+  
+  <!-- endbuild -->
+
+
+  <div class="boxwrap clearfix">
+    <div class="pr-nav">
+      <span class="nav-prve">个人中心</span>&gt;<span class="nav-next">发布需求</span>
+    </div>
+    <div class="pr-box">
+      <div class="pr-menu">
+        <div class="menu-first current-select">
+          <span class="menu-cicle">1</span><span class="menu-dte">项目详情</span>
+        </div>
+        <div class="menu-leftline"></div>
+        <div class="menu-second">
+          <span class="menu-cicle">2</span><span class="menu-dte">设计需求</span>
+        </div>
+        <div class="menu-leftline"></div>
+        <div class="menu-third">
+          <span class="menu-cicle">3</span><span class="menu-dte">设计师类型</span>
+        </div>
+      </div>
+      <!-- 第一步 项目详情 -->
+      <div class="pr-content pqfirstep">
+        <div class="pr-mainbox">
+          <div class="pr-list">
+            <div class="pm-name">
+              <span>项目联系人</span>
+              <span class="pm-required">* 为必填项</span>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"><span class="tips-required">*</span>公司名称：</div>
+              <div class="tips-right">
+                <span class="tr-neme">某某某展览有限公司某某某展览有限公司某某某展览有限公司某某某展览有限公司某某某展览有限公司</span>
+                <span class="tr-edit"><img src="../../../img/edit_name.png" th:src="@{/img/edit_name.png}" alt=""></span>
+              </div>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"><span class="tips-required">*</span>联系人：</div>
+              <div class="tips-right">
+                <input class="tips-input" type="text" placeholder="项目联系人">
+              </div>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"><span class="tips-required">*</span>联系电话：</div>
+              <div class="tips-right">
+                <input class="tips-input" type="text" placeholder="输入11位手机号码">
+              </div>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"><span class="tips-required">*</span>工作邮箱：</div>
+              <div class="tips-right">
+                <input class="tips-input" type="text" placeholder="稿件邮箱">
+              </div>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"></div>
+              <div class="tips-right">
+                <span class="tips-btn" style="display:none">保存联系人</span>
+              </div>
+            </div>
+            <div class="bto-boder"></div>
+          </div>
+          <div class="pr-list">
+            <div class="pm-name">
+              <span>展会详情</span>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"><span class="tips-required">*</span>参展商名称：</div>
+              <div class="tips-right">
+                <input class="tips-input" type="text" placeholder="可填写参展公司名称">
+              </div>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"><span class="tips-required"></span>相关网站：</div>
+              <div class="tips-right">
+                <input class="tips-input" type="text" placeholder="可选填参展公司官网">
+              </div>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"><span class="tips-required">*</span>展会名称：</div>
+              <div class="tips-right">
+                <input class="tips-input" type="text" placeholder="输入展会名称">
+              </div>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"><span class="tips-required">*</span>举办城市：</div>
+              <div class="tips-right">
+                <input class="tips-input" type="text" placeholder="">
+              </div>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"><span class="tips-required">*</span>展馆名称：</div>
+              <div class="tips-right">
+                <input class="tips-input" type="text" placeholder="">
+              </div>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"><span class="tips-required">*</span>展台号：</div>
+              <div class="tips-right">
+                <input class="tips-input" type="text" placeholder="">
+              </div>
+            </div>
+            <div class="pr-tips tips-upload">
+              <div class="tips-left"><span class="tips-required"></span>展会平面图：</div>
+              <div class="tips-right">
+                <div class="tips-imgbox">
+                  <img src="" alt="">
+                  <input class="tips-img" type="file">
+                  <span class="tips-add">+</span>
+                </div>
+              </div>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"><span class="tips-required">*</span>展台面积：</div>
+              <div class="tips-right">
+                <input class="tips-area" type="text" placeholder="">m
+                <span class="tips-areadd">X</span>
+                <input class="tips-area" type="text" placeholder="">m
+              </div>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"><span class="tips-required">*</span>展台限高：</div>
+              <div class="tips-right">
+                <input class="tips-input" type="text" placeholder="">
+              </div>
+            </div>
+            <div class="pr-tips pr-money">
+              <div class="tips-left"><span class="tips-required">*</span>整体预算：</div>
+              <div class="tips-right">
+                <input class="tips-moninput" type="text" placeholder="">
+              </div>
+            </div>
+          </div>
+          <div class="pr-submitBtn" id="pqfirstep">下一步</div>
+        </div>
+      </div>
+      <!-- 第二步 设计需求 -->
+      <div class="pr-content pqsenstep">
+        <div class="pr-mainbox">
+          <!-- 设计需求 begin -->
+          <div class="pr-list">
+            <div class="pm-name">
+              <span class="dsname">设计需求</span>
+              <span class="pm-required">* 为必填项</span>
+            </div>
+            <div class="ds-tips">
+              <div class="ds-tipsleft"><span class="tips-required">*</span>展台开口：</div>
+              <div class="ds-tipsright" id="dstype1">
+                <div class="select-box nowselect">
+                  <img src="../../../img/openleft.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">单面开口</span>
+                </div>
+                <div class="select-box">
+                  <img src="../../../img/openleftcopy.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">双面开口</span>
+                </div>
+                <div class="select-box">
+                  <img src="../../../img/open3.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">三面开口</span>
+                </div>
+                <div class="select-box">
+                  <img src="../../../img/open4.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">四面开口</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-tips">
+              <div class="ds-tipsleft"><span class="tips-required"></span>特殊需求：</div>
+              <div class="ds-tipsright" id="dstype2">
+                <div class="select-box nowselect">
+                  <img src="../../../img/sp1.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">双层结构</span>
+                </div>
+                <div class="select-box">
+                  <img src="" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">吊顶</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-tips">
+              <div class="ds-tipsleft"><span class="tips-required">*</span>主体结构：</div>
+              <div class="ds-tipsright" id="dstype3">
+                <div class="select-box nowselect">
+                  <img src="../../../img/main1.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">木质</span>
+                </div>
+                <div class="select-box">
+                  <img style="width:70px" src="../../../img/main2.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">桁架</span>
+                </div>
+                <div class="select-box">
+                  <img style="width:50px" src="../../../img/main3.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">型材</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-tips">
+              <div class="ds-tipsleft"><span class="tips-required"></span>备注：</div>
+              <div class="ds-tipsright">
+                <input class="ds-remarks" type="text" placeholder="如:木材桁架混合结构">
+              </div>
+            </div>
+            <div class="ds-tips">
+              <div class="ds-tipsleft"><span class="tips-required">*</span>材质：</div>
+              <div class="ds-tipsright" id="dstype4">
+                <div class="select-box nowselect">
+                  <img src="../../../img/main1.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">涂料</span>
+                </div>
+                <div class="select-box">
+                  <img style="width:70px" src="../../../img/main2.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">烤漆</span>
+                </div>
+                <div class="select-box">
+                  <img style="width:50px" src="../../../img/mt3.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">防火板</span>
+                </div>
+                <div class="select-box">
+                  <img style="width:50px" src="../../../img/mt4.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">即时贴</span>
+                </div>
+              </div>
+            </div>
+            <div class="ds-tips">
+              <div class="ds-tipsleft"><span class="tips-required">*</span>展台主体颜色：</div>
+              <div class="ds-tipsright">
+                <input class="ds-color jscolor {position:'bottom'}" type="text" placeholder="色板选择">
+                <span class="ds-colorname">辅助颜色：</span>
+                <input class="ds-color jscolor {position:'bottom'}" type="text" placeholder="色板选择">
+              </div>
+            </div>
+            <div class="ds-tips">
+              <div class="ds-tipsleft"><span class="tips-required"></span>备注：</div>
+              <div class="ds-tipsright">
+                <input class="ds-colorremarks" type="text" placeholder="如，logo色，金属色，CMYK色值等">
+              </div>
+            </div>
+            <div class="ds-tips">
+              <div class="ds-tipsleft"><span class="tips-required">*</span>相关logo：</div>
+              <div class="ds-tipsright">
+                <div class="ex-inputbox bgc-new">
+                  <img src="" alt="">
+                  <input class="ex-input" type="file">
+                  <span class="ex-inputadd">+</span>
+                </div>
+              </div>
+            </div>
+            <!-- 选填资料 -->
+            <div class="ds-optional">
+              <div class="optional-title"><span class="ds-optionalname">选填资料：</span><span class="ds-optionalmain">特殊要求，CI规范、过往展台照片、图片海报，资料越完善越有利于设计。</span>
+                <!-- 展开- class:dsopen 合上 - class:dsclose -->
+                <span class="dstoggle" id="dsopen"><span class="ds-optionalmore">展开</span><span class="dsclose" id="openstatus"></span></span>
+              </div>
+              <div id="dsclose">
+                <div class="op-tips">
+                  <div class="optips-name">特殊要求及注意事项：</div>
+                  <div class="optips-content">
+                    <textarea class="optips-teatarea" name="" id="" cols="" rows="" placeholder="可以补充完整您的特殊要求，以便设计师更好的了解您的准确需求。"></textarea>
+                  </div>
+                </div>
+                <div class="op-tips">
+                  <div class="optips-name">其他参考资料：</div>
+                  <div class="optips-content optips-requiredmes">格式限制：JPG/PNG/PDF/JPEG 单张大小限制：200M</div>
+                </div>
+                <div class="op-tips">
+                  <div class="optips-name">CI规范：</div>
+                  <div>
+                    <div class="ex-inputbox bgc-ori">
+                      <img src="" alt="">
+                      <input class="ex-input" type="file">
+                      <span class="ex-inputadd">+</span>
+                    </div>
+                  </div>
+                  <div class="optips-name">图片/海报：</div>
+                  <div>
+                    <div class="ex-inputbox bgc-ori">
+                      <img src="" alt="">
+                      <input class="ex-input" type="file">
+                      <span class="ex-inputadd">+</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="op-tips">
+                  <div class="optips-name">过往展台照片：</div>
+                  <div>
+                    <div class="ex-inputbox bgc-ori">
+                      <img src="" alt="">
+                      <input class="ex-input" type="file">
+                      <span class="ex-inputadd">+</span>
+                    </div>
+                  </div>
+                  <div class="optips-name">其他：</div>
+                  <div>
+                    <div class="ex-inputbox bgc-ori">
+                      <img src="" alt="">
+                      <input class="ex-input" type="file">
+                      <span class="ex-inputadd">+</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="optional-btoborder"></div>
+          </div>
+          <!-- 设计需求 end -->
+          <!-- 功能区域 begin -->
+          <div class="pr-list" id="dstype5">
+            <div class="pm-name">
+              <span class="dsname">功能区域</span>
+              <span class="pm-required">需要至少一项</span>
+            </div>
+            <div class="pm-selectlist">
+              <div class="fm-feature">
+                <div class="select-box">
+                  <img src="../../../img/openleftcopy.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">接待区</span>
+                </div>
+                <div class="fe-checkbox">
+                  <div class="fe-addbox"><span class="fm-des">-</span><span class="fm-num">1</span><span class="fm-add">+</span></div>
+                  <div></div>
+                </div>
+              </div>
+              <div class="fm-feature">
+                <div class="select-box">
+                  <img src="../../../img/openleftcopy.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">产品区</span>
+                </div>
+                <div class="fe-checkbox">
+                  <div class="fe-addbox"><span class="fm-des">-</span><span class="fm-num">1</span><span class="fm-add">+</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="pm-selectlist">
+              <div class="fm-feature one-width">
+                <div class="select-box">
+                  <img src="../../../img/openleftcopy.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">会议洽谈桌椅</span>
+                </div>
+                <div class="fe-checkbox">
+                  <div class="fe-rightselect">
+                    <div class="fe-addbox"><span class="fm-des">-</span><span class="fm-num">1</span><span class="fm-add">+</span></div>
+                    <div class="fr-check">
+                      <label for="close">
+                        <input type="checkbox" id="close"><span class="dec-checkbox"><span></span></span>封闭式
+                      </label>
+                    </div>
+                  </div>
+                  <div class="fe-rightselect">
+                    <div class="fe-addbox"><span class="fm-des">-</span><span class="fm-num">1</span><span class="fm-add">+</span></div>
+                    <div class="fr-check">
+                      <label for="halfclose">
+                        <input type="checkbox" id="halfclose"><span class="dec-checkbox"><span></span></span>半封闭式
+                      </label>
+                    </div>
+                  </div>
+                  <div class="fe-btobox">
+                    <input class="fe-othbtobox" type="text" placeholder="备注：颜色、品质等">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pm-selectlist">
+              <div class="fm-feature">
+                <div class="select-box">
+                  <img src="../../../img/openleftcopy.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">电子展示</span>
+                </div>
+                <div class="fe-checkbox">
+                  <div class="fe-rightselect">
+                    <div class="fe-addbox"><span class="fm-des">-</span><span class="fm-num">1</span><span class="fm-add">+</span></div>
+                  </div>
+                  <div class="fe-rightselect">
+                    <div class="fe-addbox"><span class="fm-des">-</span><span class="fm-num">1</span><span class="fm-add">+</span></div>
+                  </div>
+                  <div class="fe-btobox">
+                    <input class="fel-othbtobox" type="text" placeholder="可输入其他设备">
+                  </div>
+                </div>
+              </div>
+              <div class="fm-feature">
+                <div class="select-box">
+                  <img src="../../../img/openleftcopy.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">其他设备</span>
+                </div>
+                <div class="fe-checkbox">
+                  <div class="fel-check">
+                    <label for="refrigerator">
+                      <input type="checkbox" id="refrigerator"><span class="dec-checkbox"><span></span></span>冰箱
+                    </label>
+                  </div>
+                  <div class="fel-check">
+                    <label for="drinking">
+                      <input type="checkbox" id="drinking"><span class="dec-checkbox"><span></span></span>饮水机
+                    </label>
+                  </div>
+                  <div class="fel-btobox">
+                    <input class="fel-othbtobox" type="text" placeholder="其他设备">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pm-selectlist">
+              <div class="fm-feature">
+                <div class="select-box">
+                  <img src="../../../img/openleftcopy.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">海报展示</span>
+                </div>
+                <div class="fe-checkbox">
+                  <div class="fe-addbox"><span class="fm-des">-</span><span class="fm-num">1</span><span class="fm-add">+</span></div>
+                </div>
+              </div>
+              <div class="fm-feature">
+                <div class="select-box">
+                  <img src="../../../img/openleftcopy.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">储藏区</span>
+                </div>
+                <div class="fe-checkbox">
+                  <div class="">
+                    <div class="fe-addbox"><span class="fm-des">-</span><span class="fm-num">1</span><span class="fm-add">+</span></div>
+                  </div>
+                  <div class="fe-rightselect area-font">
+                    <input type="text" class="area-add">m<span class="area-mul">X</span><input type="text" class="area-add">m
+                  </div>
+                  <div class="fel-btobox">
+                    <input class="fel-othbtobox" type="text" placeholder="其他设备">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pm-selectlist">
+              <div class="fm-feature one-width">
+                <div class="select-box">
+                  <img src="../../../img/openleftcopy.png" alt="">
+                  <span class="select-sure">√</span>
+                  <span class="select-name">活动区</span>
+                </div>
+                <div class="fe-checkbox">
+                  <div class="fe-rightselect">
+                    <div class="fe-addbox"><span class="fm-des">-</span><span class="fm-num">1</span><span class="fm-add">+</span></div>
+                  </div>
+                  <div class="fe-rightselect area-font">
+                    <input type="text" class="area-add">m<span class="area-mul">X</span><input type="text" class="area-add">m
+                  </div>
+                  <div class="fe-btobox">
+                    <input class="fe-othbtobox" type="text" placeholder="输入活动主题等相关内容">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fm-btoborder"></div>
+          </div>
+          <!-- 功能区域 end -->
+          <div class="pr-list">
+            <div class="ds-ideaname">
+              <span class="di-title">参展理念</span><span class="di-other">选填</span>
+              <!-- 展开- class:dsopen 合上 - class:dsclose -->
+              <span class="di-right" id="dsopen2">
+                <span class="di-open">展开</span>
+              <span class="dsclose" id="openstatus2"></span>
+              </span>
+            </div>
+            <div class="di-content" id="dsclose2">
+              <div class="clearfix">
+                <div class="ds-tipsleft"><span class="tips-required"></span>展览目标：</div>
+                <div class="ds-tipsright">
+                  <div class="ds-target">
+                    <label><input name="target" type="checkbox" value="" />品牌推广</label>
+                    <label><input name="target" type="checkbox" value="" />产品展示</label>
+                    <label><input name="target" type="checkbox" value="" />新品发布</label>
+                    <label><input name="target" type="checkbox" value="" />现场销售</label>
+                  </div>
+                  <div><input class="dt-input" type="text" placeholder="输入其他"></div>
+                </div>
+              </div>
+              <div class="clearfix">
+                <div class="ds-tipsleft"><span class="tips-required"></span>目标观众：</div>
+                <div class="ds-tipsright">
+                  <div class="ds-target">
+                    <label><input name="audience" type="checkbox" value="" />大众消费者</label>
+                    <label><input name="audience" type="checkbox" value="" />国内买家</label>
+                    <label><input name="audience" type="checkbox" value="" />国外买家</label>
+                    <label><input name="audience" type="checkbox" value="" />专业观众</label>
+                    <label><input name="audience" type="checkbox" value="" />受邀嘉宾</label>
+                  </div>
+                  <div><input class="dt-input" type="text" placeholder="输入其他"></div>
+                </div>
+              </div>
+              <div class="clearfix">
+                <div class="ds-tipsleft"><span class="tips-required"></span>产品描述：</div>
+                <div class="ds-tipsright">
+                  <textarea class="ds-prodes" name="" id="" cols="" rows="" placeholder="小于200个字符"></textarea>
+                </div>
+              </div>
+              <div class="clearfix">
+                <div class="ds-tipsleft"><span class="tips-required"></span>竞争对手：</div>
+                <div class="ds-tipsright">
+                  <div><input class="dt-input" type="text" placeholder="可输入品牌相关对手等，小于40个字符"></div>
+                </div>
+              </div>
+              <div class="clearfix">
+                <div class="ds-tipsleft"><span class="tips-required"></span>参展主题slogan：</div>
+                <div class="ds-tipsright">
+                  <div><input class="dt-input" type="text" placeholder="可选填品牌slogan等，小于40个字符"></div>
+                </div>
+              </div>
+              <div class="clearfix">
+                <div class="ds-tipsleft"><span class="tips-required"></span>建议设计理念：</div>
+                <div class="ds-tipsright">
+                  <div><input class="dt-input" type="text" placeholder="小于60个字符"></div>
+                </div>
+              </div>
+            </div>
+            <div class="di-btoborder"></div>
+            <div>
+              <div class="ds-subtn" id="pqsenstep">下一步</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 第三步 设计师类型 -->
+      <div class="pr-content pqthdstep">
+        <div class="pr-mainbox">
+          <div class="pr-list clearfix">
+            <div class="pm-name">
+              <span>设计师类型</span>
+              <span class="pm-required">* 为必填项</span>
+            </div>
+            <div class="pr-tips clearfix">
+              <div class="tips-left"><span class="tips-required"></span>设计师类型：</div>
+              <div class="des-inputbox" id="desCheck">
+                <label for="des1" class="des-input">
+                    <input name="designer" type="radio" id="des1"><span class="dec-checkbox"><span></span></span>设计师
+                </label>
+                <label for="des2" class="des-input">
+                    <input name="designer" class="des-input" type="radio" id="des2"><span class="dec-checkbox"><span></span></span>资深设计师
+                </label>
+                <label for="des3" class="des-input">
+                    <input name="designer" class="des-input" type="radio" id="des3"><span class="dec-checkbox"><span></span></span>首席设计师/工作室设计师
+                </label>
+              </div>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"><span class="tips-required"></span>初稿期望交稿日期：</div>
+              <div class="tips-right">
+                <input class="tips-input date_picker" type="text" placeholder="选择日期">
+              </div>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"><span class="tips-required"></span>概念设计稿数：</div>
+              <div class="tips-right">
+                <div class="fe-addbox mt-ds"><span class="fm-des">-</span><span class="fm-num">1</span><span class="fm-add">+</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pr-list">
+            <div class="system-box">
+              <div class="sys-list">
+                <ul>
+                  <li>设计计费系统：</li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="sys-list">
+                <ul>
+                  <li>设计师（费用）</li>
+                  <li>设计师</li>
+                  <li>300</li>
+                </ul>
+              </div>
+              <div class="sys-list">
+                <ul>
+                  <li>概念设计（稿数）</li>
+                  <li></li>
+                  <li>2</li>
+                </ul>
+              </div>
+              <div class="sys-list">
+                <ul>
+                  <li>深化设计（稿数）</li>
+                  <li></li>
+                  <li>1</li>
+                </ul>
+              </div>
+              <div class="sys-list">
+                <ul>
+                  <li>施工图设计（稿数）</li>
+                  <li></li>
+                  <li>1</li>
+                </ul>
+              </div>
+              <hr>
+              <div class="sys-num">
+                <span>总计：¥</span><span class="num-total">1200</span>
+              </div>
+            </div>
+          </div>
+          <div class="thd-btobox">
+            <div class="thd-remarks">发布需求后，系统将为您匹配相关设计师</div>
+            <div class="thd-back clearfix">
+              <span id="backforward">返回上一步</span>
+              <span>发布需求</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- build:footer -->
+  
+  <!-- endbuild -->
+
+
+  <!-- build:layout_js -->
+  
+  <!-- endbuild -->
+
+
+  <script src="../../../js/vendor/jscolor.js" th:src="@{/js/vendor/jscolor.js}"></script>
+  <script src="../../../js/vendor/jquery.date_input.pack.js" th:src="@{/js/vendor/jquery.date_input.pack.js}"></script>
+  <script src="../../../js/post_requirement.min.js" th:src="@{/js/post_requirement.min.js}"></script>
+</body>
+
+</html>
