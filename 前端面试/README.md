@@ -16,3 +16,4 @@ typeof('[]'):"object",
 typeof('{}'):"object",
 typeof(console.log):"function"
 ```
+3. 
