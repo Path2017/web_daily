@@ -132,7 +132,10 @@ Error
 ```
 5. 如何理解JSON
 ```javascript
-
+JSON 是一个js的对象也是一种数据格式
+具有2个API
+JSON.stringfy({a:12,b:20}) // 把对象变成字符串
+JSON.parse('{"a":12,"b":20}') //把字符串转换成对象
 ```
 
 
