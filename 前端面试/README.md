@@ -227,8 +227,23 @@ f.printName = function(){
 f.printName()
 f.alertName()
 ---
+this的指向 调用的对象自身 this指向f
+// 遍历对象具有的属性
+var item
+for(item in f){
+  // 高级浏览器已经在 for in 中屏蔽了来自原型的属性
+  // 但是这里建议还是加上这个判断，保证程序的健壮性
+  if(f.hasOwnProperty(item)){
+    console.log(item)
+  }
+}
 ```
-
+4. 原型链
+```javascript
+f.toString()
+f自身没有toString这个方法，所以去它的__proto__中找，即去Foo的prototype中找，
+Foo的protype中没有这个属性，则去Foo的__proto__中寻找，即去Foo的构造函数Object的prototype中找
+```
 
 
 
