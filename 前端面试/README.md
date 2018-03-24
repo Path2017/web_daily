@@ -44,7 +44,48 @@ typeof []  // object
 typeof null // object
 typeof function // function
 
-typeof 只能区分值类型的详细类型，对于引用类型无法区分具体类型。但对于js函数而言，函数是一个特殊的引用类型，在js中有很高的地位，所以typeof能区分出来
+typeof 只能区分值类型的详细类型，对于引用类型无法区分具体类型。
+但对于js函数而言，函数是一个特殊的引用类型，在js中有很高的地位，所以typeof能区分出来
+```
+* 变量计算-强制类型转换
+```javascript
+类型转换：
+字符串拼接
+== 运算符
+if 语句
+逻辑运算
+
+// 字符串拼接时，类型转换
+var a = 100 + 10 // 110
+var b = 100 + '10' // 10010
+// == 运算符
+100 == '100'  // true 
+0 == ''   // true 0和空字符串都转换成false
+null == undefined // true
+// if语句
+var a = true
+if(a){
+  ...
+}
+
+var b = 100
+if(b){ // b转换成true
+  ...
+}
+
+var c = ''
+if(c){ // c转换成false
+  ...
+}
+
+// 逻辑运算
+console.log(10&&0) // 0
+console.log(''||'abc') // 'abc'
+console.log(!window.abc)  // true
+
+判断一个变量会被当作ture还是false的方法
+var d = 100
+console.log(!!d) // true
 ```
 
 
