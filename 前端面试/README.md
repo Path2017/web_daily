@@ -163,8 +163,52 @@ function Foo(name,age){
 }
 var f = new Foo('zhangsan',20) // 通过构造函数 可以new创建很多个对象
 
-```
+new一个构造函数返回一个对象的过程：
+1.把参数传到构造函数，如果没有参数的话就不用传到构造函数
+2.首先把this变成一个空对象
+3.属性的赋值
+4.return this
 
+这个时候返回的对象就具有构造函数的属性
+```
+2. 构造函数-扩展
+```javascript
+· var a = {} 其实是 var a = new Object()的语法糖
+· var a =  [] 其实是 var a = new Array()的语法糖
+· function Foo{...} 其实是 var Foo = new Function(...)
+· 使用instanceof 判断一个函数是否是一个变量的构造函数
+```
+3. 原型规则和示例
+```javascript
+5条原型规则
+原型规则是学习原型链的基础
+1.所有引用类型（数组、对象、函数），都具有对象特性，即可以自由扩展属性（除了“null”之外）
+---
+var obj = {};obj.a = 100;
+var arr = [];arr.a = 100;
+function fn (){
+
+}
+fn.a = 100;
+---
+2.所有的引用类型（数组、对象、函数），都有一个__proto__属性，属性值是一个普通的对象
+---
+__proto__ ：隐式原型
+console.log(obj.__proto__)
+console.log(arr.__proto__)
+console.log(fn.__proto__)
+---
+3.所有的函数，都有一个prototype属性，属性值也是一个普通对象
+---
+prototype ：显式原型
+console.log(fn.prototype)
+---
+4.所有的引用类型（数组、对象、函数），__proto__属性值指向它的构造函数的"prototype"属性值
+---
+console.log(obj.__proto__ === Object.prototype)
+---
+5.当试图得到一个对象的某个属性时，如果这个对象本身没有这个属性，那么会去它的__proto__（即它的构造函数的prototype）中去寻找
+```
 
 
 
