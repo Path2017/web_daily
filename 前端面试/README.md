@@ -208,6 +208,25 @@ console.log(fn.prototype)
 console.log(obj.__proto__ === Object.prototype)
 ---
 5.当试图得到一个对象的某个属性时，如果这个对象本身没有这个属性，那么会去它的__proto__（即它的构造函数的prototype）中去寻找
+---
+// 构造函数
+function Foo(name,age){
+  this.name = name;
+  this.age = age;
+  return this
+}
+Foo.prototype.alertName = function(){
+  alert(this.name)
+}
+// 创建实例
+var f = new Foo('zhangsan)
+f.printName = function(){
+  console.log(this.name)
+}
+// 测试
+f.printName()
+f.alertName()
+---
 ```
 
 
