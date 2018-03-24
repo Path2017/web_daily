@@ -88,6 +88,55 @@ var d = 100
 console.log(!!d) // true
 ```
 
+#### 解答
+---
+1. Js中使用typeof能得到哪些类型
+```javascript
+6种类型
+typeof '123' //string
+typeof 12 // number
+typeof undefined // undefined
+typeof true // boolean
+typeof {} // object
+typeof [] // object
+typeof null // object
+typeof function // function
+```
+2. 何时使用 === 何时使用 ==
+```javascript
+除了判断一个引用类型是否具有某个属性用 == 其余均使用 ===
+
+if(obj.a == null){
+  // 这里相当于 obj.a == null || obj.a == undefined,简写形式
+  // 这里是jquery 源码推荐写法
+}
+```
+3. Js中有哪些内置函数--数据封装类对象
+```javascript
+总共9个函数
+Object
+Array
+Boolean
+Number
+String
+Function
+Date
+RegExp
+Error
+```
+4. Js按变量存储方式区分为哪些类型，并描述其特点
+```javascript
+值类型和引用类型
+值类型变量单独使用存储空间
+引用类型多个变量共用一个存储空间，使用时，是将变量指针指向对象
+```
+5. 如何理解JSON
+```javascript
+
+```
+
+
+
 
 
 
