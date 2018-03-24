@@ -6,7 +6,7 @@
 4. Js按变量存储方式区分为哪些类型，并描述其特点
 5. 如何理解JSON
 
-#### 基础知识点
+#### 知识点
 * 变量类型
 ```ruby
 变量类型分为：值类型和引用类型
@@ -243,6 +243,54 @@ for(item in f){
 f.toString()
 f自身没有toString这个方法，所以去它的__proto__中找，即去Foo的prototype中找，
 Foo的protype中没有这个属性，则去Foo的__proto__中寻找，即去Foo的构造函数Object的prototype中找
+```
+5. instanceof
+```javascript
+用于判断引用类型属于哪个构造函数
+
+var a = {}
+a instancsof Object  // true
+
+判断逻辑
+f instanceof Foo
+f的__proto__一层一层往上，能否对应到Foo.prototype
+再试着判断 f instanceof Object
+```
+#### 解答
+---
+1. 如何准确判断一个变量是数组类型
+```javascript
+var arr = []
+arr instanceof Array // true
+typeof arr // object
+```
+2. 写一个原型链继承的例子
+```javascript
+function Animal(){
+	this.eat = function(){
+		console.log('animal eat')
+	}
+}
+function Dog(){
+	this.bark = function(){
+		console.log('dog bark')
+	}
+}
+Dog.prototype = new Animal()
+var hashiqi = new Dog()
+hashiqi.eat() // animal eat
+```
+3. 描述new一个对象的过程
+```javascript
+· 创建一个新对象
+· this指向这个对象
+· 执行代码，即对this赋值
+· 返回this
+```
+4. zepto (或其他框架) 源码中如何使用原型链
+```javascript
+阅读源码是高效提高技能的方式
+<<zepto设计与源码分析>>
 ```
 
 
