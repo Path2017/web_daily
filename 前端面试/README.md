@@ -138,6 +138,33 @@ JSON.stringfy({a:12,b:20}) // 把对象变成字符串
 JSON.parse('{"a":12,"b":20}') //把字符串转换成对象
 ```
 
+### 原型和原型链
+---
+1. 如何准确判断一个变量是数组类型
+2. 写一个原型链继承的例子
+3. 描述new一个对象的过程
+4. zepto (或其他框架) 源码中如何使用原型链
+
+#### 知识点
+* 构造函数
+* 构造函数-扩展
+* 原型规则和示例
+* 原型链
+* instanceof
+---
+1. 构造函数
+```javascript 
+// 构造函数名首字母大写
+function Foo(name,age){
+  this.name = name
+  this.age = age
+  this.cllass = 'class-1'
+  // return this  //默认有return this
+}
+var f = new Foo('zhangsan',20) // 通过构造函数 可以new创建很多个对象
+
+```
+
 
 
 
