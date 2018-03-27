@@ -22,3 +22,7 @@ div1.html('hello world')
 div1.on('click',function(){
   alert('clicked')
 })
+
+// 链式操作
+div1.html('hello world').on('click',function(){
+  alert('clicked')})
