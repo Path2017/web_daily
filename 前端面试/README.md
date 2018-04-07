@@ -353,8 +353,17 @@ funtion fn(name){
 fn.call({x:100},"name":"zhang") // this== {x:100}
 ```
 3. 作用域
+```javascript
+js没有块级作用域，它只有函数和全局作用域
+```
 4. 作用域链
+```javascript
+
+```
 5. 闭包
+```javascript
+
+```
 
 ### 同步和异步
 ---
