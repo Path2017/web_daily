@@ -320,6 +320,38 @@ fn1()
 函数：变量定义、函数声明、this、arguments
 ```
 2. this
+```javascript
+this 要在执行时才能确认值，定义时无法确认
+作为构造函数执行
+作为对象属性执行
+作为普通函数执行
+call apply bind
+
+1.作为构造函数
+function Foo(name){
+  this.name = name
+}
+var f = new Foo('path')
+2.作为对象属性
+var obj = {
+  name:'A',
+  printName:function(){
+    console.log(this.name)
+  }
+}
+obj.printName()
+3.普通函数
+function fn(){
+  console.log(this) // 指向window
+}
+fn()
+4.call apply bind
+funtion fn(name){
+  alert(name)
+  console.log(this)
+}
+fn.call({x:100},"name":"zhang") // this== {x:100}
+```
 3. 作用域
 4. 作用域链
 5. 闭包
@@ -332,6 +364,7 @@ fn1()
 ---
 ```javascript
 js中3座大山：原型和原型链、作用域和闭包、同步和异步
+
 ```
 
 
