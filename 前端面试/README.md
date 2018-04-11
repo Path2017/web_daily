@@ -468,7 +468,7 @@ var xhr = new XMLHttpRequest()
 xhr.open('GET','./api',false)
 xhr.onreadystatechange = function(){
   // 异步执行
-  if(xhr.readyStat == 4){
+  if(xhr.readyState == 4){
     if(xhr.status == 200){
       console.log(xhr.responseText)
     }
