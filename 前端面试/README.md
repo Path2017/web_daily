@@ -358,11 +358,92 @@ js没有块级作用域，它只有函数和全局作用域
 ```
 4. 作用域链
 ```javascript
-
+var a = 100;
+function fn(){
+  // 当前作用域没有定义的变量，称为自由变量 此处a在函数作用域内未定义
+  // 在其父级作用域  全局作用域定义
+  console.log(a)
+  console.log(b)
+  var b =200
+}
+fn()
 ```
 5. 闭包
 ```javascript
+例子1
+function F1(){
+  var a = 100;
+  // 返回函数作为返回值
+  return function(){
+    console.log(a) // 在这个函数中a是自由变量  变量的定义去父级作用域中查找
+  }
+}
+// f1得到一个函数  变量的作用域是在定义时候确认，而不是执行时确认
+var f1 = F1()
+var a = 200
+f1()
 
+闭包使用场景：
+函数作为返回值
+函数作为参数传值
+例子2：
+function F1(){
+  var a = 100;
+  return function(){
+    console.log(a)
+  }
+}
+var f1 = F1()
+function F2(fn){
+  var a =200;
+  fn()
+}
+F2(f1) // 结果为100
+```
+#### 题目解答
+1. 说一下对变量提升的理解
+```javascript
+变量定义
+函数声明(注意和函数表达式的区别)
+```
+2. 说明this几种不同的使用场景
+```javascript
+作为构造函数执行
+作为对象属性执行
+作为普通函数执行
+call apply bind
+```
+3. 创建10个</a/>标签，点击时候弹出来对应的序号
+```javascript
+利用自执行的函数
+```
+4. 如何理解作用域
+```javascript
+自由变量
+作用域链，即自由变量的查找
+闭包的两个场景
+```
+5. 实际开发中闭包的应用
+```javascript
+// 封装变量 收敛权限
+举个例子，变量的第一次执行
+function isFirstload(){
+  var _list = []
+  return function(id){
+    if(_list.indexOf(id)>=0){
+      return false
+    }else{
+      _list.push(id)
+      return true
+    }
+  }
+}
+var firstLoad = isFirstload()
+firstLoad(10) // true
+firstLoad(10) // false
+firstLoad(20) // true
+
+// 闭包应用的意义，用户无法修改_list中的值
 ```
 
 ### 同步和异步
@@ -375,6 +456,9 @@ js没有块级作用域，它只有函数和全局作用域
 js中3座大山：原型和原型链、作用域和闭包、同步和异步
 
 ```
+
+### js-web-api
+
 
 
 
