@@ -461,6 +461,22 @@ js中3座大山：原型和原型链、作用域和闭包、同步和异步
 
 
 
+### js原生ajax请求
+
+```javascript
+var xhr = new XMLHttpRequest()
+xhr.open('GET','./api',false)
+xhr.onreadystatechange = function(){
+  // 异步执行
+  if(xhr.readyStat == 4){
+    if(xhr.status == 200){
+      console.log(xhr.responseText)
+    }
+  }
+}
+xhr.send(null)
+```
+
 
 
 
