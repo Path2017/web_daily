@@ -400,6 +400,12 @@ function fn(){
   console.log(a) // 输出100
   console.log(b) // 输出200 函数声明里面 变量提升
   var b =200
+  function f(){
+    var c = 300
+    console.log(a) // 输出100
+    console.log(b) // 输出200
+    console.log(c) // 输出300
+  }
 }
 fn()
 ```
@@ -416,11 +422,13 @@ function F1(){
 // f1得到一个函数  变量的作用域是在定义时候确认，而不是执行时确认
 var f1 = F1()
 var a = 200
-f1()
+f1() // 输出 100 一个函数变量的作用域是在定义时候的作用域 而不是执行时候的作用域
 
 闭包使用场景：
 函数作为返回值
 函数作为参数传值
+
+
 例子2：
 function F1(){
   var a = 100;
