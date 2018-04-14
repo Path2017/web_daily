@@ -345,6 +345,13 @@ function Foo(name){
   this.name = name
 }
 var f = new Foo('path')
+扩展：
+new一个构造函数返回一个对象的过程：
+1).把参数传到构造函数，如果没有参数的话就不用传到构造函数
+2).首先把this变成一个空对象
+3).属性的赋值
+4).return this
+这个时候返回的对象就具有构造函数的属性
 2.作为对象属性
 var obj = {
   name:'A',
@@ -360,14 +367,29 @@ function fn(){
 fn()
 4.call apply bind
 funtion fn(name){
-  alert(name)
+  console.log(name)
   console.log(this)
 }
 fn.call({x:100},"name":"zhang") // this== {x:100}
 ```
 3. 作用域
 ```javascript
-js没有块级作用域，它只有函数和全局作用域
+js没有块级作用域
+它只有函数和全局作用域
+
+无块级作用域
+if(true){
+  var tag = 'test'
+}
+console.log(tag) // test  在java中因为块级作用域问题 这个地方会输出undefined
+只有函数和全局作用域
+var a = 101
+function fn(){
+  var a = 201
+  console.log('fn',a) // 输出201
+}
+console.log('global',a) // 输出101
+fn()
 ```
 4. 作用域链
 ```javascript
@@ -375,8 +397,8 @@ var a = 100;
 function fn(){
   // 当前作用域没有定义的变量，称为自由变量 此处a在函数作用域内未定义
   // 在其父级作用域  全局作用域定义
-  console.log(a)
-  console.log(b)
+  console.log(a) // 输出100
+  console.log(b) // 输出200 函数声明里面 变量提升
   var b =200
 }
 fn()
