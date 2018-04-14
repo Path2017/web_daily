@@ -491,7 +491,63 @@ firstLoad(20) // true
 
 ### 同步和异步
 ---
-1. 什么是同步
+1. 同步和异步的区别是什么？分别举一个同步和异步的例子
+2. 一个关于setTimeout的笔试题
+3. 签单使用异步的场景有哪些
+#### 知识点
+1. 什么是异步
+2. 前端使用异步的场景
+3. 异步和单线程
+
+1. 什么是异步
+```javascript
+异步例子
+console.log(100)
+setTimeout(function(){
+  console.log(200)
+},100)
+console.log(300) // 打印顺序为 100 300 200
+同步例子
+console.log(100)
+alert(200)
+console.log(300) // alert为同步函数  需要alert点击确认 程序才能往下执行；同步会阻塞代码执行
+
+什么时候需要异步：
+1. 在可能需要等待的情况
+2. 等待过程中不能像alert一样阻塞程序执行
+3. 因此，所有需要“等待的情况”都需要异步
+
+前端使用异步的场景
+1. 定时任务：setTimeout,setInverval
+2. 网络请求：ajax请求,动态<img>加载
+3. 事件绑定
+
+ajax请求代码示例
+console.log('start')
+$.get('./data.json',function(data){
+  console.log('data)
+})
+console.log('end') // 打印顺序 start end data
+
+img加载示例
+console.log('start')
+var img = doucument.createElement('img')
+img.onload = function(){
+  console.log('loaded)
+}
+img.src = './xxx.png'
+console.log('end') // start end loaded
+
+事件绑定示例
+console.log('start')
+document.getElementById('btn').addEventListener('click',function(){
+  alert('clicked')
+})
+console.log('end') // 顺序为  start end 按钮点击时  弹出alert框
+
+```
+
+
 
 ### 总结
 ---
