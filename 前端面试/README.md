@@ -322,6 +322,19 @@ fn1()
 2. this
 ```javascript
 this 要在执行时才能确认值，定义时无法确认
+exp:
+var a = {
+  name: 'name',
+  fn:function(){
+    console.log(this.name)
+  }
+}
+a.fn()  // this === a
+a.fn.call({name:'addname'}) // this === {name:'addname'}
+var fn1 = a.fn
+fn1() // this === window
+
+this 使用场景
 作为构造函数执行
 作为对象属性执行
 作为普通函数执行
