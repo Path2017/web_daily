@@ -516,8 +516,9 @@ console.log(300) // alert为同步函数  需要alert点击确认 程序才能�
 1. 在可能需要等待的情况
 2. 等待过程中不能像alert一样阻塞程序执行
 3. 因此，所有需要“等待的情况”都需要异步
-
-前端使用异步的场景
+```
+2. 前端使用异步的场景
+```javascript
 1. 定时任务：setTimeout,setInverval
 2. 网络请求：ajax请求,动态<img>加载
 3. 事件绑定
@@ -546,8 +547,52 @@ document.getElementById('btn').addEventListener('click',function(){
 console.log('end') // 顺序为  start end 按钮点击时  弹出alert框
 
 ```
+3. 异步和单线程
+```javascript
+console.log(100)
+setTimeout(function(){
+  console.log(200)
+},100)
+console.log(300) // 打印顺序为 100 300 200
 
+所以异步的函数在执行时，程序先会将异步函数抽离出线程放在一旁，等代码执行完
+再来执行异步函数
 
+代码执行的过程：
+1. 执行第一行，打印100
+2. 执行setTimeout后，传入setTimeout的函数会被暂存起来，不会立即执行（单线程的特点，不能同时做两件事情）
+3. 执行最后一行，打印300
+4. 待所有程序执行完，处于空闲状态时，会立马看有没有缓存起来的要执行
+5. 发现暂存起来的setTimeout中的函数无需等待时间，就立即来执行
+
+同步和异步的区别是什么
+1. 同步会阻塞代码执行，而异步不会
+2. alert是同步，setTimeout是异步
+```
+#### 其他
+1. 获取当前时间的年月日
+2. 获取随机数，要求是长度一致的字符串格式
+3. 写一个能遍历对象和数组通用forEach函数
+```javascript
+日期
+Math
+数组API
+对象API
+
+日期api
+Date.now() // 获取到的是 当前的时间戳
+var dt = new Date() // 获取当前的时间对象
+dt.getTime() // 获取毫秒数
+dt.getFullYear() // 年
+dt.getMonth() // 月 0-11
+dt.getDate() // 日
+dt.getHours() // 小时
+dt.getMinutes() // 分钟
+dt.getSeconds() // 秒
+
+Math
+获取随机数  Math.random()
+```
 
 ### 总结
 ---
