@@ -591,7 +591,72 @@ dt.getMinutes() // 分钟
 dt.getSeconds() // 秒
 
 Math
-获取随机数  Math.random()
+获取随机数  Math.random() 
+随机数在前端中可添加在请求链接后面，每次请求不一样，从而达到清除缓存的功能
+
+数组api
+forEach 遍历所有的元素
+every 判断所有元素是否都符合条件
+some 判断是否有至少一个元素符合条件
+sort 排序
+map 对元素重新组装，生成新数组
+filter 过滤符合条件元素
+
+forEach
+var arr = [1,2,3]
+arr.forEach(function(item,index){
+  // 遍历数组中所有的元素
+  console.log(index,item)
+})
+
+every
+var arr = [1,2,3]
+var result = arr.every(function(item,index){
+  // 用来判断数组中所有元素都满足一个条件
+  if(item<4){
+    return true
+  }
+})
+console.log(result) // true
+
+some
+var arr = [1,2,3]
+var result = arr.some(function(item,index){
+  // 用来判断数组中,只要有一个元素满足条件
+  if(item<2){
+    return true
+  }
+})
+console.log(result) // true
+
+sort
+var arr = [1,2,3]
+var arr2 = arr.sort(function(a,b){
+
+  // 从小到大排序
+  return a - b
+  // 从大到小排序
+  return b - a
+})
+console.log(arr2)
+
+map
+var arr = [1,2,3,4]
+var arr2 = arr.map(function(item,index){
+  // 将元素重新组装，并返回
+  return '<b>' + item + '</b>'
+})
+console.log(arr2)
+
+filter
+var arr = [1,2,3]
+var arr2 = arr.filter(function(item,index){
+  // 通过某一个条件过滤数组
+  if(item>=2){
+    return true
+  }
+})
+console.log(arr2)
 ```
 
 ### 总结
