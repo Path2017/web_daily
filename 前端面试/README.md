@@ -646,7 +646,7 @@ var arr2 = arr.map(function(item,index){
   // 将元素重新组装，并返回
   return '<b>' + item + '</b>'
 })
-console.log(arr2)
+console.log(arr2) // ["<b>1</b>", "<b>2</b>", "<b>3</b>", "<b>4</b>"]
 
 filter
 var arr = [1,2,3]
@@ -656,7 +656,21 @@ var arr2 = arr.filter(function(item,index){
     return true
   }
 })
-console.log(arr2)
+console.log(arr2) //[2, 3]
+
+对象api
+var obj = {
+  x:100,
+  y:200,
+  z:300
+}
+var key
+for(key in obj){
+  // hasOwnProperty 是过滤自身的属性 而不是原型中属性
+  if(obj.hasOwnProperty(key)){
+    console.log(key,obj[key])
+  }
+}
 ```
 
 ### 总结
@@ -667,6 +681,16 @@ js中3座大山：原型和原型链、作用域和闭包、同步和异步
 ```
 
 ### js-web-api
+1. 回顾Js基础知识
+```javascript
+变量类型和计算
+原型和原型链
+闭包和作用域
+异步和单线程
+其他（如日期、Math、）
+```
+2. JS-Web-API
+3. 总结
 
 
 
