@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>测试position</title>
+</head>
+<style>
+   /*静态定位。默认值，没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）*/
+   /*相对定位。生成相对定位的元素，通过top,bottom,left,right的设置相对于其正常（原先本身）位置进行定位。可通过z-index进行层次分级。*/
+  .wrapper {
+    position: static; 
+    position: relative; 
+    position: absolute;
+    position: fixed;
+    position: inherit;
+    position: initial;
+    position: unset;
+    position: sticky;
+  }
+</style> 
+<body>
+  <div class="wrapper">
+
+  </div>
+</body>
+</html>
