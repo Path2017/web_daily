@@ -7,8 +7,8 @@
 }
 .mycanvas {
   width: 700rpx;
-  height: 82%;
-  padding-bottom: 15%;
+  height: 62%;
+  padding-bottom: 40%;
   overflow: scroll;
   background-color: #fff;
   min-height: 100rpx;
@@ -18,14 +18,14 @@
 
 .savebtn {
   position: fixed;
-  bottom: 20rpx;
+  bottom: 30rpx;
   width: 80%;
   height: 88rpx;
-  font-size: 34rpx;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 88rpx;
   text-align: center;
   line-height: 88rpx;
   color: #fff;
   left: 10%;
+  z-index: 999999;
 }
