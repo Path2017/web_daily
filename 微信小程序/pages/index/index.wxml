@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 正文部分 -->
+  <view class='midcontent'>
+    <!-- day列表项 -->
+    <view class='newslist' wx:for="{{newslist}}" wx:key="*this" wx:for-item="dayItem">
+      <view class='daytime'>{{dayItem.maintime}}</view>
+      <view class='list' wx:for="{{dayItem.list}}" wx:key="*this" bindtap='linkNews' wx:for-item="item">
+        <!-- 内容 -->
+         <view class='detail' data-id="{{item.id}}">{{item.title}}</view> 
+        <!-- 时间 -->
+         <view class='time' data-id="{{item.id}}">{{item.time}}</view> 
+      </view>
+    </view>
+  </view>
+</view>

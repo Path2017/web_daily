@@ -1,0 +1,31 @@
+/* pages/share/share.wxss */
+.canvasbox {
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  background-color: #f6f6f6;
+}
+.mycanvas {
+  width: 700rpx;
+  height: 82%;
+  padding-bottom: 15%;
+  overflow: scroll;
+  background-color: #fff;
+  min-height: 100rpx;
+  border-radius: 15rpx;
+  margin: 3% auto;
+}
+
+.savebtn {
+  position: fixed;
+  bottom: 20rpx;
+  width: 80%;
+  height: 88rpx;
+  font-size: 34rpx;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 88rpx;
+  text-align: center;
+  line-height: 88rpx;
+  color: #fff;
+  left: 10%;
+}

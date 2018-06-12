@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/share/share",
+    "pages/index/index",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f6f6f6",
+    "navigationBarTitleText": "DRC资讯",
+    "navigationBarTextStyle": "black"
+  }
+}

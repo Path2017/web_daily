@@ -1,0 +1,102 @@
+/* pages/detail/detail.wxss */
+
+.detailbox {
+  width: 94%;
+  padding: 0 3%;
+  height: 100%;
+  position: fixed;
+  overflow: scroll;
+  min-height: 300rpx;
+  background-color: #f6f6f6;
+}
+
+.newsbox {
+  width: 84%;
+  padding: 0 5%;
+  height: 82%;
+  padding-bottom: 15%;
+  overflow: scroll;
+  background-color: #fff;
+  min-height: 100rpx;
+  border-radius: 15rpx;
+  position: fixed;
+  margin-top: 3%;
+}
+
+.newstitle {
+  font-size: 36rpx;
+  line-height: 1.5;
+  padding: 30rpx 0 40rpx;
+  color: #858585;
+}
+
+.newscontent {
+  font-size: 30rpx;
+  line-height: 2;
+  color: #858585;
+  padding-top: 30rpx;
+  padding-bottom: 60rpx;
+  max-height: 65%;
+  overflow: scroll;
+}
+
+.newsbto {
+  position: absolute;
+  height: 8%;
+  width: 90%;
+  padding: 0 5%;
+  left: 0;
+  bottom: 0;
+  text-align: right;
+}
+
+.newsbto .iconbox {
+  display: inline-block;
+  height: 70rpx;
+  width: 70rpx;
+  border-radius: 70rpx;
+  background-color: #999;
+  text-align: center;
+  line-height: 70rpx;
+  color: #fff;
+  font-size: 34rpx;
+}
+
+.sharebox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.sharelist {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #f6f6f6;
+}
+
+.inlist {
+  background-color: #fff;
+}
+
+.btobtn {
+  width: 100%;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  border: none !important;
+  font-size: 36rpx;
+  background-color: #fff;
+}
+
+.btogab {
+  margin-bottom: 20rpx;
+}
+.midbtn {
+  border-top: 1rpx solid #dcdcdc;
+  border-bottom: 1rpx solid #dcdcdc;
+}

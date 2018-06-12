@@ -1,0 +1,37 @@
+/**index.wxss**/
+
+.midcontent {
+  width: 94%;
+  padding: 0 3%;
+  overflow: hidden;
+}
+
+.newslist {
+  width: 100%;
+  min-height: 100rpx;
+}
+
+.newslist .daytime {
+  line-height: 3;
+  font-size: 44rpx;
+}
+
+.newslist .list {
+  width: 94%;
+  padding: 20rpx 3%;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 5rpx;
+}
+
+.newslist .list .detail {
+  font-size: 30rpx;
+  line-height: 1.5;
+}
+
+.newslist .list .time {
+  font-size: 26rpx;
+  text-align: right;
+  color: #999;
+  line-height: 2;
+}
