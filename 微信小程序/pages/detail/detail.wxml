@@ -21,7 +21,7 @@
         <button type='share' open-type="share" plain='true' class='btobtn'>分享给朋友</button>
       </view>
       <view class='inlist midbtn'>
-        <button type='default' plain='true' class='btobtn'>生成卡片 保存分享</button>
+        <button type='default' plain='true' bindtap='linkShare' class='btobtn'>生成卡片 保存分享</button>
       </view>
       <view class='inlist btogab'>
         <button type='default' plain='true' class='btobtn'>复制此资讯链接</button>

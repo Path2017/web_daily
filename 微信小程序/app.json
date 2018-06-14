@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/share/share",
     "pages/index/index",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/share/share"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#f6f6f6",
-    "navigationBarTitleText": "DRC资讯",
+    "navigationBarTitleText": "测试WeChat applets",
     "navigationBarTextStyle": "black"
   }
 }

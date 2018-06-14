@@ -47,6 +47,12 @@ Page({
       }
     }
   },
+  // 生成卡片分享
+  linkShare: function(){
+    wx.navigateTo({
+      url: '../share/share'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

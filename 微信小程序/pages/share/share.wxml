@@ -1,7 +1,7 @@
 <!--pages/share/share.wxml-->
 <view class='canvasbox'>
-  <canvas class='mycanvas' canvas-id="shareCanvas"></canvas>
-  <view class='savebtn' bindtap='linkImg' wx:if="{{showSharePic}}">
-    保存卡片
+  <view class='savebtn'>
+    <text class='btntick' bindtap='linkImg' wx:if="{{showSharePic}}">保存卡片</text>
   </view>
+  <canvas class='mycanvas' canvas-id="shareCanvas"></canvas>
 </view>

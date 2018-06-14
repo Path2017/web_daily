@@ -28,26 +28,29 @@ Page({
     // 屏幕宽高
     let windowWidth = wx.getSystemInfoSync().windowWidth;
     let windowHeight = wx.getSystemInfoSync().windowHeight;
-    console.log(windowWidth)
     //  绘制文字区域背景 - begin
-    const ctx = wx.createCanvasContext('shareCanvas'); //画完整屏
+    const ctx = wx.createCanvasContext('shareCanvas');
+    //画完整屏
     ctx.fillStyle = "#f6f6f6";
-    ctx.fillRect(0, 0, windowWidth, windowHeight);
+    var calheight = 0.86 * windowHeight;
+    ctx.fillRect(0, 0, windowWidth, calheight+20);
+    // 画文字区域
+    var caleft = (windowWidth - 350) / 2;
     ctx.fillStyle = "#fff";
-    ctx.fillRect(0, 0, 350, 524);
+    ctx.fillRect(caleft, 10, 350, calheight);
     //  绘制文字区域背景 - end
     ctx.setFontSize(16);
     ctx.fillStyle = "#858585";
     ctx.setTextAlign('justify');
     ctx.lineWidth = 1;
-    var str = "事件分为冒泡事件和非冒泡事件： 冒泡事件：当一个组件上的事件被触发后，该事件会向父节点传递";
-    var titleHeight = 55; // 标题的高度
+    var str = "用于测试微信小程序标题，标题内容需换行,将图片置入进去。引用函数context.drawImage()函数即可，但是要调整图片大小；";
+    var titleHeight = 65; // 标题的高度
     var canvasWidth = 310;//计算canvas的宽度
     var initHeight = 35;//绘制字体距离canvas顶部初始的高度
 
     // 标题border-bottom 线距顶部距离
     titleHeight = this.drawText(ctx, str, initHeight, titleHeight, canvasWidth, 24);
-    ctx.moveTo(15, titleHeight)
+    ctx.moveTo(25, titleHeight)
     ctx.lineTo(325, titleHeight)
     ctx.stroke() //绘制已定义的路径
     titleHeight = titleHeight + 40;
@@ -55,10 +58,11 @@ Page({
     // 内容部分
     var detstr = "absolute定位是布局中最常用到的定位，其生成的位置是相对于带有position属性的父（父...)级来定位；如果父级都没有position属性，则相对于document来定位；使用absolute定位后，定位元素是脱离文档流的，这时候父级会检测不到定位元素的宽高。inline元素使用absolute定位之后，可以对其设置宽高；元素是不可以同时使用绝对定位和浮动的。";
     titleHeight = this.drawText(ctx, detstr, titleHeight, titleHeight, canvasWidth, 24);
-    console.log(titleHeight)
     var imgurl = '../../images/wechat.jpg';
-    console.log(imgurl)
-    ctx.drawImage(imgurl, 125, 400, 100, 100);
+    // 计算图片的偏移量
+    var carimgleft = (windowWidth - 100) / 2;
+    console.log(carimgleft)
+    ctx.drawImage(imgurl, carimgleft, 400, 100, 100);
     ctx.draw();
 
     // 延时生成图片
@@ -98,14 +102,14 @@ Page({
     for (let i = 0; i < str.length; i++) {
       lineWidth += ctx.measureText(str[i]).width;
       if (lineWidth > canvasWidth) {
-        ctx.fillText(str.substring(lastSubStrIndex, i), 15, initHeight);//绘制截取部分
+        ctx.fillText(str.substring(lastSubStrIndex, i), 25, initHeight);//绘制截取部分
         initHeight += lineHeight;//20为字体的高度
         lineWidth = 0;
         lastSubStrIndex = i;
         titleHeight += lineHeight;
       }
       if (i == str.length - 1) {//绘制剩余部分
-        ctx.fillText(str.substring(lastSubStrIndex, i + 1), 15, initHeight);
+        ctx.fillText(str.substring(lastSubStrIndex, i + 1), 25, initHeight);
       }
     }
     // 标题border-bottom 线距顶部距离
