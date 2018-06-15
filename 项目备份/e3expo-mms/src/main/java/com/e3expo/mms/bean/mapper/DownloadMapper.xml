@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.e3expo.mms.bean.mapper.DownloadMapper">
+
+    <select id="getApplicationStatus" resultType="byte">
+        SELECT `status` FROM application
+        where applicant = #{applicant} AND design_id = #{designId}
+        ORDER BY create_time DESC
+        LIMIT 0,1
+    </select>
+
+
+    <select id="getDownloadListTotalNumber" resultType="int">
+        SELECT count(0) FROM
+        (SELECT count(0)
+        FROM
+        application AS a ,`user` AS b , city AS c ,design AS d, design_sketch AS e ,
+--         (select applicant,design_id, max(create_time) max_time
+--         FROM application
+--         GROUP BY applicant,design_id) f,
+        design_profession g, design_structure h,
+        exhibition_type i
+        WHERE
+        a.applicant = b.id AND b.city_id = c.id AND a.design_id = d.id AND e.design_id = d.id
+--         AND a.applicant = f.applicant AND a.design_id = f.design_id
+--         AND a.create_time = f.max_time
+        AND g.id = d.profession_id AND h.id = d.structure_id
+        AND i.id = d.exhibition_type_id AND a.applicant = #{userId}
+        and e.`status` = 1
+        AND e.is_cover = 1 and d.is_visible =  1 and d.status = 1
+        <![CDATA[ and a.status < 3]]>
+        <if test="cityID != 0">
+            and b.city_id = #{cityID}
+        </if>
+        <if test="professionID != 0">
+            and d.profession_id = #{professionID}
+        </if>
+        <if test="exhibitionTypeID != 0">
+            and d.exhibition_type_id = #{exhibitionTypeID}
+        </if>
+        <if test="structureID != 0">
+            and d.structure_id = #{structureID}
+        </if>
+        <if test="openSides != 0">
+            and d.open_sides = #{openSides}
+        </if>
+        <if test="priceLowerLimit != 0">
+            <![CDATA[ and (d.price_upper_Limit > #{priceLowerLimit} or d.price_upper_limit = -1)]]>
+        </if>
+        <if test="priceUpperLimit != 0">
+            <![CDATA[ and d.price_lower_limit < #{priceUpperLimit} ]]>
+        </if>
+        <if test="areaLowerLimit != 0">
+            <![CDATA[ and d.area > #{areaLowerLimit} ]]>
+        </if>
+        <if test="areaUpperLimit != 0">
+            <![CDATA[ and d.area < #{areaUpperLimit} ]]>
+        </if>
+        <if test="approved == 1">
+            <![CDATA[ and a.status >= 1 ]]>
+        </if>
+--         GROUP BY a.applicant,a.design_id
+        )  T
+    </select>
+
+    <select id="pageConditionQueryDownloadList" resultMap="applicationWithDesignDetail">
+        SELECT
+        k.`name` AS city_name,
+        k.id AS city_id,
+        k.bucket,
+        b.`name` AS applicant_name,
+        b.phone_area_code,
+        b.phone_number,
+        b.email,
+        e.oss_key AS cover_oss_key,
+        a.`status` application_status,
+        a.create_time application_create_time,
+        a.handling_time,
+        a.id application_id,
+        a.design_id,
+        a.applicant,
+        d.open_sides,
+        d.price_lower_limit,
+        d.price_upper_limit,
+        (d.price_lower_limit + d.price_upper_limit) / 2 avg_price,
+        d.downloads,
+        d.views,
+        d.area,
+        d.oss_key as zip_file_oss_key,
+        g.`name` profession_name,
+        h.`name` structure_name,
+        i.`name` exhibition_type_name,
+        d.exhibition_type_id,
+        d.structure_id,
+        d.profession_id
+        FROM
+        application AS a ,`user` AS b , city AS c ,design AS d, design_sketch AS e ,
+        user j,
+        city k,
+--         (select applicant,design_id, max(create_time) max_time
+--         FROM application
+--         GROUP BY applicant,design_id) f,
+        design_profession g, design_structure h,
+        exhibition_type i
+        WHERE
+        a.applicant = b.id AND b.city_id = c.id AND a.design_id = d.id AND e.design_id = d.id
+--         AND a.applicant = f.applicant AND a.design_id = f.design_id
+--         AND a.create_time = f.max_time
+        AND g.id = d.profession_id AND h.id = d.structure_id
+        AND i.id = d.exhibition_type_id AND a.applicant = #{userId}
+        AND d.owner_id = j.id and j.city_id = k.id
+        AND e.is_cover = 1 and e.`status` = 1 and d.is_visible = 1 and d.status = 1
+        <![CDATA[ and a.status < 3]]>
+        <if test="cityID != 0">
+            and b.city_id = #{cityID}
+        </if>
+        <if test="professionID != 0">
+            and d.profession_id = #{professionID}
+        </if>
+        <if test="exhibitionTypeID != 0">
+            and d.exhibition_type_id = #{exhibitionTypeID}
+        </if>
+        <if test="structureID != 0">
+            and d.structure_id = #{structureID}
+        </if>
+        <if test="openSides != 0">
+            and d.open_sides = #{openSides}
+        </if>
+        <if test="priceLowerLimit != 0">
+            <![CDATA[ and(d.price_upper_Limit > #{priceLowerLimit} or d.price_upper_limit = -1)]]>
+        </if>
+        <if test="priceUpperLimit != 0">
+            <![CDATA[ and d.price_lower_limit < #{priceUpperLimit} ]]>
+        </if>
+        <if test="areaLowerLimit != 0">
+            <![CDATA[ and d.area > #{areaLowerLimit} ]]>
+        </if>
+        <if test="areaUpperLimit != 0">
+            <![CDATA[ and d.area < #{areaUpperLimit} ]]>
+        </if>
+        <if test="approved == 1">
+            <![CDATA[ and a.status >= 1 ]]>
+        </if>
+--         GROUP BY a.applicant,a.design_id
+        ORDER BY
+        <choose>
+            <when test="orderTypeValue == 1">
+                downloads DESC
+            </when>
+            <when test="orderTypeValue == 2">
+                avg_price DESC
+            </when>
+            <when test="orderTypeValue == 3">
+                avg_price ASC
+            </when>
+            <when test="orderTypeValue == 4">
+                area DESC
+            </when>
+            <when test="orderTypeValue == 5">
+                area ASC
+            </when>
+            <otherwise>
+                views DESC
+            </otherwise>
+        </choose>
+        limit #{beginIndex}, #{pageSize}
+    </select>
+
+
+    <resultMap id="applicationWithDesignDetail" type="application">
+        <id column="application_id" property="id"/>
+        <result column="application_status" property="status"/>
+        <result column="application_create_time" property="createTime"/>
+        <result column="handling_time" property="handlingTime"/>
+        <association property="design" javaType="design" autoMapping="true">
+            <id column="design_id" property="id"/>
+            <result column="zip_file_oss_key" property="ossKey"/>
+            <association property="profession" javaType="designProfession">
+                <id property="id" column="profession_id"/>
+                <result column="profession_name" property="name"/>
+            </association>
+            <association property="structure" javaType="designStructure" >
+                <id property="id" column="structure_id"/>
+                <result column="structure_name" property="name"/>
+            </association>
+            <association property="exhibitionType" javaType="exhibitionType">
+                <id property="id" column="exhibition_type_id"/>
+                <result column="exhibition_type_name" property="name"/>
+            </association>
+            <association property="city" javaType="city">
+                <id property="id" column="city_id"/>
+                <result column="city_name" property="name"/>
+                <result column="bucket" property="bucket"/>
+            </association>
+            <association property="owner" javaType="user">
+                <id property="id" column="owner_id"/>
+                <result property="name" column="owner_name"/>
+            </association>
+            <collection property="sketchList" ofType="designSketch">
+                <id property="id" column="sketch_id"/>
+                <result property="ossKey" column="sketch_oss_key"/>
+                <result property="isCover" column="is_cover"/>
+                <result property="primitiveName" column="sketch_primitive_name"/>
+            </collection>
+        </association>
+    </resultMap>
+
+
+</mapper>

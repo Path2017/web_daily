@@ -1,0 +1,340 @@
+.wrapper {
+  min-width: 500px;
+}
+
+.hd-title {
+  font-size: 20px;
+}
+
+.hd-name-wp {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.return-a {
+  position: absolute;
+  right: 23px;
+}
+
+.register-btn-wp {
+  width: 40%;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+    .hd-lt-ul li {
+      line-height: 55px;
+      height: 55px;
+    }
+    .hd-rt-ul li {
+      line-height: 55px;
+      height: 55px;
+      padding-right: 25px;
+    }
+}
+
+.shenpi .panel-heading {
+    border-bottom: 1px solid #cfdbe2;
+  }
+
+@media only screen and (min-width: 990px) {
+
+  .shenpi .btn-search {
+      position: relative;
+      top: 26px;
+  }
+}
+
+/* 弹框 */
+
+.alertB, .alertB2 {
+  position: fixed;
+  top: 0;
+  z-index: 222;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  display: none;
+}
+
+.alertB .resetpwd-wp, .alertB2 .resetpwd-wp {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+.alertB .resetpwd, .alertB2 .resetpwd {
+    display: block;
+  }
+
+.alertB .alert-text, .alertB2 .alert-text {
+    width: 100%;
+    padding: 0 15px;
+    color: #fff;
+    text-align: center;
+  }
+
+.alert-wp {
+  border-radius: 5px;
+  width: 360px;
+
+  /* height: 220px; */
+  background: rgba(0, 0, 0, .7);
+  margin: 0 auto;
+  position: relative;
+  top: 250px;
+  padding-bottom: 50px;
+}
+
+.alert-wp .btn-wp {
+    text-align: center;
+    padding-top: 20px;
+  }
+
+.alert-wp .alert-title {
+    font-size: 25px;
+    text-align: center;
+    padding-top: 60px;
+    color: #fff;
+  }
+
+/* 我的下载 */
+
+.download-label .control-label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    margin-top: 0;
+  }
+
+.download-label .fa {
+    position: relative;
+    left: 40px;
+  }
+
+/* 图库中心 */
+
+.tukuregister-wp .row {
+    margin-left: 0;
+  }
+
+.tukuregister-wp .upload-wp {
+    width: 100%;
+  }
+
+.tukuregister-wp .upload-fa {
+    float: left;
+    margin-left: 20px;
+  }
+
+.tukuregister-wp .upload-fa .fenmianbtn-wp {
+      text-align: center;
+    }
+
+.tukuregister-wp .upload-btn {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border: 1px dotted #ddd;
+    cursor: pointer;
+    position: relative;
+  }
+
+.tukuregister-wp .upload-btn img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+.tukuregister-wp .upload-btn .delete {
+      position: absolute;
+      right: -7px;
+      top: -8px;
+      font-size: 14px;
+      color: red;
+      display: none;
+      width: 16px;
+      height: 16px;
+      line-height: 14px;
+      border: 1px solid red;
+      border-radius: 50%;
+    }
+
+.tukuregister-wp .upload-btn .delete-show {
+      position: absolute;
+      right: -7px;
+      top: -8px;
+      font-size: 14px;
+      color: red;
+      display: inline;
+      width: 16px;
+      height: 16px;
+      line-height: 14px;
+      border: 1px solid red;
+      border-radius: 50%;
+
+    }
+
+.tukuregister-wp .upload-wp input {
+      display: none;
+    }
+
+/* 详情页面 */
+
+#img-view {
+  width: 100%;
+}
+
+#img-view li {
+    width: 100px;
+    height: 100px;
+    float: left;
+    list-style: none;
+    text-align: center;
+    line-height: 100px;
+    margin-right: 5px;
+  }
+
+#img-view li img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+
+.down-icon {
+  font-size: 40px;
+  color: #24b145;
+  vertical-align: middle;
+}
+
+.download3d-wp {
+  height: 50px;
+  line-height: 50px;
+  margin-bottom: 10px;
+}
+
+.rizhi-wp {
+  width: 100%;
+  height: 100px;
+  overflow-y: auto;
+}
+
+.rizhi-wp li {
+    list-style: none;
+  }
+
+.rizhi-wp .xq-time {
+    font-weight: 600;
+  }
+
+.ml-fu {
+  margin-left: -15px;
+}
+
+.none {
+  display: none;
+}
+
+.content-wrapper .content-heading {
+    font-size: 24px;
+    color: #929292;
+    margin: -15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fafbfc;
+    border-bottom: 1px solid #cfdbe2;
+  }
+
+.nameerr, .phoneerr{
+  font-size: 12px;
+  color: #f05050;
+  display: none;
+}
+
+.err-cue {
+  font-size: 12px;
+  color: #f05050;
+  display: none;
+}
+
+.see-pwd {
+  cursor: pointer;
+  position: absolute;
+  right: 16px;
+  top: 1px;
+  display: block;
+  width: 100px;
+  z-index: 11;
+  height: 33px;
+  line-height: 18px;
+}
+
+.btn-a {
+  color: #fff
+}
+
+.btn-a:hover {
+  color: #fff;
+}
+
+.redborder {
+  border: 1px solid red;
+}
+
+.loading {
+  display: none;
+}
+
+#isonjob, #zhuxiao, #pass, #notpass, #resetpassword {
+  display: none;
+}
+
+.resetpwd-noneerr {
+  padding-top: 5px;
+  font-size: 12px;
+  list-style: none;
+  color: #f05050;
+  text-align: center;
+  display: none;
+}
+
+.login-error-msg{
+  font-size: 12px;
+  color: #f05050;
+}
+
+.upload-wp2{
+  float: left;
+}
+
+.page-ipt{
+  width: 45px;
+  margin: 0px 5px;
+}
+
+.page-span{
+  padding: 2px 5px !important;
+}
+
+.page-a{
+  padding: 5px
+}
+
+.page-a:hover {
+  color: #ffffff;
+  background-color: #5d9cec;
+  border-radius: 2px;
+}
+
+.upload-progress{
+  display: none;
+  height: 10px;
+  background: #27c24c;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.upload-progress .progress-cue{
+    position: absolute;
+    width: 60px;
+    font-size: 12px;
+    right: -70px;
+    top: -2px;
+  }

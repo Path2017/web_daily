@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin App + jQuery">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>图库中心</title>
+
+    <!--  载入css 文件 -->
+    <!-- Bootstrap -->
+    <link th:href="@{js/vendor/fontawesome/css/font-awesome.min.css}"
+          href="../../js/vendor/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../js/vendor/simple-line-icons/css/simple-line-icons.css"
+          th:href="@{js/vendor/simple-line-icons/css/simple-line-icons.css}" rel="stylesheet" type="text/css"/>
+    <link href="../../js/vendor/animate.css/animate.min.css"
+          th:href="@{js/vendor/animate.css/animate.min.css}" rel="stylesheet" type="text/css"/>
+    <link href="../../js/vendor/whirl/dist/whirl.css"
+          th:href="@{js/vendor/whirl/dist/whirl.css}" rel="stylesheet" type="text/css"/>
+    <link href="../../css/bootstrap.css"
+          th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css"/>
+
+    <link href="../../css/app.css"
+          th:href="@{/css/app.css}" rel="stylesheet" type="text/css"/>
+    <link href="../../css/mms.min.css"
+          th:href="@{/css/mms.min.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<!-- sidebar-->
+<aside class="aside"  th:fragment="left-nav">
+    <div class="aside-inner">
+        <nav data-sidebar-anyclick-close="" class="sidebar">
+            <!-- START sidebar nav-->
+            <ul class="nav" id="nav1">
+                <li class="nav-heading" id="left-nav-title">Welcome PICO</li>
+                <li class="" shiro:hasAnyRoles="sys_admin, local_admin" id="left-nav-user">
+                    <a href="zhanghaoguanli.html" th:href="@{/user/list}" title="账号管理">
+                        <em class="fa fa-envelope-o"></em>
+                        <span>账号管理</span>
+                    </a>
+                </li>
+                <li class=" " id="left-nav-design">
+                    <a href="tukucenter.html" th:href="@{/design/list}" title="图库中心">
+                        <em class="fa fa-calendar-o"></em>
+                        <span>图库中心</span>
+                    </a>
+                </li>
+                <li class="" shiro:hasRole="sys_admin" id="left-nav-application">
+                    <a href="shenpi.html" th:href="@{/application/list}" title="我的审批">
+                        <em class="fa fa-pencil"></em>
+                        <span>审批</span>
+                    </a>
+                </li>
+                <li class="" id="left-nav-download">
+                    <a href="download.html" th:href="@{/download/list}" title="下载">
+                        <em class="fa fa-download"></em>
+                        <span>下载</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- END 左侧菜单-->
+</aside>
+    <script type="text/javascript" src="../../js/vendor/modernizr/modernizr.custom.js"
+            th:src="@{/js/vendor/modernizr/modernizr.custom.js}"></script>
+    <script type="text/javascript" src="../../js/vendor/jquery/dist/jquery.js"
+            th:src="@{/js/vendor/jquery/dist/jquery.js}"></script>
+    <script type="text/javascript" src="../../js/demo/demo-rtl.js"
+            th:src="@{/js/demo/demo-rtl.js}"></script>
+    <script type="text/javascript" src="../../js/vendor/chosen_v1.2.0/chosen.jquery.min.js"
+            th:src="@{/js/vendor/chosen_v1.2.0/chosen.jquery.min.js}"></script>
+    <script type="text/javascript" src="../../js/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"
+            th:src="@{/js/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js}"></script>
+    <script type="text/javascript" src="../../js/vendor/moment/min/moment-with-locales.min.js"
+            th:src="@{/js/vendor/moment/min/moment-with-locales.min.js}"></script>
+    <script type="text/javascript"
+            src="../../js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"
+            th:src="@{/js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js}"></script>
+    <script type="text/javascript" src="../../js/vendor/bootstrap/dist/js/bootstrap.js"
+            th:src="@{/js/vendor/bootstrap/dist/js/bootstrap.js}"></script>
+    <script type="text/javascript" src="../../js/vendor/jQuery-Storage-API/jquery.storageapi.js"
+            th:src="@{/js/vendor/jQuery-Storage-API/jquery.storageapi.js}"></script>
+    <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/parsley.min.js"
+            th:src="@{/js/vendor/parsleyjs/dist/parsley.min.js}"></script>
+    <script type="text/javascript" src="../../js/demo/demo-search.js"
+            th:src="@{/js/demo/demo-search.js}"></script>
+    <script type="text/javascript" src="../../js/app.js"
+            th:src="@{/js/app.js}"></script>
+
+</body>
+</html>

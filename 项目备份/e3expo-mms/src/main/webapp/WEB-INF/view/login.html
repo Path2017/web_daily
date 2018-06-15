@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="description" content="Bootstrap Admin App + jQuery">
+		<meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+        <title>MMS图库管理中心-登录</title>
+
+	    <!--  载入css 文件 -->
+	    <!-- Bootstrap -->
+		<link th:href="@{/js/vendor/fontawesome/css/font-awesome.min.css}" href="../../js/vendor/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="../../js/vendor/simple-line-icons/css/simple-line-icons.css"
+			  th:href="@{/js/vendor/simple-line-icons/css/simple-line-icons.css}" rel="stylesheet" type="text/css"/>
+
+	    <link href="../../css/bootstrap.css"
+	           th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css"/>
+	           
+	    <link href="../../css/app.css"
+	           th:href="@{/css/app.css}" rel="stylesheet" type="text/css"/>
+
+		<link href="../../css/mms.min.css"
+			  th:href="@{/css/mms.min.css}" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+	<div class="wrapper">
+		<div class="block-center mt-xl wd-xl">
+			<!-- START panel-->
+			<div class="panel panel-dark panel-flat">
+				<div class="panel-heading text-center">
+					MMS图库管理中心
+				</div>
+				<div class="panel-body">
+					<p class="text-center pv">SIGN IN TO CONTINUE.</p>
+					<form action="./tukucenter.html" th:action="@{/login}" method="post" role="form" data-parsley-validate="" novalidate="" class="mb-lg">
+						<div class="form-group">
+							<input id="exampleInputEmail1" name="phoneNumber" th:value="${phoneNumber}" data-parsley-type="number" placeholder="请输入账户手机号" autocomplete="off" required class="form-control">
+							<span class="fa fa-envelope form-control-feedback text-muted"></span>
+						</div>
+						<div class="form-group">
+							<input id="exampleInputPassword1" name="password" type="password" placeholder="请输入密码" required class="form-control">
+							<span class="fa fa-lock form-control-feedback text-muted"></span>
+						</div>
+						<p class="login-error-msg" th:text="${error == null ? '' : error.error}"></p>
+						<button type="submit" class="btn btn-block btn-primary mt-lg">登录</button>
+					</form>
+				</div>
+			</div>
+			<!-- END panel-->
+			<div class="p-lg text-center">
+				<span>&copy;</span>
+				<span>2017</span>
+				<span>-</span>
+				<span>PICO</span>
+			</div>
+		</div>
+	</div>
+			<script type="text/javascript" src="../../js/vendor/modernizr/modernizr.custom.js"
+					th:src="@{/js/vendor/modernizr/modernizr.custom.js}"></script>
+			<script type="text/javascript" src="../../js/vendor/jquery/dist/jquery.js"
+					th:src="@{/js/vendor/jquery/dist/jquery.js}"></script>
+			<script type="text/javascript" src="../../js/vendor/bootstrap/dist/js/bootstrap.js"
+					th:src="@{/js/vendor/bootstrap/dist/js/bootstrap.js}"></script>
+			<script type="text/javascript" src="../../js/vendor/jQuery-Storage-API/jquery.storageapi.js"
+					th:src="@{/js/vendor/jQuery-Storage-API/jquery.storageapi.js}"></script>
+			<script type="text/javascript" src="../../js/vendor/parsleyjs/dist/parsley.min.js"
+					th:src="@{/js/vendor/parsleyjs/dist/parsley.min.js}"></script>
+			<script type="text/javascript" src="../../js/vendor/parsleyjs/dist/zh_cn.js"
+					th:src="@{/js/vendor/parsleyjs/dist/zh_cn.js}"></script>
+			<script type="text/javascript" src="../../js/app.js"
+					th:src="@{/js/app.js}"></script>
+	</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="E3 MMS">
+  <meta name="keywords" content="E3, MMS, 图库管理系统">
+  <title>我的下载</title>
+
+  <!--  载入css 文件 -->
+  <!-- Bootstrap -->
+  <link th:href="@{/js/vendor/fontawesome/css/font-awesome.min.css}" href="../../js/vendor/fontawesome/css/font-awesome.min.css"
+    rel="stylesheet">
+  <link href="../../js/vendor/simple-line-icons/css/simple-line-icons.css" th:href="@{/js/vendor/simple-line-icons/css/simple-line-icons.css}"
+    rel="stylesheet" type="text/css" />
+  <link href="../../js/vendor/animate.css/animate.min.css" th:href="@{/js/vendor/animate.css/animate.min.css}" rel="stylesheet"
+    type="text/css" />
+  <link href="../../js/vendor/whirl/dist/whirl.css" th:href="@{/js/vendor/whirl/dist/whirl.css}" rel="stylesheet" type="text/css"
+  />
+  <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+
+  <link href="../../css/app.css" th:href="@{/css/app.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/mms.min.css" th:href="@{/css/mms.min.css}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="wrapper shenpi">
+    <!-- top navbar-->
+    <header class="topnavbar-wrapper" th:replace="top-menu :: top-menu">
+      <nav role="navigation" class="navbar topnavbar">
+        <div class="navbar-header">
+          <a href="#/" class="navbar-brand head-title">
+
+                </a>
+        </div>
+        <div class="nav-wrapper">
+          <!-- 切换 -->
+          <ul class="nav navbar-nav hd-lt-ul">
+            <li>
+              <a href="#" data-toggle-state="aside-collapsed" class="hidden-xs">
+                            <em class="fa fa-navicon"></em>
+                        </a>
+              <a href="#" data-toggle-state="aside-toggled" data-no-persist="true" class="visible-xs sidebar-toggle">
+                            <em class="fa fa-navicon"></em>
+                        </a>
+            </li>
+            <li>
+              <span class="hd-title">MMS图库管理中心</span>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right hd-rt-ul">
+            <li>
+              <div class="btn-wp">
+                <span class="hd-name-wp">欢迎您，某某某</span>
+                <button class="btn-primary btn zhuxiao-btn">注销</button>
+                <button class="btn-primary btn xiugaimima-btn">修改密码</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- END Nav wrapper-->
+      </nav>
+    </header>
+
+    <!-- sidebar-->
+    <aside class="aside" th:replace="left-menu :: left-nav">
+      <div class="aside-inner">
+        <nav data-sidebar-anyclick-close="" class="sidebar">
+          <!-- START sidebar nav-->
+          <ul class="nav">
+            <li class="nav-heading">Welcome PICO</li>
+            <li class="">
+              <a href="zhanghaoguanli.html" title="账号管理">
+                            <em class="fa fa-envelope-o"></em>
+                            <span>账号管理</span>
+                        </a>
+            </li>
+            <li class="">
+              <a href="tukucenter.html" title="图库中心">
+                            <em class="fa fa-calendar-o"></em>
+                            <span>图库中心</span>
+                        </a>
+            </li>
+            <li class="">
+              <a href="shenpi.html" title="我的审批">
+                            <em class="fa fa-pencil"></em>
+                            <span>审批</span>
+                        </a>
+            </li>
+            <li class="active">
+              <a href="download.html" title="下载">
+                            <em class="fa fa-download"></em>
+                            <span>下载</span>
+                        </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- END 左侧菜单-->
+    </aside>
+    <!-- 主内容 -->
+    <section>
+      <!-- Page content-->
+      <div class="content-wrapper">
+        <div class="content-heading">
+          下载
+        </div>
+        <!-- START panel-->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <form action="" data-parsley-validate="" novalidate="">
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="control-label">城市</label>
+                    <div class="">
+                      <select name="cityID" id="" class="form-control">
+                        <option value="0" th:selected="${page.cityID} eq 0">全部</option>
+                        <option th:each="city : ${cityList}" th:value="${city.id}" th:text="${city.name}"
+                                th:selected="${city.id} eq ${page.cityID}">---</option>
+                        </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="control-label">行业</label>
+                    <div class="">
+                      <select name="professionID" id="" class="form-control">
+                        <option value="0" th:selected="${page.professionID} eq 0">全部</option>
+                        <option th:each="profession : ${professions}"
+                                th:value="${profession.id}" th:text="${profession.name}"
+                                th:selected="${profession.id} eq ${page.professionID}">---</option>
+                        </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="control-label">展示类型</label>
+                    <div class="">
+                      <select name="exhibitionTypeID" id="" class="form-control">
+                        <option value="0" th:selected="${page.exhibitionTypeID} eq 0">全部</option>
+                        <option th:each="exhibitionType : ${exhibitionTypes}"
+                                th:value="${exhibitionType.id}" th:text="${exhibitionType.name}"
+                                th:selected="${exhibitionType.id} eq ${page.exhibitionTypeID}">---</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="control-label">结构</label>
+                    <div class="">
+                      <select name="structureID" id="" class="form-control">
+                        <option value="0" th:selected="${page.structureID} eq 0">全部</option>
+                        <option th:each="structure : ${structures}"
+                                th:value="${structure.id}" th:text="${structure.name}"
+                                th:selected="${structure.id} eq ${page.structureID}">---</option>
+                                        </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="control-label">开口</label>
+                    <div class="">
+                      <select name="openSides" id="" class="form-control">
+                        <option value="0" th:selected="${page.openSides} eq 0">全部</option>
+                        <option value="1" th:selected="${page.openSides} eq 1">单面</option>
+                        <option value="2" th:selected="${page.openSides} eq 2">双面</option>
+                        <option value="3" th:selected="${page.openSides} eq 3">三面</option>
+                        <option value="4" th:selected="${page.openSides} eq 4">四面</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="control-label">排序</label>
+                    <div class="">
+                      <select name="orderTypeValue" id="" class="form-control">
+                        <option th:each="designOrderType : ${designOrderTypes}"
+                                th:value="${designOrderType.value}" th:text="${designOrderType.name}"
+                                th:selected="${designOrderType.value} eq ${page.orderTypeValue}">---</option>
+                      <!--<select name="required" id="" class="form-control">
+                                            <option value="">根据查看次数排序</option>
+                                            <option value="">根据下载次数排序</option>
+                                            <option value="">价格从高到低排序</option>
+                                            <option value="">价格从低到高排序</option>
+                                            <option value="">面积从高到低排序</option>
+                                            <option value="">面积从低到高排序</option>-->
+                        </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="checkbox c-checkbox download-label">
+                    <label class="control-label">仅查看审批通过的</label>
+                    <div>
+                      <label>
+                          <input type="checkbox" name="approved" value="1" th:checked="${page.approved == 1}">
+                          <span class="fa fa-check"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="control-label">价格</label>
+                    <div class="">
+                      <input id="pricelesser" th:value="${page.priceLowerLimit}" type="text" data-parsley-min="0" data-parsley-type="integer" class="form-control" name="priceLowerLimit" placeholder="请输入价格下限">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="control-label">至</label>
+                    <div class="">
+                      <input data-parsley-gte="#pricelesser" th:value="${page.priceUpperLimit}" type="text" class="form-control" data-parsley-type="integer" name="priceUpperLimit" placeholder="请输入价格上限">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="control-label">面积</label>
+                    <div class="">
+                      <input id="arealesser" class="form-control" th:value="${page.areaLowerLimit}" name="areaLowerLimit" data-parsley-type="integer" data-parsley-min="0" type="text" placeholder="请输入面积下限">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="control-label">至</label>
+                    <div class="">
+                      <input class="form-control" th:value="${page.areaUpperLimit}" name="areaUpperLimit" data-parsley-type="integer" data-parsley-gte="#arealesser" type="text" placeholder="请输入面积上限">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  <button type="submit" class="btn btn-primary btn-search">搜索</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="panel-heading">
+            <!-- START table-responsive-->
+            <div class="table-responsive">
+              <table id="table-ext-1" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>城市</th>
+                    <th>封面</th>
+                    <th>行业</th>
+                    <th>展示类型</th>
+                    <th>结构</th>
+                    <th>价格</th>
+                    <th>开口</th>
+                    <th>面积</th>
+                    <th>查看数</th>
+                    <th>下载数</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="apply : ${page.data}">
+                    <td th:text="${apply.design.city.name}">香港</td>
+                    <td>
+                      <div class="media">
+                        <img src="../../img/1.jpg" th:src="${apply.coverTemporaryUrl}"  alt="Image" class="img-responsive">
+                      </div>
+                    </td>
+                    <td th:text="${apply.design.profession.name}">服务贸易</td>
+                    <td th:text="${apply.design.exhibitionType.name}">产品陈列</td>
+                    <td th:text="${apply.design.structure.name}">木质</td>
+                    <td th:text="|${apply.design.priceLowerLimit}~${apply.design.priceUpperLimit == -1 ? '以上': apply.design.priceUpperLimit}|">2000~2200</td>
+                    <td th:text="${apply.design.openSides == 1 ? '单面' : apply.design.openSides == 2 ? '双面' :  apply.design.openSides == 3 ? '三面' : '四面'}">双面</td>
+                    <td th:text="${apply.design.area}">36</td>
+                    <td th:text="${apply.design.views}">36</td>
+                    <td th:text="${apply.design.downloads}">36</td>
+                    <td>
+                      <button th:if="${apply.status >= 1 and apply.design.ossKey != null}" type="button" class="btn btn-default btn-circle"><a href="javascript:;" target="_blank" th:href="@{/download/execute(designId=${apply.design.id})}">下载</a></button>
+                      <span th:if="${apply.status >= 1 and apply.design.ossKey == null}">文件上传中</span>
+                      <span th:if="${apply.status==0}">待审批</span>
+                      <span th:if="${apply.status==-1}">审批未通过</span>
+                    </td>
+                  </tr>
+                  <!--<tr>
+                    <td>香港</td>
+                    <td>
+                      <div class="media">
+                        <img src="../../img/1.jpg" alt="Image" class="img-responsive">
+                      </div>
+                    </td>
+                    <td>服务贸易</td>
+                    <td>产品陈列</td>
+                    <td>木质</td>
+                    <td>双面</td>
+                    <td>2000~2200</td>
+                    <td>36</td>
+                    <td>36</td>
+                    <td>36</td>
+                    <td>审核未通过</td>
+                  </tr>-->
+                </tbody>
+              </table>
+            </div>
+            <!-- END panel-->
+            <div class="panel-footer">
+              <div class="row">
+                <div class="text-right">
+                  <ul class="pagination pagination-sm">
+                    <li th:if="${page.pageIndex > 1}"><a
+                            th:href="@{/download/list(pageIndex=1,cityID=${page.cityID},
+                            professionID=${page.professionID}, exhibitionTypeID=${page.exhibitionTypeID},
+                            structureID=${page.structureID},openSides=${page.openSides},priceLowerLimit=${page.priceLowerLimit},
+                            priceUpperLimit=${page.priceUpperLimit},areaLowerLimit=${page.areaLowerLimit},areaUpperLimit=${page.areaUpperLimit}
+                            ,approved=${page.approved})}"
+                            href="#">第一页</a></li>
+                    <li th:if="${page.pageIndex > 1}"><a
+                            th:href="@{/download/list(pageIndex=${page.pageIndex - 1},cityID=${page.cityID},
+                            professionID=${page.professionID}, exhibitionTypeID=${page.exhibitionTypeID},
+                            structureID=${page.structureID},openSides=${page.openSides},priceLowerLimit=${page.priceLowerLimit},
+                            priceUpperLimit=${page.priceUpperLimit},areaLowerLimit=${page.areaLowerLimit},areaUpperLimit=${page.areaUpperLimit}
+                            ,approved=${page.approved})}"
+                            href="#">«</a>
+                    </li>
+                    <li th:each="i : ${#numbers.sequence(page.startPageIndex, page.endPageIndex)}"
+                        th:class="${page.pageIndex == i} ? 'active' : ''" class="active"><a
+                            th:if="${i > 0}"
+                            th:text="${i}"
+                            th:href="${page.pageIndex == i} ? '#' : @{/download/list(pageIndex=${i},cityID=${page.cityID},
+                            professionID=${page.professionID}, exhibitionTypeID=${page.exhibitionTypeID},
+                            structureID=${page.structureID},openSides=${page.openSides},priceLowerLimit=${page.priceLowerLimit},
+                            priceUpperLimit=${page.priceUpperLimit},areaLowerLimit=${page.areaLowerLimit},areaUpperLimit=${page.areaUpperLimit},
+                            approved=${page.approved})}"
+                            href="#">-</a>
+                    </li>
+                    <li th:if="${page.pageIndex < page.totalPages}"><a
+                            th:href="@{/download/list(pageIndex=${page.pageIndex + 1},cityID=${page.cityID},
+                            professionID=${page.professionID}, exhibitionTypeID=${page.exhibitionTypeID},
+                            structureID=${page.structureID},openSides=${page.openSides},priceLowerLimit=${page.priceLowerLimit},
+                            priceUpperLimit=${page.priceUpperLimit},areaLowerLimit=${page.areaLowerLimit},areaUpperLimit=${page.areaUpperLimit},
+                            approved=${page.approved})}"
+                            href="#">»</a>
+                    </li>
+                    <li th:if="${page.pageIndex < page.totalPages}"><a
+                            th:href="@{/download/list(pageIndex=${page.totalPages},cityID=${page.cityID},
+                            professionID=${page.professionID}, exhibitionTypeID=${page.exhibitionTypeID},
+                            structureID=${page.structureID},openSides=${page.openSides},priceLowerLimit=${page.priceLowerLimit},
+                            priceUpperLimit=${page.priceUpperLimit},areaLowerLimit=${page.areaLowerLimit},areaUpperLimit=${page.areaUpperLimit},
+                            approved=${page.approved})}"
+                            href="#">最后一页</a></li>
+                    <li>
+                      <span class="page-span">跳转到第
+                        <input class="page-ipt" type="text">页
+                        <a class="page-a" href="#">跳转</a>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="alertB">
+    <div id="zhuxiao" class="alert-wp">
+      <p class="alert-title">注销账号</p>
+      <div class="btn-wp">
+        <button class="btn btn-lg notsure-btn">取消</button>
+        <a class="btn-success btn btn-lg" href="#" th:href="@{/logout}">确定</a>
+      </div>
+    </div>
+    <div id="resetpassword" class="alert-wp">
+      <p class="alert-title">请设置新密码</p>
+      <form action="#" method="post" th:action="@{/resetPassword}">
+        <div class="resetpwd-wp">
+          <input class="resetpwd form-control" name="newPassword" type="password">
+          <p class="resetpwd-noneerr">内容不能为空</p>
+        </div>
+        <div class="btn-wp">
+          <button type="button" class="btn btn-lg notsure-btn">取消</button>
+          <button type="submit" class="btn-success btn btn-lg sure-btn">确定</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script type="text/javascript" src="../../js/vendor/modernizr/modernizr.custom.js" th:src="@{/js/vendor/modernizr/modernizr.custom.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jquery/dist/jquery.js" th:src="@{/js/vendor/jquery/dist/jquery.js}"></script>
+  <script type="text/javascript" src="../../js/demo/demo-rtl.js" th:src="@{/js/demo/demo-rtl.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/chosen_v1.2.0/chosen.jquery.min.js" th:src="@{/js/vendor/chosen_v1.2.0/chosen.jquery.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js" th:src="@{/js/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/moment/min/moment-with-locales.min.js" th:src="@{/js/vendor/moment/min/moment-with-locales.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"
+    th:src="@{/js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/bootstrap/dist/js/bootstrap.js" th:src="@{/js/vendor/bootstrap/dist/js/bootstrap.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jQuery-Storage-API/jquery.storageapi.js" th:src="@{/js/vendor/jQuery-Storage-API/jquery.storageapi.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/parsley.min.js" th:src="@{/js/vendor/parsleyjs/dist/parsley.min.js}"></script>
+  <script type="text/javascript" src="../../js/demo/demo-search.js" th:src="@{/js/demo/demo-search.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/zh_cn.js" th:src="@{/js/vendor/parsleyjs/dist/zh_cn.js}"></script>
+  <script type="text/javascript" src="../../js/app.js" th:src="@{/js/app.js}"></script>
+  <script type="text/javascript" src="../../js/download.js" th:src="@{/js/download.js}"></script>
+</body>
+
+</html>

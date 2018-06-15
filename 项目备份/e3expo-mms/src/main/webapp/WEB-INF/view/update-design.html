@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Bootstrap Admin App + jQuery">
+  <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+  <title>图库-编辑</title>
+
+  <!--  载入css 文件 -->
+  <!-- Bootstrap -->
+  <link th:href="@{/js/vendor/fontawesome/css/font-awesome.min.css}" href="../../js/vendor/fontawesome/css/font-awesome.min.css"
+    rel="stylesheet">
+  <link href="../../js/vendor/simple-line-icons/css/simple-line-icons.css" th:href="@{/js/vendor/simple-line-icons/css/simple-line-icons.css}"
+    rel="stylesheet" type="text/css" />
+  <link href="../../js/vendor/animate.css/animate.min.css" th:href="@{/js/vendor/animate.css/animate.min.css}" rel="stylesheet"
+    type="text/css" />
+  <link href="../../js/vendor/whirl/dist/whirl.css" th:href="@{/js/vendor/whirl/dist/whirl.css}" rel="stylesheet" type="text/css"
+  />
+  <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+
+  <link href="../../css/app.css" th:href="@{/css/app.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/mms.min.css" th:href="@{/css/mms.min.css}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- top navbar-->
+    <header class="topnavbar-wrapper" th:replace="top-menu :: top-menu">
+      <nav role="navigation" class="navbar topnavbar">
+        <div class="navbar-header">
+          <a href="#/" class="navbar-brand head-title">
+
+                </a>
+        </div>
+        <div class="nav-wrapper">
+          <!-- 切换 -->
+          <ul class="nav navbar-nav hd-lt-ul">
+            <li>
+              <a href="#" data-toggle-state="aside-collapsed" class="hidden-xs">
+                <em class="fa fa-navicon"></em>
+              </a>
+              <a href="#" data-toggle-state="aside-toggled" data-no-persist="true" class="visible-xs sidebar-toggle">
+                <em class="fa fa-navicon"></em>
+              </a>
+            </li>
+            <li>
+              <span class="hd-title">MMS图库管理中心</span>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right hd-rt-ul">
+            <li>
+              <div class="btn-wp">
+                <span class="hd-name-wp">欢迎您，某某某</span>
+                <button class="btn-primary btn zhuxiao-btn">注销</button>
+                <button class="btn-primary btn xiugaimima-btn">修改密码</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- END Nav wrapper-->
+      </nav>
+    </header>
+
+    <!-- sidebar-->
+    <aside class="aside" th:replace="left-menu :: left-nav">
+      <div class="aside-inner">
+        <nav data-sidebar-anyclick-close="" class="sidebar">
+          <!-- START sidebar nav-->
+          <ul class="nav">
+            <li class="nav-heading">Welcome PICO</li>
+            <li class="">
+              <a href="zhanghaoguanli.html" title="账号管理">
+                <em class="fa fa-envelope-o"></em>
+                <span>账号管理</span>
+              </a>
+            </li>
+            <li class="active">
+              <a href="tukucenter.html" title="图库中心">
+                <em class="fa fa-calendar-o"></em>
+                <span>图库中心</span>
+              </a>
+            </li>
+            <li class="">
+              <a href="shenpi.html" title="我的审批">
+                <em class="fa fa-pencil"></em>
+                <span>审批</span>
+              </a>
+            </li>
+            <li class="">
+              <a href="download.html" title="下载">
+                <em class="fa fa-download"></em>
+                <span>下载</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- END 左侧菜单-->
+    </aside>
+    <!-- 主内容 -->
+    <section>
+      <div class="content-wrapper register-wp">
+        <div class="content-heading">
+          基础信息
+          <button type="button" class="mb-sm btn btn-info return-a" onclick="javascript:history.back(-1);">返回</button>
+        </div>
+        <div class="block-center mb-xl">
+          <!-- START panel-->
+          <div class="panel panel-dark panel-flat">
+            <div class="panel-body p-xl">
+              <div class="col-md-4">
+                <label for="">权属人：</label>
+                <span th:text="${design.owner.name}">张三</span>
+              </div>
+              <div class="col-md-4">
+                <label for="">创建时间：</label>
+                <span th:text="${#dates.format(design.getCreateTimeDate(), design.getDateFormat())}">-------</span>
+              </div>
+              <div class="col-md-4">
+                <label for="">更新时间：</label>
+                <span th:text="${#dates.format(design.getModifiedTimeDate(), design.getDateFormat())}">-------</span>
+              </div>
+              <div class="col-md-4">
+                <label for="">城市：</label>
+                <span th:text="${design.city.name}">上海</span>
+              </div>
+              <div class="col-md-4">
+                <label for="">查看次数：</label>
+                <span th:text="${design.views}">-------</span>
+              </div>
+              <div class="col-md-4">
+                <label for="">下载次数：</label>
+                <span th:text="${design.downloads}">-------</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-heading">
+          资料详情
+        </div>
+        <form th:action="@{/design/modify}" method="post">
+          <input type="hidden" name="designID" th:value="${design.id}"/>
+          <div class="block-center tukuregister-wp mb-xl">
+            <!-- START panel-->
+            <div class="panel panel-dark panel-flat">
+              <div class="panel-body">
+                <!--<form role="form" data-parsley-validate="" novalidate="">-->
+                <div class="">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label">行业</label>
+                        <div class="">
+                          <select name="professionID" id="hangye-st" class="form-control" required>
+                            <option th:each="profession : ${professions}"
+                                    th:value="${profession.id}" th:text="${profession.name}"
+                                    th:selected="${design.profession.id} eq ${profession.id}">------</option>
+                            <!--<option value="1">消费产品</option>
+                            <option value="2">服务贸易</option>
+                            <option value="3">工厂产品</option>
+                            <option value="4">设备制造</option>-->
+                          </select>
+                        </div>
+                        <p class="err-hangye err-cue">请选择</p>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label">结构</label>
+                        <div class="">
+                          <select name="structureID" id="jiegou-st" class="form-control" required>
+                            <option th:each="structure : ${structures}"
+                                    th:value="${structure.id}" th:text="${structure.name}"
+                                    th:selected="${design.structure.id} eq ${structure.id}">------</option>
+                            <!--<option value="1">木质</option>
+                            <option value="2">型材</option>
+                            <option value="3">衍架</option>-->
+                          </select>
+                        </div>
+                        <p class="err-jiegou err-cue">请选择</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label">展示类型</label>
+                        <div class="">
+                          <select name="exhibitionTypeID" id="type-st" class="form-control" required>
+                            <option th:each="exhibitionType : ${exhibitionTypes}"
+                                    th:value="${exhibitionType.id}" th:text="${exhibitionType.name}"
+                                    th:selected="${design.exhibitionType.id} eq ${exhibitionType.id}">------</option>
+                            <!--<option value="1">图文展示</option>
+                            <option value="2">产品陈列</option>
+                            <option value="3">设备运行</option>-->
+                          </select>
+                        </div>
+                        <p class="err-type err-cue">请选择</p>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label">开口</label>
+                        <div class="">
+                          <select name="openSides" id="kaikou-st" class="form-control" required>
+                            <option value="1" th:selected="${design.openSides} eq 1">单面</option>
+                            <option value="2" th:selected="${design.openSides} eq 2">双面</option>
+                            <option value="3" th:selected="${design.openSides} eq 3">三面</option>
+                            <option value="4" th:selected="${design.openSides} eq 4">四面</option>
+                          </select>
+                        </div>
+                        <p class="err-kaikou err-cue">请选择</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-lg">
+                    <div class="form-group">
+                      <label class="control-label ml-lg">价格</label>
+                      <br>
+                      <div class="col-md-3">
+                        <input id="price1" type="text" name="priceLowerLimit" th:value="${design.priceLowerLimit}"
+                               data-parsley-max="99998" required class="form-control" placeholder="请输入价格下限">
+                      </div>
+                      <span class="col-md-1 text-center">至</span>
+                      <div class="col-md-3">
+                        <input data-parsley-gt="#price1" type="text" name="priceUpperLimit" th:value="${design.priceUpperLimit}"
+                               required class="form-control" placeholder="请输入价格上限">
+                      </div>
+                      <span class="col-md-3">（单位：元/平米）</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group">
+                      <label class="control-label ml-lg">面积</label>
+                      <br>
+                      <div class="col-md-3">
+                        <input data-parsley-max="999" name="area" th:value="${design.area}"
+                               autocomplete="off" required data-parsley-min="0" class="form-control" type="text"
+                          placeholder="请输入面积">
+                      </div>
+                      <span class="col-md-3">（单位：平米）</span>
+                    </div>
+                  </div>
+                  <div class="pt-xl text-center register-btn-wp">
+                    <button type="submit" class="btn btn-primary btn-info btn-lg">保存</button>
+                  </div>
+                </div>
+                <!--</form>-->
+              </div>
+            </div>
+          </div>
+        </form>
+          <div class="content-heading">
+            示意图&3D图
+          </div>
+          <div class="block-center tukuregister-wp">
+            <!-- START panel-->
+            <div class="panel panel-dark panel-flat">
+              <div class="panel-body">
+                <p>请上传平面示意图，至多6张（单张图片大小至多10M）</p>
+                <div class="upload-wp clearfix">
+                  <div class="upload-fa" th:each="sketch : ${design.sketchList}" th:if="${sketch.isCover == 1}">
+                    <label class="upload-btn">
+                      <i class="fa fa-fw fa-plus hidden"></i>
+                        <!--<a href="#" th:href="@{/design/deleteSketch(sketchId=${sketch.id},designId=${design.id})}">
+                          <span class="delete-show">×</span>
+                        </a>-->
+                      </span>
+                      <img src="" th:src="${sketch.temporaryUrl}" alt="">
+                      <input id="upload1" type="file" th:attr="sketchId=${sketch.id},designId=${design.id}" name="setSketchFile" multiple="">
+                    </label>
+                    <div class="fenmianbtn-wp">
+                      <button type="button" class="btn btn-success">封面图</button>
+                    </div>
+                  </div>
+                  <div class="upload-fa" th:each="sketch : ${design.sketchList}" th:if="${sketch.isCover == 0}">
+                    <label class="upload-btn">
+                      <i class="fa fa-fw fa-plus hidden"></i>
+                      <a href="#" th:href="@{/design/deleteSketch(sketchId=${sketch.id},designId=${design.id})}"><span class="delete-show">×</span></a>
+                      <img src="" alt="" th:src="${sketch.temporaryUrl}">
+                      <input id="upload2" type="file" th:attr="sketchId=${sketch.id},designId=${design.id}" name="setSketchFile" multiple="">
+                    </label>
+                    <div class="fenmianbtn-wp">
+                      <a type="button" class="btn btn-primary" th:href="@{/design/setCover(designId=${design.id}, sketchId=${sketch.id})}">设为封面</a>
+                    </div>
+                  </div>
+                  <div class="upload-fa none" th:each="i : ${#numbers.sequence(1,6 - design.sketchList.size())}">
+                    <label class="upload-btn">
+                      <i class="fa fa-fw fa-plus"></i>
+                      <span class="delete">×</span>
+                      <img src="" alt="">
+                      <input type="file" th:attr="designId=${design.id}"  name="setSketchFile" multiple="">
+                    </label>
+                    <!--<div class="fenmianbtn-wp none">
+                      <button type="button" class="btn btn-primary">设为封图</button>
+                    </div>-->
+                  </div>
+                  <div class="upload-fa" th:if="${design.sketchList.size() < 6}">
+                    <!--<form action="#" th:action="@{/design/appendSketch}" method="post" enctype="multipart/form-data">-->
+                      <input type="hidden" name="designId" th:value="${design.id}">
+                      <label for="appendSketch" class="upload-btn">
+                        <i class="fa fa-fw fa-plus"></i>
+                        <span class="delete">×</span>
+                        <img src="" alt="">
+                        <input id="appendSketch" name="setSketchFile" th:attr="designId=${design.id}" type="file">
+                        <!--<input id="upload1" type="file" name="sketchFile">-->
+                      </label>
+                      <!--<div class="fenmianbtn-wp none">
+                        <button type="submit" id="uploadbtn" class="btn btn-success">上传</button>
+                      </div>-->
+                    <!--</form>-->
+                  </div>
+                  <!--<div class="upload-fa none">
+                    <label for="upload4" class="upload-btn">
+                      <i class="fa fa-fw fa-plus"></i>
+                      <span class="delete">×</span>
+                      <img src="" alt="">
+                      <input id="upload4" type="file" name="sketchFiles" multiple="">
+                    </label>
+                    <div class="fenmianbtn-wp none">
+                      <button type="button" class="btn btn-primary">设为封图</button>
+                    </div>
+                  </div>
+                  <div class="upload-fa none">
+                    <label for="upload5" class="upload-btn">
+                      <i class="fa fa-fw fa-plus"></i>
+                      <span class="delete">×</span>
+                      <img src="" alt="">
+                      <input id="upload5" type="file" name="sketchFiles" multiple="">
+                    </label>
+                    <div class="fenmianbtn-wp none">
+                      <button type="button" class="btn btn-primary">设为封图</button>
+                    </div>
+                  </div>
+                  <div class="upload-fa none">
+                    <label for="upload6" class="upload-btn">
+                      <i class="fa fa-fw fa-plus"></i>
+                      <span class="delete">×</span>
+                      <img src="" alt="">
+                      <input id="upload6" type="file" name="sketchFiles" multiple="">
+                    </label>
+                    <div class="fenmianbtn-wp none">
+                      <button type="button" class="btn btn-primary">设为封图</button>
+                    </div>
+                  </div>-->
+                </div>
+                <p class="pt-xl">请上传包含3DS MAX、和贴图的打包文件（格式：RAR、ZIP）</p>
+                <div class="download3d-wp none">
+                  <i class="icon-check down-icon"></i>
+                  <span>上传完毕</span>
+                </div>
+                <div class="upload-progress">
+                  <span class="progress-cue">上传进度</span>
+                </div>
+                <form id="update-design-zipfile-form" action="#" th:action="@{/design/setZipFile}" method="post" enctype="multipart/form-data">
+                  <input type="hidden" name="designId" th:value="${design.id}">
+                <span class="btn btn-success fileinput-button"><i class="fa fa-fw fa-plus"></i><span>上传附件</span>
+                <input id="update-design-fujian-upload" type="file" designId="11" name="zipFile" th:attr="designId=${design.id}">
+                </span>
+                    <!--<input type="submit" class="btn btn-success"  value="确认"/>-->
+                </form>
+                <!--<div class="pt-xl text-center register-btn-wp">
+                  <button id="tukuregister-btn" type="submit" class="btn btn-primary btn-info btn-lg">保存</button>
+                </div>-->
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+  </div>
+  <div class="alertB2">
+    <div class="alert-wp">
+      <p class="alert-title"></p>
+      <div class="btn-wp">
+        <button id="tukurg-btn-sure" class="btn-success btn btn-lg btn-sure">确定</button>
+      </div>
+    </div>
+  </div>
+  <div class="alertB">
+    <div id="zhuxiao" class="alert-wp">
+      <p class="alert-title">注销账号</p>
+      <div class="btn-wp">
+        <button class="btn btn-lg notsure-btn">取消</button>
+        <a class="btn-success btn btn-lg" href="#" th:href="@{/logout}">确定</a>
+      </div>
+    </div>
+    <div id="resetpassword" class="alert-wp">
+      <p class="alert-title">请设置新密码</p>
+      <form action="#" method="post" th:action="@{/resetPassword}">
+        <div class="resetpwd-wp">
+          <input class="resetpwd form-control" name="newPassword" type="password">
+          <p class="resetpwd-noneerr">内容不能为空</p>
+        </div>
+        <div class="btn-wp">
+          <button type="button" class="btn btn-lg notsure-btn">取消</button>
+          <button type="submit" class="btn-success btn btn-lg sure-btn">确定</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script type="text/javascript" src="../../js/vendor/modernizr/modernizr.custom.js" th:src="@{/js/vendor/modernizr/modernizr.custom.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jquery/dist/jquery.js" th:src="@{/js/vendor/jquery/dist/jquery.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/bootstrap/dist/js/bootstrap.js" th:src="@{/js/vendor/bootstrap/dist/js/bootstrap.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jQuery-Storage-API/jquery.storageapi.js" th:src="@{/js/vendor/jQuery-Storage-API/jquery.storageapi.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/moment/min/moment-with-locales.min.js" th:src="@{/js/vendor/moment/min/moment-with-locales.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"
+          th:src="@{/js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/parsley.min.js" th:src="@{/js/vendor/parsleyjs/dist/parsley.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/zh_cn.js" th:src="@{/js/vendor/parsleyjs/dist/zh_cn.js}"></script>
+  <script type="text/javascript" src="../../js/app.js" th:src="@{/js/app.js}"></script>
+  <script type="text/javascript" src="../../js/base.js" th:src="@{/js/base.js}"></script>
+  <script type="text/javascript" src="../../js/index.min.js" th:src="@{/js/index.min.js}"></script>
+  <script type="text/javascript" src="../../js/update_design.js" th:src="@{/js/update_design.js}"></script>
+</body>
+
+</html>

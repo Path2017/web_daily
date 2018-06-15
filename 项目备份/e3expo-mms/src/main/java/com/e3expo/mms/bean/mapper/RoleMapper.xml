@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.e3expo.mms.bean.mapper.RoleMapper">
+
+
+    <select id="getRoleIDByUserID" resultType="int">
+        SELECT role_id from user_role where user_id = #{userID}
+    </select>
+
+    <update id="updateUserRoleByUserID">
+        update user_role set role_id = #{roleID}, modified_time = #{modifiedTime}
+        WHERE user_id = #{userID}
+    </update>
+
+    <select id="getAllRoles" resultType="role">
+        SELECT * FROM role;
+    </select>
+
+<select id="getRolebyId" parameterType="int" resultType="role">
+    select * from role where id = #{id}
+</select>
+
+
+
+
+</mapper>

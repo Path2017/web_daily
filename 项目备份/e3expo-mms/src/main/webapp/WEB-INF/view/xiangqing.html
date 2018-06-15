@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Bootstrap Admin App + jQuery">
+  <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+  <title>图库-详情页</title>
+
+  <!--  载入css 文件 -->
+  <!-- Bootstrap -->
+  <link th:href="@{/js/vendor/fontawesome/css/font-awesome.min.css}" href="../../js/vendor/fontawesome/css/font-awesome.min.css"
+    rel="stylesheet">
+  <link href="../../js/vendor/simple-line-icons/css/simple-line-icons.css" th:href="@{/js/vendor/simple-line-icons/css/simple-line-icons.css}"
+    rel="stylesheet" type="text/css" />
+  <link href="../../js/vendor/animate.css/animate.min.css" th:href="@{/js/vendor/animate.css/animate.min.css}" rel="stylesheet"
+    type="text/css" />
+  <link href="../../js/vendor/whirl/dist/whirl.css" th:href="@{/js/vendor/whirl/dist/whirl.css}" rel="stylesheet" type="text/css"
+  />
+  <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+
+  <link href="../../css/app.css" th:href="@{/css/app.css}" rel="stylesheet" type="text/css" />
+  <link href="../../js/jQueryViewer/css/viewer.min.css" th:href="@{/js/jQueryViewer/css/viewer.min.css}" rel="stylesheet" type="text/css"
+  />
+  <link href="../../css/mms.min.css" th:href="@{/css/mms.min.css}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- top navbar-->
+    <header class="topnavbar-wrapper" th:replace="top-menu :: top-menu">
+      <nav role="navigation" class="navbar topnavbar">
+        <div class="navbar-header">
+          <a href="#/" class="navbar-brand head-title"></a>
+        </div>
+        <div class="nav-wrapper">
+          <!-- 切换 -->
+          <ul class="nav navbar-nav hd-lt-ul">
+            <li>
+              <a href="#" data-toggle-state="aside-collapsed" class="hidden-xs">
+                <em class="fa fa-navicon"></em>
+              </a>
+              <a href="#" data-toggle-state="aside-toggled" data-no-persist="true" class="visible-xs sidebar-toggle">
+                <em class="fa fa-navicon"></em>
+              </a>
+            </li>
+            <li>
+              <span class="hd-title">MMS图库管理中心</span>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right hd-rt-ul">
+            <li>
+              <div class="btn-wp">
+                <span class="hd-name-wp">欢迎您，某某某</span>
+                <button class="btn-primary btn zhuxiao-btn">注销</button>
+                <button class="btn-primary btn xiugaimima-btn">修改密码</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- END Nav wrapper-->
+      </nav>
+    </header>
+
+    <!-- sidebar-->
+    <aside class="aside" th:replace="left-menu :: left-nav">
+      <div class="aside-inner">
+        <nav data-sidebar-anyclick-close="" class="sidebar">
+          <!-- START sidebar nav-->
+          <ul class="nav">
+            <li class="nav-heading">Welcome PICO</li>
+            <li class="">
+              <a href="zhanghaoguanli.html" title="账号管理">
+                <em class="fa fa-envelope-o"></em>
+                <span>账号管理</span>
+              </a>
+            </li>
+            <li class="active">
+              <a href="tukucenter.html" title="图库中心">
+                <em class="fa fa-calendar-o"></em>
+                <span>图库中心</span>
+              </a>
+            </li>
+            <li class="">
+              <a href="shenpi.html" title="我的审批">
+                <em class="fa fa-pencil"></em>
+                <span>审批</span>
+              </a>
+            </li>
+            <li class="">
+              <a href="download.html" title="下载">
+                <em class="fa fa-download"></em>
+                <span>下载</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- END 左侧菜单-->
+    </aside>
+    <!-- 主内容 -->
+    <section>
+      <div class="content-wrapper register-wp">
+        <div class="content-heading">
+          基础信息
+          <button type="button" onclick="javascript:history.back(-1)" class="mb-sm btn btn-info return-a">返回</button>
+        </div>
+        <div class="block-center mb-xl">
+          <!-- START panel-->
+          <div class="panel panel-dark panel-flat">
+            <div class="panel-body p-xl">
+              <div class="col-md-4">
+                <label for="">权属人：</label>
+                <span th:text="${design.owner.name}">张三</span>
+              </div>
+              <div class="col-md-4">
+                <label for="">创建时间：</label>
+                <span th:text="${#dates.format(design.getCreateTimeDate(), design.getDateFormat())}">-------</span>
+              </div>
+              <div class="col-md-4">
+                <label for="">更新时间：</label>
+                <span th:text="${#dates.format(design.getModifiedTimeDate(), design.getDateFormat())}">-------</span>
+              </div>
+              <div class="col-md-4">
+                <label for="">城市：</label>
+                <span th:text="${design.city.name}">上海</span>
+              </div>
+              <div class="col-md-4">
+                <label for="">查看次数：</label>
+                <span th:text="${design.views}">-------</span>
+              </div>
+              <div class="col-md-4">
+                <label for="">下载次数：</label>
+                <span th:text="${design.downloads}">-------</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-heading">
+          资料详情
+        </div>
+        <div class="block-center tukuregister-wp mb-xl">
+          <!-- START panel-->
+          <div class="panel panel-dark panel-flat">
+
+            <div class="panel-body">
+              <div class="col-md-6">
+                <label for="">行业：</label>
+                <span th:text="${design.profession.name}">消费产品</span>
+              </div>
+              <div class="col-md-6">
+                <label for="">结构：</label>
+                <span th:text="${design.structure.name}">木质</span>
+              </div>
+              <div class="col-md-6">
+                <label for="">展示类型：</label>
+                <span th:text="${design.exhibitionType.name}">图文展示</span>
+              </div>
+              <div class="col-md-6">
+                <label for="">开口：</label>
+                <span th:text="${design.openSides == 1 ? '单面' : design.openSides == 2 ? '双面' :  design.openSides == 3 ? '三面' : '四面'}">单面</span>
+              </div>
+              <div class="col-md-9">
+                <label for="">价格区间：</label>
+                <span th:text="|${design.priceLowerLimit}~${design.priceUpperLimit}|">2000~2500</span>
+                <span class="">（单位：元/平米）</span>
+              </div>
+              <div class="col-md-9">
+                <label for="">面积：</label>
+                <span th:text="${design.area}">50</span>
+                <span class="">（单位：平米）</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-heading">
+          示意图&3D图
+        </div>
+        <div class="block-center tukuregister-wp mb-xl">
+          <!-- START panel-->
+          <div class="panel panel-dark panel-flat">
+            <div class="panel-body">
+              <form role="form" data-parsley-validate="" novalidate="">
+                <p>请上传平面示意图，至多6张（单张图片大小至多10M）</p>
+                <ul id="img-view" class="clearfix">
+                  <li th:each="sketch : ${design.sketchList}"><img data-original="../../img/1.jpg" th:attr="data-original=${sketch.temporaryUrl}" src="../../img/1.jpg" th:src="${sketch.temporaryUrl}" alt="图片1"></li>
+                 <!-- <li><img data-original="../../img/1.jpg" src="../../img/1.jpg" alt="图片2"></li>
+                  <li><img data-original="../../img/1.jpg" src="../../img/1.jpg" alt="图片1"></li>
+                  <li><img data-original="../../img/9.jpg" src="../../img/9.jpg" alt="图片2"></li>
+                  <li><img data-original="../../img/1.jpg" src="../../img/1.jpg" alt="图片1"></li>
+                  <li><img data-original="../../img/1.jpg" src="../../img/1.jpg" alt="图片2"></li>-->
+                </ul>
+                <!--<p class="pt-xl">请上传包含3DS MAX、和贴图的打包文件（格式：RAR、ZIP）</p>-->
+                <div>
+                  <div class="download3d-wp" th:if="${design.ossKey != null}">
+                    <i class="icon-check down-icon"></i>
+                    <span>3D文件可下载</span>
+                  </div>
+                  <!--th:if="${design.applicationStatus >= 1}-->
+                  <div id="downloadStatusDiv">
+                    <button th:if="${design.applicationStatus == -1}" th:attr="designId=${design.id}" type="button" class="btn btn-success shenqingdw-btn" >申请下载</button>
+                    <button th:if="${design.applicationStatus == 0}" type="button" class="btn btn-default" disabled >下载申请中</button>
+                    <a th:if="${design.applicationStatus >= 1}" type="button" class="btn btn-success" href="#" target="_blank" th:href="@{/download/execute(designId=${design.id})}">直接下载</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="content-heading">
+          日志
+        </div>
+        <div class="block-center tukuregister-wp mb-xl">
+          <!-- START panel-->
+          <div class="panel panel-dark panel-flat">
+            <div class="panel-body">
+              <div id="log-ul" class="rizhi-wp">
+                <ul>
+                  <p class="loading">加载中...</p>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="alertB">
+    <div id="applydownload" class="alert-wp">
+      <p class="alert-title">申请下载该3D文件</p>
+      <p class="alert-text">是否发起申请下载？申请通过审批后可前往“我的下载”获取3D.max文件</p>
+      <div class="btn-wp">
+        <button class="btn btn-lg notsure-btn">取消</button>
+        <button id="confirmCreateApplication" class="btn-success btn btn-lg">确定</button>
+      </div>
+    </div>
+    <div id="zhuxiao" class="alert-wp">
+      <p class="alert-title">注销账号</p>
+      <div class="btn-wp">
+        <button class="btn btn-lg notsure-btn">取消</button>
+        <a class="btn-success btn btn-lg" href="#" th:href="@{/logout}">确定</a>
+      </div>
+    </div>
+    <div id="resetpassword" class="alert-wp">
+      <p class="alert-title">请设置新密码</p>
+      <form action="#" method="post" th:action="@{/resetPassword}">
+        <div class="resetpwd-wp">
+          <input class="resetpwd form-control" name="newPassword" type="password">
+          <p class="resetpwd-noneerr">内容不能为空</p>
+        </div>
+        <div class="btn-wp">
+          <button type="button" class="btn btn-lg notsure-btn">取消</button>
+          <button type="submit" class="btn-success btn btn-lg sure-btn">确定</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script type="text/javascript" src="../../js/vendor/modernizr/modernizr.custom.js" th:src="@{/js/vendor/modernizr/modernizr.custom.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jquery/dist/jquery.js" th:src="@{/js/vendor/jquery/dist/jquery.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/bootstrap/dist/js/bootstrap.js" th:src="@{/js/vendor/bootstrap/dist/js/bootstrap.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jQuery-Storage-API/jquery.storageapi.js" th:src="@{/js/vendor/jQuery-Storage-API/jquery.storageapi.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/moment/min/moment-with-locales.min.js" th:src="@{/js/vendor/moment/min/moment-with-locales.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"
+          th:src="@{/js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/parsley.min.js" th:src="@{/js/vendor/parsleyjs/dist/parsley.min.js}"></script>
+  <script type="text/javascript" src="../../js/app.js" th:src="@{/js/app.js}"></script>
+  <script type="text/javascript" src="../../js/jQueryViewer/js/viewer.min.js" th:src="@{/js/jQueryViewer/js/viewer.min.js}"></script>
+  <script type="text/javascript" src="../../js/base.js" th:src="@{/js/base.js}"></script>
+  <script type="text/javascript" src="../../js/xiangqing.js" th:src="@{/js/xiangqing.js}"></script>
+  <script>
+    var viewer = new Viewer(document.getElementById('img-view'), {
+      url: 'data-original'
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Bootstrap Admin App + jQuery">
+  <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+  <title>图库中心</title>
+
+  <!--  载入css 文件 -->
+  <!-- Bootstrap -->
+  <link th:href="@{js/vendor/fontawesome/css/font-awesome.min.css}" href="../../js/vendor/fontawesome/css/font-awesome.min.css"
+    rel="stylesheet">
+  <link href="../../js/vendor/simple-line-icons/css/simple-line-icons.css" th:href="@{js/vendor/simple-line-icons/css/simple-line-icons.css}"
+    rel="stylesheet" type="text/css" />
+  <link href="../../js/vendor/animate.css/animate.min.css" th:href="@{js/vendor/animate.css/animate.min.css}" rel="stylesheet"
+    type="text/css" />
+  <link href="../../js/vendor/whirl/dist/whirl.css" th:href="@{js/vendor/whirl/dist/whirl.css}" rel="stylesheet" type="text/css"
+  />
+  <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+
+  <link href="../../css/app.css" th:href="@{/css/app.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/mms.min.css" th:href="@{/css/mms.min.css}" rel="stylesheet" type="text/css" />
+  <script type="text/javascript">
+    function switchFile() {
+      //
+      var $file1 = $("#file1");
+      $("#file1").remove();
+      $("#form").append($file1);
+    }
+  </script>
+  <style>
+    #iframeHeader {
+      width: 100%;
+      height: 55px;
+    }
+
+    #iframeNav {
+      width: 220px;
+      height: 800px;
+      float: left;
+    }
+
+    #iframeContent {
+      width: calc(100% - 221px);
+      height: 1000px;
+      float: left;
+    }
+  </style>
+</head>
+
+<body>
+  <form action=""id="form">
+    <input id="file1" type="file" name="testFiles"><br>
+    <input id="file2" type="file" name="testFiles"><br>
+    <input type="submit"><br>
+    <button onclick="switchFile()">switch</button>
+  </form>
+</body>
+
+</html>

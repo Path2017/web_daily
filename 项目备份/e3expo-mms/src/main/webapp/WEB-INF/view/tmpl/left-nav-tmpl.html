@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="E3 MMS">
+  <meta name="keywords" content="E3, MMS, 图库管理系统">
+  <title>图库中心</title>
+
+  <!--  载入css 文件 -->
+  <!-- Bootstrap -->
+  <link th:href="@{js/vendor/fontawesome/css/font-awesome.min.css}" href="../../../js/vendor/fontawesome/css/font-awesome.min.css"
+    rel="stylesheet">
+  <link href="../../../js/vendor/simple-line-icons/css/simple-line-icons.css" th:href="@{js/vendor/simple-line-icons/css/simple-line-icons.css}"
+    rel="stylesheet" type="text/css" />
+  <link href="../../../js/vendor/animate.css/animate.min.css" th:href="@{js/vendor/animate.css/animate.min.css}" rel="stylesheet"
+    type="text/css" />
+  <link href="../../../js/vendor/whirl/dist/whirl.css" th:href="@{js/vendor/whirl/dist/whirl.css}" rel="stylesheet" type="text/css"
+  />
+  <link href="../../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+
+  <link href="../../../css/app.css" th:href="@{/css/app.css}" rel="stylesheet" type="text/css" />
+  <link href="../../../css/mms.min.css" th:href="@{/css/mms.min.css}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+  <!-- sidebar-->
+  <aside class="aside" th:fragment="left-nav">
+    <div class="aside-inner">
+      <nav data-sidebar-anyclick-close="" class="sidebar">
+        <!-- START sidebar nav-->
+        <ul class="nav">
+          <li class="nav-heading">Welcome PICO</li>
+          <li class=" " th:each="pMenu : ${navSet}">
+            <!--<p th:text="${pMenu.name}"></p>-->
+            <a href="#email" th:href="|#${pMenu.nick}|" title="账号管理" th:title="${pMenu.name}" data-toggle="collapse">
+              <em class="fa fa-envelope-o"></em>
+              <span th:text="${pMenu.name}">账号列表</span>
+            </a>
+            <ul id="email" th:id="${pMenu.nick}" class="nav sidebar-subnav collapse">
+              <li class="sidebar-subnav-header" th:text="${pMenu.name}">账号列表</li>
+              <li class="" th:each="subMenu : ${pMenu.subMenus}">
+                <a class="" th:href="${subMenu.link}" href="../zhanghaoguanli.html" th:title="${subMenu.name}" title="账号管理">
+                  <span th:text="${subMenu.name}">账号管理</span>
+                </a>
+              </li>
+              <!--<li class=" ">
+                <a class="" href="../register.html" title="新建账号">
+                    <span>新建账号</span>
+                </a>
+              </li>-->
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+  <!--<li class=" ">
+    <a href="#sms" title="图库中心" data-toggle="collapse">
+        <em class="fa fa-paper-plane-o"></em>
+        <span>图库列表</span>
+    </a>
+    <ul id="sms" class="nav sidebar-subnav collapse">
+        <li class="sidebar-subnav-header">图库列表</li>
+        <li class="">
+            <a href="../tukucenter.html" title="Sub Menu">
+                <span>图库中心</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="../tukuregister.html" title="Sub Menu">
+                <span>新建账号</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="../xiangqing.html" title="Sub Menu">
+                <span>详情页</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="">
+    <a href="../shenpi.html" title="我的审批">
+        <em class="fa fa-paper-plane-o"></em>
+        <span>审批</span>
+    </a>
+</li>
+<li class="active">
+    <a href="../download.html" title="下载">
+        <em class="fa fa-paper-plane-o"></em>
+        <span>下载</span>
+    </a>
+</li>-->
+
+  <!-- END 左侧菜单-->
+  <script type="text/javascript" src="../../../js/vendor/modernizr/modernizr.custom.js" th:src="@{js/vendor/modernizr/modernizr.custom.js}"></script>
+  <script type="text/javascript" src="../../../js/vendor/jquery/dist/jquery.js" th:src="@{js/vendor/jquery/dist/jquery.js}"></script>
+  <script type="text/javascript" src="../../../js/demo/demo-rtl.js" th:src="@{/js/demo/demo-rtl.js}"></script>
+  <script type="text/javascript" src="../../../js/vendor/chosen_v1.2.0/chosen.jquery.min.js" th:src="@{js/vendor/chosen_v1.2.0/chosen.jquery.min.js}"></script>
+  <script type="text/javascript" src="../../../js/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js" th:src="@{js/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js}"></script>
+  <script type="text/javascript" src="../../../js/vendor/moment/min/moment-with-locales.min.js" th:src="@{js/vendor/moment/min/moment-with-locales.min.js}"></script>
+  <script type="text/javascript" src="../../../js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"
+    th:src="@{js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js}"></script>
+  <script type="text/javascript" src="../../../js/vendor/bootstrap/dist/js/bootstrap.js" th:src="@{js/vendor/bootstrap/dist/js/bootstrap.js}"></script>
+  <script type="text/javascript" src="../../../js/vendor/jQuery-Storage-API/jquery.storageapi.js" th:src="@{js/vendor/jQuery-Storage-API/jquery.storageapi.js}"></script>
+  <script type="text/javascript" src="../../../js/vendor/parsleyjs/dist/parsley.min.js" th:src="@{js/vendor/parsleyjs/dist/parsley.min.js}"></script>
+  <script type="text/javascript" src="../../../js/demo/demo-search.js" th:src="@{/js/demo/demo-search.js}"></script>
+  <script type="text/javascript" src="../../../js/app.js" th:src="@{/js/app.js}"></script>
+
+</body>
+
+</html>

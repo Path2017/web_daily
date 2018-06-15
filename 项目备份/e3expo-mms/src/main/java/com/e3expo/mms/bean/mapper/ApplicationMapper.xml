@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.e3expo.mms.bean.mapper.ApplicationMapper">
+
+    <insert id="batchDesignInsert">
+        INSERT INTO application(create_time, applicant, design_id, status)
+        VALUES
+        <foreach collection="designList" item="designId" separator=",">
+            (#{createTime},#{userId},#{designId},#{status})
+        </foreach>
+    </insert>
+    <update id="updateApplicationStatusByDesignId">
+        UPDATE application SET status = #{status}, handling_time = #{handlingTime}
+        WHERE design_id = #{designId}
+    </update>
+
+    <update id="updateApplicationStatus" >
+        UPDATE application SET status = #{status}, handling_time = #{handlingTime}
+        WHERE id = #{applicationId}
+    </update>
+
+    <insert id="batchApplicantInsert">
+        INSERT INTO application(create_time, applicant, design_id, status)
+        VALUES
+        <foreach collection="userList" item="userId" separator=",">
+            (#{createTime},#{userId},#{designId},#{status})
+        </foreach>
+
+    </insert>
+
+    <select id="pageConditionQuery" resultMap="applicationWithDetail">
+        SELECT
+        c.`name` AS city_name,
+        c.id AS city_id,
+        c.bucket,
+        b.`name` AS applicant_name,
+        b.phone_area_code,
+        b.phone_number,
+        b.email,
+        e.oss_key AS cover_oss_key,
+        a.`status`,
+        a.create_time ,
+        a.handling_time,
+        a.id,
+        a.design_id,
+        a.applicant,
+        h.id design_city_id,
+        h.bucket design_bucket
+        FROM
+        application AS a
+        INNER JOIN `user` AS b ON a.applicant = b.id
+        INNER JOIN city AS c ON b.city_id = c.id
+        INNER JOIN design AS d ON a.design_id = d.id
+        INNER JOIN user AS g ON g.id = d.owner_id
+        INNER JOIN city AS h ON h.id = g.city_id
+        INNER JOIN design_sketch AS e ON e.design_id = d.id
+#         INNER JOIN (select applicant,design_id, max(create_time) max_time
+#                     FROM application
+#                     GROUP BY applicant, design_id) f
+#                     ON a.applicant = f.applicant and a.design_id = f.design_id
+#                     AND a.create_time = f.max_time
+        WHERE
+        <![CDATA[ e.is_cover = 1 and e.`status` = 1 AND a.status < 2 and d.status = 1]]>
+        <if test="cityId">
+            AND b.city_id = #{cityId}
+        </if>
+        <if test="applicantName != null">
+            and b.name like concat('%',#{applicantName},'%')
+        </if>
+        <if test="timeLowerLimit > 0">
+            <![CDATA[ AND a.create_time > #{timeLowerLimit} ]]>
+        </if>
+        <if test="timeUpperLimit > 0">
+            <![CDATA[ AND a.create_time < #{timeUpperLimit} ]]>
+        </if>
+        <choose>
+            <when test="status == 0">
+                AND a.status = 0
+            </when>
+            <when test="status == -1">
+                AND a.status = -1
+            </when>
+            <when test="status == 1">
+                AND a.status = 1
+            </when>
+            <otherwise>
+            </otherwise>
+        </choose>
+#         GROUP BY a.applicant,a.design_id
+        order BY a.create_time DESC
+        limit #{beginIndex}, #{pageSize}
+    </select>
+    
+    <resultMap id="applicationWithDetail" type="application" autoMapping="true">
+        <id column="id" property="id"/>
+        <association property="design" javaType="design">
+            <id column="design_id" property="id"/>
+            <result column="cover_oss_key" property="coverOssKey"/>
+            <association property="city" javaType="city">
+                <id column="design_city_id" property="id"/>
+                <result column="design_bucket" property="bucket"/>
+            </association>
+        </association>
+        <association property="applicantUser" javaType="user">
+            <id column="applicant" property="id"/>
+            <result column="applicant_name" property="name"/>
+            <result column="phone_area_code" property="phoneAreaCode"/>
+            <result column="phone_number" property="phoneNumber"/>
+            <result column="email" property="email"/>
+            <association property="city" javaType="city">
+                <id column="city_id" property="id"/>
+                <result column="city_name" property="name"/>
+                <result column="bucket" property="bucket"/>
+            </association>
+        </association>
+    </resultMap>
+
+    <select id="getApplicationTotalNumberByParam" resultType="int">
+        SELECT
+        count(0)
+        FROM
+        application AS a
+        INNER JOIN `user` AS b ON a.applicant = b.id
+        INNER JOIN city AS c ON b.city_id = c.id
+        INNER JOIN design AS d ON a.design_id = d.id
+        WHERE
+        <![CDATA[ a.status < 2 and d.status = 1]]>
+        <if test="cityId">
+            AND b.city_id = #{cityId}
+        </if>
+        <if test="applicantName != null">
+            and b.name like concat('%',#{applicantName},'%')
+        </if>
+        <if test="timeLowerLimit > 0">
+            <![CDATA[ AND a.create_time > #{timeLowerLimit} ]]>
+        </if>
+        <if test="timeUpperLimit > 0">
+            <![CDATA[ AND a.create_time < #{timeUpperLimit} ]]>
+        </if>
+        <choose>
+            <when test="status == 0">
+                AND a.status = 0
+            </when>
+            <when test="status == -1">
+                AND a.status = -1
+            </when>
+            <when test="status == 1">
+                AND a.status = 1
+            </when>
+        </choose>
+    </select>
+
+    <insert id="singleInsert">
+        INSERT INTO application(create_time, applicant, design_id, status)
+        VALUES (#{createTime},#{applicant},#{designId},0)
+    </insert>
+
+    <select id="getLatestApplication" resultType="application">
+        SELECT * FROM application
+        WHERE applicant = #{applicant} AND design_id = #{designId}
+        ORDER BY create_time DESC
+        LIMIT 0, 1
+    </select>
+    <select id="getApplication" resultType="application">
+      SELECT * FROM application
+      WHERE applicant = #{applicant} AND design_id = #{designId} AND status = #{status}
+    </select>
+
+</mapper>

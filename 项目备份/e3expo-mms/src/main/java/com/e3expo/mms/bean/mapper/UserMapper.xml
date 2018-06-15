@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.e3expo.mms.bean.mapper.UserMapper">
+
+    <select id="getUserByPhoneNumber" resultType="user">
+        select * from `user` WHERE phone_number = #{phoneNumber};
+    </select>
+    <select id="getUsersByCityIdAndRoleName" resultType="user">
+        SELECT a.*
+        FROM `user` a ,role b, user_role c
+        WHERE a.id = c.user_id and b.id = c.role_id
+        AND a.city_id = #{cityId} and b.name = #{roleName}
+    </select>
+
+    <select id="getSystemUserId" resultType="int">
+        SELECT a.id
+        FROM `user` a ,role b, user_role c
+        where a.id = c.user_id and b.id = c.role_id AND b.name = 'sys_admin'
+    </select>
+
+    <update id="updateUserInfo">
+        update `user`
+        <set>
+            <if test="cityID != 0">
+              city_id = #{cityID},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="phoneNumber != null">
+                phone_number = #{phoneNumber},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="isResigned != -1">
+                is_resigned = #{isResigned},
+            </if>
+            modified_time = #{modifiedTime}
+        </set>
+        WHERE id = #{userID}
+
+    </update>
+
+    <select id="pageConditionQuery" resultMap="UserResultMap">
+        SELECT
+        a.create_time,
+        a.modified_time,
+        a.city_id,
+        a.`name`,
+        a.phone_area_code,
+        a.phone_number,
+        a.email,
+        a.`password`,
+        a.is_resigned,
+        b.`name` AS role_name,
+        b.full_name,
+        c.role_id,
+        c.user_id,
+        b.`status`,
+        d.`name` AS city_name,
+        d.nick_name,
+        d.`status`
+        from `user` a, role b, user_role c, city d
+        where a.id = c.user_id and b.id = c.role_id and a.city_id = d.id
+        <if test="cityID != 0">
+            and a.city_id = #{cityID}
+        </if>
+        and c.role_id in
+        <foreach collection="roleIDList" item="roleID" separator="," open="(" close=")">
+            #{roleID}
+        </foreach>
+        <if test="name != null">
+            and a.name like concat('%',#{name},'%')
+        </if>
+        <if test="isResigned != -1">
+            and a.is_resigned = #{isResigned}
+        </if>
+        LIMIT #{beginIndex},#{pageSize}
+    </select>
+
+    <select id="getUserTotalNumberByParam" resultType="int">
+        SELECT count(0) FROM user a ,role b, user_role c
+        WHERE a.id = c.user_id and b.id = c.role_id
+        <if test="cityID != 0">
+            and a.city_id = #{cityID}
+        </if>
+        and c.role_id in
+        <foreach collection="roleIDList" item="roleID" separator="," open="(" close=")">
+          #{roleID}
+        </foreach>
+        <if test="name != null">
+          and a.name like concat('%',#{name},'%')
+        </if>
+        <if test="isResigned != -1">
+            and a.is_resigned = #{isResigned}
+        </if>
+    </select>
+
+    <insert id="insertIntoUserRole">
+        INSERT INTO user_role(user_id, role_id,create_time)
+        VALUES(#{userID}, #{roleID}, #{createTime})
+    </insert>
+
+    <insert id="insertUser" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO user(create_time, city_id, name, phone_number,phone_area_code, email, password, is_resigned)
+        VALUES (#{createTime},#{cityID},#{name}, #{phoneNumber},#{phoneAreaCode}, #{email},#{password},#{isResigned})
+    </insert>
+
+    <select id="getUserById" parameterType="int" resultMap="UserResultMap">
+    SELECT
+    a.create_time,
+    a.modified_time,
+    a.city_id,
+    a.`name`,
+    a.phone_area_code,
+    a.phone_number,
+    a.email,
+    a.`password`,
+    a.is_resigned,
+    b.`name` AS role_name,
+    b.full_name,
+    c.role_id,
+    c.user_id,
+    b.`status`,
+    d.`name` AS city_name,
+    d.nick_name,
+    d.`status`,
+    d.bucket
+    from `user` a, role b, user_role c, city d
+    where a.id = c.user_id and b.id = c.role_id and a.city_id = d.id and a.id = #{id}
+</select>
+
+    <select id="getCountByUserName" parameterType="String" resultType="int">
+    select count(*) as num from user where phone_number = #{username}
+</select>
+
+    <select id="getUserByName" parameterType="String" resultType="user">
+    select * from user where phone_number = #{username}
+</select>
+
+
+    <select id="getUserIdByName" parameterType="String" resultType="int">
+    select id from user where phone_number = #{name}
+</select>
+
+
+    <update id="updatePassword">
+    update user set password=#{password} where id=#{id}
+</update>
+
+
+    <select id="getTotalNumber" resultType="int">
+    select count(*) as num from users;
+</select>
+
+    <select id="getUserListByPage" resultType="user">
+    select * from users order by id asc limit #{limitNum} offset #{offsetNum};
+</select>
+
+
+    <resultMap type="user" id="UserResultMap" autoMapping="true">
+        <id property="id" column="user_id"/>
+        <association property="role" autoMapping="true" javaType="role">
+            <id column="role_id" property="id"/>
+            <result column="role_name" property="name"/>
+        </association>
+        <association property="city" autoMapping="true" javaType="city">
+            <id column="city_id" property="id"/>
+            <result column="city_name" property="name"/>
+        </association>
+
+    </resultMap>
+
+
+</mapper>

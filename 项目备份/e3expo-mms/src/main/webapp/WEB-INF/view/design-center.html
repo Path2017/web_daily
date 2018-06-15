@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="E3 MMS">
+  <meta name="keywords" content="E3, MMS, 图库管理系统">
+  <title>图库中心</title>
+
+  <!--  载入css 文件 -->
+  <!-- Bootstrap -->
+  <link th:href="@{js/vendor/fontawesome/css/font-awesome.min.css}" href="../../js/vendor/fontawesome/css/font-awesome.min.css"
+    rel="stylesheet">
+  <link href="../../js/vendor/simple-line-icons/css/simple-line-icons.css" th:href="@{js/vendor/simple-line-icons/css/simple-line-icons.css}"
+    rel="stylesheet" type="text/css" />
+  <link href="../../js/vendor/animate.css/animate.min.css" th:href="@{js/vendor/animate.css/animate.min.css}" rel="stylesheet"
+    type="text/css" />
+  <link href="../../js/vendor/whirl/dist/whirl.css" th:href="@{js/vendor/whirl/dist/whirl.css}" rel="stylesheet" type="text/css"
+  />
+  <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+
+  <link href="../../css/app.css" th:href="@{/css/app.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/mms.min.css" th:href="@{/css/mms.min.css}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="wrapper shenpi">
+    <!--<iframe src="top-menu.html" frameborder="0" scrolling="no" width="100%" height="55"></iframe>-->
+    <!--<iframe src="left-menu.html" frameborder="0" scrolling="no" width="220" height="619"></iframe>-->
+    <!-- Page content-->
+    <section>
+      <div class="content-wrapper">
+        <!-- START panel-->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <form action="">
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="control-label">城市</label>
+
+                    <div class="">
+                      <select name="required" id="" class="form-control">
+                                            <option value="">全部</option>
+                                            <option value="">上海</option>
+                                            <option value="">香港</option>
+                                        </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="control-label">行业</label>
+
+                    <div class="">
+                      <select name="required" id="" class="form-control">
+                                            <option value="">全部</option>
+                                            <option value="">消费产品</option>
+                                            <option value="">服务贸易</option>
+                                            <option value="">工厂产品</option>
+                                            <option value="">设备制造</option>
+                                        </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="control-label">展示类型</label>
+
+                    <div class="">
+                      <select name="required" id="" class="form-control">
+                                            <option value="">全部</option>
+                                            <option value="">图文展示</option>
+                                            <option value="">产品陈列</option>
+                                            <option value="">设备运行</option>
+                                        </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="control-label">结构</label>
+
+                    <div class="">
+                      <select name="required" id="" class="form-control">
+                                            <option value="">全部</option>
+                                            <option value="">木质</option>
+                                            <option value="">型材</option>
+                                            <option value="">衍架</option>
+                                        </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="control-label">开口</label>
+
+                    <div class="">
+                      <select name="required" id="" class="form-control">
+                                            <option value="">全部</option>
+                                            <option value="">单面</option>
+                                            <option value="">双面</option>
+                                            <option value="">三面</option>
+                                            <option value="">四面</option>
+                                        </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="control-label">排序</label>
+
+                    <div class="">
+                      <select name="required" id="" class="form-control">
+                                            <option value="">根据查看次数排序</option>
+                                            <option value="">根据下载次数排序</option>
+                                            <option value="">价格从高到低排序</option>
+                                            <option value="">价格从低到高排序</option>
+                                            <option value="">面积从高到低排序</option>
+                                            <option value="">面积从低到高排序</option>
+                                        </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label ml-lg">价格</label>
+                      <br>
+
+                      <div class="col-md-5">
+                        <input type="text" class="form-control" name="number" placeholder="请输入价格下限">
+                      </div>
+                      <span class="col-md-1">至</span>
+
+                      <div class="col-md-5">
+                        <input type="text" class="form-control" name="number" placeholder="请输入价格上限">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label ml-lg">面积</label>
+                      <br>
+
+                      <div class="col-md-5">
+                        <input class="form-control" name="number" type="text" placeholder="请输入面积下限">
+                      </div>
+                      <span class="col-md-1">至</span>
+
+                      <div class="col-md-5">
+                        <input class="form-control" name="number" type="text" placeholder="请输入面积上限">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-xl">
+                  <div class="col-md-2">
+                    <label class="radio-inline c-radio">
+                                        <input id="inlineradio1" type="radio" name="i-radio" value="option1" checked>
+                                        <span class="fa fa-circle"></span>仅查看我上传的</label>
+                  </div>
+                  <div class="col-md-2">
+                    <label class="radio-inline c-radio">
+                                        <input id="inlineradio2" type="radio" name="i-radio" value="option2">
+                                        <span class="fa fa-circle"></span>仅查看隐藏的</label>
+                  </div>
+                  <div class="col-md-1">
+                    <button type="button" class="btn btn-primary">新增</button>
+                  </div>
+                  <div class="col-md-1">
+                    <button type="button" class="btn btn-primary">搜索</button>
+                  </div>
+                </div>
+
+              </div>
+            </form>
+          </div>
+          <!-- START table-responsive-->
+          <div class="panel-heading">
+            <div class="table-responsive">
+              <table id="table-ext-1" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>城市</th>
+                    <th>封面</th>
+                    <th>行业</th>
+                    <th>展示类型</th>
+                    <th>结构</th>
+                    <th>开口</th>
+                    <th>价格</th>
+                    <th>面积</th>
+                    <th>查看数</th>
+                    <th>下载数</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>香港</td>
+                    <td>
+                      <div class="media">
+                        <img src="../../img/1.jpg" alt="Image" class="img-responsive">
+                      </div>
+                    </td>
+                    <td>服务贸易</td>
+                    <td>产品陈列</td>
+                    <td>木质</td>
+                    <td>双面</td>
+                    <td>2000~2200</td>
+                    <td>36</td>
+                    <td>36</td>
+                    <td>36</td>
+                    <td>
+                      <a href="javascript:;">下载</a>
+                      <a href="javascript:;">编辑</a>
+                      <a href="javascript:;">删除</a>
+                      <a href="javascript:;">设为隐藏</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>香港</td>
+                    <td>
+                      <div class="media">
+                        <img src="../../img/1.jpg" alt="Image" class="img-responsive">
+                      </div>
+                    </td>
+                    <td>服务贸易</td>
+                    <td>产品陈列</td>
+                    <td>木质</td>
+                    <td>双面</td>
+                    <td>2000~2200</td>
+                    <td>36</td>
+                    <td>36</td>
+                    <td>36</td>
+                    <td>
+                      <a href="javascript:;">下载</a>
+                      <a href="javascript:;">编辑</a>
+                      <a href="javascript:;">删除</a>
+                      <a href="javascript:;">设为隐藏</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- END panel-->
+            <div class="panel-footer">
+              <div class="row">
+                <div class="col-lg-2 col-lg-offset-10 text-right">
+                  <ul class="pagination pagination-sm">
+                    <li class="active">
+                      <a href="#">1</a>
+                    </li>
+                    <li>
+                      <a href="#">2</a>
+                    </li>
+                    <li>
+                      <a href="#">3</a>
+                    </li>
+                    <li>
+                      <a href="#">»</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="alertB">
+    <div class="alert-wp">
+      <p class="alert-title">审批通过</p>
+      <div class="btn-wp">
+        <button class="btn btn-lg notsure-btn">取消</button>
+        <button class="btn-success btn btn-lg">确定</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="../../js/vendor/modernizr/modernizr.custom.js" th:src="@{js/vendor/modernizr/modernizr.custom.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jquery/dist/jquery.js" th:src="@{js/vendor/jquery/dist/jquery.js}"></script>
+  <script type="text/javascript" src="../../js/demo/demo-rtl.js" th:src="@{/js/demo/demo-rtl.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/chosen_v1.2.0/chosen.jquery.min.js" th:src="@{js/vendor/chosen_v1.2.0/chosen.jquery.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js" th:src="@{js/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/moment/min/moment-with-locales.min.js" th:src="@{js/vendor/moment/min/moment-with-locales.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"
+    th:src="@{js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/bootstrap/dist/js/bootstrap.js" th:src="@{js/vendor/bootstrap/dist/js/bootstrap.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jQuery-Storage-API/jquery.storageapi.js" th:src="@{js/vendor/jQuery-Storage-API/jquery.storageapi.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/parsley.min.js" th:src="@{js/vendor/parsleyjs/dist/parsley.min.js}"></script>
+  <script type="text/javascript" src="../../js/demo/demo-search.js" th:src="@{/js/demo/demo-search.js}"></script>
+  <script type="text/javascript" src="../../js/app.js" th:src="@{/js/app.js}"></script>
+  <script>
+    $(".notsure-btn").on("click", function () {
+      $(".alertB").hide();
+    })
+    $(".agree-btn").on("click", function () {
+      $(".alertB").show();
+      $(".alert-title").html("审批通过");
+      $("")
+    })
+    $(".disagree-btn").on("click", function () {
+      $(".alertB").show();
+      $(".alert-title").html("驳回申请");
+    })
+
+  </script>
+</body>
+
+</html>

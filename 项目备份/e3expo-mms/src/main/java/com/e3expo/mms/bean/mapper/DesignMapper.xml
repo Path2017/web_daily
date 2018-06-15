@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.e3expo.mms.bean.mapper.DesignMapper">
+
+    <select id="getLocalDesignsExceptSysAdminCreated" resultType="design">
+        select a.* from design a, `user` b, city c
+        WHERE a.owner_id = b.id AND b.city_id = c.id AND c.id = #{cityID}
+         <![CDATA[ AND b.id <> 1 ]]>
+    </select>
+
+    <update id="updateZipFileName">
+        UPDATE design set primitive_name = #{primitiveName}, modified_time = #{modifiedTime}
+        WHERE id = #{designId}
+    </update>
+
+    <update id="modifyDesign">
+        UPDATE design
+        <set>
+            <if test="modifiedTime != 0">modified_time = #{modifiedTime},</if>
+            <if test="professionID != 0">profession_id=#{professionID},</if>
+            <if test="structureID != 0">structure_id=#{structureID},</if>
+            <if test="exhibitionTypeID != 0">exhibition_type_id=#{exhibitionTypeID},</if>
+            <if test="openSides != 0">open_sides=#{openSides},</if>
+            <if test="priceLowerLimit != 0">price_lower_limit=#{priceLowerLimit},</if>
+            <if test="priceUpperLimit != 0">price_upper_limit=#{priceUpperLimit},</if>
+            <if test="area != 0">area=#{area},</if>
+        </set>
+        WHERE id = #{designID}
+    </update>
+    <update id="increaseDownloads">
+        UPDATE design set downloads = downloads + 1 WHERE id = #{designId}
+    </update>
+    <update id="setSketchStatus">
+        update design_sketch set status = #{status}, modified_time = #{modifiedTime}
+        WHERE id = #{sketchId};
+    </update>
+    <update id="setDesignStatus">
+        update design set status = #{status}, modified_time = #{modifiedTime}
+        WHERE id = #{designId};
+    </update>
+
+    <update id="setDesignIsVisible">
+        update design set is_visible = #{isVisible}, modified_time = #{modifiedTime}
+        WHERE id = #{designId};
+    </update>
+
+    <select id="getCountOfDesignHistory" resultType="int">
+        SELECT
+        count(0)
+        FROM
+        design_history AS a ,
+        `user` AS b ,
+        city AS c ,
+        design_operation AS d
+        WHERE
+        a.user_id = b.id and b.city_id = c.id and a.operation_id = d.id
+        and a.design_id = #{designId}
+    </select>
+
+    <update id="setSketchIsCover">
+        UPDATE design_sketch SET is_cover = #{isCover}, modified_time = #{modifiedTime}
+        WHERE id = #{sketchId}
+    </update>
+
+    <select id="getSketchListByDesignId"  resultType="designSketch">
+        SELECT * FROM design_sketch WHERE design_id = #{designId} AND status = 1
+    </select>
+
+    <select id="getSketchById" resultType="designSketch">
+        select * FROM design_sketch WHERE id = #{sketchId}
+    </select>
+
+    <select id="pageQueryDesignHistory" resultMap="designHistoryWithDetail">
+        SELECT
+        c.`name` city_name,
+        a.create_time,
+        a.design_id,
+        a.user_id,
+        a.operation_id,
+        a.id,
+        d.`name` operation_name,
+        b.`name` user_name,
+        d.full_name operation_full_name
+        FROM
+        design_history AS a ,
+        `user` AS b ,
+        city AS c ,
+        design_operation AS d
+        WHERE
+        a.user_id = b.id and b.city_id = c.id and a.operation_id = d.id
+        and a.design_id = #{designId}
+        ORDER BY a.create_time DESC
+        LIMIT #{beginIndex}, #{pageSize}
+    </select>
+    
+    <resultMap id="designHistoryWithDetail" type="designHistory" autoMapping="true">
+        <id property="id" column="id"/>
+        <association property="operation" javaType="designOperation">
+            <id column="operation_id" property="id"/>
+            <result column="operation_full_name" property="fullName"/>
+            <result column="operation_name" property="name"/>
+        </association>
+        <association property="user" javaType="user">
+            <id column="user_id" property="id"/>
+            <result column="user_name" property="name"/>
+        </association>
+        <association property="city" javaType="city">
+            <id column="city_id" property="id"/>
+            <result column="city_name" property="name"/>
+        </association>
+    </resultMap>
+    
+    
+    <update id="increaseViews">
+        UPDATE design set views = views + 1 WHERE id = #{designId}
+    </update>
+    <select id="getDesignOwnerCity" resultType="city">
+       SELECT
+        a.id,  a.`name`, a.nick_name, a.`status`, a.bucket
+        FROM
+        city AS a , `user` AS b , design AS c
+        WHERE
+        a.id = b.city_id and b.id = c.owner_id
+        and c.id = #{designId}
+    </select>
+
+    <insert id="insertIntoDesignHistory">
+        INSERT INTO design_history(create_time, design_id, user_id, operation_id)
+        VALUES (#{createTime}, #{designId}, #{userId}, #{operationId})
+    </insert>
+
+    <select id="getDesignDetailById" resultMap="designWithDetailMap">
+        SELECT
+        a.id AS design_id,
+        a.primitive_name,
+        a.create_time,
+        a.modified_time,
+        a.owner_id,
+        a.profession_id,
+        a.structure_id,
+        a.exhibition_type_id,
+        a.open_sides,
+        a.price_lower_limit,
+        a.price_upper_limit,
+        a.area,
+        a.oss_key,
+        a.views,
+        a.downloads,
+        a.is_visible,
+        a.`status`,
+        c.`name` AS exhibition_type_name,
+        d.`name` AS structure_name,
+        b.`name` AS profession_name,
+        e.is_cover,
+        e.oss_key AS sketch_oss_key,
+        e.id AS sketch_id,
+        e.primitive_name as sketch_primitive_name,
+        e.`status` AS sketch_status,
+        f.`name` owner_name,
+        g.`name` city_name,
+        g.bucket,
+        g.id city_id
+        FROM
+        design AS a ,
+        design_profession AS b ,
+        exhibition_type AS c ,
+        design_structure AS d ,
+        design_sketch AS e ,
+        `user` f,
+        city g
+        WHERE
+        a.profession_id = b.id and
+        a.exhibition_type_id = c.id and
+        a.structure_id = d.id AND
+        a.id = e.design_id AND a.owner_id = f.id and
+        f.city_id = g.id and
+        /*e.`status` = 1 AND*/
+        a.status = 1 AND
+        a.id = #{designId}
+    </select>
+
+    <select id="getDesignTotalNumberByParam" resultType="int">
+        SELECT
+        count(0)
+        FROM
+        design AS a ,
+        design_profession AS b ,
+        exhibition_type AS c ,
+        design_structure AS d ,
+        design_sketch AS e ,
+        `user` f,
+        city g
+        WHERE
+        a.profession_id = b.id and
+        a.exhibition_type_id = c.id and
+        a.structure_id = d.id AND
+        a.id = e.design_id AND a.owner_id = f.id and
+        f.city_id = g.id and
+        e.status = 1 AND
+        a.status = 1 AND e.is_cover = 1
+        <if test="cityID != 0">
+            and f.city_id = #{cityID}
+        </if>
+        <if test="professionID != 0">
+            and a.profession_id = #{professionID}
+        </if>
+        <if test="exhibitionTypeID != 0">
+            and a.exhibition_type_id = #{exhibitionTypeID}
+        </if>
+        <if test="structureID != 0">
+            and a.structure_id = #{structureID}
+        </if>
+        <if test="openSides != 0">
+            and a.open_sides = #{openSides}
+        </if>
+        <if test="priceLowerLimit != 0">
+            <![CDATA[ and (a.price_upper_Limit > #{priceLowerLimit} or a.price_upper_limit = -1)]]>
+        </if>
+        <if test="priceUpperLimit != 0">
+            <![CDATA[ and a.price_lower_limit < #{priceUpperLimit} ]]>
+        </if>
+        <if test="areaLowerLimit != 0">
+            <![CDATA[ and a.area > #{areaLowerLimit} ]]>
+        </if>
+        <if test="areaUpperLimit != 0">
+            <![CDATA[ and a.area < #{areaUpperLimit} ]]>
+        </if>
+        <choose>
+            <when test="invisible == 1">
+                /*管理员，仅查看隐藏的*/
+                and a.is_visible =  0
+            </when>
+            <when test="invisible == 0">
+                /*除管理员其他人，仅查看可见的*/
+                and a.is_visible =  1
+            </when>
+        </choose>
+        <if test="createdByMyself == 1">
+            and a.owner_id =  #{ownerID}
+        </if>
+        ORDER BY
+        <choose>
+            <when test="orderTypeValue == 1">
+                downloads DESC
+            </when>
+            <when test="orderTypeValue == 2">
+                avg_price DESC
+            </when>
+            <when test="orderTypeValue == 3">
+                avg_price ASC
+            </when>
+            <when test="orderTypeValue == 4">
+                area DESC
+            </when>
+            <when test="orderTypeValue == 5">
+                area ASC
+            </when>
+            <otherwise>
+                views DESC
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="pageConditionQuery" resultMap="designWithDetailMap">
+        SELECT
+        a.id AS design_id,
+        a.primitive_name,
+        a.create_time,
+        a.modified_time,
+        a.owner_id,
+        a.profession_id,
+        a.structure_id,
+        a.exhibition_type_id,
+        a.open_sides,
+        a.price_lower_limit,
+        a.price_upper_limit,
+        a.area,
+        a.oss_key,
+        a.views,
+        a.downloads,
+        a.is_visible,
+        a.`status`,
+        c.`name` AS exhibition_type_name,
+        d.`name` AS structure_name,
+        b.`name` AS profession_name,
+        e.is_cover,
+        e.oss_key AS sketch_oss_key,
+        e.id AS sketch_id,
+        e.primitive_name as sketch_primitive_name,
+        e.`status` AS sketch_status,
+        f.name owner_name,
+        g.`name` city_name,
+        g.bucket,
+        g.id city_id,
+        (a.price_lower_limit + a.price_upper_limit)/2 as avg_price
+        FROM
+        design AS a ,
+        design_profession AS b ,
+        exhibition_type AS c ,
+        design_structure AS d ,
+        design_sketch AS e ,
+        `user` f,
+        city g
+        WHERE
+        a.profession_id = b.id and
+        a.exhibition_type_id = c.id and
+        a.structure_id = d.id AND
+        a.id = e.design_id AND a.owner_id = f.id and
+        f.city_id = g.id and
+        e.status = 1 AND
+        a.status = 1 AND e.is_cover = 1
+        <if test="cityID != 0">
+            and f.city_id = #{cityID}
+        </if>
+        <if test="professionID != 0">
+            and a.profession_id = #{professionID}
+        </if>
+        <if test="exhibitionTypeID != 0">
+            and a.exhibition_type_id = #{exhibitionTypeID}
+        </if>
+        <if test="structureID != 0">
+            and a.structure_id = #{structureID}
+        </if>
+        <if test="openSides != 0">
+            and a.open_sides = #{openSides}
+        </if>
+        <if test="priceLowerLimit != 0">
+            <![CDATA[ and (a.price_upper_Limit > #{priceLowerLimit} or a.price_upper_limit = -1)]]>
+        </if>
+        <if test="priceUpperLimit != 0">
+            <![CDATA[ and a.price_lower_limit < #{priceUpperLimit} ]]>
+        </if>
+        <if test="areaLowerLimit != 0">
+            <![CDATA[ and a.area > #{areaLowerLimit} ]]>
+        </if>
+        <if test="areaUpperLimit != 0">
+            <![CDATA[ and a.area < #{areaUpperLimit} ]]>
+        </if>
+        <choose>
+            <when test="invisible == 1">
+                /*管理员，仅查看隐藏的*/
+                and a.is_visible =  0
+            </when>
+            <when test="invisible == 0">
+                /*除管理员其他人，仅查看可见的*/
+                and a.is_visible =  1
+            </when>
+        </choose>
+        <if test="createdByMyself == 1">
+            and a.owner_id =  #{ownerID}
+        </if>
+        ORDER BY
+        <choose>
+            <when test="orderTypeValue == 1">
+                downloads DESC
+            </when>
+            <when test="orderTypeValue == 2">
+                avg_price DESC
+            </when>
+            <when test="orderTypeValue == 3">
+                avg_price ASC
+            </when>
+            <when test="orderTypeValue == 4">
+                 area DESC
+            </when>
+            <when test="orderTypeValue == 5">
+                 area ASC
+            </when>
+            <otherwise>
+                views DESC
+            </otherwise>
+        </choose>
+        LIMIT #{beginIndex},#{pageSize}
+    </select>
+
+    <resultMap id="designWithDetailMap" type="design" autoMapping="true">
+        <id column="design_id" property="id"/>
+        <association property="profession" javaType="designProfession">
+            <id property="id" column="profession_id"/>
+            <result column="profession_name" property="name"/>
+        </association>
+        <association property="structure" javaType="designStructure" >
+            <id property="id" column="structure_id"/>
+            <result column="structure_name" property="name"/>
+        </association>
+        <association property="exhibitionType" javaType="exhibitionType">
+            <id property="id" column="exhibition_type_id"/>
+            <result column="exhibition_type_name" property="name"/>
+        </association>
+        <association property="city" javaType="city">
+            <id property="id" column="city_id"/>
+            <result column="city_name" property="name"/>
+            <result column="bucket" property="bucket"/>
+        </association>
+        <association property="owner" javaType="user">
+            <id property="id" column="owner_id"/>
+            <result property="name" column="owner_name"/>
+        </association>
+        <collection property="sketchList" ofType="designSketch">
+            <id property="id" column="sketch_id"/>
+            <result property="status" column="sketch_status"/>
+            <result property="ossKey" column="sketch_oss_key"/>
+            <result property="isCover" column="is_cover"/>
+            <result property="primitiveName" column="sketch_primitive_name"/>
+        </collection>
+    </resultMap>
+
+    <insert id="singleInsertSketch" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO design_sketch(design_id, oss_key, is_cover, status, create_time, primitive_name)
+        VALUES(#{designID}, #{ossKey}, #{isCover}, #{status}, #{createTime},#{primitiveName})
+    </insert>
+
+    <update id="updateZipFileOSSKey">
+        update design
+        SET oss_key = #{ossKey} WHERE id = #{id}
+    </update>
+
+    <insert id="singleInsert" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO design(
+        owner_id, profession_id, structure_id, exhibition_type_id,open_sides,
+        price_lower_limit, price_upper_limit, area, status, is_visible, create_time, modified_time,
+        primitive_name)
+        VALUES (
+        #{ownerID}, #{professionID},#{structureID},#{exhibitionTypeID},#{openSides},
+        #{priceLowerLimit},#{priceUpperLimit},#{area},#{status},#{isVisible}, #{createTime}, #{createTime},
+        #{primitiveName}
+        )
+
+    </insert>
+
+    <select id="getExhibitionTypes" resultType="exhibitionType">
+        SELECT * FROM exhibition_type
+    </select>
+
+    <select id="getDesignStructures" resultType="designStructure">
+        SELECT * FROM design_structure
+    </select>
+
+    <select id="getDesignProfessions" resultType="designProfession">
+        SELECT * FROM design_profession
+    </select>
+
+</mapper>
