@@ -8,27 +8,25 @@
   <title>BFC</title>
 </head>
 <style>
-  body {
+  .par {
+    border: 5px solid #fcc;
     width: 300px;
-    position: relative;
+    overflow: hidden;
   }
 
-  .left {
+  .child {
+    border: 5px solid #f66;
     width: 100px;
-    height: 150px;
+    height: 100px;
     float: left;
-    background: #f66;
-  }
-
-  .right {
-    height: 200px;
-    background: #fcc;
   }
 </style>
 
 <body>
-  <div class="left">left</div>
-  <div class="right">right</div>
+  <div class="par">
+    <div class="child"></div>
+    <div class="child"></div>
+  </div>
 </body>
 
 </html>
