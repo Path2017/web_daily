@@ -8,24 +8,24 @@
   <title>BFC</title>
 </head>
 <style>
-  .par {
-    border: 5px solid #fcc;
-    width: 300px;
-    overflow: hidden;
+  p {
+    color: #f55;
+    background: #fcc;
+    width: 200px;
+    line-height: 100px;
+    text-align: center;
+    margin: 100px;
   }
 
-  .child {
-    border: 5px solid #f66;
-    width: 100px;
-    height: 100px;
-    float: left;
+  .wrap {
+    overflow: hidden;
   }
 </style>
 
 <body>
-  <div class="par">
-    <div class="child"></div>
-    <div class="child"></div>
+  <p>段落1</p>
+  <div class="wrap">
+    <p>段落2</p>
   </div>
 </body>
 
