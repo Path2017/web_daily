@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.e3expo.e3.middleware.mapper.OrderDesignerLogMapper" >
+
+  <select id="selectByOrderId" resultType="orderDesignerLog">
+    select * from te_upload_file WHERE order_id = #{orderId}
+  </select>
+
+  <select id="selectIdByOrderId" resultType="int">
+    SELECT id FROM te_order_designer_log WHERE order_id = #{orderId}
+  </select>
+
+  <select id="selectUploadFilesByUploadId" resultType="uploadFile">
+    SELECT
+    a.id,
+    a.file_type,
+    a.file_path,
+    a.node_id,
+    a.user_id,
+    a.order_id,
+    a.is_valid,
+    a.upload_id,
+    a.create_time,
+    a.plan_num
+    FROM
+    te_upload_file AS a
+    WHERE
+    a.upload_id = #{uploadId}
+  </select>
+
+
+  <select id="selectDesignLogByOrderId" resultType="webAppOrderDesignerLogView">
+    SELECT
+    a.id,
+    a.node_id,
+    a.order_id,
+    a.price,
+    a.type
+    FROM
+    te_order_designer_log AS a
+    WHERE
+    a.order_id = #{orderId} AND
+    a.is_valid = 1
+  </select>
+  
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO te_order_designer_log(order_id,node_id,price,designer_id,`type`,is_valid,create_time, suggestion)
+    VALUE (#{orderId},#{nodeId},#{price}, #{designerId},#{type},#{isValid},#{createTime}, #{suggestion})
+  </insert>
+
+</mapper>

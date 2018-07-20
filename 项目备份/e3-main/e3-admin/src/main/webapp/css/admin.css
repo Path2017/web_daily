@@ -1,0 +1,236 @@
+@charset "utf-8";
+.exhibition-select .form-control{
+  display: inline-block;
+  width: 32%;
+}
+
+
+
+/* 设计师上传历史 */
+.des-uploadhis {
+  width: 100%;
+  border-bottom: 2px dashed #eee;
+  margin-bottom: 20px;
+}
+.des-uploadhis li {
+  display: inline-block;
+  list-style: none;
+  width: 120px;
+  margin-right: 30px;
+}
+.des-uploadhis li img {
+  display: inline-block;
+  width: 100%;
+  max-height: 120px;
+}
+.des-uploadhis li span {
+  width: 120px;
+  display: inline-block;
+  text-align: center;
+  line-height: 40px;
+}
+.des-uploadhis li span:nth-of-type(1) {
+  width: 120px;
+  height: 120px;
+  border: 1px solid #eee;
+  line-height: 120px;
+}
+.key-title {
+  height: 34px;
+  line-height: 34px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.btn-settle {
+  margin-top: 40px;
+}
+.shop-listname {
+  margin-left: 40px;
+  margin-bottom: 25px;
+}
+.colorbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.main-color {
+  background-color: red;
+}
+.secondary-color {
+  background-color: #434343;
+}
+.man-deteimg {
+  width: 200px;
+  height: 120px;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+}
+.man-detename {
+  line-height: 40px;
+}
+.instatus {
+  background-color: purple;
+  height: 34px;
+  line-height: 34px;
+  color: #fff;
+  text-indent: 20px;
+}
+.endstatus {
+  background-color: green;
+  height: 34px;
+  line-height: 34px;
+  color: #fff;
+  text-indent: 20px;
+}
+.admin-left {
+  margin-left: 20px;
+}
+.normal-link {
+  text-decoration: none;
+  color: #fff;
+}
+/* 设计师上传历史 */
+/*
+ * 上传部分
+ */
+ .upload-box {
+  display: block;
+}
+
+.inputbox {
+  width: 120px;
+  height: 120px;
+  background-color: #fafafa;
+  border: solid 1px #d1d1d1;
+  position: relative;
+  text-align: center;
+  line-height: 120px;
+  margin-top: 10px;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.inputbox input {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.inputbox img {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.input-add {
+  font-size: 40px;
+}
+
+.main-menutitle .block {
+  display: block !important;
+}
+.upload-ul li{
+  position: relative;
+}
+.upload-ul .delete{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  background-color: #424242;
+  right: 0;
+  color: #fff;
+  font-size: 24px;
+  z-index: 111;
+  display: none;
+}
+/* 弹框 */
+
+.bomb-wp {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1111;
+}
+.bomb-wp .bomb-ct {
+  width: 400px;
+  margin: 0 auto;
+  border-radius: 2px;
+  background-color: #fff;
+  padding-top: 45px;
+  position: relative;
+  top: 40%;
+}
+.bomb-wp .title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #434343;
+  margin-bottom: 40px;
+}
+.bomb-wp .title i {
+  display: inline-block;
+  width: 18px;
+  height: 20px;
+  background: url('../img/notice.png') no-repeat;
+  background-size: cover;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+.bomb-wp .cue {
+  width: 302px;
+  margin: 0 auto;
+  font-size: 14px;
+  text-align: center;
+  color: #434343;
+  margin-bottom: 39px;
+}
+
+.bomb-wp .knowbtn {
+  cursor: pointer;
+  border-top: solid 1px #eaeaea;
+  height: 63px;
+  line-height: 63px;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #434343;
+}
+.shenpi .btn-search{
+  top: 40px;
+}
+.img-fa-wp .img-fa{
+  padding-left: 40px;
+}
+.img-fa-wp img {
+  float: left;
+  width: 120px;
+  height: 120px;
+  border: 1px solid red;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.searbtn {
+  width: 50px;
+  height: 28px;
+  text-align: center;
+  line-height: 28px;
+  border-radius: 4px;
+  cursor: pointer;
+}

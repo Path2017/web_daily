@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3expo.e3.middleware.mapper.UserAuditMapper">
+  <resultMap id="BaseResultMap" type="com.e3expo.e3.model.UserAudit">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="job_number" jdbcType="VARCHAR" property="jobNumber" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="status_remark" jdbcType="VARCHAR" property="statusRemark" />
+    <result column="is_valid" jdbcType="INTEGER" property="isValid" />
+    <result column="update_time" jdbcType="BIGINT" property="updateTime" />
+    <result column="user_type" jdbcType="INTEGER" property="userType" />
+    <result column="qq" jdbcType="VARCHAR" property="qq" />
+    <result column="country_id" jdbcType="INTEGER" property="countryId" />
+    <result column="province_id" jdbcType="INTEGER" property="provinceId" />
+    <result column="city_id" jdbcType="INTEGER" property="cityId" />
+    <result column="bank_account" jdbcType="VARCHAR" property="bankAccount" />
+    <result column="bank_user_name" jdbcType="VARCHAR" property="bankUserName" />
+    <result column="bank_id" jdbcType="INTEGER" property="bankId" />
+    <result column="bank_name" jdbcType="VARCHAR" property="bankName" />
+    <result column="bank_branch_name" jdbcType="VARCHAR" property="bankBranchName" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="logo_url" jdbcType="VARCHAR" property="logoUrl" />
+    <result column="system_tag" jdbcType="INTEGER" property="systemTag" />
+    <result column="audit_remark" jdbcType="VARCHAR" property="auditRemark" />
+    <result column="working_years" jdbcType="VARCHAR" property="workingYears" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, job_number, mobile, password, email, create_time, status, status_remark, 
+    is_valid, update_time, user_type, qq, country_id, province_id, city_id, bank_account, 
+    bank_user_name, bank_id, bank_name, bank_branch_name, name, company_name, logo_url, 
+    system_tag, audit_remark, working_years
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from te_user_audit
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from te_user_audit
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.e3expo.e3.model.UserAudit">
+    insert into te_user_audit (id, user_id, job_number, 
+      mobile, password, email, 
+      create_time, status, status_remark, 
+      is_valid, update_time, user_type, 
+      qq, country_id, province_id, 
+      city_id, bank_account, bank_user_name, 
+      bank_id, bank_name, bank_branch_name, 
+      name, company_name, logo_url, 
+      system_tag, audit_remark, working_years
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{jobNumber,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=BIGINT}, #{status,jdbcType=INTEGER}, #{statusRemark,jdbcType=VARCHAR}, 
+      #{isValid,jdbcType=INTEGER}, #{updateTime,jdbcType=BIGINT}, #{userType,jdbcType=INTEGER}, 
+      #{qq,jdbcType=VARCHAR}, #{countryId,jdbcType=INTEGER}, #{provinceId,jdbcType=INTEGER}, 
+      #{cityId,jdbcType=INTEGER}, #{bankAccount,jdbcType=VARCHAR}, #{bankUserName,jdbcType=VARCHAR}, 
+      #{bankId,jdbcType=INTEGER}, #{bankName,jdbcType=VARCHAR}, #{bankBranchName,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{logoUrl,jdbcType=VARCHAR}, 
+      #{systemTag,jdbcType=INTEGER}, #{auditRemark,jdbcType=VARCHAR}, #{workingYears,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.e3expo.e3.model.UserAudit">
+    insert into te_user_audit
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="jobNumber != null">
+        job_number,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="statusRemark != null">
+        status_remark,
+      </if>
+      <if test="isValid != null">
+        is_valid,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="userType != null">
+        user_type,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="countryId != null">
+        country_id,
+      </if>
+      <if test="provinceId != null">
+        province_id,
+      </if>
+      <if test="cityId != null">
+        city_id,
+      </if>
+      <if test="bankAccount != null">
+        bank_account,
+      </if>
+      <if test="bankUserName != null">
+        bank_user_name,
+      </if>
+      <if test="bankId != null">
+        bank_id,
+      </if>
+      <if test="bankName != null">
+        bank_name,
+      </if>
+      <if test="bankBranchName != null">
+        bank_branch_name,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="logoUrl != null">
+        logo_url,
+      </if>
+      <if test="systemTag != null">
+        system_tag,
+      </if>
+      <if test="auditRemark != null">
+        audit_remark,
+      </if>
+      <if test="workingYears != null">
+        working_years,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="jobNumber != null">
+        #{jobNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="statusRemark != null">
+        #{statusRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="isValid != null">
+        #{isValid,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=INTEGER},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="countryId != null">
+        #{countryId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="bankAccount != null">
+        #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="bankUserName != null">
+        #{bankUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankId != null">
+        #{bankId,jdbcType=INTEGER},
+      </if>
+      <if test="bankName != null">
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankBranchName != null">
+        #{bankBranchName,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="logoUrl != null">
+        #{logoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="systemTag != null">
+        #{systemTag,jdbcType=INTEGER},
+      </if>
+      <if test="auditRemark != null">
+        #{auditRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="workingYears != null">
+        #{workingYears,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.e3expo.e3.model.UserAudit">
+    update te_user_audit
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="jobNumber != null">
+        job_number = #{jobNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="statusRemark != null">
+        status_remark = #{statusRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="isValid != null">
+        is_valid = #{isValid,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="userType != null">
+        user_type = #{userType,jdbcType=INTEGER},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="countryId != null">
+        country_id = #{countryId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null">
+        province_id = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        city_id = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="bankAccount != null">
+        bank_account = #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="bankUserName != null">
+        bank_user_name = #{bankUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankId != null">
+        bank_id = #{bankId,jdbcType=INTEGER},
+      </if>
+      <if test="bankName != null">
+        bank_name = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankBranchName != null">
+        bank_branch_name = #{bankBranchName,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="logoUrl != null">
+        logo_url = #{logoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="systemTag != null">
+        system_tag = #{systemTag,jdbcType=INTEGER},
+      </if>
+      <if test="auditRemark != null">
+        audit_remark = #{auditRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="workingYears != null">
+        working_years = #{workingYears,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.e3expo.e3.model.UserAudit">
+    update te_user_audit
+    set user_id = #{userId,jdbcType=INTEGER},
+      job_number = #{jobNumber,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=BIGINT},
+      status = #{status,jdbcType=INTEGER},
+      status_remark = #{statusRemark,jdbcType=VARCHAR},
+      is_valid = #{isValid,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=BIGINT},
+      user_type = #{userType,jdbcType=INTEGER},
+      qq = #{qq,jdbcType=VARCHAR},
+      country_id = #{countryId,jdbcType=INTEGER},
+      province_id = #{provinceId,jdbcType=INTEGER},
+      city_id = #{cityId,jdbcType=INTEGER},
+      bank_account = #{bankAccount,jdbcType=VARCHAR},
+      bank_user_name = #{bankUserName,jdbcType=VARCHAR},
+      bank_id = #{bankId,jdbcType=INTEGER},
+      bank_name = #{bankName,jdbcType=VARCHAR},
+      bank_branch_name = #{bankBranchName,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      logo_url = #{logoUrl,jdbcType=VARCHAR},
+      system_tag = #{systemTag,jdbcType=INTEGER},
+      audit_remark = #{auditRemark,jdbcType=VARCHAR},
+      working_years = #{workingYears,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

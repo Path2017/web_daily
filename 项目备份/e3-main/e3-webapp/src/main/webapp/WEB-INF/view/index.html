@@ -1,0 +1,118 @@
+<!-- build:layout_head --><!-- endbuild -->
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <!-- build:header -->
+  
+  <!-- endbuild -->
+
+
+
+
+  <style>
+    body{
+      background: #fff;
+    }
+    ul.progress {
+      margin: 400px;
+      width: 70px;
+      height: 70px;
+      position: relative;
+    }
+    li.wrap {
+      display: block;
+      width: 35px;
+      height: 70px;
+      float: left;
+      position: relative;
+      overflow: hidden;
+    }
+    li.wrap span {
+      content: ' ';
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: -35px;
+      border: 10px solid transparent;
+      border-top: 10px solid #ff6d7f;
+      border-right: 10px solid #ff6d7f;
+    }
+    li.wrap.left span {
+      left: auto;
+      right: -35px;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #ff6d7f;
+      border-left: 10px solid #ff6d7f;
+      transform: rotate(-225deg);
+    }
+    li.wrap.right span {
+      transform: rotate(-135deg);
+    }
+    li.txt {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      top: 0;
+      left: 0;
+      line-height: 70px;
+      text-align: center;
+    }
+  </style>
+  <!-- 上传进度条 -->
+  <ul class="progress">
+    <li class="wrap left">
+      <span></span>
+    </li>
+    <li class="wrap right">
+      <span></span>
+    </li>
+    <li class="txt">75%</li>
+  </ul>
+  <div>内容</div>
+
+  <!-- build:footer -->
+  
+  <!-- endbuild -->
+
+
+
+
+
+  <!-- build:layout_js -->
+  
+  <!-- endbuild -->
+
+
+
+
+  <script>
+    // 上传进度
+    var progressNum = 0
+    var settime = setInterval(function(){
+      progressNum ++
+      if(progressNum>100){
+        clearInterval(settime)
+        return false
+      }
+      progress(progressNum)
+    },100)   
+    function progress(progressNum){
+      var progress = -135+progressNum*3.6 
+      var progress2 = -225+progressNum*3.6-180 
+      $('.txt').html(progressNum+'%')
+      if(progress<= 45){
+        $('.right span').css('transform', "rotate("+ progress + "deg)")
+      }else{
+        $('.right span').css('transform', "rotate(45deg)")
+        $('.left span').css('transform', "rotate(" + progress2 + "deg)")
+      }
+    }
+  </script>
+</body>
+
+</html>

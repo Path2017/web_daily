@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3expo.e3.middleware.mapper.UserFileConfigMapper">
+	<!-- 获取用户文件配置的列表信息 -->
+	<select id="getList" resultType="userFileConfig">
+		select * from dic_user_file_config
+	</select>
+	<!-- 根据key值获取文件配置的相关信息 -->
+	<select id="getByName" resultType="userFileConfig" parameterType="java.lang.String">
+	select * from dic_user_file_config where name=#{key}
+	</select>
+</mapper>

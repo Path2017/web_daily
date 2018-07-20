@@ -1,0 +1,134 @@
+<!-- build:layout_head --><!-- endbuild -->
+  <link rel="stylesheet" href="../../../css/exhibitor.min.css" th:href="@{/css/exhibitor.min.css}">
+  <link rel="stylesheet" href="../../../css/timechoose.css" th:href="@{/css/timechoose.css}">  
+</head>
+
+<body>
+  <!-- build:header -->
+  
+  <!-- endbuild -->
+
+
+  <div class="boxwrap clearfix">
+    <div class="pr-nav">
+      <span class="nav-prve">个人中心</span>&gt;<span class="nav-next">发布需求</span>
+    </div>
+    <div class="pr-box">
+      <div class="pr-menu">
+        <div class="menu-first">
+          <span class="menu-cicle">1</span><span class="menu-dte">项目详情</span>
+        </div>
+        <div class="menu-leftline"></div>
+        <div class="menu-second">
+          <span class="menu-cicle">2</span><span class="menu-dte">设计需求</span>
+        </div>
+        <div class="menu-leftline"></div>
+        <div class="menu-third current-select">
+          <span class="menu-cicle">3</span><span class="menu-dte">设计师类型</span>
+        </div>
+      </div>
+      <!-- 第三步 设计师类型 -->
+      <div class="pr-content pqthdstep">
+        <div class="pr-mainbox">
+          <div class="pr-list clearfix">
+            <div class="pm-name">
+              <span>设计师类型</span>
+              <span class="pm-required">* 为必填项</span>
+            </div>
+            <div class="pr-tips clearfix">
+              <div class="tips-left"><span class="tips-required"></span>设计师类型：</div>
+              <div class="des-inputbox" id="desCheck">
+                <label for="des1" class="des-input">
+                    <input name="designer" type="radio" id="des1"><span class="dec-checkbox"><span></span></span>设计师
+                </label>
+                <label for="des2" class="des-input">
+                    <input name="designer" class="des-input" type="radio" id="des2"><span class="dec-checkbox"><span></span></span>资深设计师
+                </label>
+                <label for="des3" class="des-input">
+                    <input name="designer" class="des-input" type="radio" id="des3"><span class="dec-checkbox"><span></span></span>首席设计师/工作室设计师
+                </label>
+              </div>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"><span class="tips-required"></span>初稿期望交稿日期：</div>
+              <div class="tips-right">
+                <input class="tips-input date_picker" type="text" placeholder="选择日期">
+              </div>
+            </div>
+            <div class="pr-tips">
+              <div class="tips-left"><span class="tips-required"></span>概念设计稿数：</div>
+              <div class="tips-right">
+                <div class="fe-addbox mt-ds"><span class="fm-des">-</span><span class="fm-num">1</span><span class="fm-add">+</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pr-list">
+            <div class="system-box">
+              <div class="sys-list">
+                <ul>
+                  <li>设计计费系统：</li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="sys-list">
+                <ul>
+                  <li>设计师（费用）</li>
+                  <li>设计师</li>
+                  <li>300</li>
+                </ul>
+              </div>
+              <div class="sys-list">
+                <ul>
+                  <li>概念设计（稿数）</li>
+                  <li></li>
+                  <li>2</li>
+                </ul>
+              </div>
+              <div class="sys-list">
+                <ul>
+                  <li>深化设计（稿数）</li>
+                  <li></li>
+                  <li>1</li>
+                </ul>
+              </div>
+              <div class="sys-list">
+                <ul>
+                  <li>施工图设计（稿数）</li>
+                  <li></li>
+                  <li>1</li>
+                </ul>
+              </div>
+              <hr>
+              <div class="sys-num">
+                <span>总计：¥</span><span class="num-total">1200</span>
+              </div>
+            </div>
+          </div>
+          <div class="thd-btobox">
+            <div class="thd-remarks">发布需求后，系统将为您匹配相关设计师</div>
+            <div class="thd-back clearfix">
+              <span id="backforward">返回上一步</span>
+              <span>发布需求</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- build:footer -->
+  
+  <!-- endbuild -->
+
+
+  <!-- build:layout_js -->
+  
+  <!-- endbuild -->
+
+
+  <script src="../../../js/vendor/jquery.date_input.pack.js" th:src="@{/js/vendor/jquery.date_input.pack.js}"></script>
+  <script src="../../../js/post_requirement.js" th:src="@{/js/post_requirement.js}"></script>
+  <script src="../../../js/vendor/jscolor.js" th:src="@{/js/vendor/jscolor.js}"></script>
+</body>
+
+</html>

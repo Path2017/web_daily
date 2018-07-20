@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Bootstrap Admin App + jQuery">
+<meta name="keywords"
+	content="app, responsive, jquery, bootstrap, dashboard, admin">
+<title>平台入账流水</title>
+
+<!--  载入css 文件 -->
+<!-- Bootstrap -->
+<link th:href="@{/js/vendor/fontawesome/css/font-awesome.min.css}"
+	href="../../js/vendor/fontawesome/css/font-awesome.min.css"
+	rel="stylesheet">
+<link href="../../js/vendor/simple-line-icons/css/simple-line-icons.css"
+	th:href="@{/js/vendor/simple-line-icons/css/simple-line-icons.css}"
+	rel="stylesheet" type="text/css" />
+<link href="../../js/vendor/animate.css/animate.min.css"
+	th:href="@{/js/vendor/animate.css/animate.min.css}" rel="stylesheet"
+	type="text/css" />
+<link href="../../js/vendor/whirl/dist/whirl.css"
+	th:href="@{/js/vendor/whirl/dist/whirl.css}" rel="stylesheet"
+	type="text/css" />
+<link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"
+	rel="stylesheet" type="text/css" />
+<link href="../../css/app.css" th:href="@{/css/app.css}"
+	rel="stylesheet" type="text/css" />
+<link href="../../css/mms.min.css" th:href="@{/css/mms.min.css}"
+	rel="stylesheet" type="text/css" />
+<link href="../../css/admin.css" th:href="@{/css/admin.css}"
+	rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div class="wrapper">
+		<!-- top navbar-->
+		<div th:include="index::top-menu"></div>
+		<!-- sidebar-->
+		<aside th:replace="index :: left-menu"></aside>
+		<!-- 主内容 -->
+		<section>
+			<!-- Page content-->
+			<div class="content-wrapper">
+				<div class="content-heading">平台入账流水</div>
+				<!-- START panel-->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<form class="">
+							<div class="row">
+								<div class="form-group col-sm-2">
+									<label for="">
+										<div class="btn-group">
+											<button data-toggle="dropdown" class="btn btn-default"
+												aria-expanded="false">
+												订单号 <b class="caret"></b>
+											</button>
+											<ul role="menu" class="dropdown-menu">
+												<li><a href="#">付款公司</a></li>
+											</ul>
+										</div>
+									</label> <input type="text" name="" class="form-control"
+										placeholder="输入关键词检索">
+								</div>
+								<div class="form-group col-sm-2">
+									<label for=""> <span class="btn">支付渠道</span>
+									</label> <select name="" id="" class="form-control">
+										<option value=" ">全部</option>
+										<option value=" ">支付宝</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-2">
+									<label for="" class="control-label"> <span class="btn">支付工具流水号</span>
+									</label> <input type="text" name="" class="form-control"
+										placeholder="输入关键词检索">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for=""> <span class="btn">支付时间</span>
+									</label>
+									<div class="form-inline">
+										<p id="datetimepicker" class="input-group date col-sm-5">
+											<input type="text" name="" class="form-control"
+												placeholder="请选择结束时间"> <span
+												class="input-group-addon"> <span
+												class="fa fa-calendar"></span>
+											</span>
+										</p>
+										<p id="datetimepicker2" class="input-group date col-sm-5">
+											<input type="text" name="" class="form-control"
+												placeholder="请选择结束时间"> <span
+												class="input-group-addon"> <span
+												class="fa fa-calendar"></span>
+											</span>
+										</p>
+									</div>
+								</div>
+								<div class="col-md-1 shenpi">
+									<button type="submit"
+										class="btn btn-info pull-right btn-search">检索</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					<!-- START table-responsive-->
+					<div class="panel-heading">
+						<div class="table-responsive">
+							<table id="" class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th>订单号</th>
+										<th>付款公司</th>
+										<th>支付渠道</th>
+										<th>付款方</th>
+										<th>付款账号</th>
+										<th>支付工具流水</th>
+										<th>金额</th>
+										<th>支付时间</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>12345678</td>
+										<td>上海奥朗德</td>
+										<td>支付宝</td>
+										<td>张**</td>
+										<td>13917704250</td>
+										<td>13917704250</td>
+										<td>450</td>
+										<td>2017-7-30 17：07</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- END panel-->
+						<!-- <div class="panel-footer">
+							<div class="row">
+								<div class="col-lg-2 col-lg-offset-10 text-right">
+									<ul class="pagination pagination-sm">
+										<li th:if="${page.pageIndex > 1}"><a
+											th:href="@{/application/list(pageIndex=${page.pageIndex - 1},cityId=${page.cityId},applicantName=${page.applicantName},
+                                applicationTimeLowerLimit=${page.applicationTimeLowerLimit},applicationTimeUpperLimit=${page.applicationTimeUpperLimit},
+                                status=${page.status})}"
+											href="#">«</a></li>
+										<li
+											th:each="i : ${#numbers.sequence(page.startPageIndex, page.endPageIndex)}"
+											th:class="${page.pageIndex == i} ? 'active' : ''"
+											class="active"><a th:if="${i > 0}" th:text="${i}"
+											th:href="${page.pageIndex == i} ? '#' : @{/application/list(pageIndex=${i},cityId=${page.cityId},applicantName=${page.applicantName},
+                                applicationTimeLowerLimit=${page.applicationTimeLowerLimit},applicationTimeUpperLimit=${page.applicationTimeUpperLimit},
+                                status=${page.status})}"
+											href="#">-</a></li>
+										<li th:if="${page.pageIndex < page.totalPages}"><a
+											th:href="@{/application/list(pageIndex=${page.pageIndex + 1},cityId=${page.cityId},applicantName=${page.applicantName},
+                                applicationTimeLowerLimit=${page.applicationTimeLowerLimit},applicationTimeUpperLimit=${page.applicationTimeUpperLimit},
+                                status=${page.status})}"
+											href="#">»</a></li>
+									</ul>
+								</div>
+							</div>
+						</div> -->
+					</div>
+				</div>
+				<!-- END panel-->
+			</div>
+		</section>
+
+	</div>
+	<script type="text/javascript"
+		src="../../js/vendor/modernizr/modernizr.custom.js"
+		th:src="@{/js/vendor/modernizr/modernizr.custom.js}"></script>
+	<script type="text/javascript"
+		src="../../js/vendor/jquery/dist/jquery.js"
+		th:src="@{/js/vendor/jquery/dist/jquery.js}"></script>
+	<script type="text/javascript"
+		src="../../js/vendor/bootstrap/dist/js/bootstrap.js"
+		th:src="@{/js/vendor/bootstrap/dist/js/bootstrap.js}"></script>
+	<script type="text/javascript"
+		src="../../js/vendor/jQuery-Storage-API/jquery.storageapi.js"
+		th:src="@{/js/vendor/jQuery-Storage-API/jquery.storageapi.js}"></script>
+	<script type="text/javascript"
+		src="../../js/vendor/moment/min/moment-with-locales.min.js"
+		th:src="@{/js/vendor/moment/min/moment-with-locales.min.js}"></script>
+	<script type="text/javascript"
+		src="../../js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"
+		th:src="@{/js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js}"></script>
+	<script type="text/javascript"
+		src="../../js/vendor/parsleyjs/dist/parsley.min.js"
+		th:src="@{/js/vendor/parsleyjs/dist/parsley.min.js}"></script>
+	<script type="text/javascript"
+		src="../../js/vendor/parsleyjs/dist/zh_cn.js"
+		th:src="@{/js/vendor/parsleyjs/dist/zh_cn.js}"></script>
+	<script type="text/javascript" src="../../js/app.js"
+		th:src="@{/js/app.js}"></script>
+	<script type="text/javascript" src="../../js/base.js"
+		th:src="@{/js/base.js}"></script>
+</body>
+
+</html>

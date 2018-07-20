@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Bootstrap Admin App + jQuery">
+<meta name="keywords"
+	content="app, responsive, jquery, bootstrap, dashboard, admin">
+<title>展览公司入驻审核-列表</title>
+
+<!--  载入css 文件 -->
+<!-- Bootstrap -->
+<link th:href="@{/js/vendor/fontawesome/css/font-awesome.min.css}"
+	href="../../js/vendor/fontawesome/css/font-awesome.min.css"
+	rel="stylesheet">
+<link href="../../js/vendor/simple-line-icons/css/simple-line-icons.css"
+	th:href="@{/js/vendor/simple-line-icons/css/simple-line-icons.css}"
+	rel="stylesheet" type="text/css" />
+<link href="../../js/vendor/animate.css/animate.min.css"
+	th:href="@{/js/vendor/animate.css/animate.min.css}" rel="stylesheet"
+	type="text/css" />
+<link href="../../js/vendor/whirl/dist/whirl.css"
+	th:href="@{/js/vendor/whirl/dist/whirl.css}" rel="stylesheet"
+	type="text/css" />
+<link
+	href="../../js/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"
+	th:href="@{/js/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css}"
+	rel="stylesheet" type="text/css" />
+<link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"
+	rel="stylesheet" type="text/css" />
+<link href="../../css/app.css" th:href="@{/css/app.css}"
+	rel="stylesheet" type="text/css" />
+<link href="../../css/mms.min.css" th:href="@{/css/mms.min.css}"
+	rel="stylesheet" type="text/css" />
+<link href="../../css/admin.css" th:href="@{/css/admin.css}"
+	rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div class="wrapper">
+		<!-- top navbar-->
+		<div th:include="index::top-menu"></div>
+		<!-- sidebar-->
+		<aside th:replace="index :: left-menu"></aside>
+		<!-- 主内容 -->
+		<section>
+			<!-- Page content-->
+			<div class="content-wrapper">
+				<div class="content-heading">展览公司入驻审核</div>
+				<!-- START panel-->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<form class="">
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for=""><span class="btn">所在地</span></label>
+									<div id="city" class="exhibition-select">
+										<select name="country" class="country form-control">
+											<option value="1">中国</option>
+										</select> <select class="prov form-control" data-parsley-group="step2"
+											required name="provinceId">
+											<option value="">全部</option>
+										</select> <select class="city form-control" data-parsley-group="step2"
+											required name="cityId">
+											<option value="">全部</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-sm-2">
+									<label for=""> <!-- <div class="btn-group">
+                      <button data-toggle="dropdown" class="btn btn-default" aria-expanded="false">姓名/工作室名称
+                        <b class="caret"></b>
+                      </button>
+                      <ul role="menu" class="dropdown-menu">
+                        <li><a href="#">注册名称</a></li>
+                        <li><a href="#">注册手机号</a></li>
+                      </ul>
+                    </div> --> <select class="form-control ismobile"
+										name="" id="">
+											<option value="1">姓名/工作室名称</option>
+											<option value="2">注册手机号</option>
+									</select>
+									</label> <input type="text" name="" class="form-control searchname"
+										placeholder="输入关键词检索">
+								</div>
+								<div class="form-group col-sm-2">
+									<label for=""> <span class="btn">审核状态</span>
+									</label> <select name="" id="" class="form-control">
+										<option value=" ">全部</option>
+										<option value=" ">审批中</option>
+										<option value=" ">资料待补</option>
+										<option value=" ">通过</option>
+										<option value=" ">未通过</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for=""> <span class="btn">申请时间</span>
+									</label>
+									<div class="form-inline">
+										<p id="datetimepicker" class="input-group date col-sm-5">
+											<input type="text" name="" class="form-control start-time"
+												placeholder="请选择开始时间"> <span
+												class="input-group-addon"> <span
+												class="fa fa-calendar"></span>
+											</span>
+										</p>
+										<p id="datetimepicker2" class="input-group date col-sm-5">
+											<input type="text" name="" class="form-control end-time"
+												placeholder="请选择结束时间"> <span
+												class="input-group-addon"> <span
+												class="fa fa-calendar"></span>
+											</span>
+										</p>
+									</div>
+								</div>
+								<div class="col-sm-11">
+									<button id="search-btn" type="submit"
+										class="btn btn-info pull-right">检索</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					<!-- START table-responsive-->
+					<div class="panel-heading">
+						<div class="table-responsive">
+							<table id="" class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th>所在地</th>
+										<th>注册名称</th>
+										<th>注册手机号</th>
+										<th>审核状态</th>
+										<th>审核备注</th>
+										<th>申请时间</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="list">
+									<tr>
+										<td>北京</td>
+										<td>某公司</td>
+										<td>13917704260</td>
+										<td>审批中</td>
+										<td>缺身份证正反面复印件</td>
+										<td>2017-8-30</td>
+										<td><a class="btn btn-primary"
+											href="exhibition_checkin_info.html"> <i
+												class="fa fa-search"></i> 查看详情
+										</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- END panel-->
+						<div class="panel-footer">
+							<div class="row">
+								<div class="pagination-fa col-lg-4 col-lg-offset-8 text-right">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END panel-->
+			</div>
+		</section>
+
+	</div>
+	<script type="text/javascript"
+		src="../../js/vendor/modernizr/modernizr.custom.js"
+		th:src="@{/js/vendor/modernizr/modernizr.custom.js}"></script>
+	<script type="text/javascript"
+		src="../../js/vendor/jquery/dist/jquery.js"
+		th:src="@{/js/vendor/jquery/dist/jquery.js}"></script>
+	<script type="text/javascript"
+		src="../../js/vendor/bootstrap/dist/js/bootstrap.js"
+		th:src="@{/js/vendor/bootstrap/dist/js/bootstrap.js}"></script>
+	<script type="text/javascript"
+		src="../../js/vendor/jQuery-Storage-API/jquery.storageapi.js"
+		th:src="@{/js/vendor/jQuery-Storage-API/jquery.storageapi.js}"></script>
+	<script type="text/javascript"
+		src="../../js/vendor/moment/min/moment-with-locales.min.js"
+		th:src="@{/js/vendor/moment/min/moment-with-locales.min.js}"></script>
+	<script type="text/javascript"
+		src="../../js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"
+		th:src="@{/js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js}"></script>
+	<script type="text/javascript"
+		src="../../js/vendor/parsleyjs/dist/parsley.min.js"
+		th:src="@{/js/vendor/parsleyjs/dist/parsley.min.js}"></script>
+	<script type="text/javascript"
+		src="../../js/vendor/parsleyjs/dist/zh_cn.js"
+		th:src="@{/js/vendor/parsleyjs/dist/zh_cn.js}"></script>
+	<script type="text/javascript" src="../..//js/vendor/cityselect.js"
+		th:src="@{/js/vendor/cityselect.js}"></script>
+	<script type="text/javascript" src="../../js/app.js"
+		th:src="@{/js/app.js}"></script>
+	<script type="text/javascript" src="../../js/base.js"
+		th:src="@{/js/base.js}"></script>
+	<script type="text/javascript" src="../../js/urlconfig.js"
+		th:src="@{/js/urlconfig.js}"></script>
+	<script src="../../js/exhibition_checkin_list.js"
+		th:src="@{/js/exhibition_checkin_list.js}"></script>
+</body>
+
+</html>

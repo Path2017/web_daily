@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE XML>
+
+<ehcache>
+
+    <!-- <diskStore path="java.io.tmpdir/shiro-ehcache"/> -->
+    <!-- 同时需要注意的是，如果要使用响应的Cache，必须在这个配置文件里同时设置一个Cache的配置
+        例如，在Service方法里使用了这样的定义
+        @Cacheable(name="book")
+        public book getBookById(int id) {
+        
+        }
+        
+        那么这里必须配置一个叫book的cache
+        <cache name="book">.....</cache>
+            
+     -->
+    <!-- 应用程序自定的Cache从这里开始
+        注意各Cache的参数应该根据业务的需要，慎重
+        选择
+     -->
+     
+     <cache name="hello"
+           maxElementsInMemory="100000"
+           overflowToDisk="false"
+           eternal="true"
+           timeToLiveSeconds="0"
+           timeToIdleSeconds="0"
+           diskPersistent="false"
+           diskExpiryThreadIntervalSeconds="600"/>  
+    
+    
+
+
+
+    <defaultCache
+            maxElementsInMemory="100000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            overflowToDisk="false"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+            />
+
+ 
+    <cache name="shiro-activeSessionCache"
+           maxElementsInMemory="100000"
+           overflowToDisk="false"
+           eternal="true"
+           timeToLiveSeconds="0"
+           timeToIdleSeconds="0"
+           diskPersistent="false"
+           diskExpiryThreadIntervalSeconds="600"/>
+
+    <cache name="org.apache.shiro.realm.text.PropertiesRealm-0-accounts"
+           maxElementsInMemory="10000"
+           eternal="true"
+           overflowToDisk="false"/>
+           
+
+</ehcache>
+
+

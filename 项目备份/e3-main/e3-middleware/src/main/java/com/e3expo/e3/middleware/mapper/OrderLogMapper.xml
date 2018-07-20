@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.e3expo.e3.middleware.mapper.OrderLogMapper" >
+
+  <select id="selectByOrderId" resultType="webAppOrderLogView">
+    SELECT
+    b.description,
+    c.`name`,
+    a.create_time
+    FROM
+    te_order_log AS a
+    LEFT JOIN dic_order_operation AS b ON a.operation = b.id
+    LEFT JOIN te_user AS c ON a.user_id = c.id
+    WHERE
+    a.order_id = #{orderId}
+    ORDER BY
+    a.create_time DESC
+  </select>
+
+
+  <insert id="insert">
+    INSERT INTO te_order_log (operation, user_id, order_id, create_time
+    <if test="remark != null">
+      , remark
+    </if>
+    ) VALUES (#{operation}, #{userId}, #{orderId}, #{createTime}
+    <if test="remark != null">
+      , #{remark}
+    </if>
+    );
+  </insert>
+
+
+</mapper>

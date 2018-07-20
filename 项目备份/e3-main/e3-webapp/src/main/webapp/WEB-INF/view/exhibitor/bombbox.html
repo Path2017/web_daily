@@ -1,0 +1,35 @@
+<!-- build:layout_head --><!-- endbuild -->
+  <link rel="stylesheet" href="/css/parsley.min.css" th:href="@{/css/parsley.min.css}">
+  <link rel="stylesheet" href="/css/exhibitor.min.css" th:href="@{/css/exhibitor.min.css}">
+</head>
+<body>
+<!--[if lte IE 9]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+<!-- 弹框 -->
+<div class="bomb-wp">
+  <div class="bomb-ct">
+    <p class="bomb-title"><i class="cancle-icon"></i>取消订单</p>
+    <div class="reason-wp clearfix">
+      <div class="left reason-left"><span>*</span>原因：</div>
+      <ul class="left reason-right">
+        <li><label><input type="checkbox"><i>✓</i></label>另外找到了设计师</li>
+        <li><label><input type="checkbox"><i>✓</i></label>订单需求有误</li>
+        <li><label><input type="checkbox"><i>✓</i></label>对平台设计师不满意</li>
+        <li><label><input type="checkbox"><i>✓</i></label>其他</li>
+      </ul>
+    </div>
+    <div class="btn-wp">
+        <a href="javascript:;" class="sure">确认取消</a>
+        <span class="line"></span>
+        <a href="javascript:;" class="not-sure">再考虑一下</a>
+      </div>
+  </div>
+</div>
+<!-- build:layout_js -->
+
+<!-- endbuild -->
+
+
+</body>
+</html>

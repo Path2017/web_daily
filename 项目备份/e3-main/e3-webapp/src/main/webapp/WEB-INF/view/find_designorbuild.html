@@ -1,0 +1,261 @@
+<!-- build:layout_head --><!-- endbuild -->
+  <link rel="stylesheet" href="/css/login.min.css" th:href="@{/css/login.min.css}">
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+  <!-- 头部 -->
+  <div class="search-design-wp">
+    <div class="search-design-hd clearfix">
+      <a class="return-old" href="javascript:;" class="left">回到旧版</a>
+      <div class="right">
+        <a class="login-btn" href="javascript:;">登录</a>
+        <em class="line"></em>
+        <a class="register-btn" href="javascript:;">注册</a>
+      </div>
+    </div>
+  </div>
+  <!-- 头部 end -->
+  <div class="sh-ds-wp">
+    <div class="content-wp">
+      <div class="content-hd clearfix">
+        <div class="left">
+          <i class="mark"></i>
+          <em class="line"></em>
+          <span class="hd-title">易宜益展装网 </span>
+        </div>
+        <div class="right">
+          <i class="server-icon"></i>
+          <div class="inlineblock server-B">
+            <p class="server-title">服务热线：</p>
+            <p class="server-tel">4006-06-4006</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sh-ds-ct">
+      <div class="switch-tab clearfix" id="switchTab">
+        <span class="tab-active">找设计</span>
+        <span>找搭建</span>
+      </div>
+    </div>
+  </div>
+  <div class="banner-wp clearfix">
+    <!-- 找设计 begin -->
+    <div class="find-design">
+      <div class="banner-wp">
+        <img src="/img/banner_white.png" th:src="@{/img/banner_white.png}">
+        <a class="btn-publish" href="#">发布展览设计需求</a>
+      </div>
+      <div class="service-wp">
+        <h2 class="find-title">服务流程</h2>
+        <ul class="sh-ds-ct">
+          <li>
+            <img src="/img/service_01.png" th:src="@{/img/service_01.png}">发布设计需求</li>
+          <li>
+            <img src="/img/service_02.png" th:src="@{/img/service_02.png}">设计报价竞标</li>
+          <li>
+            <img src="/img/service_03.png" th:src="@{/img/service_03.png}">支付拟定款项</li>
+          <li>
+            <img src="/img/service_04.png" th:src="@{/img/service_04.png}">设计收稿确认</li>
+          <li>
+            <img src="/img/service_05.png" th:src="@{/img/service_05.png}">咨询搭建服务</li>
+        </ul>
+      </div>
+      <div class="ours-wp">
+        <h2 class="find-title">我们的设计服务</h2>
+        <ul class="sh-ds-ct">
+          <li>
+            <h3>设计图</h3>
+            <img id="jqStepImg" src="/img/ours_01.jpg" th:src="@{/img/ours_01.jpg}">
+            <div class="step">
+              <h4>设计图包含：</h4>
+              <ul class="items">
+                <li>
+                  <span class="active">1</span>展台透视左</li>
+                <li>
+                  <span>2</span>展台透视右</li>
+                <li>
+                  <span>3</span>展台俯瞰图</li>
+                <li>
+                  <span>4</span>平面网格图</li>
+                <li>
+                  <span class="nothing">5</span>立面网格图</li>
+              </ul>
+            </div>
+          </li>
+          <li class="nothing">
+            <h3>施工图
+              <small>材质图、美工文字、电路图、指示图等</small>
+            </h3>
+          </li>
+        </ul>
+        <div class="sh-ds-ct">
+          <a class="btn-publish" href="#">发布展览设计需求</a>
+        </div>
+      </div>
+      <div class="company-wp">
+        <h2 class="find-title">与国际知名公司选用同样的设计师</h2>
+        <div class="sh-ds-ct">
+          <img src="/img/company_01.png" th:src="@{/img/company_01.png}">
+        </div>
+      </div>
+    </div>
+    <!-- 找设计 end -->
+    <!-- 找搭建 begin -->
+    <div class="find-build">
+      <div class="fb-contentbox">
+        <!-- 上传设计图获取搭建建议 -->
+        <div class="fb-midcnter clearfix">
+          <div class="fb-sugbox clearfix">
+            <div class="fb-sug-title">免费获取搭建报价</div>
+            <div class="fb-sug-smalltitle">展装顾问将24小时内给你提供专业服务</div>
+            <div class="fb-sug-info">
+              <div class="fb-sug-submit">
+                <input class="fb-sug-infoinput" type="text" placeholder="请输入公司名称">
+                <input class="fb-sug-infoinput" type="text" placeholder="填写手机号">
+                <div class="fb-getvscode">
+                  <input type="text" placeholder="请输入验证码">
+                  <span>获取验证码</span>
+                </div>
+                <!-- 报错提示 -->
+                <div class="fb-wornmes">请输入11位手机号</div>
+                <input class="fb-sug-btn" type="submit" value="获取专业搭建服务">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fb-btomidbox clearfix">
+        <div class="fb-bto-title">
+          <span class="fb-bto-mainname">展装合作伙伴</span>
+          <span class="fb-bto-line"></span>
+        </div>
+        <!-- 合作伙伴list -->
+        <div class="fb-bto-partner"></div>
+        <!-- 可单张展示区 html -->
+        <!-- <div class="fb-bto-partner">
+          <div class="fb-bto-list">
+            <ul>
+              <li>
+                <img src="" alt="">
+              </li>
+              <li>
+                <img src="" alt="">
+              </li>
+              <li>
+                <img src="" alt="">
+              </li>
+              <li>
+                <img src="" alt="">
+              </li>
+              <li>
+                <img src="" alt="">
+              </li>
+            </ul>
+          </div>
+          <div class="fb-bto-list">
+            <ul>
+              <li>
+                <img src="" alt="">
+              </li>
+              <li>
+                <img src="" alt="">
+              </li>
+              <li>
+                <img src="" alt="">
+              </li>
+              <li>
+                <img src="" alt="">
+              </li>
+              <li>
+                <img src="" alt="">
+              </li>
+            </ul>
+          </div>
+          <div class="fb-bto-list border-bottom-none">
+            <ul>
+              <li>
+                <img src="" alt="">
+              </li>
+              <li>
+                <img src="" alt="">
+              </li>
+              <li>
+                <img src="" alt="">
+              </li>
+              <li>
+                <img src="" alt="">
+              </li>
+              <li>
+                <img src="" alt="">
+              </li>
+            </ul>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <!-- 找搭建 end -->
+  </div>
+  <footer>
+    <div class="fb-footlist">
+      <div class="fb-footbox">
+        <div class="foot-logo">
+          <img src="/img/e3footlogo.png" th:src="@{/img/e3footlogo.png}" alt="">
+        </div>
+        <div class="foot-link">
+          <ul class="foot-linkdte">
+            <li>
+              <a href="">新手指南</a>
+            </li>
+            <li>
+              <a href="">交易保障</a>
+            </li>
+          </ul>
+          <ul class="foot-linkdte mt-4">
+            <li>
+              <a href="">关于本站</a>
+            </li>
+            <li>
+              <a href="">联系我们</a>
+            </li>
+          </ul>
+        </div>
+        <div class="foot-intro">
+          <span>何为易宜益</span>
+          <span>易： 一站式线上服务，快速响应，简单方便</span>
+          <span>宜：去除中间环节，海量资源共享，剔除溢价</span>
+          <span>益：项目全程线上管理，与大公司御用设计师高效配合</span>
+        </div>
+        <div class="foot-vscode">
+          <ul>
+            <li>
+              <span>
+                <img src="" alt="">
+              </span>
+              <span>E3微信公众号</span>
+            </li>
+            <li>
+              <span>
+                <img src="" alt="">
+              </span>
+              <span>E3设计师微信号</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="fb-copyright">沪ICP备 16055160号-1 | © 2016-2017 易宜益 版权所有</div>
+  </footer>
+  <!-- build:layout_js -->
+  
+  <!-- endbuild -->
+
+
+
+  <script src="/js/find_designorbuild.min.js" th:src="@{/js/find_designorbuild.min.js}"></script>
+</body>
+
+</html>

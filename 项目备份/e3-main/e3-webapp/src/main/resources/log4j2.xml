@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<Configuration status="WARN"
+	xmlns="http://logging.apache.org/log4j/2.0/config">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="Console" />
+		</Root>
+
+
+		<!-- ehcache log -->
+		<Logger name="net.sf.ehcache" level="TRACE" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<!-- shiro log -->
+
+
+		<!-- spring log -->
+		<logger name="slf4j2" level="info" />
+		<logger name="org.springframework" level="info"/>
+        <logger name="org.springframework.beans" level="info"/>
+        <logger name="org.springframework.core" level="info"/>
+        <logger name="org.springframework.context" level="info"/>
+        <logger name="org.springframework.web" level="info"/>
+        <logger name="org.springframework.batch" level="info"/>
+        <logger name="org.springframework.integration" level="info"/>
+		
+		
+		<logger name="org.apache.shiro" level="info"/>
+
+
+
+	</Loggers>
+</Configuration>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Bootstrap Admin App + jQuery">
+  <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+  <title>设计入驻审核-列表</title>
+
+  <!--  载入css 文件 -->
+  <!-- Bootstrap -->
+  <link th:href="@{/js/vendor/fontawesome/css/font-awesome.min.css}" href="../../js/vendor/fontawesome/css/font-awesome.min.css"
+    rel="stylesheet">
+  <link href="../../js/vendor/simple-line-icons/css/simple-line-icons.css" th:href="@{/js/vendor/simple-line-icons/css/simple-line-icons.css}"
+    rel="stylesheet" type="text/css" />
+  <link href="../../js/vendor/animate.css/animate.min.css" th:href="@{/js/vendor/animate.css/animate.min.css}" rel="stylesheet"
+    type="text/css" />
+  <link href="../../js/vendor/whirl/dist/whirl.css" th:href="@{/js/vendor/whirl/dist/whirl.css}" rel="stylesheet" type="text/css"
+  />
+  <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/app.css" th:href="@{/css/app.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/mms.min.css" th:href="@{/css/mms.min.css}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- top navbar-->
+    <header class="topnavbar-wrapper" th:replace="top-menu :: top-menu">
+      <nav role="navigation" class="navbar topnavbar">
+        <div class="navbar-header">
+          <a href="#/" class="navbar-brand head-title"></a>
+        </div>
+        <div class="nav-wrapper">
+          <!-- 切换 -->
+          <ul class="nav navbar-nav hd-lt-ul">
+            <li>
+              <a href="#" data-toggle-state="aside-collapsed" class="hidden-xs">
+                <em class="fa fa-navicon"></em>
+              </a>
+              <a href="#" data-toggle-state="aside-toggled" data-no-persist="true" class="visible-xs sidebar-toggle">
+                <em class="fa fa-navicon"></em>
+              </a>
+            </li>
+            <li>
+              <span class="hd-title">E3展装平台后台</span>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right hd-rt-ul">
+            <li>
+              <div class="btn-wp">
+                <span class="hd-name-wp">欢迎您，某某某</span>
+                <button class="btn-primary btn zhuxiao-btn">注销</button>
+                <button class="btn-primary btn xiugaimima-btn">修改密码</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- END Nav wrapper-->
+      </nav>
+    </header>
+
+    <!-- sidebar-->
+    <aside class="aside" th:replace="left-menu :: left-nav">
+      <div class="aside-inner">
+        <nav data-sidebar-anyclick-close="" class="sidebar">
+          <!-- START sidebar nav-->
+          <ul class="nav">
+            <li class="nav-heading">Welcome PICO</li>
+            <li class=" ">
+              <a href="#verify" title="没有用到" data-toggle="collapse">
+                <em class="fa fa-check-square-o"></em>
+                <span>没有用到</span>
+              </a>
+              <ul id="verify" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">没有用到</li>
+                <li class="active">
+                  <a href="no_verify_process_list.html" title="设计流程审核">
+                    <span>流程审核</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="no_verify_design_uploadhistory.html" title="设计入驻审核">
+                    <span>稿件上传历史</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- END 左侧菜单-->
+    </aside>
+    <!-- 主内容 -->
+    <section>
+      <!-- Page content-->
+      <div class="content-wrapper">
+        <div class="content-heading">
+          设计流程审核
+        </div>
+        <!-- START panel-->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <form class="">
+              <div class="row">
+                <div class="form-group col-sm-2">
+                  <label for="">
+                    <div class="btn-group">
+                      <button data-toggle="dropdown" class="btn btn-default" aria-expanded="false">需求单号
+                        <b class="caret"></b>
+                      </button>
+                      <ul role="menu" class="dropdown-menu">
+                        <li><a href="#">需求单号</a></li>
+                        <li><a href="#">展览公司</a></li>
+                        <li><a href="#">设计师</a></li>
+                        <li><a href="#">设计师工号</a></li>
+                        <li><a href="#">审核人</a></li>
+                        <li><a href="#">审核人工号</a></li>
+                      </ul>
+                    </div>
+                  </label>
+                  <input type="text" name="" class="form-control" placeholder="输入关键词检索">
+                </div>
+                <div class="form-group col-sm-2">
+                  <label for=""><span class="btn">所处阶段</span></label>
+                  <select name="" id="" class="form-control">
+                    <option value=" ">全部</option>
+                    <option value=" ">初稿阶段</option>
+                    <option value=" ">深化阶段</option>
+                    <option value=" ">图纸阶段</option>
+                  </select>
+                </div>
+                <div class="form-group col-sm-2">
+                  <label for=""><span class="btn">审核状态</span></label>
+                  <select name="" id="" class="form-control">
+                    <option value=" ">全部</option>
+                    <option value=" ">待审批</option>
+                    <option value=" ">审批通过</option>
+                    <option value=" ">审批未通过</option>
+                  </select>
+                </div>
+                <div class="form-group col-sm-4">
+                  <label for="">
+                    <div class="btn-group">
+                      <button data-toggle="dropdown" class="btn btn-default" aria-expanded="false">上传时间
+                        <b class="caret"></b>
+                      </button>
+                      <ul role="menu" class="dropdown-menu">
+                        <li><a href="#">上传时间</a></li>
+                        <li><a href="#">审批时间</a></li>
+                      </ul>
+                    </div>
+                  </label>
+                  <div class="form-inline">
+                    <p id="datetimepicker" class="input-group date col-sm-5">
+                      <input type="text" name="" class="form-control" placeholder="请选择结束时间">
+                      <span class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                      </span>
+                    </p>
+                    <p id="datetimepicker2" class="input-group date col-sm-5">
+                      <input type="text" name="" class="form-control" placeholder="请选择结束时间">
+                      <span class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-sm-11">
+                  <button type="submit" class="btn btn-info pull-right">检索</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- START table-responsive-->
+          <div class="panel-heading">
+            <div class="table-responsive">
+              <table id="" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>需求单号</th>
+                    <th>展览公司</th>
+                    <th>所处阶段</th>
+                    <th>设计师</th>
+                    <th>设计师工号</th>
+                    <th>审核人</th>
+                    <th>审批人工号</th>
+                    <th>上传时间</th>
+                    <th>审批时间</th>
+                    <th>审批状态</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>8048 7841</td>
+                    <td>阿里巴巴</td>
+                    <td>深化阶段</td>
+                    <td>王老虎</td>
+                    <td>12259362</td>
+                    <td>周小黑</td>
+                    <td>1222313</td>
+                    <td>2017-2-12 10:02</td>
+                    <td>/</td>
+                    <td>待审核</td>
+                    <td>
+                      <a class="btn btn-primary" href="no_verify_process_info.html">
+                        <i class="fa fa-search"></i> 查看
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- END panel-->
+            <div class="panel-footer">
+              <div class="row">
+                <div class="col-lg-2 col-lg-offset-10 text-right">
+                  <ul class="pagination pagination-sm">
+                    <li th:if="${page.pageIndex > 1}">
+                      <a th:href="@{/application/list(pageIndex=${page.pageIndex - 1},cityId=${page.cityId},applicantName=${page.applicantName},
+                                applicationTimeLowerLimit=${page.applicationTimeLowerLimit},applicationTimeUpperLimit=${page.applicationTimeUpperLimit},
+                                status=${page.status})}" href="#">«</a>
+                    </li>
+                    <li th:each="i : ${#numbers.sequence(page.startPageIndex, page.endPageIndex)}" th:class="${page.pageIndex == i} ? 'active' : ''"
+                      class="active">
+                      <a th:if="${i > 0}" th:text="${i}" th:href="${page.pageIndex == i} ? '#' : @{/application/list(pageIndex=${i},cityId=${page.cityId},applicantName=${page.applicantName},
+                                applicationTimeLowerLimit=${page.applicationTimeLowerLimit},applicationTimeUpperLimit=${page.applicationTimeUpperLimit},
+                                status=${page.status})}" href="#">-</a>
+                    </li>
+                    <li th:if="${page.pageIndex < page.totalPages}">
+                      <a th:href="@{/application/list(pageIndex=${page.pageIndex + 1},cityId=${page.cityId},applicantName=${page.applicantName},
+                                applicationTimeLowerLimit=${page.applicationTimeLowerLimit},applicationTimeUpperLimit=${page.applicationTimeUpperLimit},
+                                status=${page.status})}" href="#">»</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END panel-->
+      </div>
+    </section>
+
+  </div>
+  <script type="text/javascript" src="../../js/vendor/modernizr/modernizr.custom.js" th:src="@{/js/vendor/modernizr/modernizr.custom.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jquery/dist/jquery.js" th:src="@{/js/vendor/jquery/dist/jquery.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/bootstrap/dist/js/bootstrap.js" th:src="@{/js/vendor/bootstrap/dist/js/bootstrap.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jQuery-Storage-API/jquery.storageapi.js" th:src="@{/js/vendor/jQuery-Storage-API/jquery.storageapi.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/moment/min/moment-with-locales.min.js" th:src="@{/js/vendor/moment/min/moment-with-locales.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"
+    th:src="@{/js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/parsley.min.js" th:src="@{/js/vendor/parsleyjs/dist/parsley.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/zh_cn.js" th:src="@{/js/vendor/parsleyjs/dist/zh_cn.js}"></script>
+  <script type="text/javascript" src="../../js/app.js" th:src="@{/js/app.js}"></script>
+  <script type="text/javascript" src="../../js/base.js" th:src="@{/js/base.js}"></script>
+</body>
+
+</html>

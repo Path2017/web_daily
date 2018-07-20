@@ -1,0 +1,20 @@
+# Maven #
+target/
+
+# IDEA #
+.idea/
+out/
+*.iml
+
+# Eclipse #
+.settings/
+.metadata/
+.classpath
+.project
+
+.tern-project
+.DS_Store
+.DS_Store?
+/build/
+src/main/java/com/e3expo/e3/middleware/controller/
+test/

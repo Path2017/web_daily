@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.e3expo.e3.middleware.mapper.DesignerBidMapper">
+
+	<select id="selectBadeOrderIdByDesignerId" resultType="int">
+		SELECT
+		a.order_id
+		FROM
+		tr_designer_bid AS a
+		WHERE
+		a.designer_id = #{designerId}
+	</select>
+
+	<select id="selectDesignerBiddingPrice" resultType="orderDesignerPrice">
+		SELECT
+		a.node_id,
+		a.price,
+		a.order_id,
+		a.type,
+		a.designer_id
+		FROM
+		te_order_designer_price AS a
+		WHERE
+		a.designer_id = #{userId} AND
+		a.order_id = #{orderId}
+	</select>
+
+	<select id="selectBidDetailByOrderId" resultType="WebAppOrderDesignerView">
+		SELECT
+		a.order_id,
+		a.designer_id AS user_id,
+		b.`name`,
+		b.working_years,
+		c.`name` AS city,
+		b.mobile
+		FROM
+		tr_designer_bid AS a
+		LEFT JOIN te_user AS b ON a.designer_id = b.id
+		LEFT JOIN dic_city AS c ON b.city_id = c.id
+		WHERE
+		a.order_id = #{orderId} AND
+		a.is_valid = 1
+
+	</select>
+
+	<select id="selectByOrderId" resultType="designerBid">
+		SELECT * FROM
+		tr_designer_bid where order_id = #{orderId}
+	</select>
+
+	<insert id="insert" parameterType="designerBid">
+		INSERT INTO
+		tr_designer_bid(order_id,designer_id,is_success,bid_time,is_valid)
+		VALUE(#{orderId},#{designerId},#{isSuccess},#{bidTime},#{isValid})
+	</insert>
+
+	<update id="updateIsSuccessByDesignerId">
+		UPDATE tr_designer_bid set is_success = #{isSuccess}
+		WHERE designer_id
+		in
+		<foreach collection="designerIds" item="designerId"
+			separator="," open="(" close=")">
+			#{designerId}
+		</foreach>
+	</update>
+	<!-- 获取订单对应所有报价、报价详情、设计师等信息 -->
+	<resultMap type="designerBid" id="designerBidMap">
+		<id property="id" column="bid_id" />
+		<result property="orderId" column="order_id" />
+		<result property="isSuccess" column="is_success" />
+		<result property="bidTime" column="bid_time" />
+		<result property="isValid" column="is_valid" />
+		<association property="user" javaType="user">
+			<id property="id" column="user_id" />
+			<result property="jobNumber" column="job_number" />
+			<result property="mobile" column="mobile" />
+		</association>
+		<!-- ofType指定orderDesignerPrices集合中的对象类型 -->
+		<collection property="orderDesignerPrices" ofType="orderDesignerPrice">
+			<id property="id" column="price_id" />
+			<result property="nodeId" column="node_id" />
+			<result property="price" column="price" />
+			<result property="type" column="type" />
+			<result property="updateNum" column="update_num" />
+		</collection>
+	</resultMap>
+	<select id="getDesignerBid" resultMap="designerBidMap" parameterType="java.lang.Integer">
+		SELECT
+		a1.id as bid_id,a1.order_id,a1.is_success,a1.bid_time,a1.is_valid,
+		a2.id as price_id,a2.node_id,a2.price,a2.type,a2.update_num,
+		a3.id as user_id,a3.job_number,a3.mobile
+		FROM
+		tr_designer_bid a1
+		INNER JOIN te_order_designer_price a2 ON a1.designer_id = a2.designer_id
+		AND a1.order_id = a2.order_id
+		INNER JOIN te_user a3 ON a1.designer_id = a3.id
+		WHERE
+		a1.order_id = #{orderId}
+	</select>
+</mapper>

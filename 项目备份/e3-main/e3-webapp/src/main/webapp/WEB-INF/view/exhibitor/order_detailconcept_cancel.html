@@ -1,0 +1,207 @@
+<!-- build:layout_head --><!-- endbuild -->
+  <link rel="stylesheet" href="../../../css/exhibitor.min.css" th:href="@{/css/exhibitor.min.css}">
+</head>
+
+<body>
+  <div class="e3-wrap">
+    <!-- build:header -->
+    
+    <!-- endbuild -->
+
+
+    <!-- 所有样式前缀加  od-  -->
+    <div class="od-contentbox clearfix">
+      <div class="od-nav">
+        <span class="nav-prve">订单管理</span>&gt;<span class="nav-next">订单详情</span>
+      </div>
+      <div class="od-mainbox">
+        <div class="od-toptitle">概念设计阶段</div>
+        <!-- 订单详情的内容区域 begin -->
+        <div class="od-detailbox mt-2">
+          <!-- 最新订单状态展示区域 begin -->
+          <!-- 当前显示的状态 添加类名 current-status -->
+          <div class="design-stage">
+            <!-- 取消订单 -->
+            <div class="od-newstatusbox clearfix current-status">
+              <div class="od-statusname">当前订单状态：订单关闭。</div>
+              <div>
+                <ul class="od-statuslist">
+                  <li>·取消订单原因：另外找到设计师。</li>
+                </ul>
+              </div>
+            </div>
+            <!-- 最新订单状态展示区域 end -->
+
+            <!-- 订单基本信息区域 begin -->
+            <div class="od-baseinfobox clearfix">
+              <!-- 报价信息 -->
+            <div id="quote-wraper">
+              <p class="od-title">
+                <span>报价信息</span>
+              </p>             
+              <div class="quote-wp">
+                <!-- 报价设计师 start -->
+                <div class="quote-designer-wp clearfix">
+                  <span class="choose-designer left none">√</span>
+                  <img class="designer-pic left" src="../../../img/empty.png" th:src="@{/img/empty.png}" alt="">
+                  <ul class="designer-msg left">
+                    <li>设计师：某某亩<img class="idcard" src="../../../img/id.png" th:src="@{/img/id.png}" alt=""></li>
+                    <li>工作年限：10-15年</li>
+                    <li>所在城市：上海</li>
+                    <li>联系电话：134*****88</li>
+                  </ul>
+                  <ul class="quote-table left">
+                    <li class="li-head">
+                      <span class="state">设计阶段</span>
+                      <span class="caseprice">稿件单价</span>
+                      <span class="freenum">免费修改次数</span>
+                      <span class="changeprice">修改价格/稿</span>
+                    </li>
+                    <li>
+                      <span class="state">设计图设计
+                        <i class="attention">
+                          <p class="hover-cue"><i class="hover-arrow"></i>设计图阶段的内容包含展台透视图左、透视图右、俯瞰图、立面网格图及平面网格图，如特殊展台，需要上传其他角度。</p>
+                        </i>
+                      </span>
+                      <span class="caseprice price-color">¥500</span>
+                      <span class="freenum">2</span>
+                      <span class="changeprice price-color">¥100</span>
+                    </li>
+                    <li>
+                      <span class="state">施工图设计
+                        <i class="attention">
+                            <p class="hover-cue"><i class="hover-arrow"></i>施工图的内容需要提供设计图阶段展台所包含材质图、美工文字、电路图、指示图等相关示意图。</p>
+                        </i>
+                      </span>
+                      <span class="caseprice price-color">¥320</span>
+                      <span class="freenum">无</span>
+                      <span class="changeprice">无</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="quote-designer-wp clearfix">
+                  <span class="choose-designer left none">√</span>
+                  <img class="designer-pic left" src="../../../img/empty.png" th:src="@{/img/empty.png}" alt="">
+                  <ul class="designer-msg left">
+                    <li>设计师：某某亩<img class="idcard" src="../../../img/id.png" th:src="@{/img/id.png}" alt=""></li>
+                    <li>工作年限：10-15年</li>
+                    <li>所在城市：上海</li>
+                    <li>联系电话：134*****88</li>
+                  </ul>
+                  <ul class="quote-table left">
+                    <li class="li-head">
+                      <span class="state">设计阶段</span>
+                      <span class="caseprice">稿件单价</span>
+                      <span class="freenum">免费修改次数</span>
+                      <span class="changeprice">修改价格/稿</span>
+                    </li>
+                    <li>
+                      <span class="state">设计图设计
+                        <i class="attention">
+                            <p class="hover-cue"><i class="hover-arrow"></i>设计图阶段的内容包含展台透视图左、透视图右、俯瞰图、立面网格图及平面网格图，如特殊展台，需要上传其他角度。</p>
+                        </i>
+                      </span>
+                      <span class="caseprice price-color">¥500</span>
+                      <span class="freenum">2</span>
+                      <span class="changeprice price-color">¥100</span>
+                    </li>
+                    <li>
+                      <span class="state">施工图设计
+                        <i class="attention">
+                            <p class="hover-cue"><i class="hover-arrow"></i>施工图的内容需要提供设计图阶段展台所包含材质图、美工文字、电路图、指示图等相关示意图。</p>
+                        </i>
+                      </span>
+                      <span class="caseprice price-color">¥320</span>
+                      <span class="freenum">无</span>
+                      <span class="changeprice">无</span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- 报价设计师 end -->               
+              </div>
+            </div>
+            <!-- 选中设计师 立即报价start -->
+            <p class="payment-wp clearfix none">
+              <span class="left designer">已选择设计师：某美美</span>
+              <span class="left">设计图设计阶段费用 <span class="total">合计：</span></span>
+              <span class="totalprice left">¥300</span>
+              <button class="pay-btn right">立即支付</button>
+            </p>
+            <!-- 选中设计师 立即报价end -->        
+            <!-- 项目联系人 -->
+            <div>
+              <p class="od-title">
+                <span>项目联系人</span>
+              </p>
+              <div class="message-wp project-contact clearfix">
+                <div class="message-li left">联系人：<span>Jessica</span></div>
+                <div class="message-li left">公司名称：<span>笔克展览展示有限公司</span></div>
+                <div class="message-li left">联系电话：<span>13423339966</span></div>
+                <div class="message-li left">工作邮箱：<span>13423339966@qq.com</span></div>
+              </div>
+            </div>
+            <!-- 项目信息 -->
+            <div>
+              <p class="od-title clearfix">
+                <span class="left">项目信息</span>
+                <a class="right seedemand" href="javascript:;">查看详细设计需求 &gt;</a>
+              </p>
+              <div class="message-wp program-msg">
+                <div class="clearfix">
+                  <div class="message-li left">参展商名称：<span>笔克展览展示有限公司</span></div>
+                  <div class="message-li left">相关网站：<span>www.sohu.com</span></div>
+                </div>
+                <div class="message-li ordertracking">展会名称：<span>第二十二届中国国际涂料展</span></div>
+                <div class="clearfix">
+                  <div class="message-li left">举办城市：<span>上海市</span></div>
+                  <div class="message-li left">展馆名称：<span>国际会展中心</span></div>
+                  <div class="message-li left">展台号：<span>2–3</span></div>
+                </div>
+                <div class="clearfix">
+                  <div class="message-li left">展台面积：<span>8m×8m</span></div>
+                  <div class="message-li left">展台限高：<span>4.5m</span></div>
+                  <div class="message-li left">整体预算：<span>￥50,000</span></div>
+                </div>
+                <div class="clearfix">
+                  <div class="message-li left">设计图设计交稿日期：<span>2017.10.23</span></div>
+                  <div class="message-li left">施工图设计交稿日期：<span>2017.12.23</span></div>
+                </div>
+              </div>
+            </div>
+            <!-- 订单信息 -->
+            <div>
+              <p class="od-title">订单信息</p>
+              <div class="message-wp order-msg-wp">
+                <div class="message-li">订单号：<span>2937649197374</span></div>
+                <div class="ordertracking-wp clearfix">
+                  <div class="left ordertracking">订单跟踪：</div>
+                  <ul class="left message-ul">
+                    <li>2017.10.30 14:24:35 发布订单</li>
+                    <li class="last-state">2017.10.30 14:24:35 发布订单</li>
+                  </ul>
+                </div>
+              </div>
+            </div>            
+            </div>
+            <!-- 订单基本信息区域 end -->
+          </div>
+          <!-- 订单详情内容区域 end -->
+        </div>
+      </div>
+      <!-- build:footer -->
+      
+      <!-- endbuild -->
+
+
+    </div>
+    <!-- build:layout_js -->
+    
+    <!-- endbuild -->
+
+
+    <script src="../../../js/vendor/swiper.min.js" th:src="@{/js/vendor/swiper.min.js}"></script>
+    <script src="../../../js/order_detail.min.js" th:src="@{/js/order_detail.min.js}"></script>
+    <script src="../../../js/order_detailconcept.min.js" th:src="@{/js/order_detailconcept.min.js}"></script>
+</body>
+
+</html>

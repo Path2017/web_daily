@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Bootstrap Admin App + jQuery">
+  <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+  <title>设计师管理-认证资料</title>
+
+  <!--  载入css 文件 -->
+  <!-- Bootstrap -->
+  <link th:href="@{/js/vendor/fontawesome/css/font-awesome.min.css}" href="../../js/vendor/fontawesome/css/font-awesome.min.css"
+    rel="stylesheet">
+  <link href="../../js/vendor/simple-line-icons/css/simple-line-icons.css" th:href="@{/js/vendor/simple-line-icons/css/simple-line-icons.css}"
+    rel="stylesheet" type="text/css" />
+  <link href="../../js/vendor/animate.css/animate.min.css" th:href="@{/js/vendor/animate.css/animate.min.css}" rel="stylesheet"
+    type="text/css" />
+  <link href="../../js/vendor/whirl/dist/whirl.css" th:href="@{/js/vendor/whirl/dist/whirl.css}" rel="stylesheet" type="text/css"
+  />
+  <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/app.css" th:href="@{/css/app.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/viewer.min.css" th:href="@{/css/viewer.min.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/mms.min.css" th:href="@{/css/mms.min.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/admin.css" th:href="@{/css/admin.css}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- top navbar-->
+    <header class="topnavbar-wrapper" th:replace="top-menu :: top-menu">
+      <nav role="navigation" class="navbar topnavbar">
+        <div class="navbar-header">
+          <a href="#/" class="navbar-brand head-title"></a>
+        </div>
+        <div class="nav-wrapper">
+          <!-- 切换 -->
+          <ul class="nav navbar-nav hd-lt-ul">
+            <li>
+              <a href="#" data-toggle-state="aside-collapsed" class="hidden-xs">
+                <em class="fa fa-navicon"></em>
+              </a>
+              <a href="#" data-toggle-state="aside-toggled" data-no-persist="true" class="visible-xs sidebar-toggle">
+                <em class="fa fa-navicon"></em>
+              </a>
+            </li>
+            <li>
+              <span class="hd-title">E3展装平台后台</span>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right hd-rt-ul">
+            <li>
+              <div class="btn-wp">
+                <span class="hd-name-wp">欢迎您，某某某</span>
+                <button class="btn-primary btn zhuxiao-btn">注销</button>
+                <button class="btn-primary btn xiugaimima-btn">修改密码</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- END Nav wrapper-->
+      </nav>
+    </header>
+
+    <!-- sidebar-->
+    <aside class="aside" th:replace="left-menu :: left-nav">
+      <div class="aside-inner">
+        <nav data-sidebar-anyclick-close="" class="sidebar">
+          <!-- START sidebar nav-->
+          <ul class="nav">
+            <li class="nav-heading">Welcome PICO</li>
+            <li class=" ">
+              <a href="#operate" title="运营管理" data-toggle="collapse">
+                <em class="fa fa-check-square-o"></em>
+                <span>运营管理</span>
+              </a>
+              <ul id="operate" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">运营管理</li>
+                <li class="">
+                  <a href="javascript:;" title="运营广告位管理">
+                    <span>运营广告位管理</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="./control_over_invoices.html" title="发票管理">
+                    <span>发票管理</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class=" ">
+              <a href="#user" title="用户管理" data-toggle="collapse">
+                <em class="fa fa-check-square-o"></em>
+                <span>用户管理</span>
+              </a>
+              <ul id="user" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">用户管理</li>
+                <li class="active">
+                  <a href="./manage_designer.html" title="设计师管理">
+                    <span>设计师管理</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="./manage_exhibition.html" title="展览公司管理">
+                    <span>展览公司管理</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class=" ">
+              <a href="#verify" title="审核管理" data-toggle="collapse">
+                <em class="fa fa-check-square-o"></em>
+                <span>审核管理</span>
+              </a>
+              <ul id="verify" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">审核管理</li>
+                <li class="">
+                  <a href="./verify_checkin_list.html" title="设计入驻审核">
+                    <span>设计入驻审核</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="./exhibition_checkin_list.html" title="设计流程审核">
+                    <span>展览公司入驻审核</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class=" ">
+              <a href="#ordermanage" title="" data-toggle="collapse">
+                <em class="fa fa-check-square-o"></em>
+                <span>订单管理</span>
+              </a>
+              <ul id="ordermanage" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">订单管理</li>
+                <li class="">
+                  <a href="manage_order.html" title="设计订单">
+                    <span>设计订单</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class=" ">
+              <a href="#financial" title="财务中心" data-toggle="collapse">
+                <em class="fa fa-check-square-o"></em>
+                <span>财务中心</span>
+              </a>
+              <ul id="financial" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">财务中心</li>
+                <li class="">
+                  <a href="financial_entry_flow.html" title="平台入账流水">
+                    <span>平台入账流水</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="financial_deduction.html" title="财务出款">
+                    <span>财务出款</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class=" ">
+              <a href="#pay" title="结算中心" data-toggle="collapse">
+                <em class="fa fa-check-square-o"></em>
+                <span>结算中心</span>
+              </a>
+              <ul id="pay" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">结算中心</li>
+                <li class="">
+                  <a href="settlement_designer.html" title="设计师结算">
+                    <span>设计师结算</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- END 左侧菜单-->
+    </aside>
+    <!-- 主内容 -->
+    <section>
+      <!-- Page content-->
+      <div class="content-wrapper">
+        <!-- START panel-->
+        <div class="panel-default">
+          <div class="panel-heading text-center">
+            <h3>认证设计师</h3>
+          </div>
+          <!-- START table-responsive-->
+          <div class="panel-heading">
+            <div class="table-responsive">
+              <table id="" class="table table-bordered table-hover text-center">
+                <thead>
+                  <tr>
+                    <th colspan="4" class="text-center">基本信息</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>姓名*</td>
+                    <td>刘毅</td>
+                    <td>注册手机号*</td>
+                    <td>13917704260</td>
+                  </tr>
+                  <tr>
+                    <td>通讯软件*</td>
+                    <td>QQ 4932548946</td>
+                    <td>邮箱*</td>
+                    <td>4932548946</td>
+                  </tr>
+                  <tr>
+                    <td>所在地*</td>
+                    <td>中国 湖北省 武汉市</td>
+                    <td>工作年限*</td>
+                    <td>15年以上</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-responsive">
+              <table id="" class="table table-bordered table-hover text-center">
+                <thead>
+                  <tr>
+                    <th colspan="4" class="text-center">收款账号</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>收款人姓名*</td>
+                    <td>刘毅</td>
+                    <td>开户行*</td>
+                    <td>招商银行</td>
+                  </tr>
+                  <tr>
+                    <td>所在支行*</td>
+                    <td>打浦桥支行</td>
+                    <td>银行卡号*</td>
+                    <td>6002 3842 3698 1208</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-responsive">
+              <table id="" class="table table-bordered table-hover text-center">
+                <thead>
+                  <tr>
+                    <th colspan="4" class="text-center">附件资料</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="4" class="text-left">省份证*（身份证正反面，至多不超过两张）</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4">
+                      <div class="des-uploadhis text-left">
+                        <ul>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>正面图</span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>反面照</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" class="text-left">作品*（至少上传两张，至多不超过十张）</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4">
+                      <div class="des-uploadhis text-left">
+                        <ul>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" class="text-left">学历证明</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4">
+                      <div class="des-uploadhis text-left">
+                        <ul>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" class="text-left">职称证明</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4">
+                      <div class="des-uploadhis text-left">
+                        <ul>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" class="text-left">获奖证书</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4">
+                      <div class="des-uploadhis text-left">
+                        <ul>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-responsive">
+              <table id="" class="table table-bordered table-hover text-center">
+                <thead>
+                  <tr>
+                    <th colspan="4" class="text-center">管理员操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>账号状态</td>
+                    <td colspan="1">
+                      <select name="" id="accountStatus" class="form-control">
+                        <option value="1">启用</option>
+                        <option value="-1">禁用</option>
+                      </select>
+                    </td>
+                    <td>入驻时间</td>
+                    <td>2017-8-30</td>
+                  </tr>
+                  <tr>
+                    <td colspan="1">备注</td>
+                    <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">明天打算让这个人通过</td>
+                    <td colspan="2">张三 2017-3-04</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">这个人感觉还可以，可以观察一下</td>
+                    <td colspan="2">张三 2017-2-20</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3">
+                      <textarea style="resize:none" name="" id="dsremarkInfo" cols="80" rows="5"></textarea>
+                      <div>
+                        <button type="submit" id="dsremarkUser" class="btn btn-info">提交</button>
+                        <button type="submit" class="btn btn-worn">取消</button>
+                      </div>
+                    </td>
+                    <td colspan="1">
+                      <button type="submit" class="btn btn-info">保存</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- END panel-->
+          </div>
+        </div>
+        <!-- END panel-->
+      </div>
+    </section>
+
+  </div>
+  <script type="text/javascript" src="../../js/vendor/modernizr/modernizr.custom.js" th:src="@{/js/vendor/modernizr/modernizr.custom.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jquery/dist/jquery.js" th:src="@{/js/vendor/jquery/dist/jquery.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/bootstrap/dist/js/bootstrap.js" th:src="@{/js/vendor/bootstrap/dist/js/bootstrap.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jQuery-Storage-API/jquery.storageapi.js" th:src="@{/js/vendor/jQuery-Storage-API/jquery.storageapi.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/moment/min/moment-with-locales.min.js" th:src="@{/js/vendor/moment/min/moment-with-locales.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"
+    th:src="@{/js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/parsley.min.js" th:src="@{/js/vendor/parsleyjs/dist/parsley.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/zh_cn.js" th:src="@{/js/vendor/parsleyjs/dist/zh_cn.js}"></script>
+  <script type="text/javascript" src="../../js/app.js" th:src="@{/js/app.js}"></script>
+  <script type="text/javascript" src="../../js/base.js" th:src="@{/js/base.js}"></script>
+  <script type="text/javascript" src="../../js/urlconfig.js" th:src="@{/js/urlconfig.js}"></script>  
+  <script type="text/javascript" src="../../js/manage_designer_certification.js" th:src="@{/js/manage_designer_certification.js}"></script>  
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.e3expo.e3.middleware.mapper.DesignerPriceConfigMapper" >
+  <select id="selectByDesignerId" resultType="designerPriceConfig">
+    SELECT * FROM te_designer_price_config WHERE designer_id = #{designerId} AND is_valid = 1
+  </select>
+  <insert id="batchInsert" parameterType="list">
+    INSERT INTO te_designer_price_config
+    (node_id, designer_id, price,type,is_valid,create_time,update_time)
+    VALUES
+    <foreach collection="list" item="record" separator=",">
+      (#{record.nodeId},#{record.designerId},#{record.price},
+      #{record.type},#{record.isValid},#{record.createTime},#{record.updateTime})
+    </foreach>
+  </insert>
+  <update id="updatePriceById" parameterType="designerPriceConfig">
+    UPDATE te_designer_price_config SET price = #{price}, update_time = #{updateTime}
+    WHERE id = #{id}
+  </update>
+
+</mapper>

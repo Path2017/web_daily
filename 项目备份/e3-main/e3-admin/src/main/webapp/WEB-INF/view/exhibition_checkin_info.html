@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Bootstrap Admin App + jQuery">
+  <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+  <title>展览公司入驻审核-详情</title>
+
+  <!--  载入css 文件 -->
+  <!-- Bootstrap -->
+  <link th:href="@{/js/vendor/fontawesome/css/font-awesome.min.css}" href="../../js/vendor/fontawesome/css/font-awesome.min.css"
+    rel="stylesheet">
+  <link href="../../js/vendor/simple-line-icons/css/simple-line-icons.css" th:href="@{/js/vendor/simple-line-icons/css/simple-line-icons.css}"
+    rel="stylesheet" type="text/css" />
+  <link href="../../js/vendor/animate.css/animate.min.css" th:href="@{/js/vendor/animate.css/animate.min.css}" rel="stylesheet"
+    type="text/css" />
+  <link href="../../js/vendor/whirl/dist/whirl.css" th:href="@{/js/vendor/whirl/dist/whirl.css}" rel="stylesheet" type="text/css"
+  />
+  <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/app.css" th:href="@{/css/app.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/mms.min.css" th:href="@{/css/mms.min.css}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- top navbar-->
+    <header class="topnavbar-wrapper" th:replace="top-menu :: top-menu">
+      <nav role="navigation" class="navbar topnavbar">
+        <div class="navbar-header">
+          <a href="#/" class="navbar-brand head-title"></a>
+        </div>
+        <div class="nav-wrapper">
+          <!-- 切换 -->
+          <ul class="nav navbar-nav hd-lt-ul">
+            <li>
+              <a href="#" data-toggle-state="aside-collapsed" class="hidden-xs">
+                <em class="fa fa-navicon"></em>
+              </a>
+              <a href="#" data-toggle-state="aside-toggled" data-no-persist="true" class="visible-xs sidebar-toggle">
+                <em class="fa fa-navicon"></em>
+              </a>
+            </li>
+            <li>
+              <span class="hd-title">E3展装平台后台</span>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right hd-rt-ul">
+            <li>
+              <div class="btn-wp">
+                <span class="hd-name-wp">欢迎您，某某某</span>
+                <button class="btn-primary btn zhuxiao-btn">注销</button>
+                <button class="btn-primary btn xiugaimima-btn">修改密码</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- END Nav wrapper-->
+      </nav>
+    </header>
+
+    <!-- sidebar-->
+    <aside class="aside" th:replace="left-menu :: left-nav">
+      <div class="aside-inner">
+      <nav data-sidebar-anyclick-close="" class="sidebar">
+        <!-- START sidebar nav-->
+        <ul class="nav">
+          <li class="nav-heading">Welcome PICO</li>
+          <li class=" ">
+            <a href="#operate" title="运营管理" data-toggle="collapse">
+              <em class="fa fa-check-square-o"></em>
+              <span>运营管理</span>
+            </a>
+            <ul id="operate" class="nav sidebar-subnav collapse">
+              <li class="sidebar-subnav-header">运营管理</li>
+              <li class="">
+                <a href="javascript:;" title="运营广告位管理">
+                  <span>运营广告位管理</span>
+                </a>
+              </li>
+              <li class="">
+                <a href="./control_over_invoices.html" title="发票管理">
+                  <span>发票管理</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class=" ">
+            <a href="#user" title="用户管理" data-toggle="collapse">
+              <em class="fa fa-check-square-o"></em>
+              <span>用户管理</span>
+            </a>
+            <ul id="user" class="nav sidebar-subnav collapse">
+              <li class="sidebar-subnav-header">用户管理</li>
+              <li class="">
+                <a href="./manage_designer.html" title="设计师管理">
+                  <span>设计师管理</span>
+                </a>
+              </li>
+              <li class="">
+                <a href="./manage_exhibition.html" title="展览公司管理">
+                  <span>展览公司管理</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class=" ">
+            <a href="#verify" title="审核管理" data-toggle="collapse">
+              <em class="fa fa-check-square-o"></em>
+              <span>审核管理</span>
+            </a>
+            <ul id="verify" class="nav sidebar-subnav collapse">
+              <li class="sidebar-subnav-header">审核管理</li>
+              <li class="">
+                <a href="./verify_checkin_list.html" title="设计入驻审核">
+                  <span>设计入驻审核</span>
+                </a>
+              </li>
+              <li class="active">
+                <a href="./exhibition_checkin_list.html" title="设计流程审核">
+                  <span>展览公司入驻审核</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class=" ">
+            <a href="#ordermanage" title="" data-toggle="collapse">
+              <em class="fa fa-check-square-o"></em>
+              <span>订单管理</span>
+            </a>
+            <ul id="ordermanage" class="nav sidebar-subnav collapse">
+              <li class="sidebar-subnav-header">订单管理</li>
+              <li class="">
+                <a href="manage_order.html" title="设计订单">
+                  <span>设计订单</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class=" ">
+            <a href="#financial" title="财务中心" data-toggle="collapse">
+              <em class="fa fa-check-square-o"></em>
+              <span>财务中心</span>
+            </a>
+            <ul id="financial" class="nav sidebar-subnav collapse">
+              <li class="sidebar-subnav-header">财务中心</li>
+              <li class="">
+                <a href="financial_entry_flow.html" title="平台入账流水">
+                  <span>平台入账流水</span>
+                </a>
+              </li>
+              <li class="">
+                <a href="financial_deduction.html" title="财务出款">
+                  <span>财务出款</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class=" ">
+            <a href="#pay" title="结算中心" data-toggle="collapse">
+              <em class="fa fa-check-square-o"></em>
+              <span>结算中心</span>
+            </a>
+            <ul id="pay" class="nav sidebar-subnav collapse">
+              <li class="sidebar-subnav-header">结算中心</li>
+              <li class="">
+                <a href="settlement_designer.html" title="设计师结算">
+                  <span>设计师结算</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      </div>
+      <!-- END 左侧菜单-->
+    </aside>
+    <!-- 主内容 -->
+    <section>
+      <form method="get" data-parsley-validate="" class="form-horizontal">
+      <div class="content-wrapper register-wp">
+        <div class="content-heading">
+          基本信息
+          <button type="button" class="btn btn-default pull-right" onclick="javascript:history.back(-1);">返回</button>
+        </div>
+        <div class="block-center mb-xl">
+          <!-- START panel-->
+          <div class="panel panel-dark panel-flat">
+            <!-- 待审核状态==可修改-->
+            <div class="panel-body p-xl">
+              <div class="row">
+                <div class="form-group col-sm-offset-2 col-sm-4">
+                  <label class="col-sm-4 control-label text-right">注册名称*</label>
+                  <div class="col-sm-8">
+                    <input type="text" required class="form-control" value="某公司">
+                  </div>
+                </div>
+                <div class="form-group col-sm-4">
+                  <label class="col-sm-4 control-label text-right">注册手机号*</label>
+                  <div class="col-sm-8">
+                    <p class="form-control-static">13917704260</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-sm-offset-2 col-sm-8">
+                  <label class="col-sm-2 control-label text-right">所在地*</label>
+                  <!-- <div class="col-sm-3">
+                    <select name="" id="" class="form-control">
+                      <option value="">请选择</option>
+                      <option value="1">湖北</option>
+                      <option value="2">上海</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-3">
+                    <select name="" id="" class="form-control">
+                      <option value="">请选择</option>
+                      <option value="1">湖北</option>
+                      <option value="2">上海</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-3">
+                    <select name="" id="" class="form-control">
+                      <option value="">请选择</option>
+                      <option value="1">湖北</option>
+                      <option value="2">上海</option>
+                    </select>
+                  </div> -->
+                  <div class="col-sm-3">
+                    <select name="" id="" class="form-control">
+                      <option value="1">中国</option>
+                    </select>
+                  </div>
+                  <div id="city">
+                    <div class="col-sm-3">
+                      <span class="no-errcue">
+                        <select class="prov form-control" data-parsley-group="step2" required name="provinceId"></select>
+                      </span>
+                    </div>
+                    <div class="col-sm-3">
+                      <select class="city form-control" data-parsley-group="step2" required name="cityId"></select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-sm-4 col-sm-offset-2">
+                  <label class="col-sm-4 control-label text-right">邮箱*</label>
+                  <div class="col-sm-8">
+                    <input type="email" required class="form-control" value="5238620@qq.com">
+                  </div>
+                </div>
+              </div>               
+            </div>
+            <!-- 待审核状态==可修改 结束-->
+             <!-- 不能修改-->
+             <div class="panel-body p-xl">
+                <div class="row">
+                  <div class="form-group col-sm-offset-2 col-sm-4">
+                    <label class="col-sm-4 control-label text-right">注册名称*</label>
+                    <div class="col-sm-8">
+                      <p class="form-control-static">某公司</p>
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-4">
+                    <label class="col-sm-4 control-label text-right">注册手机号*</label>
+                    <div class="col-sm-8">
+                      <p class="form-control-static">13917704260</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-sm-offset-2 col-sm-4">
+                    <label class="col-sm-4 control-label text-right">所在地*</label>
+                    <div class="col-sm-8">
+                      <p class="form-control-static">
+                        <span>中国</span>
+                        <span>湖北省</span>
+                        <span>武汉市</span>
+                      </p>                     
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-4 col-sm-offset-2">
+                      <label class="col-sm-4 control-label text-right">邮箱*</label>
+                      <div class="col-sm-8">
+                        <p class="form-control-static">5238620@qq.com</p>
+                      </div>
+                    </div>
+                </div>           
+              </div>
+              <!--不能修改 结束-->
+          </div>
+        </div>
+          <div class="content-heading">
+            管理员审核
+          </div>
+          <div class="block-center tukuregister-wp">
+            <!-- START panel-->
+            <div class="panel panel-dark panel-flat">
+              <!-- 待审核状态 开始-->
+              <div class="panel-body">
+                <div class="row">
+                  <div class="form-group col-sm-offset-2 col-sm-4">
+                    <label class="col-sm-4 control-label text-right">审核状态</label>
+                    <div class="col-sm-8">
+                      <p class="form-control-static">审核中</p>
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-4">
+                    <label class="col-sm-4 control-label text-right">申请时间</label>
+                    <div class="col-sm-8">
+                      <p class="form-control-static">2017-8-30</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-sm-offset-2 col-sm-4">
+                    <label class="col-sm-4 control-label text-right">审核备注</label>
+                    <div class="col-sm-8">
+                      <p class="form-control-static">明天打算让这个人通过 张三 2017-3-04</p>
+                      <p class="form-control-static">这个人感觉还可以，可以观察一下 张三 2017-2-30</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-sm-offset-2 col-sm-4">
+                    <label class="col-sm-4 control-label text-right"> </label>
+                    <div class="col-sm-8">
+                      <textarea class="form-group" name="" id="" cols="50" rows="3"></textarea>
+                      <a class="btn btn-default pull-right">保存</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-sm-12 text-center">
+                    <button type="submit" class="btn btn-success">审批通过</button>
+                    <button type="button" class="btn btn-info">资料待补</button>
+                    <button class="btn btn-danger">审批不通过</button>
+                  </div>
+                </div>
+              </div>
+              <!-- 待审核状态 结束-->
+              <!-- 审核不通过与通过情况 开始-->
+              <div class="panel-body">
+                <div class="row">
+                  <div class="form-group col-sm-offset-2 col-sm-4">
+                    <label class="col-sm-4 control-label text-right">审核状态</label>
+                    <div class="col-sm-8">
+                      <p class="form-control-static">审核不通过</p>
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-4">
+                    <label class="col-sm-4 control-label text-right">申请时间</label>
+                    <div class="col-sm-8">
+                      <p class="form-control-static">2017-8-30</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-sm-4">
+                    <label class="col-sm-4 control-label text-right">审核时间</label>
+                    <div class="col-sm-8">
+                      <p class="form-control-static">2017-8-30</p>
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-offset-2 col-sm-4">
+                    <label class="col-sm-4 control-label text-right">审核备注</label>
+                    <div class="col-sm-8">
+                      <p class="form-control-static">明天打算让这个人通过 张三 2017-3-04</p>
+                      <p class="form-control-static">这个人感觉还可以，可以观察一下 张三 2017-2-30</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 审核不通过与通过情况 结束-->
+            </div>
+          </div>
+        </form>
+      </div>
+      </form>
+    </section>
+  </div>
+  <script type="text/javascript" src="../../js/vendor/modernizr/modernizr.custom.js" th:src="@{/js/vendor/modernizr/modernizr.custom.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jquery/dist/jquery.js" th:src="@{/js/vendor/jquery/dist/jquery.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/bootstrap/dist/js/bootstrap.js" th:src="@{/js/vendor/bootstrap/dist/js/bootstrap.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jQuery-Storage-API/jquery.storageapi.js" th:src="@{/js/vendor/jQuery-Storage-API/jquery.storageapi.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/moment/min/moment-with-locales.min.js" th:src="@{/js/vendor/moment/min/moment-with-locales.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"
+    th:src="@{/js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js}"></script>
+  <script type="text/javascript" src="../..//js/vendor/jquery.cityselect.js" th:src="@{/js/vendor/jquery.cityselect.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jquery.cityselect.js" th:src="@{/js/vendor/jquery.cityselect.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/parsley.min.js" th:src="@{/js/vendor/parsleyjs/dist/parsley.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/zh_cn.js" th:src="@{/js/vendor/parsleyjs/dist/zh_cn.js}"></script>
+  <script type="text/javascript" src="../../js/app.js" th:src="@{/js/app.js}"></script>
+  <script type="text/javascript" src="../../js/exhibition_checkin_info.js" th:src="@{/js/exhibition_checkin_info.js}"></script>
+</body>
+
+</html>

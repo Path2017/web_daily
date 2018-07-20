@@ -1,0 +1,57 @@
+{
+  "userlist": [{
+      "userView": "UserView",
+      "id": 1,
+      "countryName": "国家",
+      "provinceName": "上海",
+      "cityName": "城市",
+      "name": "名字1",
+      "mobile": "12345678910",
+      "status_remark": "状态的中文描述",
+      "audit_remark": "审核的评价内容",
+      "create_time": "Date",
+      "totalNum": 100
+    },
+    {
+      "userView": "UserView",
+      "id": 2,
+      "countryName": "国家",
+      "provinceName": "上海",
+      "cityName": "城市",
+      "name": "名字2",
+      "mobile": "12345678910",
+      "status_remark": "状态的中文描述",
+      "audit_remark": "审核的评价内容",
+      "create_time": "Date",
+      "totalNum": 100
+    }
+  ],
+  "orderlist":{
+    "pageIndex": 1,
+    "total": 11,
+    "data":[
+      {
+        "id": 20,
+        "exhibitionCity": "中国-上海-上海",
+        "rfpNo": "0001",
+        "companyName": "companyname1",
+        "linkManName": "linkname1",
+        "linkManPhone": "linkphone1",
+        "statusKey": 1,
+        "statusRemark": "报价中",
+        "updateTime": "1280977330748"
+      },
+      {
+        "id": 21,
+        "exhibitionCity": "中国-广东-广州",
+        "rfpNo": "0002",
+        "companyName": "companynae",
+        "linkManName": "linkname",
+        "linkManPhone": "linkphone",
+        "statusKey": 1,
+        "statusRemark": "审核中",
+        "updateTime": "1280977330748"
+      }
+    ]
+  }
+}

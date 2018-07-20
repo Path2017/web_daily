@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Bootstrap Admin App + jQuery">
+  <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+  <title>设计师管理</title>
+
+  <!--  载入css 文件 -->
+  <!-- Bootstrap -->
+  <link th:href="@{/js/vendor/fontawesome/css/font-awesome.min.css}" href="../../js/vendor/fontawesome/css/font-awesome.min.css"
+    rel="stylesheet">
+  <link href="../../js/vendor/simple-line-icons/css/simple-line-icons.css" th:href="@{/js/vendor/simple-line-icons/css/simple-line-icons.css}"
+    rel="stylesheet" type="text/css" />
+  <link href="../../js/vendor/animate.css/animate.min.css" th:href="@{/js/vendor/animate.css/animate.min.css}" rel="stylesheet"
+    type="text/css" />
+  <link href="../../js/vendor/whirl/dist/whirl.css" th:href="@{/js/vendor/whirl/dist/whirl.css}" rel="stylesheet" type="text/css"
+  />
+  <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/app.css" th:href="@{/css/app.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/viewer.min.css" th:href="@{/css/viewer.min.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/mms.min.css" th:href="@{/css/mms.min.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/admin.css" th:href="@{/css/admin.css}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- top navbar-->
+    <div th:include="index::top-menu"></div>
+    <!-- sidebar-->
+     <aside th:replace="index :: left-menu"></aside>
+    <!-- 主内容 -->
+    <section>
+      <!-- Page content-->
+      <div class="content-wrapper">
+        <!-- START panel-->
+        <div class="panel-default">
+          <div class="panel-heading">
+            <form class="">
+              <div class="row">
+                <div class="form-group col-sm-1">
+                  <label for=""><span class="btn">所在地</span></label>
+                  <select name="" id="userArea" class="form-control col-sm-4">
+                    <option value="全部">全部</option>
+                    <option value="中国">中国</option>
+                  </select>
+                </div>
+                <div class="form-group col-sm-1">
+                  <span class="btn key-title"> </span>
+                  <select name="" id="userPro" class="form-control col-sm-4">
+                    <option value="全部">全部</option>
+                    <option value="上海">上海</option>
+                    <option value="北京">北京</option>
+                  </select>
+                </div>
+                <div class="form-group col-sm-1">
+                  <span class="btn key-title"> </span>
+                  <select name="" id="userCity" class="form-control col-sm-4">
+                    <option value="全部">全部</option>
+                    <option value="嘉定">嘉定</option>
+                    <option value="浦东">浦东</option>
+                  </select>
+                </div>
+                <div class="form-group col-sm-1">
+                  <label for=""><span class="btn">姓名</span></label>
+                  <select name="" id="userName" class="form-control">
+                    <option value="全部">全部</option>
+                    <option value="设计师">设计师</option>
+                  </select>
+                </div>
+                <div class="form-group col-sm-2">
+                  <span class="btn key-title"> </span>
+                  <input type="text" name="" class="form-control" placeholder="输入关键词检索">
+                </div>
+                <div class="form-group col-sm-1">
+                  <label for=""><span class="btn">工作年限</span></label>
+                  <select name="" id="" class="form-control">
+                    <option value=" ">全部</option>
+                    <option value=" ">5年</option>
+                  </select>
+                </div>
+                <div class="form-group col-sm-1">
+                  <label for=""><span class="btn">账号状态</span></label>
+                  <select name="" id="userStatus" class="form-control">
+                    <option value="全部">全部</option>
+                    <option value="黑名单">黑名单</option>
+                  </select>
+                </div>
+                <div class="form-group col-sm-4">
+                  <div class="key-title">入驻时间</div>
+                  <div class="form-inline">
+                    <p id="datetimepicker" class="input-group date col-sm-5">
+                      <input type="text" class="form-control" placeholder="请选择结束时间">
+                      <span class="input-group-addon">
+                            <span class="fa fa-calendar"></span>
+                      </span>
+                    </p>
+                    <p id="datetimepicker2" class="input-group date col-sm-5">
+                      <input type="text" name="" class="form-control" placeholder="请选择结束时间">
+                      <span class="input-group-addon">
+                            <span class="fa fa-calendar"></span>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-sm-1 pull-right">
+                  <div type="" class="searbtn btn-info" id="searchUser">检索</div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- START table-responsive-->
+          <div class="panel-heading">
+            <div class="table-responsive">
+              <table id="" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>所在地</th>
+                    <th>姓名</th>
+                    <th>平台工号</th>
+                    <th>注册手机号</th>
+                    <th>工作年限</th>
+                    <th>账号状态</th>
+                    <th>入驻时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="designerlist">
+                  <tr>
+                    <td>中国-上海-上海</td>
+                    <td>张三</td>
+                    <td>2563897</td>
+                    <td>13917704260</td>
+                    <td>3~5年</td>
+                    <td>启用</td>
+                    <td>2017-7-8</td>
+                    <td><a href="manage_designer_certification.html">认证资料</a>&nbsp;&nbsp;<a href="manage_designer_shop.html">店铺资料</a></td>
+                  </tr>
+
+                  <tr>
+                    <td>中国-广东-广州</td>
+                    <td>李四</td>
+                    <td>2563831</td>
+                    <td>13917704231</td>
+                    <td>3~5年</td>
+                    <td>停用</td>
+                    <td>2017-9-8</td>
+                    <td><a href="manage_designer_certification.html">认证资料</a>&nbsp;&nbsp;<a href="manage_designer_shop.html">店铺资料</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- END panel-->
+            <!-- <div class="panel-footer">
+              <div class="row">
+                <div class="col-lg-2 col-lg-offset-10 text-right">
+                  <ul class="pagination pagination-sm">
+                    <li th:if="${page.pageIndex > 1}">
+                      <a th:href="@{/application/list(pageIndex=${page.pageIndex - 1},cityId=${page.cityId},applicantName=${page.applicantName},
+                                applicationTimeLowerLimit=${page.applicationTimeLowerLimit},applicationTimeUpperLimit=${page.applicationTimeUpperLimit},
+                                status=${page.status})}" href="#">«</a>
+                    </li>
+                    <li th:each="i : ${#numbers.sequence(page.startPageIndex, page.endPageIndex)}" th:class="${page.pageIndex == i} ? 'active' : ''"
+                      class="active">
+                      <a th:if="${i > 0}" th:text="${i}" th:href="${page.pageIndex == i} ? '#' : @{/application/list(pageIndex=${i},cityId=${page.cityId},applicantName=${page.applicantName},
+                                applicationTimeLowerLimit=${page.applicationTimeLowerLimit},applicationTimeUpperLimit=${page.applicationTimeUpperLimit},
+                                status=${page.status})}" href="#">-</a>
+                    </li>
+                    <li th:if="${page.pageIndex < page.totalPages}">
+                      <a th:href="@{/application/list(pageIndex=${page.pageIndex + 1},cityId=${page.cityId},applicantName=${page.applicantName},
+                                applicationTimeLowerLimit=${page.applicationTimeLowerLimit},applicationTimeUpperLimit=${page.applicationTimeUpperLimit},
+                                status=${page.status})}" href="#">»</a>
+                    </li>
+                  </ul>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <!-- END panel-->
+      </div>
+    </section>
+  </div>
+  <script type="text/javascript" src="../../js/vendor/modernizr/modernizr.custom.js" th:src="@{/js/vendor/modernizr/modernizr.custom.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jquery/dist/jquery.js" th:src="@{/js/vendor/jquery/dist/jquery.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/bootstrap/dist/js/bootstrap.js" th:src="@{/js/vendor/bootstrap/dist/js/bootstrap.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jQuery-Storage-API/jquery.storageapi.js" th:src="@{/js/vendor/jQuery-Storage-API/jquery.storageapi.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/moment/min/moment-with-locales.min.js" th:src="@{/js/vendor/moment/min/moment-with-locales.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"
+    th:src="@{/js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/parsley.min.js" th:src="@{/js/vendor/parsleyjs/dist/parsley.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/zh_cn.js" th:src="@{/js/vendor/parsleyjs/dist/zh_cn.js}"></script>
+  <script type="text/javascript" src="../../js/app.js" th:src="@{/js/app.js}"></script>
+  <script type="text/javascript" src="../../js/base.js" th:src="@{/js/base.js}"></script>
+  <script type="text/javascript" src="../../js/urlconfig.js" th:src="@{/js/urlconfig.js}"></script>
+  <script type="text/javascript" src="../../js/manage_designer.js" th:src="@{/js/manage_designer.js}"></script>
+</body>
+
+</html>

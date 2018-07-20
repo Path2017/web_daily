@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Bootstrap Admin App + jQuery">
+  <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+  <title>订单管理</title>
+
+  <!--  载入css 文件 -->
+  <!-- Bootstrap -->
+  <link th:href="@{/js/vendor/fontawesome/css/font-awesome.min.css}" href="../../js/vendor/fontawesome/css/font-awesome.min.css"
+    rel="stylesheet">
+  <link href="../../js/vendor/simple-line-icons/css/simple-line-icons.css" th:href="@{/js/vendor/simple-line-icons/css/simple-line-icons.css}"
+    rel="stylesheet" type="text/css" />
+  <link href="../../js/vendor/animate.css/animate.min.css" th:href="@{/js/vendor/animate.css/animate.min.css}" rel="stylesheet"
+    type="text/css" />
+  <link href="../../js/vendor/whirl/dist/whirl.css" th:href="@{/js/vendor/whirl/dist/whirl.css}" rel="stylesheet" type="text/css"
+  />
+  <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/app.css" th:href="@{/css/app.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/viewer.min.css" th:href="@{/css/viewer.min.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/mms.min.css" th:href="@{/css/mms.min.css}" rel="stylesheet" type="text/css" />
+  <link href="../../css/admin.css" th:href="@{/css/admin.css}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- top navbar-->
+    <header class="topnavbar-wrapper" th:replace="top-menu :: top-menu">
+      <nav role="navigation" class="navbar topnavbar">
+        <div class="navbar-header">
+          <a href="#/" class="navbar-brand head-title"></a>
+        </div>
+        <div class="nav-wrapper">
+          <!-- 切换 -->
+          <ul class="nav navbar-nav hd-lt-ul">
+            <li>
+              <a href="#" data-toggle-state="aside-collapsed" class="hidden-xs">
+                <em class="fa fa-navicon"></em>
+              </a>
+              <a href="#" data-toggle-state="aside-toggled" data-no-persist="true" class="visible-xs sidebar-toggle">
+                <em class="fa fa-navicon"></em>
+              </a>
+            </li>
+            <li>
+              <span class="hd-title">E3展装平台后台</span>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right hd-rt-ul">
+            <li>
+              <div class="btn-wp">
+                <span class="hd-name-wp">欢迎您，某某某</span>
+                <button class="btn-primary btn zhuxiao-btn">注销</button>
+                <button class="btn-primary btn xiugaimima-btn">修改密码</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- END Nav wrapper-->
+      </nav>
+    </header>
+
+    <!-- sidebar-->
+    <aside class="aside" th:replace="left-menu :: left-nav">
+      <div class="aside-inner">
+        <nav data-sidebar-anyclick-close="" class="sidebar">
+          <!-- START sidebar nav-->
+          <ul class="nav">
+            <li class="nav-heading">Welcome PICO</li>
+            <li class=" ">
+              <a href="#operate" title="运营管理" data-toggle="collapse">
+                <em class="fa fa-check-square-o"></em>
+                <span>运营管理</span>
+              </a>
+              <ul id="operate" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">运营管理</li>
+                <li class="">
+                  <a href="javascript:;" title="运营广告位管理">
+                    <span>运营广告位管理</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="./control_over_invoices.html" title="发票管理">
+                    <span>发票管理</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class=" ">
+              <a href="#user" title="用户管理" data-toggle="collapse">
+                <em class="fa fa-check-square-o"></em>
+                <span>用户管理</span>
+              </a>
+              <ul id="user" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">用户管理</li>
+                <li class="">
+                  <a href="./manage_designer.html" title="设计师管理">
+                    <span>设计师管理</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="./manage_exhibition.html" title="展览公司管理">
+                    <span>展览公司管理</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class=" ">
+              <a href="#verify" title="审核管理" data-toggle="collapse">
+                <em class="fa fa-check-square-o"></em>
+                <span>审核管理</span>
+              </a>
+              <ul id="verify" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">审核管理</li>
+                <li class="">
+                  <a href="./verify_checkin_list.html" title="设计入驻审核">
+                    <span>设计入驻审核</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="./exhibition_checkin_list.html" title="设计流程审核">
+                    <span>展览公司入驻审核</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class=" ">
+              <a href="#ordermanage" title="" data-toggle="collapse">
+                <em class="fa fa-check-square-o"></em>
+                <span>订单管理</span>
+              </a>
+              <ul id="ordermanage" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">订单管理</li>
+                <li class="active">
+                  <a href="manage_order.html" title="设计订单">
+                    <span>设计订单</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class=" ">
+              <a href="#financial" title="财务中心" data-toggle="collapse">
+                <em class="fa fa-check-square-o"></em>
+                <span>财务中心</span>
+              </a>
+              <ul id="financial" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">财务中心</li>
+                <li class="">
+                  <a href="financial_entry_flow.html" title="平台入账流水">
+                    <span>平台入账流水</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="financial_deduction.html" title="财务出款">
+                    <span>财务出款</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class=" ">
+              <a href="#pay" title="结算中心" data-toggle="collapse">
+                <em class="fa fa-check-square-o"></em>
+                <span>结算中心</span>
+              </a>
+              <ul id="pay" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">结算中心</li>
+                <li class="">
+                  <a href="settlement_designer.html" title="设计师结算">
+                    <span>设计师结算</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- END 左侧菜单-->
+    </aside>
+    <!-- 主内容 -->
+    <section>
+      <!-- Page content-->
+      <div class="content-wrapper">
+        <!-- START panel-->
+        <div class="panel-default">
+          <div class="panel-heading">
+            <h3>设计订单详情页</h3>
+          </div>
+          <!-- START table-responsive-->
+          <div class="panel-heading">
+            <div class="table-responsive">
+              <table id="" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <td colspan="4" class="text-center">需求详情
+                      <button type="submit" class="btn btn-info pull-right">收起</button>
+                    </td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>展览公司名称</td>
+                    <td>阿里巴巴商贸有限公司</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>联系人</td>
+                    <td>张三</td>
+                    <td>联系电话</td>
+                    <td>13917704260</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4"> </td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <td>参展商名称</td>
+                    <td>京东电子商务</td>
+                    <td>公司网址</td>
+                    <td>www.3562.com</td>
+                  </tr>
+                  <tr>
+                    <td>展会名称</td>
+                    <td>非洲动物展</td>
+                    <td>举办城市</td>
+                    <td>中国-上海-上海</td>
+                  </tr>
+                  <tr>
+                    <td>展馆名称</td>
+                    <td>京东电子商务</td>
+                    <td>展台号</td>
+                    <td>T-B-10</td>
+                  </tr>
+                  <tr>
+                    <td>展台面积</td>
+                    <td>7米X4.2米</td>
+                    <td>展台高度</td>
+                    <td>3米</td>
+                  </tr>
+                  <tr>
+                    <td>开口</td>
+                    <td>4面开口</td>
+                    <td>结构和材质</td>
+                    <td>木质</td>
+                  </tr>
+                  <tr>
+                    <td>特殊要求</td>
+                    <td>/</td>
+                    <td>整体预算</td>
+                    <td>3万元</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4"> </td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <td colspan="4">功能区域</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">储藏区</td>
+                    <td colspan="2">电子展示</td>
+                  </tr>
+                  <tr>
+                    <td>数量</td>
+                    <td>1</td>
+                    <td>LED电视</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>面积</td>
+                    <td>23</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>特殊需求</td>
+                    <td colspan="3">这个储藏区要零下5度</td>
+                  </tr>
+                  <tr>
+                    <td>活动主题</td>
+                    <td colspan="3">激励挂历</td>
+                  </tr>
+                  <tr>
+                    <td>舞台尺寸</td>
+                    <td colspan="3">80平米吧</td>
+                  </tr>
+                  <tr>
+                    <td>产品描述</td>
+                    <td colspan="3">我的东西非常好</td>
+                  </tr>
+                  <tr>
+                    <td>展览目标</td>
+                    <td colspan="3">品牌推广 现场销售</td>
+                  </tr>
+                  <tr>
+                    <td>展览目标观众</td>
+                    <td colspan="3">一般消费大众 专业客户</td>
+                  </tr>
+                  <tr>
+                    <td>展商竞争对象</td>
+                    <td colspan="3">没有竞争对手</td>
+                  </tr>
+                  <tr>
+                    <td>参展主题slogan</td>
+                    <td colspan="3">呵呵呵</td>
+                  </tr>
+                  <tr>
+                    <td>建议设计理念</td>
+                    <td colspan="3">呵呵呵</td>
+                  </tr>
+                  <tr>
+                    <td>建议配色方案</td>
+                    <td colspan="3">
+                      主色调
+                      <span class="colorbox main-color"></span> 辅色调
+                      <span class="colorbox secondary-color"></span>（配色方案是这样的）
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>特殊要求及注意事项</td>
+                    <td colspan="3">呵呵呵</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4">参考附件</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" class="text-center">
+                      <div>
+                        <div class="man-deteimg">
+                          <img src="" alt="">
+                        </div>
+                        <span class="man-detename">参展商LOGO</span>
+                      </div>
+                      <div>
+                        <div class="man-deteimg">
+                          <img src="" alt="">
+                        </div>
+                        <span class="man-detename">展馆平面图</span>
+                      </div>
+                      <div>
+                        <div class="man-deteimg">
+                          <img src="" alt="">
+                        </div>
+                        <span class="man-detename">过往展台照片</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-responsive">
+              <table id="" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <td colspan="4" class="text-center">订单详情
+                      <button type="submit" class="btn btn-info pull-right">收起</button>
+                    </td>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <!-- 报价中 begin -->
+            <div>
+              <!-- 进行中状态 instatus 已完成 endstatus -->
+              <div class="endstatus">报价中
+                <button type="submit" class="btn btn-info pull-right">收起</button>
+              </div>
+              <table class="table table-bordered table-hover">
+                <tbody>
+                  <tr>
+                    <td>发布时间</td>
+                    <td>2017-8-30 17：59</td>
+                    <td>距离报价结束</td>
+                    <td>/</td>
+                  </tr>
+                  <tr>
+                    <td>中标设计师</td>
+                    <td>/</td>
+                    <td>设计师工号</td>
+                    <td>/</td>
+                  </tr>
+                  <tr>
+                    <td>报价时间</td>
+                    <td>/</td>
+                    <td>设计师电话</td>
+                    <td>/</td>
+                  </tr>
+                </tbody>
+                <tbody class="text-center">
+                  <tr>
+                    <td colspan="2">设计费</td>
+                    <td colspan="2">/</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">改稿费</td>
+                    <td colspan="2">/</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">图纸费</td>
+                    <td colspan="2">/</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4">
+                      <button type="submit" class="btn btn-info pull-right"><a class="normal-link" href="./manage_order_moredesigner.html">查看更多报价设计师</a></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- 报价取消 -->
+              <div class="instatus">已取消
+                <button type="submit" class="btn btn-info pull-right">收起</button>
+              </div>
+              <table class="table table-bordered table-hover">
+                <tbody>
+                  <tr class="text-center">
+                    <td colspan="2">取消时间</td>
+                    <td colspan="2">2017-8-30 17：59</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- 报价中 end -->
+            <!-- 待设计付款 begin-->
+            <div>
+              <!-- 进行中状态 instatus 已完成 endstatus -->
+              <div class="endstatus">待设计付款
+                <button type="submit" class="btn btn-info pull-right">收起</button>
+              </div>
+              <table class="table table-bordered table-hover">
+                <tbody>
+                  <tr>
+                    <td colspan="2">选定时间</td>
+                    <td colspan="1">2017-8-30 17：59</td>
+                    <td colspan="2">距付款超时</td>
+                    <td colspan="1">/</td>
+                  </tr>
+                  <tr>
+                    <td colspan="6"></td>
+                  </tr>
+                </tbody>
+                <tbody class="text-center">
+                  <tr>
+                    <td>付款方</td>
+                    <td>付款账号</td>
+                    <td>支付渠道</td>
+                    <td>支付工具流水</td>
+                    <td>金额</td>
+                    <td>支付时间</td>
+                  </tr>
+                  <tr>
+                    <td>/</td>
+                    <td>/</td>
+                    <td>/</td>
+                    <td>/</td>
+                    <td>/</td>
+                    <td>/</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- 待设计付款 取消 -->
+              <div class="instatus">已取消
+                <button type="submit" class="btn btn-info pull-right">收起</button>
+              </div>
+              <table class="table table-bordered table-hover">
+                <tbody>
+                  <tr class="text-center">
+                    <td colspan="2">取消时间</td>
+                    <td colspan="2">2017-8-30 17：59</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- 待设计付款 end -->
+            <!-- 设计阶段 begin-->
+            <div>
+              <!-- 进行中状态 instatus 已完成 endstatus -->
+              <div class="endstatus">设计阶段
+                <button type="submit" class="btn btn-info pull-right">收起</button>
+              </div>
+              <table class="table table-bordered table-hover">
+                <tbody>
+                  <tr class="text-center">
+                    <td colspan="2">收货时间</td>
+                    <td colspan="1">2017-8-30 17：59</td>
+                    <td colspan="2">收货倒计时</td>
+                    <td colspan="1">/</td>
+                  </tr>
+                  <tr>
+                    <td colspan="6"></td>
+                  </tr>
+                </tbody>
+                <tbody class="text-center">
+                  <tr>
+                    <td colspan="2">申请改稿时间</td>
+                    <td colspan="2">改稿意见</td>
+                    <td colspan="2">设计上传时间</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">/</td>
+                    <td colspan="2">/</td>
+                    <td colspan="2">2017-08-10</td>
+                  </tr>
+                  <tr>
+                    <td colspan="6">
+                      <div class="des-uploadhis">
+                        <ul>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>正面图</span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>侧面图</span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>俯视图</span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>立面图</span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>网格图</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+                <!-- 申请改稿 -->
+                <tbody class="text-center">
+                  <tr>
+                    <td colspan="2">申请改稿时间</td>
+                    <td colspan="2">改稿意见</td>
+                    <td colspan="2">设计上传时间</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">2017-8-12</td>
+                    <td colspan="2">我说了这么做</td>
+                    <td colspan="2">2017-08-10</td>
+                  </tr>
+                  <tr>
+                    <td colspan="6">
+                      <div class="des-uploadhis">
+                        <ul>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>正面图</span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>侧面图</span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>俯视图</span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>立面图</span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>网格图</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <td colspan="6">
+                      <button type="submit" class="btn btn-info pull-right admin-left">强制终止订单</button>
+                      <button type="submit" class="btn btn-info pull-right"><a href="./manage_order_paymenthis.html" class="normal-link">查看更多支付记录</a></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- 待设计付款 取消 -->
+              <div class="instatus">已终止
+                <button type="submit" class="btn btn-info pull-right">收起</button>
+              </div>
+              <table class="table table-bordered table-hover">
+                <tbody>
+                  <tr class="text-center">
+                    <td colspan="2">终止时间</td>
+                    <td colspan="2">2017-8-30 17：59</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- 设计阶段 end -->
+            <!-- 图纸待付款 begin-->
+            <div>
+              <!-- 进行中状态 instatus 已完成 endstatus -->
+              <div class="endstatus">图纸待付款
+                <button type="submit" class="btn btn-info pull-right">收起</button>
+              </div>
+              <table class="table table-bordered table-hover">
+                <tbody>
+                  <tr class="text-center">
+                    <td colspan="3">距付款超时</td>
+                    <td colspan="3">2017-8-30 17：59</td>
+                  </tr>
+                  <tr>
+                    <td colspan="6"></td>
+                  </tr>
+                </tbody>
+                <tbody class="text-center">
+                  <tr>
+                    <td>付款方</td>
+                    <td>付款账号</td>
+                    <td>支付渠道</td>
+                    <td>支付工具流水</td>
+                    <td>金额</td>
+                    <td>支付时间</td>
+                  </tr>
+                  <tr>
+                    <td>/</td>
+                    <td>/</td>
+                    <td>/</td>
+                    <td>/</td>
+                    <td>/</td>
+                    <td>2017-08-10</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- 待设计付款 取消 -->
+              <div class="instatus">已完成
+                <button type="submit" class="btn btn-info pull-right">收起</button>
+              </div>
+              <table class="table table-bordered table-hover">
+                <tbody>
+                  <tr class="text-center">
+                    <td colspan="2">完成时间</td>
+                    <td colspan="2">2017-8-30 17：59</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- 图纸待付款 end -->
+            <!-- 图纸阶段 begin-->
+            <div>
+              <!-- 进行中状态 instatus 已完成 endstatus -->
+              <div class="endstatus">图纸阶段
+                <button type="submit" class="btn btn-info pull-right">收起</button>
+              </div>
+              <table class="table table-bordered table-hover">
+                <tbody>
+                  <tr class="text-center">
+                    <td colspan="2">收货时间</td>
+                    <td colspan="1">2017-8-30 17：59</td>
+                    <td colspan="2">收货倒计时</td>
+                    <td colspan="1">/</td>
+                  </tr>
+                  <tr>
+                    <td colspan="6"></td>
+                  </tr>
+                </tbody>
+                <tbody class="text-center">
+                  <tr>
+                    <td colspan="2">申请改稿时间</td>
+                    <td colspan="2">改稿意见</td>
+                    <td colspan="2">设计上传时间</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">/</td>
+                    <td colspan="2">/</td>
+                    <td colspan="2">2017-08-10</td>
+                  </tr>
+                  <tr>
+                    <td colspan="6">
+                      <div class="des-uploadhis">
+                        <ul>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>正面图</span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>侧面图</span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>俯视图</span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>立面图</span>
+                          </li>
+                          <li>
+                            <span>
+                              <img src="" alt="">
+                            </span>
+                            <span>网格图</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <td colspan="6">
+                      <button type="submit" class="btn btn-info pull-right admin-left">强制终止订单</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- 图纸阶段 强制完成 -->
+              <div class="instatus">已终止
+                <button type="submit" class="btn btn-info pull-right">收起</button>
+              </div>
+              <table class="table table-bordered table-hover">
+                <tbody>
+                  <tr class="text-center">
+                    <td colspan="2">终止时间</td>
+                    <td colspan="2">2017-8-30 17：59</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- 图纸阶段 end -->
+            <!-- 已完成 begin -->
+            <div>
+              <div class="instatus">已完成
+                <button type="submit" class="btn btn-info pull-right">收起</button>
+              </div>
+              <table class="table table-bordered table-hover">
+                <tbody>
+                  <tr class="text-center">
+                    <td colspan="2">完成时间</td>
+                    <td colspan="2">2017-8-30 17：59</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- 已完成 end -->
+          </div>
+        </div>
+        <!-- END panel-->
+      </div>
+    </section>
+
+  </div>
+  <script type="text/javascript" src="../../js/vendor/modernizr/modernizr.custom.js" th:src="@{/js/vendor/modernizr/modernizr.custom.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jquery/dist/jquery.js" th:src="@{/js/vendor/jquery/dist/jquery.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/bootstrap/dist/js/bootstrap.js" th:src="@{/js/vendor/bootstrap/dist/js/bootstrap.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/jQuery-Storage-API/jquery.storageapi.js" th:src="@{/js/vendor/jQuery-Storage-API/jquery.storageapi.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/moment/min/moment-with-locales.min.js" th:src="@{/js/vendor/moment/min/moment-with-locales.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"
+    th:src="@{/js/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/parsley.min.js" th:src="@{/js/vendor/parsleyjs/dist/parsley.min.js}"></script>
+  <script type="text/javascript" src="../../js/vendor/parsleyjs/dist/zh_cn.js" th:src="@{/js/vendor/parsleyjs/dist/zh_cn.js}"></script>
+  <script type="text/javascript" src="../../js/app.js" th:src="@{/js/app.js}"></script>
+  <script type="text/javascript" src="../../js/base.js" th:src="@{/js/base.js}"></script>
+</body>
+
+</html>

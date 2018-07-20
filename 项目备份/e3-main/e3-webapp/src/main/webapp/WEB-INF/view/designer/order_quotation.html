@@ -1,0 +1,74 @@
+<!-- build:layout_head --><!-- endbuild -->
+  <link rel="stylesheet" href="../../css/parsley.min.css" th:href="@{/css/parsley.min.css}">
+  <link rel="stylesheet" href="../../../css/designer.min.css" th:href="@{/css/designer.min.css}">
+</head>
+
+<body>
+  <div class="e3-wrap">
+    <!-- build:header -->
+    
+    <!-- endbuild -->
+
+
+    <!-- 所有样式前缀加  od-  -->
+    <div class="od-contentbox clearfix">
+      <div class="od-nav">
+        <span class="nav-prve">抢单中心</span>&gt;<span class="nav-next">订单详情</span>&gt;<span class="nav-next">订单报价</span>
+      </div>
+      <div class="od-mainbox">
+        <div class="od-toptitle quo-toptitle">报价单填写</div>
+        <!-- 订单详情的内容区域 begin -->
+        <div class="od-detailbox">
+          <div class="od-baseinfobox clearfix">
+            <form action="" data-parsley-validate="">
+              <div class="quo-form-wp">
+                <div class="quo-ipt-wp clearfix">
+                  <span class="quo-title left">设计图报价：</span>
+                  <input class="quo-input form-control left" required type="text">
+                  <span class="unit left">元/稿</span>
+                </div>
+                <p class="quo-cue">*此价格包含2次免费修改</p>
+                <div class="quo-ipt-wp clearfix">
+                  <span class="quo-title left">设计图修改报价：</span>
+                  <input class="quo-input form-control left" required type="text">
+                  <span class="unit left">元/稿</span>
+                </div>
+                <p class="quo-cue">*此价格为超出免费修改稿数的报价</p>
+                <div class="quo-ipt-wp clearfix">
+                  <span class="quo-title left">施工图报价：</span>
+                  <input class="quo-input form-control left" required type="text">
+                  <span class="unit left">元/稿</span>
+                </div>
+                <div class="demands-design">
+                  <p>
+                    <i class="attention"></i>设计图的内容至少包含展台透视图左、透视图右、俯瞰图、立面网格图及平面网格图，如特殊展台，需要上传其他角度。
+                  </p>
+                  <p>
+                    <i class="attention"></i>施工图的内容需要提供设计图阶段展台所包的施工图（含电路图，材质标注）、美工文件。
+                  </p>
+                </div>
+                <div class="submit-fa">
+                  <div class="btn-remark">*您的报价将收取5%平台服务费，当前推广期间免费。</div>
+                  <button class="submit-now" type="submit">确认提交</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- 订单基本信息区域 end -->
+        </div>
+        <!-- 订单详情内容区域 end -->
+      </div>
+    </div>
+    <!-- build:footer -->
+    
+    <!-- endbuild -->
+
+
+  </div>
+  <!-- build:layout_js -->
+  
+  <!-- endbuild -->
+
+
+</body>
+</html>

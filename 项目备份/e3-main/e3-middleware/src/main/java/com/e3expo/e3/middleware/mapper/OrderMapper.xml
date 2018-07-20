@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.e3expo.e3.middleware.mapper.OrderMapper">
+
+	<resultMap id="orderWebViewMap" type="webAppOrderView" autoMapping="true">
+		<id property="orderId" column="order_id"/>
+		<association property="orderDesigner" javaType="webAppOrderDesignerView" autoMapping="true">
+			<id property="designerOrderId" column="designer_order_id"/>
+		</association>
+	</resultMap>
+	<select id="selectDesignerOngoingOrderCount" resultType="int">
+		SELECT
+		a.id AS order_id,
+		a.create_time,
+		a.node_id,
+		a.`status`,
+		b.company_name,
+		b.exhibitor_name,
+		b.booth_width,
+		b.booth_length,
+		b.budget,
+		d.relative_logo_path,
+		b.rfp_no,
+		e.designer_name,
+		f.price design_price,
+		g.price modify_design_price,
+		h.price working_drawing_price,
+		f.id AS designer_order_id
+		FROM
+		te_designer_order AS e
+        LEFT JOIN te_order AS a ON e.order_id = a.id
+		LEFT JOIN te_rfp AS b ON a.rfp_id = b.id
+		LEFT JOIN te_user AS c ON a.user_id = c.id
+		LEFT JOIN te_rfp_detail AS d ON b.id = d.rfp_id
+		LEFT JOIN te_order_designer_price AS f ON e.designer_id = f.designer_id AND f.order_id = a.id AND f.node_id = "01" AND f.type = 1
+		LEFT JOIN te_order_designer_price AS g ON e.designer_id = g.designer_id AND g.order_id = a.id AND g.node_id = "01" AND g.type = 2
+		LEFT JOIN te_order_designer_price AS h ON e.designer_id = h.designer_id AND h.order_id = a.id AND h.node_id = "02" AND h.type = 1
+		WHERE
+		e.designer_id = #{designerId} AND a.status = 0
+	</select>
+
+	<select id="pageQueryDesignerOngoingOrderList" resultMap="orderWebViewMap">
+		SELECT
+		a.id AS order_id,
+		a.create_time,
+		a.node_id,
+		a.`status`,
+		b.company_name,
+		b.exhibitor_name,
+		b.booth_width,
+		b.booth_length,
+		b.budget,
+		d.relative_logo_path,
+		b.rfp_no,
+		e.designer_name,
+		f.price design_price,
+		g.price modify_design_price,
+		h.price working_drawing_price,
+		f.id AS designer_order_id
+		FROM
+		te_designer_order AS e
+        LEFT JOIN te_order AS a ON e.order_id = a.id
+		LEFT JOIN te_rfp AS b ON a.rfp_id = b.id
+		LEFT JOIN te_user AS c ON a.user_id = c.id
+		LEFT JOIN te_rfp_detail AS d ON b.id = d.rfp_id
+		LEFT JOIN te_order_designer_price AS f ON e.designer_id = f.designer_id AND f.order_id = a.id AND f.node_id = "01" AND f.type = 1
+		LEFT JOIN te_order_designer_price AS g ON e.designer_id = g.designer_id AND g.order_id = a.id AND g.node_id = "01" AND g.type = 2
+		LEFT JOIN te_order_designer_price AS h ON e.designer_id = h.designer_id AND h.order_id = a.id AND h.node_id = "02" AND h.type = 1
+		WHERE
+		e.designer_id = #{designerId} AND a.status = 0
+		ORDER BY a.create_time DESC
+		LIMIT #{page.beginIndex}, #{page.pageSize}
+	</select>
+	<select id="pageQueryDesignerCompletedOrderList" resultType="webAppOrderView">
+		SELECT
+		a.id AS order_id,
+		a.create_time,
+		a.node_id,
+		a.`status`,
+		b.company_name,
+		b.exhibitor_name,
+		b.booth_width,
+		b.booth_length,
+		b.budget,
+		d.relative_logo_path,
+		b.rfp_no,
+		e.designer_name,
+		f.price design_price,
+		g.price modify_design_price,
+		h.price working_drawing_price,
+		f.id AS designer_order_id
+		FROM
+		te_designer_order AS e
+        LEFT JOIN te_order AS a ON e.order_id = a.id
+		LEFT JOIN te_rfp AS b ON a.rfp_id = b.id
+		LEFT JOIN te_user AS c ON a.user_id = c.id
+		LEFT JOIN te_rfp_detail AS d ON b.id = d.rfp_id
+		LEFT JOIN te_order_designer_price AS f ON e.designer_id = f.designer_id AND f.order_id = a.id AND f.node_id = "01" AND f.type = 1
+		LEFT JOIN te_order_designer_price AS g ON e.designer_id = g.designer_id AND g.order_id = a.id AND g.node_id = "01" AND g.type = 2
+		LEFT JOIN te_order_designer_price AS h ON e.designer_id = h.designer_id AND h.order_id = a.id AND h.node_id = "02" AND h.type = 1
+		WHERE
+		e.designer_id = #{designerId} AND a.status = 3
+		ORDER BY a.create_time DESC
+		LIMIT #{page.beginIndex}, #{page.pageSize}
+	</select>
+
+	<select id="selectDesignerCompletedOrderCount" resultType="int">
+		SELECT
+		count(*)
+		FROM
+		te_designer_order AS e
+        LEFT JOIN te_order AS a ON e.order_id = a.id
+		LEFT JOIN te_rfp AS b ON a.rfp_id = b.id
+		LEFT JOIN te_user AS c ON a.user_id = c.id
+		LEFT JOIN te_rfp_detail AS d ON b.id = d.rfp_id
+		LEFT JOIN te_order_designer_price AS f ON e.designer_id = f.designer_id AND f.order_id = a.id AND f.node_id = "01" AND f.type = 1
+		LEFT JOIN te_order_designer_price AS g ON e.designer_id = g.designer_id AND g.order_id = a.id AND g.node_id = "01" AND g.type = 2
+		LEFT JOIN te_order_designer_price AS h ON e.designer_id = h.designer_id AND h.order_id = a.id AND h.node_id = "02" AND h.type = 1
+		WHERE
+		e.designer_id = #{designerId} AND a.status = 3
+	</select>
+
+	<select id="selectDesignerAllOrderListCount" resultType="int">
+		SELECT
+		count(*)
+		FROM
+		tr_designer_bid z
+		LEFT JOIN te_order AS a on z.order_id = a.id
+		LEFT JOIN te_rfp AS b ON a.rfp_id = b.id
+		LEFT JOIN te_user AS c ON a.user_id = c.id
+		LEFT JOIN te_rfp_detail AS d ON b.id = d.rfp_id
+		LEFT JOIN te_designer_order AS e ON e.order_id = a.id
+		LEFT JOIN te_order_designer_price AS f ON e.designer_id = f.designer_id AND f.order_id = a.id AND f.node_id = "01" AND f.type = 1
+		LEFT JOIN te_order_designer_price AS g ON e.designer_id = g.designer_id AND g.order_id = a.id AND g.node_id = "01" AND g.type = 2
+		LEFT JOIN te_order_designer_price AS h ON e.designer_id = h.designer_id AND h.order_id = a.id AND h.node_id = "02" AND h.type = 1
+		WHERE
+		z.designer_id = #{designerId}
+	</select>
+	<select id="pageQueryDesignerAllOrderList" resultMap="orderWebViewMap">
+		SELECT
+		z.is_success,
+		a.id AS order_id,
+		a.create_time,
+		a.node_id,
+		a.`status`,
+		b.company_name,
+		b.exhibitor_name,
+		b.booth_width,
+		b.booth_length,
+		b.budget,
+		d.relative_logo_path,
+		b.rfp_no,
+		e.designer_name,
+		f.price design_price,
+		g.price modify_design_price,
+		h.price working_drawing_price,
+		f.id AS designer_order_id
+		FROM
+		tr_designer_bid z
+		LEFT JOIN te_order AS a on z.order_id = a.id
+		LEFT JOIN te_rfp AS b ON a.rfp_id = b.id
+		LEFT JOIN te_user AS c ON a.user_id = c.id
+		LEFT JOIN te_rfp_detail AS d ON b.id = d.rfp_id
+		LEFT JOIN te_designer_order AS e ON e.order_id = a.id
+		LEFT JOIN te_order_designer_price AS f ON e.designer_id = f.designer_id AND f.order_id = a.id AND f.node_id = "01" AND f.type = 1
+		LEFT JOIN te_order_designer_price AS g ON e.designer_id = g.designer_id AND g.order_id = a.id AND g.node_id = "01" AND g.type = 2
+		LEFT JOIN te_order_designer_price AS h ON e.designer_id = h.designer_id AND h.order_id = a.id AND h.node_id = "02" AND h.type = 1
+		WHERE
+		z.designer_id = #{designerId}
+		ORDER BY a.create_time DESC
+		LIMIT #{page.beginIndex}, #{page.pageSize}
+	</select>
+
+	<select id="selectOnBiddingOrderCountByDesignerId" resultType="int">
+		SELECT
+		count(*)
+		FROM
+		te_order AS a
+		LEFT JOIN te_rfp AS b ON a.rfp_id = b.id
+		LEFT JOIN te_user AS c ON a.user_id = c.id
+		LEFT JOIN te_rfp_detail AS d ON b.id = d.rfp_id
+		LEFT JOIN te_designer_order AS e ON e.order_id = a.id
+		LEFT JOIN te_order_designer_price AS f ON e.designer_id = f.designer_id AND f.order_id = a.id AND f.node_id = "01" AND f.type = 1
+		LEFT JOIN te_order_designer_price AS g ON e.designer_id = g.designer_id AND g.order_id = a.id AND g.node_id = "01" AND g.type = 2
+		LEFT JOIN te_order_designer_price AS h ON e.designer_id = h.designer_id AND h.order_id = a.id AND h.node_id = "02" AND h.type = 1
+		WHERE
+		a.`status` = 0 AND  a.node_id = "0101"
+		<if test="badeIds != null">
+			AND a.id NOT IN
+			<foreach collection="badeIds" item="id" separator="," open="(" close=")" >
+				#{id}
+			</foreach>
+		</if>
+	</select>
+
+	<select id="pageQueryOnBiddingOrdersByDesignerId" resultMap="orderWebViewMap">
+		SELECT
+		a.id AS order_id,
+		a.create_time,
+		a.node_id,
+		a.`status`,
+		b.company_name,
+		b.exhibitor_name,
+		b.booth_width,
+		b.booth_length,
+		b.budget,
+		d.relative_logo_path,
+		b.rfp_no,
+		e.designer_name,
+		f.price design_price,
+		g.price modify_design_price,
+		h.price working_drawing_price,
+		f.id AS designer_order_id
+		FROM
+		te_order AS a
+		LEFT JOIN te_rfp AS b ON a.rfp_id = b.id
+		LEFT JOIN te_user AS c ON a.user_id = c.id
+		LEFT JOIN te_rfp_detail AS d ON b.id = d.rfp_id
+		LEFT JOIN te_designer_order AS e ON e.order_id = a.id
+		LEFT JOIN te_order_designer_price AS f ON e.designer_id = f.designer_id AND f.order_id = a.id AND f.node_id = "01" AND f.type = 1
+		LEFT JOIN te_order_designer_price AS g ON e.designer_id = g.designer_id AND g.order_id = a.id AND g.node_id = "01" AND g.type = 2
+		LEFT JOIN te_order_designer_price AS h ON e.designer_id = h.designer_id AND h.order_id = a.id AND h.node_id = "02" AND h.type = 1
+		WHERE
+		a.`status` = 0 AND  a.node_id = "0101"
+		<if test="badeIds != null">
+			AND a.id NOT IN
+			<foreach collection="badeIds" item="id" separator="," open="(" close=")" >
+				#{id}
+			</foreach>
+		</if>
+		ORDER BY a.create_time DESC
+		LIMIT #{page.beginIndex}, #{page.pageSize}
+	</select>
+
+	<select id="selectRfpWebViewByRfpId" resultType="webAppOrderView">
+		SELECT
+		c.relative_logo_path,
+		a.create_time,
+		b.rfp_no AS order_no,
+		b.company_name,
+		b.booth_width,
+		b.booth_length,
+		b.budget,
+		a.node_id,
+		a.`status`,
+		b.design_deadline,
+		b.working_drawing_deadline
+		FROM
+		te_order AS a
+		LEFT JOIN te_rfp AS b ON a.rfp_id = b.id
+		LEFT JOIN te_rfp_detail AS c ON b.id = c.rfp_id
+		WHERE
+		a.rfp_id = #{rfpId}
+
+	</select>
+
+
+	<select id="selectOrderTotalCountByStatusAndUserId" resultType="int">
+		SELECT
+		count(*)
+		FROM
+		te_order AS a
+		LEFT JOIN te_rfp AS b ON a.rfp_id = b.id
+		LEFT JOIN te_user AS c ON a.user_id = c.id
+		LEFT JOIN te_rfp_detail AS d ON b.id = d.rfp_id
+		LEFT JOIN te_designer_order AS e ON e.order_id = a.id
+		LEFT JOIN te_order_designer_price AS f ON e.designer_id = f.designer_id AND f.order_id = a.id AND f.node_id = "01" AND f.type = 1
+		LEFT JOIN te_order_designer_price AS g ON e.designer_id = g.designer_id AND g.order_id = a.id AND g.node_id = "01" AND g.type = 2
+		LEFT JOIN te_order_designer_price AS h ON e.designer_id = h.designer_id AND h.order_id = a.id AND h.node_id = "02" AND h.type = 1
+		WHERE
+		a.`status` IN
+		<foreach collection="statusSet" item="val" separator="," open="(" close=")">
+			#{val}
+		</foreach>
+		AND
+		a.user_id = #{userId}
+	</select>
+	<select id="pageQueryOrderByStatusAndUserId" resultType="webAppOrderView">
+		SELECT
+		a.id AS order_id,
+		a.create_time,
+		a.node_id,
+		a.`status`,
+		b.company_name,
+		b.exhibitor_name,
+		b.booth_width,
+		b.booth_length,
+		b.budget,
+		d.relative_logo_path,
+		b.rfp_no,
+		e.designer_name,
+		f.price design_price,
+		g.price modify_design_price,
+		h.price working_drawing_price
+		FROM
+		te_order AS a
+		LEFT JOIN te_rfp AS b ON a.rfp_id = b.id
+		LEFT JOIN te_user AS c ON a.user_id = c.id
+		LEFT JOIN te_rfp_detail AS d ON b.id = d.rfp_id
+		LEFT JOIN te_designer_order AS e ON e.order_id = a.id
+		LEFT JOIN te_order_designer_price AS f ON e.designer_id = f.designer_id AND f.order_id = a.id AND f.node_id = "01" AND f.type = 1
+		LEFT JOIN te_order_designer_price AS g ON e.designer_id = g.designer_id AND g.order_id = a.id AND g.node_id = "01" AND g.type = 2
+		LEFT JOIN te_order_designer_price AS h ON e.designer_id = h.designer_id AND h.order_id = a.id AND h.node_id = "02" AND h.type = 1
+		WHERE
+		a.`status` IN
+		<foreach collection="statusSet" item="val" separator="," open="(" close=")">
+			#{val}
+		</foreach>
+		AND
+		a.user_id = #{userId}
+		ORDER BY a.create_time DESC
+		LIMIT #{page.beginIndex}, #{page.pageSize}
+	</select>
+
+	<select id="selectByRfpId" resultType="order">
+		SELECT * FROM te_order
+		WHERE rfp_id = #{rfpId}
+	</select>
+	<resultMap id="BaseResultMap" type="com.e3expo.e3.model.Order">
+		<!-- WARNING - @mbggenerated This element is automatically generated by 
+			MyBatis Generator, do not modify. This element was generated on Tue Nov 07 
+			16:26:13 CST 2017. -->
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="node_id" property="nodeId" jdbcType="INTEGER" />
+		<result column="create_time" property="createTime" jdbcType="BIGINT" />
+		<result column="update_time" property="updateTime" jdbcType="BIGINT" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="rfp_id" property="rfpId" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		<!-- WARNING - @mbggenerated This element is automatically generated by 
+			MyBatis Generator, do not modify. This element was generated on Tue Nov 07 
+			16:26:13 CST 2017. -->
+		id, node_id, create_time, update_time, status, rfp_id
+	</sql>
+
+	<!-- 根据订单ID 查询订单此时状态 -->
+	<select id="selectOrderStatusById" resultType="orderModel">
+		select
+		a.status,a.node_id
+		from te_order a
+		inner join te_rfp b on a.rfp_id = b.id
+		where a.id = #{orderId}
+	</select>
+
+	<!-- 修改订单状态 -->
+	<update id="updateOrderStatus">
+		update te_order set status =
+		#{status},update_time=#{updateTime}
+		where order_id = #{orderId}
+	</update>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		<!-- WARNING - @mbggenerated This element is automatically generated by 
+			MyBatis Generator, do not modify. This element was generated on Tue Nov 07 
+			16:26:13 CST 2017. -->
+		select * from te_order
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		<!-- WARNING - @mbggenerated This element is automatically generated by 
+			MyBatis Generator, do not modify. This element was generated on Tue Nov 07 
+			16:26:13 CST 2017. -->
+		delete from te_order
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="order" useGeneratedKeys="true"
+		keyProperty="id">
+		<!-- WARNING - @mbggenerated This element is automatically generated by 
+			MyBatis Generator, do not modify. This element was generated on Tue Nov 07 
+			16:26:13 CST 2017. -->
+		insert into te_order (node_id, create_time,
+		update_time, status, rfp_id, user_id
+		)
+		values (#{nodeId,jdbcType=INTEGER}, #{createTime,jdbcType=BIGINT},
+		#{updateTime,jdbcType=BIGINT}, #{status,jdbcType=INTEGER},
+		#{rfpId,jdbcType=INTEGER}, #{userId}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.e3expo.e3.model.Order">
+		<!-- WARNING - @mbggenerated This element is automatically generated by 
+			MyBatis Generator, do not modify. This element was generated on Tue Nov 07 
+			16:26:13 CST 2017. -->
+		insert into te_order
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="nodeId != null">
+				node_id,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="updateTime != null">
+				update_time,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="rfpId != null">
+				rfp_id,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="nodeId != null">
+				#{nodeId,jdbcType=INTEGER},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=BIGINT},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime,jdbcType=BIGINT},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=INTEGER},
+			</if>
+			<if test="rfpId != null">
+				#{rfpId,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.e3expo.e3.model.Order">
+		<!-- WARNING - @mbggenerated This element is automatically generated by 
+			MyBatis Generator, do not modify. This element was generated on Tue Nov 07 
+			16:26:13 CST 2017. -->
+		update te_order
+		<set>
+			<if test="nodeId != null">
+				node_id = #{nodeId,jdbcType=INTEGER},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime,jdbcType=BIGINT},
+			</if>
+			<if test="updateTime != null">
+				update_time = #{updateTime,jdbcType=BIGINT},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=INTEGER},
+			</if>
+			<if test="rfpId != null">
+				rfp_id = #{rfpId,jdbcType=INTEGER},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.e3expo.e3.model.Order">
+		<!-- WARNING - @mbggenerated This element is automatically generated by 
+			MyBatis Generator, do not modify. This element was generated on Tue Nov 07 
+			16:26:13 CST 2017. -->
+		update te_order
+		set node_id = #{nodeId,jdbcType=INTEGER},
+		create_time =
+		#{createTime,jdbcType=BIGINT},
+		update_time =
+		#{updateTime,jdbcType=BIGINT},
+		status = #{status,jdbcType=INTEGER},
+		rfp_id = #{rfpId,jdbcType=INTEGER}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<!-- 后台管理-订单列表 -->
+	<select id="getPagedOrderByAdmin" resultType="orderView">
+		SELECT
+		a1.id, a2.exhibition_city, a2.rfp_no, a2.company_name,
+		a2.linkman_name,
+		a2.linkman_phone, a1.update_time,
+		CASE
+		WHEN a1.node_id =
+		'0101' and a1.`status` = 0 THEN 1
+		WHEN a1.node_id='0102' and
+		a1.`status`=0 THEN 2
+		WHEN a1.node_id='0104' and a1.`status`=0 THEN 3
+		WHEN a1.node_id='0201' and a1.`status`=0 THEN 4
+		WHEN a1.node_id='0202'
+		and a1.`status`=0 THEN 5
+		WHEN a1.node_id='99' and a1.`status`=0 THEN 6
+		WHEN a1.`status`=1 THEN 7
+		WHEN a1.`status`=2 THEN 8
+		END statusKey
+		FROM
+		te_order a1
+		INNER JOIN te_rfp a2 ON a1.rfp_id = a2.id
+		<where>
+			<if test="exhibitionCity!=null and exhibitionCity!=''">
+				a2.exhibition_city like
+				contact('%',#{exhibitionCity},'%')
+			</if>
+			<if test="rfpNo!=null and rfpNo!=''">
+				and a2.rfp_no like contact('%',#{rfpNo},'%')
+			</if>
+			<if test="companyName!=null and companyName!=''">
+				and a2.company_name like contact('%',#{companyName},'%')
+			</if>
+			<if test="linkManName!=null and linkManName!=''">
+				and a2.linkman_name like contact('%',#{linkManName},'%')
+			</if>
+			<if test="linkManPhone!=null and linkManPhone!=''">
+				and a2.linkman_phone like
+				contact('%',#{linkManPhone},'%')
+			</if>
+			<if test="statusSQL!=null and statusSQL!=''">
+				and ${statusSQL}
+			</if>
+			<if test="startTime!=null">
+				and a1.update_time <![CDATA[>=]]>
+				startTime
+			</if>
+			<if test="endTime!=null">
+				and a1.update_time <![CDATA[<=]]>
+				endTime
+			</if>
+		</where>
+		ORDER BY
+		a1.update_time
+		limit #{offset},#{limit}
+	</select>
+	<!-- 后台管理-订单列表 -->
+	<select id="getPagedTotalNumByAdmin" resultType="Integer">
+		SELECT
+		count(*)
+		FROM
+		te_order a1
+		INNER JOIN te_rfp a2 ON a1.rfp_id = a2.id
+		<where>
+			<if test="exhibitionCity!=null and exhibitionCity!=''">
+				a2.exhibition_city like
+				contact('%',#{exhibitionCity},'%')
+			</if>
+			<if test="rfpNo!=null and rfpNo!=''">
+				and a2.rfp_no like contact('%',#{rfpNo},'%')
+			</if>
+			<if test="companyName!=null and companyName!=''">
+				and a2.company_name like contact('%',#{companyName},'%')
+			</if>
+			<if test="linkManName!=null and linkManName!=''">
+				and a2.linkman_name like contact('%',#{linkManName},'%')
+			</if>
+			<if test="linkManPhone!=null and linkManPhone!=''">
+				and a2.linkman_phone like
+				contact('%',#{linkManPhone},'%')
+			</if>
+			<if test="statusSQL!=null and statusSQL!=''">
+				and ${statusSQL}
+			</if>
+			<if test="startTime!=null">
+				and a1.update_time <![CDATA[>=]]>
+				startTime
+			</if>
+			<if test="endTime!=null">
+				and a1.update_time <![CDATA[<=]]>
+				endTime
+			</if>
+		</where>
+	</select>
+	<!-- 获取订单的步骤节点及节点对应的附件信息 -->
+	<resultMap type="orderDetailView" id="orderDetailViewMap">
+		<id property="id" column="order_id" />
+		<result property="nodeId" column="current_order_node" />
+		<result property="createTime" column="order_create_time" />
+		<result property="updateTime" column="order_update_time" />
+		<result property="status" column="order_status" />
+		<result property="rfpId" column="rfp_id" />
+		<result property="userId" column="user_id" />
+		<result property="" column="" />
+		<collection property="orderDesignerLogs" ofType="orderDesignerLog">
+			<id property="id" column="order_designer_log_id" />
+			<result property="nodeId" column="order_designer_log_node_id" />
+			<result property="price" column="order_designer_log_price" />
+			<result property="type" column="order_designer_log_type" />
+			<result property="status" column="order_designer_log_status" />
+			<result property="isValid" column="order_designer_log_is_valid" />
+			<result property="createTime" column="order_designer_log_create_time" />
+			<result property="suggestion" column="suggestion" />
+			<collection property="uploadFiles" ofType="uploadFile">
+			<id property="id" column="upload_file_id"/>
+			<result property="fileType" column="file_type"/>
+			<result property="filePath" column="file_path"/>
+			<result property="nodeId" column="upload_file_node_id"/>
+			<result property="isValid" column="upload_file_is_valid"/>
+			<result property="uploadId" column="upload_id"/>
+			<result property="createTime" column="upload_file_create_time"/>
+			</collection>
+		</collection>
+	</resultMap>
+	<select id="getOrderDetailView" resultMap="orderDetailViewMap" parameterType="java.lang.Integer">
+		SELECT
+		a1.id as
+		order_id,a1.node_id as current_order_node,a1.create_time as
+		order_create_time,a1.update_time as order_update_time,a1.`status` as
+		order_status,a1.rfp_id,a1.user_id,
+		a2.id as
+		order_designer_log_id,a2.node_id as
+		order_designer_log_node_id,a2.price as
+		order_designer_log_price,a2.designer_id,a2.type as
+		order_designer_log_type,a2.`status` as
+		order_designer_log_status,a2.is_valid as
+		order_designer_log_is_valid,a2.create_time as
+		order_designer_log_create_time,a2.suggestion,
+		a3.id as order_node_id
+		,a3.`name` as order_node_name,a3.pid as
+		order_node_pid,a3.next_node as
+		order_node_next_node,a3.is_valid as
+		order_node_is_valid,
+		a4.id as
+		upload_file_id,a4.file_type,a4.file_path,a4.node_id as
+		upload_file_node_id,a4.is_valid as
+		upload_file_is_valid,a4.upload_id,a4.create_time as
+		upload_file_create_time
+		FROM
+		te_order a1
+		INNER JOIN te_order_designer_log
+		a2 ON a1.id = a2.order_id
+		INNER JOIN dic_order_node a3 ON a2.node_id =
+		a3.id
+		LEFT JOIN te_upload_file a4 ON a2.id = a4.upload_id
+		WHERE
+		a1.id =#{orderId}
+	</select>
+</mapper>

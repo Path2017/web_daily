@@ -1,0 +1,348 @@
+<!-- build:layout_head --><!-- endbuild -->
+  <link rel="stylesheet" href="../../../css/swiper-3.4.2.min.css" th:href="@{/css/swiper-3.4.2.min.css}">
+  <link rel="stylesheet" href="../../../css/designer.min.css" th:href="@{/css/designer.min.css}">
+</head>
+
+<body>
+  <div class="e3-wrap">
+    <!-- build:header -->
+    
+    <!-- endbuild -->
+
+
+    <!-- 所有样式前缀加  od-  -->
+    <div class="od-contentbox clearfix">
+      <div class="od-nav">
+        <span class="nav-prve">订单管理</span>&gt;
+        <span class="nav-next">订单详情</span>
+      </div>
+      <div class="od-mainbox">
+        <div class="od-toptitle">设计图阶段</div>
+        <!-- 订单详情的内容区域 begin -->
+        <div class="od-detailbox">
+          <!-- 进度条 begin 当前进度添加class od-menucurrent -->
+          <div class="op-deschedulenav clearfix">
+            <div class="od-menucurrent">等待投标结果
+              <span></span>
+            </div>
+            <div>上传设计图待确认</div>
+          </div>
+          <!-- 进度条 end -->
+          <!-- 最新订单状态展示区域 begin -->
+          <div class="deepenDesign">
+            <!-- 等待投标结果 -->
+            <div class="od-newstatusbox clearfix current-status">
+              <div class="od-statusname">当前订单状态：您已经报价成功，请耐心等待投标结果。</div>
+              <div>
+                <ul class="od-statuslist">
+                  <li>·对方将在
+                    <span class="od-statustime">2天45小时45分钟12秒</span>内完成投标，请在中标后可以开始开始本阶段设计。</li>
+                  <li>·如果未中标，本单将会自动关闭。</li>
+                </ul>
+              </div>
+            </div>
+            <!-- 上传设计图 -->
+            <div class="od-newstatusbox clearfix">
+              <div class="od-statusname">当前订单状态：对方申请改稿，等待上传修改图。</div>
+              <div>
+                <ul class="od-statuslist">
+                  <li>·请根据
+                    <span class="od-statustime"> 改稿内容 </span>完成设计图阶段修改设计。</li>
+                  <li>·如果您对设计需求有任何疑问可联系对方项目负责人
+                    <span class="od-statuscancel">张某某 134567088324</span>
+                  </li>
+                  <li>·如果您已完成设计，请根据一下内容框，<span class="end-span">立即上传</span>对应图片。</li>
+                </ul>
+              </div>
+            </div>
+            <!-- 确认收稿 -->
+            <div class="od-newstatusbox clearfix">
+              <div class="od-statusname">当前订单状态：设计师已上传设计图，请下载页面下方设计图了解设计详情。</div>
+              <div>
+                <ul class="od-statuslist">
+                  <li>·您还有
+                    <span class="od-statustime">2天45小时45分钟12秒</span>内完成设计稿“确认收稿”操作。如果期间您还没有“确认收稿”，也没有“提出申诉”，本订单将自动确认收稿，平台将把稿费支付给设计师。</li>
+                  <li>·如果您已确认设计图，且对设计满意，您可以
+                    <span class="od-statuspaynow">确认收稿</span>完成本单。</li>
+                  <li>·如果您对设计不满意，且有另外的要求，可以向平台
+                    <span class="od-statuscancel">提出申诉</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- 订单终止 -->
+            <div class="od-newstatusbox clearfix">
+              <div class="od-statusname">当前订单状态：订单终止。</div>
+            </div>
+          </div>
+          <!-- 最新订单状态展示区域 end -->
+          <!-- 订单基本信息区域 begin -->
+          <div class="od-baseinfobox clearfix">
+            <!-- 上传设计图 -->
+            <div class="od-designupload-wp none">
+              <p class="od-title clearfix">
+                <span class="left">上传设计图</span><span class="remarks">*必传项 图片格式限制：JPG/PNG/PDF/JPEG   单张大小限制：50M </span>
+              </p>
+              <!-- 设计图上传 begin-->
+              <div class="designdraft-notend">           
+                <div class="designdraft2">
+                  <p class="od-title clearfix">
+                    <span class="left designchange-cue">设计图（修改一）</span>
+                    <!-- <span class="pull-arrow old-draft"><i class="arrow"></i><span>展开</span><i class="arrow"></i></span> -->
+                  </p>
+                  <div class="dsdraft-change-ct">                    
+                    <p>改稿内容：</p>
+                    <p class="mg-b20">
+                      需要添加两个会议区。左边巴拉巴拉，右边巴拉巴拉。需要看上去更透气。还有若干的修改意见，编不出来了。就这样吧，
+                      后面这段是为了折行。就这样吧，后面这段是为了折行。需要看上去更透气。还有若干的修改意见，编不出来了。就这样吧，
+                      后面这段是为了折行。就这样吧，后面这段是为了折行。
+                    </p>         
+                  </div>
+                  <form action="">                  
+                    <ul class="ds-upload-ul clearfix">
+                      <li class="inputbox worksimg-li-must">
+                        <span class="delete"></span>
+                        <span class="input-add">点击添加</span>
+                        <img src="" alt="">
+                        <input type="file">
+                        <p class="img-desicribe"><span>*</span>展台透视图左1张</p>
+                      </li>
+                      <li class="inputbox worksimg-li-must">
+                        <span class="delete"></span>
+                        <span class="input-add">点击添加</span>
+                        <img src="" alt="">
+                        <input type="file">
+                        <p class="img-desicribe"><span>*</span>展台透视图右1张</p>
+                      </li>
+                      <li class="inputbox worksimg-li-must">
+                        <span class="delete"></span>
+                        <span class="input-add">点击添加</span>
+                        <img src="" alt="">
+                        <input type="file">
+                        <p class="img-desicribe"><span>*</span>展台俯瞰图1张</p>
+                      </li>
+                      <li class="inputbox worksimg-li-must">
+                        <span class="delete"></span>
+                        <span class="input-add">点击添加</span>
+                        <img src="" alt="">
+                        <input type="file">
+                        <p class="img-desicribe">其他角度（小于10张）</p>
+                      </li>
+                      <li class="inputbox worksimg-li-must">
+                        <span class="delete"></span>
+                        <span class="input-add">点击添加</span>
+                        <img src="" alt="">
+                        <input type="file">
+                        <p class="img-desicribe"><span>*</span>立面网格图1张</p>
+                      </li>
+                      <li class="inputbox worksimg-li-must">
+                        <span class="delete"></span>
+                        <span class="input-add">点击添加</span>
+                        <img src="" alt="">
+                        <input type="file">
+                        <p class="img-desicribe"><span>*</span>平面网格图1张</p>
+                      </li>
+                      <li class="worksimg-li-must">
+                        <span class="deletezip"></span>
+                        <span class="input-add">点击添加</span>
+                        <!-- <img src="" alt=""> -->
+                        <input class="zip-input" type="file">
+                        <p class="img-desicribe"><span>*</span>3dmax模型zip或rar文件，小于300M</p>
+                      </li>
+                    </ul> 
+                    <button class="ds-upload-now">立即上传</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- 设计图上传 end-->
+            <!-- 历史设计 begin-->
+            <div class="history-draft-wp none">
+              <p class="history-title">
+                <span class="draftnum">设计图</span>
+                <span class="pull-arrow"><i class="arrow"></i><span>展开</span><i class="arrow"></i></span>
+              </p>
+              <div class="history-ct none">
+                <div class="dsdraft-change-ct">                    
+                  <p>改稿内容：</p>
+                  <p class="mg-b20">
+                    需要添加两个会议区。左边巴拉巴拉，右边巴拉巴拉。需要看上去更透气。还有若干的修改意见，编不出来了。就这样吧，
+                    后面这段是为了折行。就这样吧，后面这段是为了折行。需要看上去更透气。还有若干的修改意见，编不出来了。就这样吧，
+                    后面这段是为了折行。就这样吧，后面这段是为了折行。
+                  </p>         
+                </div>
+                <ul class="ds-upload-ul clearfix">
+                  <li class="inputbox worksimg-li-must">
+                    <img src="" alt="">
+                  </li>
+                  <li class="inputbox worksimg-li-must">
+                    <img src="" alt="">
+                  </li>
+                  <li class="inputbox worksimg-li-must">
+                    <img src="" alt="">
+                  </li>
+                  <li class="inputbox worksimg-li-must">
+                    <img src="" alt="">
+                  </li>
+                  <li class="inputbox worksimg-li-must">
+                    <img src="" alt="">
+                  </li>
+                  <li class="inputbox worksimg-li-must">
+                    <img src="" alt="">
+                  </li>
+                  <li class="worksimg-li-must">
+                    <img src="" alt="">
+                  </li>
+                </ul> 
+              </div> 
+            </div>
+            <!-- 历史设计 end-->
+            
+            <!-- 报价信息 -->
+            <div>
+              <p class="od-title clearfix">
+                <span class="left">报价信息</span>
+              </p>
+              <ul class="quote-table">
+                <li class="li-head">
+                  <span class="state">设计阶段</span>
+                  <span class="caseprice">稿件单价</span>
+                  <span class="freenum">免费修改次数</span>
+                  <span class="changeprice">修改价格/稿</span>
+                </li>
+                <li>
+                  <span class="state">设计图设计
+                    <i class="attention">
+                      <p class="hover-cue"><i class="hover-arrow"></i>设计图阶段的内容包含展台透视图左、透视图右、俯瞰图、立面网格图及平面网格图，如特殊展台，需要上传其他角度。</p>
+                    </i>
+                  </span>
+                  <span class="caseprice price-color">¥500</span>
+                  <span class="freenum">2</span>
+                  <span class="changeprice price-color">¥100</span>
+                </li>
+                <li>
+                  <span class="state">施工图设计
+                    <i class="attention">
+                      <p class="hover-cue"><i class="hover-arrow"></i>施工图的内容需要提供设计图阶段展台所包含材质图、美工文字、电路图、指示图等相关示意图。</p>
+                    </i>
+                  </span>
+                  <span class="caseprice price-color">¥320</span>
+                  <span class="freenum">无</span>
+                  <span class="changeprice">无</span>
+                </li>
+              </ul>
+            </div>
+            <!-- 项目联系人 -->
+            <div>
+              <p class="od-title clearfix">
+                <span class="left">项目联系人</span>
+              </p>
+              <div class="message-wp program-msg">
+                <div class="clearfix">
+                  <div class="message-li personwidth left">联系人：
+                    <span>莫妮卡</span>
+                  </div>
+                  <div class="message-li personwidth left">公司名称：
+                    <span>上海笔克展览展示有限公司</span>
+                  </div>
+                </div>
+                <div class="clearfix">
+                  <div class="message-li personwidth left">联系电话：
+                    <span>13423339966</span>
+                  </div>
+                  <div class="message-li personwidth left">工作邮箱：
+                    <span>13423339966@qq.com</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 项目信息 -->
+            <div>
+              <p class="od-title clearfix">
+                <span class="left">项目信息</span>
+                <a class="right seedemand" href="javascript:;">查看详细设计需求 &gt;</a>
+              </p>
+              <div class="message-wp program-msg">
+                <div class="clearfix">
+                  <div class="message-li left">参展商名称：
+                    <span>笔克展览展示有限公司</span>
+                  </div>
+                  <div class="message-li left">相关网站：
+                    <span>www.sohu.com</span>
+                  </div>
+                </div>
+                <div class="message-li ordertracking">展会名称：
+                  <span>第二十二届中国国际涂料展</span>
+                </div>
+                <div class="clearfix">
+                  <div class="message-li left">举办城市：
+                    <span>上海市</span>
+                  </div>
+                  <div class="message-li left">展馆名称：
+                    <span>国际会展中心</span>
+                  </div>
+                  <div class="message-li left">展台号：
+                    <span>2–3</span>
+                  </div>
+                </div>
+                <div class="clearfix">
+                  <div class="message-li left">展台面积：
+                    <span>8m×8m</span>
+                  </div>
+                  <div class="message-li left">展台限高：
+                    <span>4.5m</span>
+                  </div>
+                  <div class="message-li left">整体预算：
+                    <span>￥50,000</span>
+                  </div>
+                </div>
+                <div class="clearfix">
+                  <div class="message-li left">概念设计交稿日期：
+                    <span>2017.10.23</span>
+                  </div>
+                  <div class="message-li left">施工图设计交稿日期：
+                    <span>2017.12.23</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 订单信息 -->
+            <div>
+              <p class="od-title">订单信息</p>
+              <div class="message-wp infobox">
+                <div class="message-li">订单号：
+                  <span>2937649197374</span>
+                </div>
+                <div class="ordertracking-wp clearfix">
+                  <div class="left ordertracking">订单跟踪：</div>
+                  <ul class="left message-ul">
+                    <li>2017.10.30 14:24:35 发布订单</li>
+                    <li class="last-state">2017.10.30 14:24:35 发布订单</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 订单基本信息区域 end -->
+        </div>
+        <!-- 订单详情内容区域 end -->
+      </div>
+    </div>
+    <div class="des-btnNext">
+      <button id="btnDesnext">点击进入下一种状态</button>
+    </div>
+    <!-- build:footer -->
+    
+    <!-- endbuild -->
+
+
+  </div>
+  <!-- build:layout_js -->
+  
+  <!-- endbuild -->
+
+
+  <script src="../../../js/order_progress.min.js" th:src="@{/js/order_progress.min.js}"></script>
+</body>
+
+</html>

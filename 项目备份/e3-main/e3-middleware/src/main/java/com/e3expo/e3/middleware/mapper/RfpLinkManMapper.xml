@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.e3expo.e3.middleware.mapper.RfpLinkManMapper">
+	<resultMap id="BaseResultMap" type="com.e3expo.e3.model.RfpLinkMan">
+		<id column="id" property="id" />
+		<result column="link_name" property="linkName" />
+		<result column="link_mobile" property="linkMobile" />
+		<result column="link_email" property="linkEmail" />
+		<result column="user_id" property="userId" />
+		<result column="is_valid" property="isValid" />
+		<result column="is_choosed" property="isChoosed" />
+	</resultMap>
+	<!--根据UserId获取对应账号的所有可用联系人 -->
+	<select id="getListByUserId" resultMap="BaseResultMap">
+		select * from
+		te_rfplinkman
+		where user_id = #{UserId} and is_valid=1
+	</select>
+	<!-- 根据userId和Id获取指定联系人的信息 -->
+	<select id="selectByUserId" resultMap="BaseResultMap">
+		select * from
+		te_rfplinkman
+		where user_id = #{UserId} and id=#{Id}
+		and is_valid=1
+	</select>
+	<!--更新指定联系人为默认联系人 -->
+	<update id="updateToChoosed">
+		update te_rfplinkman set is_choosed=1 where
+		user_id=#{UserId} and id=#{Id}
+	</update>
+	<!-- 重置其他联系人为非默认联系人 -->
+	<update id="updateToNotChoosed">
+		update te_rfplinkman set is_choosed=0 where
+		user_id=#{UserId} and id!=#{Id}
+	</update>
+	<!-- 删除指定联系人 -->
+	<update id="updateToNotValid">
+		update te_rfplinkman set is_valid=-1 where
+		user_id=#{UserId} and id!=#{Id}
+	</update>
+	<!-- 新增联系人 -->
+	<insert id="insertRfpLinkMan">
+		insert into
+		te_rfplinkman(link_name,link_mobile,link_email,user_id,is_valid,is_choosed)
+		values(#{linkName},#{linkMobile},#{linkEmail},#{userId},#{isValid},#{isChoosed})
+	</insert>
+	<update id="updateById">
+		update te_rfplinkman
+		<set>
+			<if test="linkName != null">
+				link_name = #{linkName},
+			</if>
+			<if test="linkMobile != null">
+				link_mobile = #{linkMobile},
+			</if>
+			<if test="linkEmail != null">
+				link_email = #{linkEmail},
+			</if>
+			<if test="isChoosed != null">
+				is_choosed = #{isChoosed},
+			</if>
+		</set>
+		where id = #{id} and user_id=#{userId}
+	</update>
+</mapper>

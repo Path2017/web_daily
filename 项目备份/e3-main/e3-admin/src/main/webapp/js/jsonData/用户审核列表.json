@@ -1,0 +1,47 @@
+{
+  "adminUserParam": {
+    "pageIndex": 1,
+    "total": 0,
+    "offset": 0,
+    "limit": 10,
+    "userType": 1
+  },
+  "code": 200,
+  "data": {
+    "pageIndex": 1,
+    "total": 1,
+    "data": [{
+      "id": 1,
+      "userId": 106,
+      "jobNumber": "001",
+      "mobile": "111111",
+      "email": "1589387301@yy.com",
+      "createTime": "1510293258000",
+      "status": 1,
+      "statusRemark": "�����",
+      "isValid": 1,
+      "updateTime": "1510293258000",
+      "userType": 1,
+      "qq": "1589387301",
+      "countryId": 1,
+      "provinceId": 620000,
+      "cityId": 620100,
+      "bankAccount": "�����ʺ�",
+      "bankUserName": "�����û�����",
+      "bankName": "��������",
+      "bankBranchName": "֧������",
+      "name": "������",
+      "companyName": "��˾����",
+      "logoUrl": "http://localhost:8021/Uploads/zh-cn/Frontend/201711/dqt3v4z3.oag13102017115759.jpg",
+      "systemTag": 1,
+      "auditRemark": "��˱�ע",
+      "workingYears": "1",
+      "countryName": "�й�",
+      "provinceName": "����ʡ",
+      "cityName": "������"
+    }],
+    "offset": 0,
+    "limit": 10,
+    "userType": 1
+  }
+}
