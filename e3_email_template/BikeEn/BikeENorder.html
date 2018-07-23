@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <title>BikeEN-order</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .content{
+        min-width: 760px;
+        height: auto;
+    }
+    .container{
+        width: 660px;
+        height: auto;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .emImg{
+        margin-top: 60px;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+    .detail{
+        width: 620px;
+        height: auto;
+        margin: 0 auto;
+    }
+    .title{
+        width: 100%;
+        line-height: 110px;
+        height: 110px;
+    }
+    .detail .title img{
+        display: inline-block;
+        float: left;
+        margin-top: 30px;
+    }
+    .title span{
+        font-size: 36px;
+        font-weight: bold;
+        color: #1d415b;
+        margin-left: 20px;
+    }
+    .inlineBlock{
+        display: inline-block;
+    }
+    .order{
+        width: 100%;
+    }
+    .supplier{
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.5;
+    }
+    .order p{
+        font-size: 16px;
+        line-height: 2;
+        color: #1d415b;
+    }
+    .mb-30{
+        margin-bottom: 30px;
+    }
+    .list{
+        width: 100%;
+        border: solid 1px #f2f2f2;
+    }
+    .list tr{
+        background-color: #f3f3f3;
+        height: 44px;
+        line-height: 44px;
+        font-size: 14px;
+        color: #4a4a4a;
+        text-indent: 10px;
+    }
+    .list .listName{
+        background-color: #fff;
+        font-size: 14px;
+        color: #4a4a4a;
+    }
+    .list .listName th:nth-of-type(1){
+        text-align: left;
+        font-weight: normal;
+        width: 50%;
+    }
+    .list .listName th:nth-of-type(2){
+        text-align: right;
+        margin-right: 15px;
+        font-weight: normal;
+        width: 50%;
+    }
+    .special th{
+        text-align: left;
+    }
+    .link{
+        margin-top: 30px;
+    }
+    .link a{
+        width: 282px;
+        height: 44px;
+        background-color: #f79831;
+        display: block;
+        text-align: center;
+        line-height: 44px;
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        margin: 0 auto;
+    }
+    .weblink .webName{
+        line-height: 30px;
+        color: #1d415b;
+    }
+    .weblink .webhref{
+        line-height: 30px;
+        color: #f79831;
+    }
+    .ImgBto{
+        text-align: right;
+    }
+    .ImgBto img{
+        margin-top: 20px;
+        margin-right: 15px;
+        margin-bottom: 60px;
+    }
+</style>
+<body>
+<div class="content">
+    <div class="container">
+        <div class="emImg">
+            <img src="images/e3Logo1.png" width="147" height="66" alt="">
+        </div>
+        <hr class="line">
+    </div>
+    <!--正文-->
+    <div class="detail">
+        <div class="title">
+            <img src="images/smeil.png" width="50" height="50" alt="">
+            <span>Hi！</span>
+        </div>
+        <div class="order">
+            <div class="supplier">
+                You have a new order.
+            </div>
+            <p class="mb-30">Please click the link to check the order details for further design and quotation.</p>
+        </div>
+        <table class="list">
+            <tr class="listName">
+                <th>Order details</th>
+                <th>Order No.<span>11234567887909765</span>&nbsp;&nbsp;&nbsp;</th>
+            </tr>
+            <tr class="special">
+                <th colspan="2">China joy</th>
+            </tr>
+            <tr class="special">
+                <td colspan="2">Exhibitor name：<span>shanghai pico</span></td>
+            </tr>
+            <tr>
+                <td colspan="2">Exhibition name：<span>China joy</span></td>
+            </tr>
+            <tr>
+                <td colspan="2">Venue：<span>he New International Exhibition Center in Shanghai</span></td>
+            </tr>
+            <tr>
+                <td colspan="2">Duration：<span>2017.10.30</span></td>
+            </tr>
+            <tr>
+                <td colspan="2">Square：<span>3m*4m</span></td>
+            </tr>
+        </table>
+        <div class="link mb-30">
+            <a href="">Order details</a>
+        </div>
+        <div class="weblink">
+            <p class="webName">E3 Online Exhibition</p>
+            <p class="webhref">www.e3-expo.com</p>
+        </div>
+        <hr>
+        <div class="ImgBto">
+            <img src="images/btologo.png" height="43" alt="">
+        </div>
+    </div>
+</div>
+</body>
+</html>
