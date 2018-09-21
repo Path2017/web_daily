@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .boxparent {
+      width: 400px;
+      height: 300px;
+      background-color: bisque;
+    }
+
+    .listbox {
+      width: 100px;
+      height: 100px;
+      margin-top: 30%;
+      background-color: aquamarine;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    用于校验<br />
+    margin-top、padding-top的值是百分比时，分别是如何计算的：<br />
+    相对最近父级块级元素的width，相对最近父级块级元素的width
+  </div>
+  <div class="boxparent">
+    父级box
+    <div class="listbox">
+      子box
+    </div>
+  </div>
+</body>
+
+</html>
